@@ -2,67 +2,68 @@ version: '3.1'
 
 services:
 
-  web:
+  web-client:
     image: nginx
     volumes:
-    - ./my-site:/usr/share/nginx/html
+    - ./web-client:/usr/share/nginx/html
     ports:
-    - "8081:80"
-  ngrok:
+    - "8083:80"
+  web-client-ngrok:
     image: wernight/ngrok
     restart: always
     ports:
-      - 4041:4040
+      - 4043:4040
     environment:
-      NGROK_PORT: 'web:80'
-  api:
+      NGROK_PORT: 'web-client:80'
+  web-api:
     build:
-      context: ./api
+      context: ./web-api
     ports:
-    - "8082:3000"
+    - "8084:3000"
     volumes:
-      - ./api:/usr/src/app/
+      - ./web-api:/usr/src/app/
     command: /usr/src/app/entrypoint.sh
     depends_on:
       - db-cli
     restart: always
-  ngrok-api:
+  web-api-ngrok:
     image: wernight/ngrok
     restart: always
     ports:
-      - 4042:4040
+      - 4044:4040
     environment:
-      NGROK_PORT: 'api:3000'
+      NGROK_PORT: 'web-api:3000'
     depends_on:
-      - api
+      - web-api
   db:
     image: mariadb
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: example
     volumes:
-      - ./database:/var/lib/mysql
+      - db-data:/var/lib/mysql/data
   db-cli:
     image: mariadb
     depends_on:
       - db
-    volumes:
-      - ./db-cli:/usr/src/app/
-    command: mysql -h db -u root --password=example -e "CREATE DATABASE IF NOT EXISTS example_db;"
+    command: mysql -h db -u root --password=example -e "CREATE DATABASE IF NOT EXISTS cual_curso;"
     restart: on-failure
   adminer:
     image: adminer
     restart: always
     ports:
-      - 8080:8080
+      - 8086:8080
     depends_on:
       - db
-  ngrok-adminer:
+  adminer-ngrok:
     image: wernight/ngrok
     restart: always
     ports:
-      - 4040:4040
+      - 4046:4040
     environment:
       NGROK_PORT: 'adminer:8080'
     depends_on:
       - adminer
+
+volumes:
+  db-data:

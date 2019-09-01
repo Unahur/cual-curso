@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "example",
-    "database": "example_db",
+    "database": "cual_curso",
     "host": "db",
     "dialect": "mariadb",
     "operatorsAliases": false

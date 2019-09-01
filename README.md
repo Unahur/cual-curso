@@ -1,115 +1,94 @@
-# API 101
+# CUAL CURSO
 
-Express.js + Sequelize + MariaDB + Adminer
+Sugerencias de cursadas en función de la materias aprobadas
 
-```bash
-git clone https://github.com/aeatencio/api-101
-cd api-101
-docker-compose up
-```
-
-Wait for it to initialize (the first time it takes longer)
-
-## Sequelize commands
-
-Take a look at them
+## Cloná el repo y entrá a su directorio
 
 ```bash
-docker-compose run --rm api node_modules/.bin/sequelize
+git clone https://github.com/Unahur/cual-curso.git
+cd cual-curso
 ```
 
-Run your DB Migrations
+## Levantá los servidores
+
+Para eso, corré:
 
 ```bash
-docker-compose run --rm api node_modules/.bin/sequelize db:migrate
+sudo docker-compose up
 ```
 
-Seed your DB
+## Acceso al cliente web
 
-```bash
-docker-compose run --rm api node_modules/.bin/sequelize db:seed:all
-```
+Local: <http://localhost:8083>
 
-## Access your API
+Público: <http://localhost:4043>
 
-Visit http://localhost:8082
+## Acceso a la API
 
-## Take a look at the examples
+Local: <http://localhost:8084>
 
-http://localhost:8082/examples
+Público: <http://localhost:4044>
 
-## Play with your API
+## Probá la API
 
-Modify the contents of your `api` folder and have fun!
+Obtené la URL pública de tu API acá: <http://localhost:4044>
 
-## Share your API
+Ingresala acá: <https://reqbin.com/>
 
-Visit http://localhost:4042
+### Creá un nuevo ejemplo
 
-ngrok will provide you a public url to share your `API`
+POST `<mi url pública>/examples`
 
-## MariaDB + Adminer
+- content: `{"name": "<un nombre que me guste>"}`
 
-Fork of <https://github.com/aeatencio/mariadb-101>
+### Listá todos los ejemplos existentes
 
-## Access your DB
+GET `<mi url pública>/examples` -> lista todos los ejemplos
 
-Visit <http://localhost:8080>
+### Obtené la información de un ejemplo específdico
 
-Use these credentials:
+GET `<mi url pública>/examples/<id de mi ejemplo>`
+
+### Actualizá un ejemplo específico
+
+PUT `<mi url pública>/examples/<id de mi ejemplo>`
+
+- content: `{"name": "<otro nombre que te guste>"}`
+
+### Eliminá un ejemplo específico
+
+DELETE `<mi url pública>/examples/<id de mi ejemplo>`
+
+## Acceso a la base de datos
 
 - Username: `root`
 - Password: `example`
+- Database: `cual_curso`
 
-## Share your DB
+Local: <http://localhost:8086>
 
-Visit <http://localhost:4040>
+Público: <http://localhost:4046>
 
-`ngrok` will provide you a public url to share your `Adminer`
-
-## Stop your servers
-
-Type `Ctrl-c`
-
-Wait for them to finish and then run
+Por línea de comandos
 
 ```bash
-docker-compose down
+sudo docker-compose run --rm db-cli mysql --host=db --user=root --password=example --database=cual_curso
 ```
 
-## DOM 101
-
-Static site for experimenting with the DOM
+## Listá los comandos de Sequelize disponibles
 
 ```bash
-git clone https://github.com/aeatencio/dom-101
-cd dom-101
-docker-compose up
+sudo docker-compose run --rm api node_modules/.bin/sequelize
 ```
 
-Wait for it to initialize (the first time it takes longer)
+## Bajá los servidores
 
-## Access your site
+En la solapa donde están corriendo los servidores
 
-Visit <http://localhost:8081>
+Presioná `Ctrl + c`
 
-## Play with your site
-
-Modify the contents of `my-site` folder and have fun!
-
-
-## Share your site
-
-Visit <http://localhost:4041>
-
-`ngrok` will provide you a public url to share your site
-
-## Stop your site
-
-Type `Ctrl-c`
-
-Wait for it to finish and then run
+Esperá a que terminen de bajar los servicios y luego corré
 
 ```bash
-docker-compose down
+sudo docker-compose down
 ```
