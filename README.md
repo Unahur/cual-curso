@@ -1,6 +1,6 @@
 # CUAL CURSO
 
-Sugerencias de cursadas en función de la materias aprobadas
+Sugerencias de cursadas en función de las materias aprobadas
 
 ## Cloná el repo y entrá a su directorio
 
