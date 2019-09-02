@@ -78,7 +78,7 @@ sudo docker-compose run --rm db-cli mysql --host=db --user=root --password=examp
 ## Listá los comandos de Sequelize disponibles
 
 ```bash
-sudo docker-compose run --rm api node_modules/.bin/sequelize
+sudo docker-compose run --rm web-api node_modules/.bin/sequelize
 ```
 
 ## Bajá los servidores
