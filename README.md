@@ -31,7 +31,7 @@ El directorio raíz de este servidor es `web-api`, y contiene los archivos y las
 
 ### WEB CLIENT
 
-Se trata de un servidor web `NGINX` que sirve archivos de manera estática. Esto quiere decir que su única función es dejar a disposición del browser del usuario final los archivos solicitados, y que las respuestas ofrecidas a sus clientes dependerán exclusivamente del recurso solicitado por sus clientes.
+Se trata de un servidor web `NGINX` que sirve archivos de manera estática. Esto quiere decir que su única función es dejar a disposición del browser del usuario final los archivos solicitados, y que las respuestas ofrecidas a sus clientes dependerán exclusivamente del recurso solicitado.
 
 Dicho servidor será el soporte que usaremos para desarrollar el cliente web que constituirá la parte **front end** de nuestra aplicación.
 
