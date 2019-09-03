@@ -17,6 +17,26 @@ Para eso, corré:
 sudo docker-compose up
 ```
 
+## Estructura de directorios
+
+### WEB API
+
+Se trata de un servidor web `Express.js` con ORM `Sequelize` que se conecta a una base de datos `MariaDB`.
+
+Dicho servidor será el soporte que usaremos para desarrollar la API que constituirá la parte **back end** de nuestra aplicación.
+
+Esto quiere decir que el código que reside en este servidor se ejecuta en el propio servidor, y que las respuestas ofrecidas a sus clientes dependenderán tanto de las solicitudes recibidas como del contenido de la base de datos a la que se conecta.
+
+El directorio raíz de este servidor es `web-api`, y contiene los archivos y las carpetas donde realizaremos las tareas destinadas a la materia `Estrategias de persistencia`.
+
+### WEB CLIENT
+
+Se trata de un servidor web `NGINX` que sirve archivos de manera estática. Esto quiere decir que su única función es dejar a disposición del browser del usuario final los archivos solicitados, y que las respuestas ofrecidas a sus clientes dependerán exclusivamente del recurso solicitado por sus clientes.
+
+El código que reside en este servidor se ejecuta en el browser, que constituirá por un lado el cliente de este servidor estático y por otro lado el cliente de nuestra API.
+
+El directorio raíz de este servidor es `web-client`, y contiene los archivos y las carpetas donde realizaremos las tareas destinadas a la materia `Construcción de interfaces de usuario`.
+
 ## Acceso al cliente web
 
 Local: <http://localhost:8083>
