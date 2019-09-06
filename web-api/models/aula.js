@@ -2,13 +2,9 @@
 module.exports = (sequelize, DataTypes) => {
   const aula = sequelize.define('aula', {
     edificio: DataTypes.STRING,
-    number:DataTypes.number,
-    materias: DataTypes.STRING,
-
-
+    numero_aula: DataTypes.INTEGER
   }, {});
   aula.associate = function(models) {
-      //No tenemos ninguna funcionalidad
     // associations can be defined here
   };
   return aula;
