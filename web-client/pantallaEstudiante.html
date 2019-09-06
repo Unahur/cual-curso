@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="guarani.css" type="text/css">
+    <title>Estudiantes</title>
+</head>
+
+<body>
+    <form>
+        <label>Nombre:</label></br>
+        <label>
+        <input type="text" name="nombre" placeholder="Nombre" requiered> </label>
+        </br>
+        <label>Apellido: </label>
+        <input type="text" name="Apellido" placeholder="Apellido" requiered> </label>
+        </br>
+        <select name="genero"><label>Genero: </br>
+            <option name="genero" value="femenino"> Femenino </option>
+        </label>
+        <label><option value="masculino"> Masculino </option></label>
+        <label><option value="otro"> Otro</option></label>
+        <label><option value="no responde"> No responde</option></label>
+        </select></br>
+        <label>Tipo de Documento:</label>
+        <select name="TipoDeDocumento"><label name="TipoDeDocumento">
+                            <option name="TipoDeDocumento" value="Dni"></option>Dni</label></select>
+        <option name="TipoDeDocumento" value="Pasaporte"></option>Pasaporte</label>
+        <option name="TipoDeDocumento" value="Cédula"></option>Cédula</label>
+        <option name="TipoDeDocumento" value="Dni Extranjero"></option>Dni Extranjero</label>
+        </select>
+        </br>
+
+        <label> Fecha de nacimiento:<input type="date" name="FechaDeNacimiento"></label>
+        <label for="continuar"></label><input type="submit" id="continuar" name="continuar" required></br>
+    </form>
+</body>
+
+</html>

@@ -6,30 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="guarani.css" type="text/css">
+    <link rel="stylesheet" href="https://servicios.unahur.edu.ar/unahur3w/_comp/unahur/img/logo-transparente.png" type="img/jpg">
     <title>Estudiantes</title>
+</head>
 
-    <body>
-        <form>
-            <label>Nombre: <input type="text" name="nombre"  placeholder="Nombre" requiered> </label>
-            </br>
-            <label>Apellido: <input type="text" name="Apellido"  placeholder="Apellido" requiered> </label>
-            </br>
-            <select name="genero"><label>Genero: <option name="genero" value="femenino"> Femenino </option>
+<body>
+    <div>
+        <p id="im">
+            <img src="https://servicios.unahur.edu.ar/unahur3w/_comp/unahur/img/logo-transparente.png">
+
+        </p>
+    </div>
+    <div class="crearUsuario">
+        <div class="span12">
+            <h2>Crear nuevo usuario</h2>
+        </div>
+        <div class="body">
+            <div id="mensaje">div msj acceder
+                <br>
+                <br>
+                <strong>esto va en negrita Lorem ipsum dolor sit amet
+                     consectetur adipisicing elit. Possimus ullam eum 
+                     voluptas vero, ut numquam nesciunt dolores minus
+                      dolorum eos, excepturi sequi aliquam?
+                     Explicabo hic ad, similique modi quas excepturi!</strong>
+            </div>
+            <div class="alert"> bloque alert</div>
+
+            <form class="form">
+                <h3 class="toggle" onclick="toggle('datos_personales');">Datos Personales</h3>
+                <label>Nombre: </label></br>
+                <label><input type="text" name="nombre"  placeholder="Nombre" requiered> </label>
+                </br>
+                <label>Apellido: </label></br>
+                <label><input type="text" name="Apellido"  placeholder="Apellido" requiered> </label>
+                </br>
+                <label>Genero:</label> <select required><label><option name="genero" value="femenino"> Femenino </option>
         </label>
         <label><option value="masculino"> Masculino </option></label>
         <label><option value="otro"> Otro</option></label>
         <label><option value="no responde"> No responde</option></label>
         </select></br>
-            <select name="TipoDeDocumento">
-                        <label name="TipoDeDocumento">
-                            <option name="TipoDeDocumento" value="Dni"></option>Dni</label></select>
-            <option name="TipoDeDocumento" value="Pasaporte"></option>Pasaporte</label>
-            <option name="TipoDeDocumento" value="Cédula"></option>Cédula</label>
-            <option name="TipoDeDocumento" value="Dni Extranjero"></option>Dni Extranjero</label>
-            </select>
-            <label> Fecha de nacimiento:<input type="date" name="FechaDeNacimiento"></label>
-            <label for="continuar"></label><input type="submit" id="continuar" name="continuar" required></br>
-        </form>
-    </body>
+                <label>Tipo de Documento:</label>
+                <select required>
+        <label name="TipoDeDocumento"><option name="TipoDeDocumento" value="Dni">Dni</option></label>
+        <option name="TipoDeDocumento" value="Pasaporte">Pasaporte</option></label>
+        <option name="TipoDeDocumento" value="Cédula">Cédula</option></label>
+        <option name="TipoDeDocumento" value="Dni Extranjero">Dni Extranjero</option></label>
+        </select></br>
+                <label>Numero de documento:<input type="number" placeholder="ingrese los digitos" required></label><br>
+                <label> Fecha de nacimiento:<input type="date" name="FechaDeNacimiento"requiered></label></br>
+                <label for="continuar"></label><input type="submit" id="continuar" name="continuar" required></br>
+            </form>
+        </div>
+</body>
 
 </html>
