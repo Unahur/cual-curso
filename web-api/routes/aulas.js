@@ -37,7 +37,18 @@ router.get("/:id", (req, res) => {
   });
 });
 
-
+router.delete("/:id", (req, res) => {
+  const onSuccess = aula =>
+    aula
+      .destroy()
+      .then(() => res.sendStatus(200))
+      .catch(() => res.sendStatus(500));
+  findAula(req.params.id, {
+    onSuccess,
+    onNotFound: () => res.sendStatus(404),
+    onError: () => res.sendStatus(500)
+  });
+});
 
 
 
