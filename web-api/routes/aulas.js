@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var models = require("../models");
 
+
 router.get("/", (req, res) => {
   models.aula
     .findAll({
@@ -18,9 +19,18 @@ router.post("/", (req, res) => {
     .catch(() => res.sendStatus(500));
 });
 
+const findAula= (id, { onSuccess, onNotFound, onError }) => {
+  models.aula
+    .findOne({
+      attributes: ["id", "edificio"],
+      where: { id, edificio }
+    })
+    .then(aula => (aula ? onSuccess(aula) : onNotFound()))
+    .catch(() => onError());
+};
 
 router.get("/:id", (req, res) => {
-  findExample(req.params.id, {
+  findAula(req.params.id, {
     onSuccess: aula => res.send(aula),
     onNotFound: () => res.sendStatus(404),
     onError: () => res.sendStatus(500)
