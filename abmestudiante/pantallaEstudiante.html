@@ -31,15 +31,15 @@
                       dolorum eos, excepturi sequi aliquam?
                      Explicabo hic ad, similique modi quas excepturi!</strong>
             </div>
-            <div class="alert"> bloque alert</div>
+            <div class="alert"> msj de atención</div>
 
             <form class="form">
                 <h3 class="toggle" onclick="toggle('datos_personales');">Datos Personales</h3>
                 <label>Nombre: </label></br>
-                <label><input type="text" name="nombre"  placeholder="Nombre" requiered> </label>
+                <label><input type="text" name="nombre"  placeholder="Nombre" required> </label>
                 </br>
                 <label>Apellido: </label></br>
-                <label><input type="text" name="Apellido"  placeholder="Apellido" requiered> </label>
+                <label><input type="text" name="Apellido"  placeholder="Apellido" required> </label>
                 </br>
                 <label>Genero:</label> <select required><label><option name="genero" value="femenino"> Femenino </option>
         </label>
@@ -55,8 +55,9 @@
         <option name="TipoDeDocumento" value="Dni Extranjero">Dni Extranjero</option></label>
         </select></br>
                 <label>Numero de documento:<input type="number" placeholder="ingrese los digitos" required></label><br>
-                <label> Fecha de nacimiento:<input type="date" name="FechaDeNacimiento"requiered></label></br>
-                <label for="continuar"></label><input type="submit" id="continuar" name="continuar" required></br>
+                <label> Fecha de nacimiento:<input type="date" name="FechaDeNacimiento"required></label></br>
+                <br>
+                <label><input class="continuar"  name="login" type="submit" value="Ingresar" autocomplete="off" required ></label></br>
             </form>
         </div>
 </body>
