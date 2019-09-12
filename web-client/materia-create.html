@@ -2,7 +2,8 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="styles/Materia.css">
-	<title>Crear materia</title>
+    <title>Crear materia</title>
+    <script src="javascript/materia-create.js"></script>
 </head>
 <body>
     <div class="contenedor2">
@@ -23,18 +24,20 @@
             <div class="texto">Nombre de materia(*)</div>
             <input class="input" id="materia" type="text">
             <div class="texto">Descripcion de materia(*)</div>
-            <textarea class="input" id="Descripcion" cols="19" rows="3"></textarea>
+            <textarea class="input" id="descripcion" cols="19" rows="3"></textarea>
             <div class= "texto">Semestre(*)</div>
-            <input class="input" type="number">
+            <input class="input" id="semestre" type="number">
             <div class="texto">Horas totales(*)</div>
-            <input class="input" type="number">
+            <input class="input" id="horasT" type="number">
             <div class="texto">Horas por clases(*)</div>
-            <input class="input" type="time">
+            <input class="input" id="horasC" type="time">
 		    </main>
 		<aside class="sidebar">
 		</aside>
 		<footer class="footer">
-            <input class="buttom" type="submit" id="mod" value="Aceptar" >
+            <input class="buttom" type="submit" id="mod" value="Aceptar" onclick="obtenerFormulario()">
+            <button onclick="printDatos()">resultados</button>
+            <span id="resultados"></span>
 		</footer>
 	</div>
 </body>
