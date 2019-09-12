@@ -15,15 +15,26 @@ body {
     margin: 20px auto;
 	display: grid;
 	grid-gap: 35px;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: repeat(4, auto);
-	grid-template-areas: "sidebar contenido contenido"
-                         "sidebar contenido contenido"
-                         "footer footer footer";
+	grid-template-areas: "sidebar contenido contenido contenido"
+                         "sidebar contenido contenido contenido"
+                         "footer footer footer footer";
 }
-
+.row-fluid{
+    width: 90%;
+    margin: 0px auto;
+	max-width: 1150px;
+}
+.logo-Unahur{
+    margin: 15px auto;
+    height: 53.1;
+    max-width: 90%;
+    vertical-align: middle;
+    border: 0;
+}
 .contenedor2 {
-    background: rgba(219, 219, 219, 0.795);
+    background-image: -webkit-linear-gradient(top, #fff, rgb(218, 219, 221));
     margin: 0px;
 }
 
@@ -81,16 +92,17 @@ body {
 
 .contenedor4 .titulo {
 	color: #08c;
-	grid-area: titulo;
+    grid-area: titulo;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 .contenedor .contenido {
     grid-area: contenido;
-    background: rgba(219, 219, 219, 0.795);
+    background: #f5f5f5;
     border: rgb(207, 207, 207) 1px solid;
 }
 
 .contenedor .sidebar {
-    background: rgba(219, 219, 219, 0.795);
+    background: #f5f5f5;
     border: rgb(207, 207, 207) 1px solid;
 	min-height: 100px;
 	grid-area: sidebar;
@@ -104,15 +116,16 @@ body {
 }
 .subtitulo{
     color: rgb(167, 166, 166);
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 24px;
-    font-family: inherit;
     font-weight: bold;
     border-bottom: rgb(167, 166, 166) 1px solid; 
 }
 .texto{
-    font-size: 18px;
+    margin: 4px;
+    font-size: 15px;
     font-weight: bold;
-    font-family: inherit;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 .input{
     border: rgb(207, 207, 207) 1px solid;
@@ -126,14 +139,14 @@ body {
     padding: 8px 13px;
     border: rgb(26, 99, 99) 1px solid;
     font-size: 15px;
-    font-family: inherit;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #fff;
 }
 
 @media screen and (max-width: 768px){
 	.contenedor {
-		grid-template-areas: "sidebar sidebar sidebar"
-                         "contenido contenido contenido"
-                         "footer footer footer";
+		grid-template-areas: "sidebar sidebar sidebar sidebar"
+                         "contenido contenido contenido contenido"
+                         "footer footer footer footer";
 	}
 }
