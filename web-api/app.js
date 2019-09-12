@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var examplesRouter = require('./routes/examples');
+var cursadasRouter = require('./routes/cursadas');
 
 var app = express();
 
@@ -19,8 +20,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Controlers
 app.use('/', indexRouter);
 app.use('/examples', examplesRouter);
+app.use('/cursadas', cursadasRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
