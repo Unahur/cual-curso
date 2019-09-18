@@ -4,14 +4,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    
 </head>
 <body>
+    <form>
     <label>Edificio del aula:
-        <input type="text" placeholder="Nombre del edificio">
-        <br>
+        <input id="aula" type="text" placeholder="Nombre del edificio" required>
     </label>
+    <br>
     <label>Numero del aula:
-       <select>
+       <select required>
            <option>1</option>
            <option>2</option>
            <option>3</option>
@@ -20,13 +22,11 @@
            </select>
     </label>
     <br>
-    <label>Materias que se cursan en el aula:
-        <br>
-        <label> Matematicas
-        <input type="checkbox">
-       </label>
-
-    </label>
+   
+     <button onclick="crearAula()">Crear aula</button>
+     </form>
+        
+    
     
 </body>
 </html>
