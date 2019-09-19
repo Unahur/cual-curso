@@ -1,32 +1,36 @@
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles/stylecrearaula.css" type="text/css">
+  <title>Crear aula</title>
 </head>
 <body>
+  
+  <div id="container">
+   <div id="img"><img src="http://unahur.edu.ar/sites/default/files/Hurlingham-logo.png" alt="unahur" height="50" width:"40">
+     
+      </div >
+  
+      
+       <h2>Crear aula</h2>
     <form>
-    <label>Edificio del aula:
-        <input id="aula" type="text" placeholder="Nombre del edificio" required>
-    </label>
-    <br>
-    <label>Numero del aula:
-       <select required>
-           <option>1</option>
-           <option>2</option>
-           <option>3</option>
-           <option>4</option>
-           <option>5</option>
-           </select>
-    </label>
-    <br>
+    <label     for="edificio">Edificio:</label>
+        <br>
+     
+    <input type="text" id="edificio" placeholder="Nombre del edificio">
+      <br>
    
-     <button onclick="crearAula()">Crear aula</button>
-     </form>
-        
-    
-    
+      <label     for="numeroAula">Numero de aula: 
+      <select id="numeroAula"></select>
+        </label>
+      <br>
+      <button>Crear</button>
+      </form>
+
+    </div>
+     
+  
 </body>
 </html>
