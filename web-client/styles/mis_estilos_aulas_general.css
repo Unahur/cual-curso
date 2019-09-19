@@ -1,0 +1,14 @@
+body{
+}
+.logoUnahur{
+  width: 40%;
+  height: initial;
+}
+
+.eliminar:active{
+  background-color: red;
+}
+
+div{
+  text-transform: uppercase;
+}

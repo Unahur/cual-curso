@@ -4,8 +4,11 @@ module.exports = (sequelize, DataTypes) => {
     edificio: DataTypes.STRING,
     numero_aula: DataTypes.INTEGER
   }, {});
+ //aqui se crea la tabla aula con sus atributos edificio,numero_aula
+
+
   aula.associate = function(models) {
-    // associations can be defined here
+    //por ahora no es nesesario calcular ningun atributo partir de otros atributos
   };
   return aula;
 };

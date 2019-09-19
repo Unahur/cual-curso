@@ -1,0 +1,24 @@
+.divModificar{
+  position: relative;
+  margin: 0px auto; 
+  border-style: none;
+  width: 20%;
+  height: auto;
+  text-align: center;
+  
+}
+
+.eliminar{
+  color: white;
+  background-color: red;
+}
+
+.eliminar:active{
+  background-color: red;
+  color:black;
+}
+
+
+#cuerpoModificar{
+  border-style: groove;
+}

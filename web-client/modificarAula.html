@@ -4,28 +4,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ModificarAulas</title>
-    <link rel="stylesheet" href="styles/mis_estilos_aulas.css">
+    <link rel="stylesheet" href="styles/mis_estilos_aulas_general.css">
+    <link rel="stylesheet" href="styles/mis_estilos_aulas_modificar.css">
 </head>
 <body>
+    <div class="divModificar" >
+        <img class="logoUnahur" src="imagenes/unahur.jpg" alt="">
+    </div>
+        <br>
+        <div id="cuerpoModificar">
+    <div class="divModificar">
     <label >Edificio del aula
             <select>
                     <option>malvinas</option>
                     <option>origone A</option>
                     <option>origone B</option>
                     </select>
-        <br>
+    </div>
+     <br>
+     <div class="divModificar">
     </label>
     <label>Numero del aula:
         <input ckass="input" type="number">
     </label>
-    <br>
+    </div>
+   
+    <div class="divModificar">
    Materias que se cursan en el aula:
         <br>
-        <label> Matematicas
-        <input type="checkbox">
-       </label>
-       <br>
-       <button>aceptar</button>
-       <input type="button" onclick=" location.href='listarAulas.html' " value="volver" name="boton" />
-</body>
+        <ul> materia_1<input type="checkbox"></ul>
+        <ul> materia_2<input type="checkbox"></ul>
+        <ul> materia_3<input type="checkbox"></ul>
+        <button>agregar</button>
+        <button>quitar</button>
+    </div>
+    <div class="divModificar">
+        <input type="button" onclick="location.href='index.html'" value="inicio"/>
+       <input type="button" onclick="location.href='listarAulas.html'" value="aceptar"/>
+       <button class="eliminar">eliminar(esta aula)</button>
+    </div>
+    </div>
+    <script>
+        var aula = "???";
+        function put(){/*?????*/};
+    //por ahora solo para comentar
+    </script>
+    </body>
 </html>
