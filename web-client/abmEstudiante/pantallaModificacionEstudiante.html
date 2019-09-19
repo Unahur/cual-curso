@@ -8,18 +8,10 @@
     <link rel="stylesheet" href="guarani.css" type="text/css">
     <link rel="stylesheet" href="https://servicios.unahur.edu.ar/unahur3w/_comp/unahur/img/logo-transparente.png" type="img/jpg">
     <title>Estudiantes</title>
+    <script src="./modificacionEstudiante.js" ></script>
 </head>
-<script type="text/javascript">
-function modificarDatos(formId, yesNo) {
-   var f = document.getElementById(formId), s, opacity;
-   s = f.style;
-   opacity = yesNo? '40' : '100';
-   s.opacity = s.MozOpacity = s.KhtmlOpacity = opacity/100;
-   s.filter = 'alpha(opacity='+opacity+')';
-   for(var i=0; i<f.length; i++) f[i].disabled = yesNo;
-}
-window.onload=function(){modificarDatos('f_1',true);}; // disabled by default
-</script>
+
+
 
 <body>
     <div>
