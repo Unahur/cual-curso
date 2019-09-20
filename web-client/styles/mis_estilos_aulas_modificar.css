@@ -1,24 +1,17 @@
 .divModificar{
   position: relative;
   margin: 0px auto; 
-  border-style: none;
+  border-style: groove;
   width: 20%;
   height: auto;
   text-align: center;
+  border-radius: 5px;
+  background: linear-gradient(rgb(123, 255, 0),white);
   
-}
-
-.eliminar{
-  color: white;
-  background-color: red;
-}
-
-.eliminar:active{
-  background-color: red;
-  color:black;
 }
 
 
 #cuerpoModificar{
-  border-style: groove;
+  border-style: none;
+ 
 }
