@@ -8,22 +8,6 @@ var app = require('../app');
 var debug = require('debug')('foo:server');
 var http = require('http');
 
-const Sequelize = require('sequelize');
-
-const sequelize = new Sequelize('mysql', 'root', 'example', {
-  host: 'db',
-  dialect: 'mariadb'
-});
-
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch(err => {
-    console.error('Unable to connect to the database:', err);
-  });
-
 /**
  * Get port from environment and store in Express.
  */
