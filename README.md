@@ -141,25 +141,25 @@ mysql -p --database=cual_curso
 
 Pedir ayuda:
 
-```bash
+```sql
 help
 ```
 
 Averiguar las tablas que tiene la DB:
 
-```bash
+```sql
 show tables;
 ```
 
 Averiguar la estructura de una tabla:
 
-```bash
+```sql
 desc examples;
 ```
 
 Ejecutar una query:
 
-```bash
+```sql
 SELECT 'soy el resultado de una query';
 ```
 
