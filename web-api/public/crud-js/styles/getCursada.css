@@ -1,0 +1,115 @@
+body{
+    margin: 0;
+    padding: 0; 
+}
+
+.global{
+    text-align: justify;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.navs{
+    color: #8d8d8d;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+    /*margin-left:10%;*/
+    /*padding: 5px;*/
+}
+
+.navs nav{
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+.navs p{
+    text-transform: uppercase;
+    margin-left: 10%;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+  
+.menu  li {
+    float: left;
+    border-right: 1px solid #bbb;
+}
+  
+.menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+
+.menu li a:hover {
+    background-color: #111;
+}
+
+table{
+    margin-top: 20px;
+    width: 100%;
+    /*border: 1px solid black;*/
+    border-collapse: collapse;
+}
+
+.title{
+    margin-top:5%;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+}
+
+.table{
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    /*border:1px solid black;*/
+    margin-bottom: 10%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+th,td{
+    padding: 20px;
+}
+
+thead{
+    background-color: #333;
+    border-bottom: 1px solid #bbb;
+    color:white;
+    box-shadow: 0 0 5px black;
+}
+
+/*Hijos pares*/
+tr:nth-child(even){
+    background-color: #bbb;
+}
+
+tr:hover td{
+    background-color: #333;
+    color:white;
+}
+
+.btn-table{
+    background-color: #796b6b;
+    cursor: pointer;
+    border-color: #333;
+    color: #ddd;
+    border-radius: 5px;
+    height: 130px !important;
+    width: 180px !important;
+    transition: all 300ms;
+}
+
+
+.btn-table:hover{
+    background-color: #86fd24;
+    color: #333;
+}

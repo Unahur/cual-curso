@@ -1,6 +1,0 @@
-{
-    "cursos":[
-    {"nombre": "Persistencia de datos","descripcion": "entidad 1"}, 
-    {"nombre": "Interfaz de usuarios","descripcion": "entidad 2"}
-    ]
-}

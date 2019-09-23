@@ -5,7 +5,7 @@ var models = require("../models");
 router.get("/", (req, res) => {
   models.cursada
     .findAll({
-      attributes: ["id", "nombre"]
+      attributes: ["id", "nombre", "descripcion"]
     })
     .then(cursadas => res.send(cursadas))
     .catch(() => res.sendStatus(500));
@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res) => {
   models.cursada
-    .create({ nombre: req.body.nombre })
+    .create({ nombre: req.body.nombre , descripcion: req.body.descripcion })
     .then(cursada => res.status(201).send({ id: cursada.id }))
     .catch(() => res.sendStatus(500));
 });
@@ -21,7 +21,6 @@ router.post("/", (req, res) => {
 const findCursada = (id, { onSuccess, onNotFound, onError }) => {
   models.cursada
     .findOne({
-      attributes: ["id", "nombre"],
       where: { id }
     })
     .then(cursada => (cursada ? onSuccess(cursada) : onNotFound()))
@@ -39,7 +38,8 @@ router.get("/:id", (req, res) => {
 router.put("/:id", (req, res) => {
   const onSuccess = cursada =>
     cursada
-      .update({ nombre: req.body.nombre }, { fields: ["nombre"] })
+      .update({ nombre: req.body.nombre, descripcion: req.body.descripcion },
+         { fields: ["nombre", "descripcion"] })
       .then(() => res.sendStatus(200))
       .catch(() => res.sendStatus(500));
   

@@ -1,40 +1,56 @@
-var selectedRow = null; 
-
-function saved(){
+function saved() {
     event.preventDefault();
-    /*var formData = readForm();
-    
-    insertNewData(formData);
 
-    resetForm();   */
+    var formData = readForm();
+    const request = new Request('http://localhost:8084/cursadas',
+        { method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json'
+            },
+                body: JSON.stringify(formData)
+        });
+
+    fetch(request)
+        .then(response => {
+            if (response.status === 201) {
+               
+               return response.json();
+            } else {
+                throw new Error('Something went wrong on api server!');
+            }
+        })
+        .then(response => {
+            console.debug(response);
+        }).catch(error => {
+            console.error(error);
+        });
+    
+    resetForm();
 }
 
-function resetForm(){
+function readForm() {
+    var formData = {};
+
+    formData["nombre"] = document.getElementById('nombreCursada').value;
+    formData["descripcion"] = document.getElementById('descripcion').value;
+    return formData;
+}
+
+function resetForm() {
     document.getElementById('nombreCursada').value = "";
     document.getElementById('descripcion').value = "";
 }
 
-function insertNewData(data){
-
-    var table = document.getElementById("list-cursadas").getElementsByTagName('tbody')[0]
-    
-    var editarEliminar = `<a class"a" onclick="onEdit(this)">Editar</a>
-            <a class="a" onclick="onDelete(this)">Eliminar</a>`
-    var newRow = table.insertRow(table.length);
-    
-          
-    cell1 = newRow.insertCell(0);
-    cell1.innerHTML = data.nombre;
-    cell2 = newRow.insertCell(1);
-    cell2.innerHTML = data.descripcion;
-    cell2 = newRow.insertCell(2);
-    cell2.innerHTML = editarEliminar;
-}
-
-function readForm(){
-    var formData = {};
-
-    formData["nombreCursada"] = document.getElementById('nombreCursada').value;
-    formData["descripcion"] = document.getElementById('descripcion').value;
-    return formData;
+function validate(){
+    isValid = true;
+    if(document.getElementById('nombreCursada').value === null){
+        isValid = false;
+        document.getElementById("nameValidationError").remove("hide");
+    }else{
+        isValid = true;
+        if(!document.getElementById("nameValidationError").contains("hide"))
+            document.getElementById("nameValidationError").add("hide")
+        
+    }
+    return isValid;
 }
