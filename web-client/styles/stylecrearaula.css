@@ -2,6 +2,8 @@
 
   --light-blue: rgb(43, 124, 216);
   --red:red;
+  --white:#fff;
+  --lightgray:rgb(197, 197, 197);
 
 }
 html{
@@ -52,7 +54,7 @@ body {
   
   }
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
   
   .container{
   min-width: 90%;
@@ -119,7 +121,8 @@ body {
 img{
   margin-top:15px;
   max-width: 90%;
-  max-height: 100%;
+  height: 50px;
+
 
 
 }
@@ -201,14 +204,17 @@ img{
   position:relative;
   top:0;
   padding-top:0;
+  padding-left:1rem;
   padding-bottom: 20px;
   width: 100%;
-  height: 20%;
+  height: 5rem;
   top:0;
   text-align: center;
-  background-color: rgb(216, 216, 216);
+  background-color: var(--white);
+  border-bottom: 1px solid var(--lightgray);
   max-height: 100%;
   margin-bottom: 1%;
+
   
   
  
