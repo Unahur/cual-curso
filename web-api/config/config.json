@@ -4,6 +4,6 @@
     "password": "mi-pass",
     "database": "cual_curso",
     "host": "db",
-    "dialect": "mariadb"
+    "dialect": "mysql"
   }
 }
