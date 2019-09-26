@@ -7,7 +7,7 @@ docker-compose up -d db
 echo '-------------------------------------------------------'
 echo 'Esperando a que el servicio de mysql inicie...'
 echo '-------------------------------------------------------'
-sek=60
+sek=120
 while [ $sek -ge 1 ]
 do
    echo -ne "Faltan $sek segundos... \r"
@@ -18,7 +18,7 @@ echo
 echo '-------------------------------------------------------'
 echo 'Creando la base de datos...'
 echo '-------------------------------------------------------'
-docker-compose exec db mysql --password=mi-pass -e "CREATE DATABASE IF NOT EXISTS cual_curso;"
+docker-compose exec db mysql -p -e "CREATE DATABASE IF NOT EXISTS cual_curso;"
 echo '-------------------------------------------------------'
 echo 'Instalando dependencias de la API...'
 echo '-------------------------------------------------------'
