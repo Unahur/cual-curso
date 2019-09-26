@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="guarani.css" type="text/css">
+    <link rel="stylesheet" href="https://servicios.unahur.edu.ar/unahur3w/_comp/unahur/img/logo-transparente.png" type="img/jpg">
+    <title>Estudiantes</title>
+    <script src="./modificacionEstudiante.js" ></script>
+</head>
+<body>
+    <div>
+        <p id="im">
+            <img src="https://servicios.unahur.edu.ar/unahur3w/_comp/unahur/img/logo-transparente.png">
+
+        </p>
+    </div>
+    <div class="modificarUsuario">
+            <h2>Modificacion y Baja</h2>
+        </div>
+        <div class="body">
+            <form id="f_1" action="#" onsubmit="return false;" class="form3">
+                    <h3 class="toggle" onclick="toggle('datos_personales');">Datos Personales</h3>
+                    <label>Nombre: </label></br>
+                    <label><input type="text" name="nombre"  placeholder="Nombre" required> </label>
+                    </br>
+                    <label>Apellido: </label></br>
+                    <label><input type="text" name="Apellido"  placeholder="Apellido" required> </label>
+                    </br>
+                    <label>Genero:</label> <select required><label><option name="genero" value="femenino"> Femenino </option>
+            </label>
+            <label><option value="masculino"> Masculino </option></label>
+            <label><option value="otro"> Otro</option></label>
+            <label><option value="no responde"> No responde</option></label>
+            </select></br>
+                    <label>Tipo de Documento:</label>
+                    <select required>
+            <label name="TipoDeDocumento"><option name="TipoDeDocumento" value="Dni">Dni</option></label>
+            <option name="TipoDeDocumento" value="Pasaporte">Pasaporte</option></label>
+            <option name="TipoDeDocumento" value="Cédula">Cédula</option></label>
+            <option name="TipoDeDocumento" value="Dni Extranjero">Dni Extranjero</option></label>
+            </select></br>
+                    <label>Numero de documento:<input type="number" placeholder="ingrese los digitos" required></label><br>
+                    <label> Fecha de nacimiento:<input type="date" name="FechaDeNacimiento"required></label></br>
+                    <br>
+                    <label><input class="continuar"  name="login" type="submit" value="Ingresar" autocomplete="off" required ></label></br>
+                </form>
+            <button onclick="modificarDatos('f_1',false);">
+                    Modificar</button>
+                    <button onclick="modificarDatos('f_1',true);">
+                    Guardar (es necesario)????</button> 
+             
+        </div>
+</body>
+
+</html>
