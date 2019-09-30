@@ -30,18 +30,20 @@
                     <label><input type="text" name="nombre_apellido" placeholder="Nombre y Apellido" required> </label>
                     <br>
                     <br>
-                    <label>Numero de documento:  <input type="number" placeholder="numero DNI" required></label><br>
+                    <label>Numero de documento:  <input type="number" name="dni" placeholder="numero DNI" required></label><br>
                     
                 </form>
                 <br>
     <div class="botones">
         <button class="boton" onclick="modificarDatos('f_1',false);" >
             Modificar</button>
-        <button  class="boton" onclick="modificarDatos('f_1',true);">
+        <button  class="boton" onclick="modificarDatos('f_1',true); ">
             Guardar</button> 
         <button id= "baja" class="boton" onclick="alerta()">Dar de Baja</button
         
-    </div>        
+    </div>
+    
+
 </body>
 
 </html>

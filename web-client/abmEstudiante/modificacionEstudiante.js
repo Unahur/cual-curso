@@ -19,3 +19,4 @@ function alerta()
 	}
 	document.getElementById("baja").innerHTML = mensaje;
 }
+

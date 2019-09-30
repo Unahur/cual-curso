@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://servicios.unahur.edu.ar/unahur3w/_comp/unahur/img/logo-transparente.png"
         type="img/jpg">
     <title>Estudiantes</title>
+    <script src="./js/app_estudiante.js"></script> 
 </head>
 
 <body>
@@ -26,14 +27,16 @@
             <strong>Ingresa tu Nombre completo y dni para darte de alta en el sistema.</strong>
             <br>
         <div>
-        <form class="form">
+        <form id="formCreate" class="form">
             <h3 class="toggle">Datos Personales</h3>
             <label>Nombre y Apellido:   </label>
             <label><input type="text" name="nombre_apellido" placeholder="Nombre y Apellido" required> </label>
             <br>
             <br>
-            <label>Numero de documento:  <input type="number" placeholder="numero DNI" required></label><br>
-            <label><input class="continuar" name="login" type="submit" value="Ingresar" autocomplete="off" required></label></br>
+            <label>Numero de documento:  <input type="number" name="dni" placeholder="numero DNI" required></label><br>
+            <br>
+            <button class="boton" name="submit" type="submit">crear</button>
+ 
         </form>
         </div>
     </div>
