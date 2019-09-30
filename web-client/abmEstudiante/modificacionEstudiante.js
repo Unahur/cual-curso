@@ -7,3 +7,15 @@ function modificarDatos(formId, yesNo) {
    for(var i=0; i<f.length; i++) f[i].disabled = yesNo;
 }
 window.onload=function(){modificarDatos('f_1',true)};
+
+function alerta()
+    {
+    var mensaje;
+    var opcion = confirm("Deseas dar baja tu usuario? Aceptar o Cancelar");
+    if (opcion == true) {
+        mensaje = "ir a borrado de la api";
+	} else {
+	    mensaje = "Dar de Baja";
+	}
+	document.getElementById("baja").innerHTML = mensaje;
+}
