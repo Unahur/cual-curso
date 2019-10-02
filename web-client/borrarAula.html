@@ -1,42 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="styles/stylecrearaula.css" type="text/css">
-    <title>Borrar Aula</title>
-</head>
-
-<body>
-
-    <div class="img">
-
-        <img src="http://unahur.edu.ar/sites/default/files/Hurlingham-logo.png" alt="unahur" height="100">
-
-    </div>
-
-
-    <div class="container">
-        <form class="form">
-            <h2 class="h2">Borrar Aula</h2>
-            
-           
-
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="styles/stylecrearaula.css" type="text/css">
+        <title>Borrar Aula</title>
+    </head>
+    <body>
+        <div class="img">
+            <img src="http://unahur.edu.ar/sites/default/files/Hurlingham-logo.png" alt="unahur" height="100">
+        </div>
+        <div class="container">
+            <form class="form">
+                <h2 class="h2">Borrar Aula</h2>
+            <label for="edi">Edificio:
+            <select class="select" id="selEdi" onchange= "cambiar();" required>
+            <option value="">Seleccionar</option>
+            </select>
+        </label>
+        <br>
+        <br>
+        <label for="numeroAula">Numero de aula:
+            <select class="select" id="numAula" onchange= "cambiar();" required>
+                    <option value="">Seleccionar</option>
+            </select>
             <br>
-      <label for="numeroAula">Numero de aula:
-        <select class="select"></select>
-      </label>
-      <br>
-            <button class="btn-danger">borrar</button>
-
-        </form>
-    </div>
-    <br>
-
-
-</body>
-
-</html>
+                <button class="btn-danger" type="submit">borrar</button>
+            </form>
+        </div>
+        <br>
+        <script src="js/borrar.js"></script>
+    </body>
+    </html>
