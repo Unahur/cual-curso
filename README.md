@@ -111,6 +111,12 @@ Web Client:
 sudo docker-compose up web-client
 ```
 
+Web SPA:
+
+```bash
+sudo docker-compose up web-spa
+```
+
 ### Podés ingresar a un servidor por línea de comandos
 
 Con el servicio correpondiente corriendo, ingresá al servidor.
