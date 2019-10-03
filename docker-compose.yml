@@ -2,14 +2,14 @@ version: '3.1'
 
 services:
 
-  react:
+  web-spa:
     image: node:10
     working_dir: /usr/src/app
     command: npm start
     ports:
     - "3002:3000"
     volumes:
-      - ./react:/usr/src/app
+      - ./web-spa:/usr/src/app
     restart: always
 
   web-client:

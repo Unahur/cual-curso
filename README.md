@@ -55,15 +55,15 @@ El código que reside en este servidor se ejecuta en el browser, que constituir�
 
 El directorio raíz de este servidor es `web-client`. En esta carpeta realizaremos tareas destinadas a la materia `Construcción de interfaces de usuario`.
 
-### REACT
+### WEB SPA
 
 Acceso web: <http://localhost:3002/>
 
-Servidor web que sirve la aplicación React que usaremos para desarrollar la segunda iteración de la parte **front end** de nuestra aplicación.
+Servidor web que sirve la aplicación SPA (single page application) `React` que usaremos para desarrollar la segunda iteración de la parte **front end** de nuestra aplicación.
 
 Al igual que `web-client`, el código que reside en este servidor se ejecuta en el browser, cumpliendo el rol de cliente de nuestra API.
 
-El directorio raíz de este servidor es `react`. En esta carpeta realizaremos tareas destinadas a la materia `Construcción de interfaces de usuario`.
+El directorio raíz de este servidor es `web-spa`. En esta carpeta realizaremos tareas destinadas a la materia `Construcción de interfaces de usuario`.
 
 ### DB
 
