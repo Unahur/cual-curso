@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
     models.estudiantes
         .create({ dni: req.body.dni, nombre_apellido: req.body.nombre_apellido, })
-        .then(estudiantes => res.status(201).send({ dni: estudiantes.dni }))
+        .then(estudiantes => res.status(201).send({ dni: estudiantes.dni, nombre_apellido: estudiantes.nombre_apellido }))
         .catch(() => res.sendStatus(500));
 });
 

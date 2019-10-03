@@ -1,20 +1,27 @@
 var url = 'http://localhost:3001/estudiantes';
-var formuv = document.getElementsByClassName('form');
-//var formulario = document.getElementById('formCreate');
+var formulario =  {
+    nombre_apellido:('nombre_apellido'),
+    dni:('dni')
+}// document.getElementById('creacionEstudiante');
 
 
-formuv.addEventListener('submit', function (evt) {
-    evt.preventDefault();
+//formulario.addEventListener('submit', function (evt) 
+{
+  //  evt.preventDefault();
 
 
-    var datos = new FormData(formulario);
-    var data = {
-        nombre_apellido : datos.put(nombre_apellido),
-        dni: datos.put(dni)
-    }
+    //var datos = new FormData(formulario);
+   // var data = {
+  //      nombre_apellido: datos.get('nombre_apellido'),
+ //       dni: datos.get('dni')
+  //  }
     fetch(url, {
             method: 'POST', // or 'PUT'
-            body: JSON.stringify(data), // data can be `string` or {object}!
+            body: {
+                nombre_apellido: ('nombre_apellido'),
+                dni: ('1')
+            },
+           // body: JSON.stringify(data), // data can be `string` or {object}!
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -22,4 +29,6 @@ formuv.addEventListener('submit', function (evt) {
         .catch(error => console.error('Error:', error))
         .then(response => console.log('Success:', response));
 
-});
+}
+//)
+;
