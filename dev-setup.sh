@@ -28,6 +28,10 @@ echo 'Corriendo las migraciones...'
 echo '-------------------------------------------------------'
 docker-compose run --rm web-api node_modules/.bin/sequelize db:migrate
 echo '-------------------------------------------------------'
+echo 'Instalando dependencias de la SPA...'
+echo '-------------------------------------------------------'
+docker-compose run --rm web-spa npm install
+echo '-------------------------------------------------------'
 echo 'Apagando los servidores...'
 echo '-------------------------------------------------------'
 docker-compose down
