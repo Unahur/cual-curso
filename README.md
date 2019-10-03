@@ -49,11 +49,21 @@ Acceso web: <http://localhost:81/>
 
 Se trata de un servidor web `NGINX` que sirve archivos de manera estática. Esto quiere decir que su única función es dejar a disposición del browser del usuario final los archivos solicitados, y que las respuestas ofrecidas a sus clientes dependerán exclusivamente del recurso solicitado.
 
-Dicho servidor será el soporte que usaremos para desarrollar el cliente web que constituirá la parte **front end** de nuestra aplicación.
+Dicho servidor es el soporte que usaremos para desarrollar la primera iteración de la parte **front end** de nuestra aplicación.
 
 El código que reside en este servidor se ejecuta en el browser, que constituirá por un lado el cliente de este servidor estático y por otro lado el cliente de nuestra API.
 
-El directorio raíz de este servidor es `web-client`, y contiene los archivos y las carpetas donde realizaremos las tareas destinadas a la materia `Construcción de interfaces de usuario`.
+El directorio raíz de este servidor es `web-client`. En esta carpeta realizaremos tareas destinadas a la materia `Construcción de interfaces de usuario`.
+
+### REACT
+
+Acceso web: <http://localhost:3002/>
+
+Servidor web que sirve la aplicación React que usaremos para desarrollar la segunda iteración de la parte **front end** de nuestra aplicación.
+
+Al igual que `web-client`, el código que reside en este servidor se ejecuta en el browser, cumpliendo el rol de cliente de nuestra API.
+
+El directorio raíz de este servidor es `react`. En esta carpeta realizaremos tareas destinadas a la materia `Construcción de interfaces de usuario`.
 
 ### DB
 

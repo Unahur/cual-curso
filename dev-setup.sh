@@ -28,6 +28,10 @@ echo 'Corriendo las migraciones...'
 echo '-------------------------------------------------------'
 docker-compose run --rm web-api node_modules/.bin/sequelize db:migrate
 echo '-------------------------------------------------------'
+echo 'Instalando dependencias de React...'
+echo '-------------------------------------------------------'
+docker-compose run --rm react npm install
+echo '-------------------------------------------------------'
 echo 'Apagando los servidores...'
 echo '-------------------------------------------------------'
 docker-compose down
