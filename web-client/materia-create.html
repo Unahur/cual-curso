@@ -18,25 +18,26 @@
     <div class="contenedor4">
         <div class="titulo">Creacion de materia</div>
     </div>
-	<div class="contenedor">
-		<form class="contenido">
+	<form class="contenedor" id="materia">
+		<div class="contenido">
             <div class="subtitulo">Datos de la materia</div>
             <div class="texto">Nombre de materia(*)</div>
-            <input class="input" id="materia" type="text">
+            <input class="input" name="materia" type="text">
             <div class="texto">Descripcion de materia(*)</div>
-            <textarea class="input" id="descripcion" cols="19" rows="3"></textarea>
+            <textarea class="input" name="descripcion" cols="19" rows="3"></textarea>
             <div class= "texto">Duracion(*)</div>
-            <input class="input" id="semestre" type="number">
+            <input class="input" name="duracion" type="number">
             <div class="texto">Horas totales(*)</div>
-            <input class="input" id="horasT" type="number">
+            <input class="input" name="horasT" type="number">
             <div class="texto">Horas por clases(*)</div>
-            <input class="input" id="horasC" type="time">
-		</form>
+            <input class="input" name="horasC" type="number">
+        </div>
 		<aside class="sidebar">
 		</aside>
 		<footer class="footer">
-            <input class="buttom" type="submit" id="mod" value="Aceptar" onclick="obtenerFormulario()">
+            <input class="buttom" type="submit" value="Aceptar">
 		</footer>
-	</div>
+    </form>
+    <div class="mt-3" id="respuesta"></div>
 </body>
 </html>

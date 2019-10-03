@@ -140,6 +140,9 @@ body {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #fff;
 }
+.buttom:hover{
+    background-image: -webkit-linear-gradient(top, rgb(109, 186, 224), #08c);
+}
 
 @media screen and (max-width: 768px){
 	.contenedor {
