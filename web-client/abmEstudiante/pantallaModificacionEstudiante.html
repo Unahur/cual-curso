@@ -9,6 +9,21 @@
     <link rel="stylesheet" href="https://servicios.unahur.edu.ar/unahur3w/_comp/unahur/img/logo-transparente.png" type="img/jpg">
     <title>Estudiantes</title>
     <script src="./modificacionEstudiante.js" ></script>
+    <script src="./js/app_estudiante_buscar.js" ></script>
+
+    <script>
+            // Get the modal
+            var modal = document.getElementById('id01');
+            
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
+            }
+            </script> 
+
+
 </head>
 <body>
     <div>
@@ -23,6 +38,33 @@
             <br>
             <strong>Podes modificar tus datos o darte de baja del sistema.</strong>
             <br>
+    <div>
+            <button onclick="document.getElementById('id01').style.display='block'" id= "buscar" class="boton" >Buscar Estudiante</button>
+          
+            <!-- The Modal -->
+            <div id="id01" class="modal">
+              <span onclick="document.getElementById('id01').style.display='none'"
+            class="close" title="Close Modal">&times;</span>
+            
+              <!-- Modal Content -->
+              <form class="modal-content animate" id="buscarPersona">
+                  <div class="container">
+                  <label for="uname"><b>Nombre y Apellido</b></label>
+                  <input type="text" placeholder="Nombre y Apellido" name="nombre_apellido" >
+                  <button id= "buscar" class="boton" type="submit">
+                        Buscar</button>
+                  <br>
+                  <br>
+                  <label for="uname"><b>Numero de DNI</b></label>
+                  <input type="text" placeholder="DNI" name="dni">
+                                  
+                  <button id= "buscar" class="boton" type="submit">
+                        Buscar</button>
+                  </div>
+            
+            </form>
+            </div>
+    </div>
     <div>
             <form id="f_1" action="#" onsubmit="return false;" class="form">
                     <h3 class="toggle">Datos Personales</h3>
@@ -39,7 +81,9 @@
             Modificar</button>
         <button  class="boton" onclick="modificarDatos('f_1',true); ">
             Guardar</button> 
-        <button id= "baja" class="boton" onclick="alerta()">Dar de Baja</button
+        <button id= "baja" class="boton" onclick="alerta()">
+            Dar de Baja</button>
+
         
     </div>
     

@@ -18,5 +18,14 @@ function alerta()
 	    mensaje = "Dar de Baja";
 	}
 	document.getElementById("baja").innerHTML = mensaje;
+};
+
+function buscar(){
+        
+
 }
+
+
+
+
 
