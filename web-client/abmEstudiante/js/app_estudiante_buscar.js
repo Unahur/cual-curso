@@ -2,7 +2,7 @@ function load() {
     var url = 'http://localhost:3001/estudiantes';
     var formulario = document.getElementById('buscarPersona');
     //var persona = document.getElementsByClassName('modal-content');
-    
+
 
 
 formulario.addEventListener('submit', function (evt) {
@@ -28,4 +28,24 @@ formulario.addEventListener('submit', function (evt) {
   //      .then(document.getElementById('creacionEstudiante').reset());
 
 });
+
+
+formulario.addEventListener('submit', function (evt) {
+    evt.preventDefault();
+    var validar =confirm("Esta seguro de borrar su registro");
+        if(validar){
+fetch(url + "/" + dni, {
+    method: 'DELETE'
+  }).then(() => {
+     console.log('removed dni '+  dni);
+  }).catch(err => {
+    console.error(err)
+  });
+
+  } });
+
+
+
+
+
 }
