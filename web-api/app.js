@@ -5,8 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var examplesRouter = require('./routes/examples');
-var cors = require('cors')
-
+var aulasRouter= require('./routes/aulas');
+var cors = require('cors');
 var app = express();
 
 // view engine setup
@@ -27,6 +27,7 @@ app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/examples', examplesRouter);
+app.use('/aulas', aulasRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -42,6 +43,10 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+  
+  
 });
 
 module.exports = app;
+
+

@@ -1,0 +1,76 @@
+    * {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    
+    html {
+        height: 100%;
+        width: 100%;
+    }
+    
+    body {
+        background-image: -webkit-linear-gradient(#F7F7F7, #FFFFFF);
+    }
+    
+    #cont {
+        width: 50%;
+        background-color: #F7F7F7;
+        margin: 5% auto;
+        border: 1px solid gray;
+        border-radius: 10px;
+        height: 50%;
+        box-shadow: 0px 1px 3px 0px gray;
+    }
+    
+    h3 {
+        margin: 3% 38%;
+        color: #8D8D8D;
+        border-bottom: 1px solid;
+    }
+    
+    #img {
+        margin-top: 5%;
+        text-align: center;
+    }
+    
+    form {
+        box-align: center;
+        margin: auto 38%;
+    }
+    
+    input:focus {
+        outline: none;
+        box-shadow: 0 0 0 #3198B6 inset, 0 0 8px #3198B6;
+        border: none;
+    }
+    
+ 
+    
+    select {
+        width: 30px;
+        height: 25px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    
+    select:hover {
+        background-image: -webkit-linear-gradient(#FFFFFF, rgb(198, 198, 198));
+    }
+    
+    button:hover {
+        box-shadow: 0 0 0 #3198B6 inset, 0 0 8px #3198B6;
+    }
+    
+    input {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        display: inline-block;
+        height: 20px;
+        padding: 4px 6px;
+        margin-top: 5px;
+        margin: 10px auto;
+        font-size: 14px;
+        line-height: 20px;
+        color: #555;
+        border-radius: 4px;
+    }
