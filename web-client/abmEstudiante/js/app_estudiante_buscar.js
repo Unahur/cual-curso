@@ -17,7 +17,7 @@ formulario.addEventListener('submit', function (evt) {
     
     fetch(url, {
             method: 'GET', 
-            body: JSON.stringify(data), // data can be `string` or {object}!
+            body: JSON.stringify(data), 
             headers: {
                 'Content-Type': 'application/json'
             }
