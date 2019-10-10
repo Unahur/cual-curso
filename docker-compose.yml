@@ -2,6 +2,16 @@ version: '3.1'
 
 services:
 
+  web-spa:
+    image: node:10
+    working_dir: /usr/src/app
+    command: npm start
+    ports:
+    - "3002:3000"
+    volumes:
+      - ./web-spa:/usr/src/app
+    restart: always
+
   web-client:
     image: nginx
     volumes:
@@ -13,7 +23,7 @@ services:
     working_dir: /usr/src/app
     command: npm start
     ports:
-    - "3001:3000"
+      - "3001:3000"
     volumes:
       - ./web-api:/usr/src/app/
     restart: always
