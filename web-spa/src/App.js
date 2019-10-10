@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Golondrina from './Golondrina';
+import Equipo from './Equipo';
 
 function App() {
   return (
@@ -20,7 +20,8 @@ function App() {
           Learn React
         </a>
       </header>
-      <Golondrina></Golondrina>
+      <Equipo nombre = "River " dt = "Gallardo " formacion = "Defensivo"></Equipo>
+      <Equipo nombre = "Boca " dt = "NiIdea " formacion = "Agresivo"></Equipo>
     </div>
   );
 }
