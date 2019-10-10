@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Equipo from './Equipo';
 
 function App() {
   return (
@@ -19,8 +20,12 @@ function App() {
           Learn React
         </a>
       </header>
+
+      <Equipo nombre = 'Vokita'  dt = ' elDtDeVokita' formacion = ' 321' ></Equipo>
+      <Equipo nombre = 'Sacachispas' dt = ' elLucho' formacion = ' 123' ></Equipo>
     </div>
   );
 }
 
 export default App;
+
