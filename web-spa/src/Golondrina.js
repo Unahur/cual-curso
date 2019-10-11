@@ -47,9 +47,10 @@ class Golondrina extends React.Component {
 
 
     volar() { 
-     (this.state_energia>= (this.state._kms+10)) ?
+
+     (this.state._energia>= (this.state._kms+10)) ?
       this.setState({
-        _energia:this.state._energia-(this.state._kms+10)
+        _energia:(this.state._energia-this.state._kms+10)
       }): console.log('No puede volar por que no le alcanza la energia')
       }
 
@@ -72,11 +73,14 @@ class Golondrina extends React.Component {
 
      value= { this.state._kms }
      onChange= { this.handleChangeKms } />
-
+      
+      
 
     <button 
      onClick= { ()=> this.volar() } >volar
     </button>
+    <br/>
+    <span>Energia: {this.state._energia}</span>
  
    </div>
 
