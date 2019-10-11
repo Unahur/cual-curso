@@ -1,26 +1,41 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import FirstExample from './example';
+import Golondrina from './Golondrina';
+import Equipo from './Equipo'
 
 function App() {
+
+
+var formacion=[
+
+  {nombre:"Charly"},
+  {nombre:"Juan"},
+  {nombre:"Grone"},
+  {nombre:"Agustin"},
+  {nombre:"Pepe"}
+ 
+
+];
+ 
   return (
+    
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+         <Equipo nombre="Riber" dt="patricio" formacion={formacion}  />
+         
+         <Equipo nombre="Voca" dt="Gaston" formacion={formacion}/>
+        
+         
+
+  </div>
+
+  )
+
+
+  
 }
 
 export default App;
