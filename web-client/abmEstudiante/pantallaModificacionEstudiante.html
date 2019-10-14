@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/abmEstudiante.css" type="text/css">
+    <link rel="stylesheet" href="https://servicios.unahur.edu.ar/unahur3w/_comp/unahur/img/logo-transparente.png" type="img/jpg">
+    <title>Estudiantes</title>
+    <script src="./js/modificarEstudiante.js" ></script>
+    <script src="./js/app_estudianta_buscar.js" ></script>
+
+    <script>
+            // Get the modal
+            var modal = document.getElementById('id01');
+            
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
+            }
+            </script> 
+
+
+</head>
+<body>
+    <div>
+        <p id="im">
+            <img src="https://servicios.unahur.edu.ar/unahur3w/_comp/unahur/img/logo-transparente.png">
+        </p>
+    </div>
+    <div class="modificarUsuario">
+            <h2>Modificacion y Baja</h2>
+    </div>
+    <div id="mensaje">Modifica tus datos!
+            <br>
+            <strong>Podes modificar tus datos o darte de baja del sistema.</strong>
+            <br>
+    <div>
+            <button onclick="document.getElementById('id01').style.display='block'" id= "buscar" class="botonLargo" >Buscar Estudiante</button>
+          
+            <!-- The Modal -->
+            <div id="id01" class="modal">
+              <span onclick="document.getElementById('id01').style.display='none'"
+            class="close" title="Close Modal">&times;</span>
+            
+              <!-- Modal Content -->
+              <form class="modal-content animate" id="buscarPersona">
+                  <div class="container">
+                  <label for="uname"><b>Nombre y Apellido</b></label>
+                  <input type="text" placeholder="Nombre y Apellido" name="nombre_apellido" >
+                  <button id= "buscar" class="boton" type="submit">
+                        Buscar</button>
+                  <br>
+                  <br>
+                  <label for="uname"><b>Numero de DNI</b></label>
+                  <input type="text" placeholder="DNI" name="dni">
+                                  
+                  <button id= "buscar" class="boton" type="submit">
+                        Buscar</button>
+                  </div>
+            
+            </form>
+            </div>
+    </div>
+    <div>
+            <form id="f_1" action="#" onsubmit="return false;" class="form">
+                    <h3 class="toggle">Datos Personales</h3>
+                    <label>Nombre y Apellido:   </label>
+                    <label><input type="text" name="nombre_apellido" placeholder="Nombre y Apellido" required> </label>
+                    <br>
+                    <br>
+                    <label>Numero de documento:  <input type="number" name="dni" placeholder="Numero DNI" required></label><br>
+                    
+                </form>
+                <br>
+    <div class="botones">
+        <button class="boton" onclick="modificarDatos('f_1',false);" >
+            Modificar</button>
+        <button  class="boton" onclick="modificarDatos('f_1',true); ">
+            Guardar</button> 
+        <button id= "baja" class="botonLargo" onclick="alerta()">
+            Dar de Baja</button>
+
+        
+    </div>
+    
+
+</body>
+
+</html>
