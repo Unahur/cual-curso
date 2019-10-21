@@ -9,5 +9,5 @@ $horasC = $_POST['horasC'];
 if($materia === '' || $descripcion=== ''|| $duracion=== ''|| $horasT=== ''|| $horasC=== ''){
     echo json_encode('error');
 }else{
-    echo json_encode('Correcto: <br>Materia:'.$materia.'<br>Descripcion:'.$descripcion.'<br>Duracion:'.$duracion.'<br>Horas Totales:'.$horasT'<br>Horas Cursadas:'.$horasC);
+    echo json_encode('Correcto: <br>Materia:'.$materia.'<br>Descripcion:'.$descripcion.'<br>Duracion:'.$duracion.'<br>Horas Totales:'.$horasT.'<br>Horas Cursadas:'.$horasC);
 }
