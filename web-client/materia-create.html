@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="styles/Materia.css">
+    <title>Crear materia</title>
+    <script src="javascript/materia-create.js"></script>
+</head>
+<body>
+    <div class="contenedor2">
+        <div class="row-fluid">
+            <img class="logo-Unahur" type="img" src="images/logo-transparente.png">
+        </div>
+    </div>
+    <div class="contenedor3">
+            <header class="header">
+            </header>
+    </div>
+    <div class="contenedor4">
+        <div class="titulo">Creacion de materia</div>
+    </div>
+	<form class="contenedor" id="materia">
+		<div class="contenido">
+            <div class="subtitulo">Datos de la materia</div>
+            <div class="texto">Nombre de materia(*)</div>
+            <input class="input" name="materia" type="text">
+            <div class="texto">Descripcion de materia(*)</div>
+            <textarea class="input" name="descripcion" cols="19" rows="3"></textarea>
+            <div class= "texto">Duracion(*)</div>
+            <input class="input" name="duracion" type="number">
+            <div class="texto">Horas totales(*)</div>
+            <input class="input" name="horasT" type="number">
+            <div class="texto">Horas por clases(*)</div>
+            <input class="input" name="horasC" type="number">
+        </div>
+		<aside class="sidebar">
+		</aside>
+		<footer class="footer">
+            <input class="buttom" type="submit" value="Aceptar">
+		</footer>
+    </form>
+    <div class="mt-3" id="respuesta"></div>
+</body>
+</html>
