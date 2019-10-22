@@ -5,7 +5,7 @@ var models = require("../models");
 router.get("/", (req, res) => {
     models.estudiantes
         .findAll({
-            attributes: ["dni", "nombre_apellido"]
+            attributes: ["id", "dni", "nombre_apellido"]
         })
         .then(estudiantes => res.send(estudiantes))
         .catch(() => res.sendStatus(500));
@@ -18,47 +18,51 @@ router.post("/", (req, res) => {
         .catch(() => res.sendStatus(500));
 });
 
-const findestudiante = (dni, { onSuccess, onNotFound, onError }) => {
+const findestudiante = (id, { onSuccess, onNotFound, onError }) => {
+    console.log("------------------mi id", id)
     models.estudiantes
         .findOne({
-            attributes: ["dni", "nombre_apellido"],
-            where: { dni }
+            attributes: ["id", "dni", "nombre_apellido"],
+            where: { id }
         })
         .then(estudiantes => (estudiantes ? onSuccess(estudiantes) : onNotFound()))
         .catch(() => onError());
 };
 
-router.get("/:dni", (req, res) => {
-    findestudiante(req.params.dni, {
+router.get("/:id", (req, res) => {
+    findestudiante(req.params.id, {
         onSuccess: estudiantes => res.send(estudiantes),
         onNotFound: () => res.sendStatus(404),
         onError: () => res.sendStatus(500)
     });
 });
 
-router.put("/:dni", (req, res) => {
+router.put("/:id", (req, res) => {
     const onSuccess = estudiantes =>
         estudiantes
         .update({ dni: req.body.dni, nombre_apellido: req.body.nombre_apellido }, { fields: ["dni","nombre_apellido"] })
         .then(() => res.sendStatus(200))
         .catch(() => res.sendStatus(500));
-    findestudiante(req.params.dni, {
+    findestudiante(req.params.id, {
         onSuccess,
         onNotFound: () => res.sendStatus(404),
         onError: () => res.sendStatus(500)
     });
 });
 
-router.delete("/:dni", (req, res) => {
-    const onSuccess = estudiantes =>
+router.delete("/:id", (req, res) => {
+    const onSuccess = estudiantes => 
         estudiantes
         .destroy()
         .then(() => res.sendStatus(200))
-        .catch(() => res.sendStatus(500));
-    findestudiante(req.params.dni, {
+        .catch(error => {
+            console.log("-------------------error", error)
+            res.sendStatus(500)});
+    
+    findestudiante(req.params.id, {
         onSuccess,
         onNotFound: () => res.sendStatus(404),
-        onError: () => res.sendStatus(500)
+        onError: () => res.sendStatus(200)
     });
 });
 
