@@ -170,7 +170,7 @@ show tables;
 Averiguar la estructura de una tabla:
 
 ```sql
-desc examples;
+desc carreras;
 ```
 
 Ejecutar una query:
