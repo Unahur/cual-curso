@@ -7,8 +7,8 @@ module.exports = (sequelize, DataTypes) => {
     totalHours: DataTypes.INTEGER
   }, {});
   materia.associate = function(models) {
-    materia.belongTo(models.correlativa)
-    // associations can be defined here
+ /*    materia.belongTo(models.correlativa)
+    // associations can be defined here */
   };
   return materia;
 };
