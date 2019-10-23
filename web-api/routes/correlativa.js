@@ -5,7 +5,7 @@ var models = require("../models");
 router.get("/",(req,res)=>{
     models.correlativa
     .findAll({
-        attributes:["id","id_materia"]
+        attributes:["id_materia_correlativa","id_materia"]
     })
     .then(correlativas=>res.send(correlativas))
     .catch(()=>res.sendStatus(500));
@@ -21,7 +21,7 @@ router.post("/",(req,res)=>{
 const findCorrelativa = (id,{onSuccess,onNotFound,onError})=>{
     models.correlativa
     .findOne({
-    attributes:["id","id_materia"],
+    attributes:["id_materia_correlativa","id_materia"],
     where:{ id }
     })
     .then(correlativa => (correlativa ? onSuccess(correlativa):onNotFound()))

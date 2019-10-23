@@ -2,7 +2,6 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-
     return queryInterface.addColumn(
       'correlativa', 
       'id_materia',  
@@ -18,12 +17,12 @@ module.exports = {
     )
       .then(() => {
         return queryInterface.addColumn(
-          'materia', 
-          'id_correlativa', 
+          'correlativa', 
+          'id_materia_correlativa', 
           {
             type: Sequelize.UUID,
             references: {
-              model: 'correlativa', 
+              model: 'materia', 
               key: 'id',
             },
             onUpdate: 'CASCADE',
@@ -40,8 +39,8 @@ module.exports = {
       )
       .then(() => {
         return queryInterface.removeColumn(
-          'materia', 
-          'id_correlativa' 
+          'correlativa', 
+          'id_materia_correlativa' 
         );
       })
       
