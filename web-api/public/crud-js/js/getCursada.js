@@ -1,3 +1,5 @@
+// Traer y mostrar Cursadas
+
 function traerDatos(){
 
     url = 'http://localhost:8084/cursadas';
@@ -15,7 +17,7 @@ function traerDatos(){
                 salida["id"] = data[i].id; // Capturo el id 
                 salida["descripcion"] = data[i].descripcion;
                 salida["nombre"] = data[i].nombre;
-                console.log("-----------------",data[i].descripcion);
+                
                 insertNewData(salida)
             }
         });
@@ -38,7 +40,8 @@ function insertNewData(data) {
 
 }
 
-// ---------------------------------------------------
+// ---------------------------------------------------^
+// Editar cursada
 
 const ocultarCursadas = () => {
     document.getElementById("divCursadas").style.display = "none";
@@ -53,14 +56,13 @@ function readForm() {
     return formData;
 }
 
-function save(id) {
+function edit(id) {
     event.preventDefault();
-    
     const recargar = () => {
         location.reload();
     }
-
     var formData = readForm();
+    
     const request = new Request(`http://localhost:8084/cursadas/${id}`,
         { method: 'PUT', 
             headers: {
@@ -72,9 +74,7 @@ function save(id) {
     fetch(request)
         .then(response => {
             if (response.status === 201) {
-               
                return response.json();
-               
             } else {
                 throw new Error('Something went wrong on api server!');
             }
@@ -96,7 +96,7 @@ function onEdit(id) {
     descripcion.setAttribute("type","text");
     descripcion.setAttribute("id","inputDescripcion");
     
-    var button = `<a class="btn-table" onclick="save(${id})">Editar</a>`
+    var button = `<a id="btn-form" onclick="edit(${id})">Editar</a>`
 
     url = `http://localhost:8084/cursadas/${id}`;
     fetch(url, {
@@ -114,6 +114,7 @@ function onEdit(id) {
         });
 }
 
+// Elimina Cursada y refresca cambios
 function onDelete(id) {
     url = `http://localhost:8084/cursadas/${id}`;
     
