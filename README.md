@@ -2,24 +2,38 @@
 
 Sugerencias de cursadas en función de las materias aprobadas
 
-## Cloná el repo y entrá a su directorio
+## Primeros pasos
+
+### Cloná el repo y entrá a su directorio
 
 ```bash
 git clone https://github.com/Unahur/cual-curso.git
 cd cual-curso
 ```
 
-## Levantá los servidores
+### Realizá el setup incial
 
-Para eso, corré:
+```bash
+sudo ./dev-setup.sh
+```
+
+### Levantá todos los servicios
 
 ```bash
 sudo docker-compose up
 ```
 
-## Estructura de directorios
+### Bajá todos los servicios
+
+```bash
+sudo docker-compose down
+```
+
+## Servicios disponibles
 
 ### WEB API
+
+Acceso web: <http://localhost:3001/>
 
 Se trata de un servidor web `Express.js` con ORM `Sequelize` que se conecta a una base de datos `MariaDB`.
 
@@ -31,86 +45,176 @@ El directorio raíz de este servidor es `web-api`, y contiene los archivos y las
 
 ### WEB CLIENT
 
+Acceso web: <http://localhost:81/>
+
 Se trata de un servidor web `NGINX` que sirve archivos de manera estática. Esto quiere decir que su única función es dejar a disposición del browser del usuario final los archivos solicitados, y que las respuestas ofrecidas a sus clientes dependerán exclusivamente del recurso solicitado.
 
-Dicho servidor será el soporte que usaremos para desarrollar el cliente web que constituirá la parte **front end** de nuestra aplicación.
+Dicho servidor es el soporte que usaremos para desarrollar la primera iteración de la parte **front end** de nuestra aplicación.
 
 El código que reside en este servidor se ejecuta en el browser, que constituirá por un lado el cliente de este servidor estático y por otro lado el cliente de nuestra API.
 
-El directorio raíz de este servidor es `web-client`, y contiene los archivos y las carpetas donde realizaremos las tareas destinadas a la materia `Construcción de interfaces de usuario`.
+El directorio raíz de este servidor es `web-client`. En esta carpeta realizaremos tareas destinadas a la materia `Construcción de interfaces de usuario`.
 
-## Acceso al cliente web
+### WEB SPA
 
-Local: <http://localhost:8083>
+Acceso web: <http://localhost:3002/>
 
-Público: <http://localhost:4043>
+Servidor web que sirve la aplicación SPA (single page application) `React` que usaremos para desarrollar la segunda iteración de la parte **front end** de nuestra aplicación.
 
-## Acceso a la API
+Al igual que `web-client`, el código que reside en este servidor se ejecuta en el browser, cumpliendo el rol de cliente de nuestra API.
 
-Local: <http://localhost:8084>
+El directorio raíz de este servidor es `web-spa`. En esta carpeta realizaremos tareas destinadas a la materia `Construcción de interfaces de usuario`.
 
-Público: <http://localhost:4044>
+### DB
 
-## Probá la API
+No tiene acceso web. Podés acceder a la DB utilizando el servicio Adminer o por línea de comandos.
 
-Obtené la URL pública de tu API acá: <http://localhost:4044>
+Se trata un servidor dedicado a dar soporte a nuestro motor de bases de datos.
 
-Ingresala acá: <https://reqbin.com/>
-
-### Creá un nuevo ejemplo
-
-POST `<mi url pública>/examples`
-
-- content: `{"name": "<un nombre que me guste>"}`
-
-### Listá todos los ejemplos existentes
-
-GET `<mi url pública>/examples` -> lista todos los ejemplos
-
-### Obtené la información de un ejemplo específdico
-
-GET `<mi url pública>/examples/<id de mi ejemplo>`
-
-### Actualizá un ejemplo específico
-
-PUT `<mi url pública>/examples/<id de mi ejemplo>`
-
-- content: `{"name": "<otro nombre que te guste>"}`
-
-### Eliminá un ejemplo específico
-
-DELETE `<mi url pública>/examples/<id de mi ejemplo>`
-
-## Acceso a la base de datos
+Las credenciales de conexión de nuestra base de datos son:
 
 - Username: `root`
-- Password: `example`
+- Password: `mi-pass`
 - Database: `cual_curso`
 
-Local: <http://localhost:8086>
+### ADMINER
 
-Público: <http://localhost:4046>
+Acceso web: <http://localhost:8081/>
 
-Por línea de comandos
+Se trata de un servidor web dedicado a la administración de nuestro servicio de DB
+
+## Manejo básico de estos servicios
+
+### Podés levantar cada servicio por separado
+
+DB:
 
 ```bash
-sudo docker-compose run --rm db-cli mysql --host=db --user=root --password=example --database=cual_curso
+sudo docker-compose up db
 ```
 
-## Listá los comandos de Sequelize disponibles
+Web Api (levanta también la DB):
 
 ```bash
-sudo docker-compose run --rm web-api node_modules/.bin/sequelize
+sudo docker-compose up web-api
 ```
 
-## Bajá los servidores
-
-En la solapa donde están corriendo los servidores
-
-Presioná `Ctrl + c`
-
-Esperá a que terminen de bajar los servicios y luego corré
+Adminer (levanta también la DB):
 
 ```bash
-sudo docker-compose down
+sudo docker-compose up adminer
+```
+
+Web Client:
+
+```bash
+sudo docker-compose up web-client
+```
+
+Web SPA:
+
+```bash
+sudo docker-compose up web-spa
+```
+
+### Podés ingresar a un servidor por línea de comandos
+
+Con el servicio correpondiente corriendo, ingresá al servidor.
+
+Web Api:
+
+```bash
+sudo docker-compose exec web-api bash
+```
+
+Web Client:
+
+```bash
+sudo docker-compose exec web-client bash
+```
+
+DB:
+
+```bash
+sudo docker-compose exec db bash
+```
+
+### Podés acceder a la DB por línea de comandos
+
+Con el servicio DB corriendo, desde otra terminal, ingresá al servidor
+
+```bash
+sudo docker-compose exec db bash
+```
+
+Conectate a la DB
+
+```bash
+mysql -p --database=cual_curso
+```
+
+#### Algunas cosas que podés hacer desde la terminal
+
+Pedir ayuda:
+
+```sql
+help
+```
+
+Averiguar las tablas que tiene la DB:
+
+```sql
+show tables;
+```
+
+Averiguar la estructura de una tabla:
+
+```sql
+desc carreras;
+```
+
+Ejecutar una query:
+
+```sql
+SELECT 'soy el resultado de una query';
+```
+
+### Podés usar el cliente de Sequelize
+
+Con la API corriendo, desde otra terminal, ingresá al servidor
+
+```bash
+sudo docker-compose exec web-api bash
+```
+
+Creá un alias para tu comodidad
+
+```bash
+alias sequelize=node_modules/.bin/sequelize
+```
+
+#### Algunos comandos que te pueden servir
+
+Pedir ayuda:
+
+```bash
+sequelize --help
+```
+
+Correr las migraciones pendientes:
+
+```bash
+sequelize db:migrate
+```
+
+Generar un modelo:
+
+```bash
+sequelize model:generate
+```
+
+Generar una migración:
+
+```bash
+sequelize migration:generate
 ```
