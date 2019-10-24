@@ -5,29 +5,26 @@ var models = require("../models");
 router.get("/", (req, res) => {
   models.docente
     .findAll({
-      attributes: ["id", "nombre", "apellido", "dni", "sexo", "fechaNacimiento"]
+      attributes: ["id", "nombre", "apellido", "dni", "sexo"]
     })
     .then(docentes => res.send(docentes))
     .catch(() => res.sendStatus(500));
 });
 
 router.post("/", (req, res) => {
-  console.log("--------------nombre", req.body.nombre)
   models.docente
     .create({ 
       nombre: req.body.nombre,
       apellido: req.body.apellido,
       dni: req.body.dni,
-      sexo: req.body.sexo,
-      fechaNacimiento: req.body.fechaNacimiento
+      sexo: req.body.sexo
        })
     .then(docente => res.status(201).send({ 
       id: docente.id, 
       nombre: docente.nombre,
       apellido: docente.apellido, 
       dni: docente.dni,
-      sexo: docente.sexo,
-      fechaNacimiento: docente.fechaNacimiento
+      sexo: docente.sexo
        }))
     .catch(() => res.sendStatus(500));
 });
@@ -35,7 +32,7 @@ router.post("/", (req, res) => {
 const findDocente = (id, { onSuccess, onNotFound, onError }) => {
   models.docente
     .findOne({
-      attributes: ["id", "nombre", "apellido", "dni", "sexo", "fechaNacimiento"],
+      attributes: ["id", "nombre", "apellido", "dni", "sexo"],
       where: { id }
     })
     .then(docente => (docente ? onSuccess(docente) : onNotFound()))
