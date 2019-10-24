@@ -49,17 +49,21 @@
               <!-- Modal Content -->
               <form class="modal-content animate" id="buscarPersona">
                   <div class="container">
-                  <label for="uname"><b>Nombre y Apellido</b></label>
+                 <!--
+                    <label for="uname"><b>Nombre y Apellido</b></label>
                   <input type="text" placeholder="Nombre y Apellido" name="nombre_apellido" >
                   <button id= "buscar" class="boton" type="submit">
                         Buscar</button>
+                  
                   <br>
                   <br>
+                  
                   <label for="uname"><b>Numero de DNI</b></label>
                   <input type="text" placeholder="DNI" name="dni">
                                   
-                  <button id= "buscar" class="boton" type="submit">
+                  <button id= "buscarDni" class="boton" type="click">
                         Buscar</button>
+                  -->
                   </div>
             
             </form>
@@ -69,10 +73,10 @@
             <form id="f_1" action="#" onsubmit="return false;" class="form">
                     <h3 class="toggle">Datos Personales</h3>
                     <label>Nombre y Apellido:   </label>
-                    <label><input type="text" name="nombre_apellido" placeholder="Nombre y Apellido" required> </label>
+                    <label><input type="text" name="nombre_apellido" placeholder="Nombre y Apellido" id="nombre_apellido" required> </label>
                     <br>
                     <br>
-                    <label>Numero de documento:  <input type="number" name="dni" placeholder="Numero DNI" required></label><br>
+                    <label>Numero de documento:  <input type="number" name="dni" placeholder="Numero DNI" id="dni" required></label><br>
                     
                 </form>
                 <br>
@@ -86,7 +90,85 @@
 
         
     </div>
+
+    <!-- Prueba  -->
+
+    <div>
+
+        <label for="uname"><b>Numero de DNI</b></label>
+                  <input type="text" placeholder="DNI" name="dni" id="dniIngresado">
+                                  
+                  <button id= "buscarDni" class="boton" type="click">
+                        Buscar</button>
+
+
+
+                        <script>
+                                var url = 'http://localhost:3001/estudiantes';
+                        //var formulario = document.getElementById('buscarPersona');
+                        //var persona = document.getElementsByClassName('modal-content');
+                    
+                        document.getElementById('buscarDni').addEventListener('click', function(){
+                            console.log(" Entro al evento ");
+                       
+                        fetch(url, 
+                            {
+                                method: 'GET' 
+                            }
+                            ).then(res => res.json())
+                           .then(dato => formatearDato(dato)) 
+                           .catch(error => console.error('Error:', error))
+                           .then(response => console.log('Success:', response));
+                    //      .then(document.getElementById('creacionEstudiante').reset());
+                        });
+                    
+                        function formatearDato(dato) {
+                            var forDni = document.getElementById('dniIngresado').value;
+                            
+                            for(var i =0 ;i<dato.length;i++){ 
+                                if(forDni==dato[i].dni){
+                                    document.getElementById('nombre_apellido').value=dato[i].nombre_apellido;
+                                    document.getElementById('dni').value=dato[i].dni;
+                                }
+                            }
+
+
+
+
+                            /// hace un set elemnt
+/*
+
+                            const addNavEstudiante = (estudiantes) => {
+    const aEstudiante = document.createElement('a');
+    aEstudiante.setAttribute('id', estudiantes.id);
+    aEstudiante.setAttribute('dni', estudiantes.dni);
+                            aEstudiante.innerText = estudiantes.nombre_apellido;
+                            const buscar = document.getElementsByClassName('buscar')[0];
+                            buscar.appendChild(aEstudiante);
+                            aEstudiante.addEventListener('submit', getEstudiantesXDni)
+                            }
+
+*/
+
+
+
+
+
+                        }
+                    
+                    
+                        </script>
+
+
+
+
+
+
+    </div>
+
     
+  
+
 
 </body>
 

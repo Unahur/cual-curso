@@ -6,7 +6,7 @@ var models = require("../models");
 router.get("/", (req, res) => {
   models.estudiante
     .findAll({
-      attributes: ["dni", "nombre_apellido"]
+      attributes: ["id", "dni", "nombre_apellido"]
     })
     .then(estudiante => res.send(estudiante))
     .catch(() => res.sendStatus(500));
