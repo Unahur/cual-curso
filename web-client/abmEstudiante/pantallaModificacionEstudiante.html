@@ -3,26 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/abmEstudiante.css" type="text/css">
-    <link rel="stylesheet" href="https://servicios.unahur.edu.ar/unahur3w/_comp/unahur/img/logo-transparente.png" type="img/jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link type="text/css" rel="stylesheet" href="./styles/abmEstudiante.css" />
+    <link rel="stylesheet" href="https://servicios.unahur.edu.ar/unahur3w/_comp/unahur/img/logo-transparente.png" type="img/jpg"/>
     <title>Estudiantes</title>
     <script src="./js/modificarEstudiante.js" ></script>
     <script src="./js/app_estudianta_buscar.js" ></script>
-<!--
-    <script>
-            // Get the modal
-            var modal = document.getElementById('id01');
-            
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function(event) {
-              if (event.target == modal) {
-                modal.style.display = "none";
-              }
-            }
-            </script> 
-        -->
+
 </head>
 <body>
     <div>
@@ -75,8 +63,9 @@
                     <label><input type="text" name="nombre_apellido" placeholder="Nombre y Apellido" id="nombre_apellido" required> </label>
                     <br>
                     <br>
-                    <label>Numero de documento:  <input type="number" name="dni" placeholder="Numero DNI" id="dni" required></label><br>
-                    
+                    <label>Numero de documento:  <input type="number" name="dni" placeholder="Numero DNI" id="dni" required></label>
+                    <br>
+                    <input type="hidden" id="hiddenId">
                 </form>
                 <br>
     <div class="botones">
@@ -92,17 +81,11 @@
 
     <!-- Prueba  -->
 
-    <div>
-
-        <label for="uname"><b>Numero de DNI</b></label>
+      <div>
+          <label for="uname"><b>Numero de DNI</b></label>
                   <input type="text" placeholder="DNI" name="dni" id="dniIngresado">
-                                  
-                  <button id= "buscarDni" class="boton" type="click">
-                        Buscar</button>
-
-
-
-                        <script>
+                  <button id= "buscarDni" class="boton" type="click"> Buscar</button>
+             <script>
                                 var url = 'http://localhost:3001/estudiantes';
                         //var formulario = document.getElementById('buscarPersona');
                         //var persona = document.getElementsByClassName('modal-content');
@@ -128,36 +111,14 @@
                                 if(forDni==dato[i].dni){
                                     document.getElementById('nombre_apellido').value=dato[i].nombre_apellido;
                                     document.getElementById('dni').value=dato[i].dni;
+                                    document.getElementById('hiddenId').value=dato[i].id;
                                 }
                             }
-                            /// hace un set elemnt
-/*
-                            const addNavEstudiante = (estudiantes) => {
-    const aEstudiante = document.createElement('a');
-    aEstudiante.setAttribute('id', estudiantes.id);
-    aEstudiante.setAttribute('dni', estudiantes.dni);
-                            aEstudiante.innerText = estudiantes.nombre_apellido;
-                            const buscar = document.getElementsByClassName('buscar')[0];
-                            buscar.appendChild(aEstudiante);
-                            aEstudiante.addEventListener('submit', getEstudiantesXDni)
-                            }
-*/
+                           
                         }
-                    
-                    
-                        </script>
+         </script>
 
-
-
-
-
-
-    </div>
-
-    
-  
-
-
-</body>
+       </div>
+  </body>
 
 </html>

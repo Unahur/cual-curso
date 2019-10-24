@@ -1,4 +1,5 @@
 var url = 'http://localhost:3001/estudiantes';
+
     //var formulario = document.getElementById('buscarPersona');
     //var persona = document.getElementsByClassName('modal-content');
 
