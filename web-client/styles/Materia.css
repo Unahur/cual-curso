@@ -21,6 +21,11 @@ body {
                          "sidebar contenido contenido contenido"
                          "footer footer footer footer";
 }
+.contenedor-abm {
+    grid-template-areas: "contenido contenido contenido contenido"
+    "contenido contenido contenido contenido"
+    "footer footer footer footer";
+}
 .row-fluid{
     width: 90%;
     margin: 0px auto;
@@ -67,7 +72,7 @@ body {
 .contenedor > div,
 .contenedor .contenido,
 .contenedor .sidebar,
-.contenedor .footer{
+.contenedor .footer{ 
 	background: #fff;
 	padding: 20px;
 	border-radius: 4px;
@@ -75,13 +80,34 @@ body {
 
 .contenedor3 > div,
 .contenedor3 .header{
-	background-image: -webkit-linear-gradient(top, #fff, rgb(218, 219, 221));
-	padding: 20px;    
+	background-image: -webkit-linear-gradient(top, #fff, rgb(218, 219, 221));   
 }
 
 .contenedor3 .header {
 	color: #fff;
 	grid-area: header;
+}
+.header ul {
+    list-style-type: none;
+    padding: 0px 0px 0px 100px;
+}
+  
+.header  li {
+    float: left;
+    border-right: 2px solid #bbb;
+    padding: 13px;
+}
+  
+.header li a {
+    color: rgb(70, 70, 70);
+    text-align: center;
+    padding: 13px;
+    text-decoration: none;
+}
+  
+
+.header li a:hover {
+    background-image: -webkit-linear-gradient(top, rgb(218, 219, 221), #FFF);
 }
 .contenedor4 > div,
 .contenedor4 .titulo{
@@ -128,6 +154,7 @@ body {
 .input{
     border: rgb(207, 207, 207) 1px solid;
     font-size: 18px;
+    margin: 3px;
     border-radius: 6px;
     font-family: inherit;
 }
@@ -143,11 +170,98 @@ body {
 .buttom:hover{
     background-image: -webkit-linear-gradient(top, rgb(109, 186, 224), #08c);
 }
+.table {
+    width:100%;
+    border: rgb(207, 207, 207) 1px solid;
+    font-size: 15px;
+    margin: 3px;
+    border-radius: 6px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+thead {
+    font-size: 15px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #fff;
+    margin: 0px;
+    max-height: 100px;
+    border-radius: 6px;
+    padding: 8px 13px;
+}
+tbody{
+    margin: 0px;
+    border-radius: 6px;
+    max-height: 100px;
+    padding: 8px 13px;
+}
+th{
+    border: rgb(207, 207, 207) 1px solid;
+    background-image: -webkit-linear-gradient(top, #08c, rgb(109, 186, 224));
+    margin: 0px;
+    border-radius: 6px;
+    max-height: 100px;
+    padding: 8px 13px;
+}
+
+td { 
+    border: rgb(207, 207, 207) 1px solid;
+    background-image: -webkit-linear-gradient(top, #fff, rgb(218, 219, 221));
+    margin: 0px;
+    text-align: center;
+    border-radius: 6px;
+    max-height: 100px;
+    padding: 8px 13px;
+}
+.input-edit{
+    margin: 6px;
+}
+.buttom-tabla{
+    padding: 1px 1px;
+    margin: 5px;
+    border: rgb(26, 99, 99) 1px solid;
+}
 
 @media screen and (max-width: 768px){
 	.contenedor {
 		grid-template-areas: "sidebar sidebar sidebar sidebar"
-                         "contenido contenido contenido contenido"
-                         "footer footer footer footer";
-	}
+                             "contenido contenido contenido contenido"
+                             "footer footer footer footer";
+    }
+ 
+    table {
+        width:100%;
+    }
+    thead {
+        display: none;
+    }
+    tr:nth-of-type(2n) {
+        background-color: inherit;
+    }
+    tr td:first-child {
+        background-image: -webkit-linear-gradient(top, #fff, rgb(218, 219, 221));
+        border: rgb(207, 207, 207) 1px solid;
+        font-weight:bold;
+        font-size:1.3em;
+        
+    }
+    tbody td {
+        display: block;
+        text-align:center;
+        border: rgb(207, 207, 207) 1px solid;
+        border-radius: 6px;
+    }
+    tbody td:before {
+        float: left;
+		text-transform: uppercase;
+        font-size: 15px;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        border: rgb(26, 99, 99) 2px solid;
+        background-image: -webkit-linear-gradient(top, #08c, rgb(109, 186, 224));
+        border-radius: 3px;
+        color: #ffffff;
+    }
+    td:nth-of-type(1):before { content: "Materia: "; }
+	td:nth-of-type(2):before { content: "Descripcion: "; }
+	td:nth-of-type(3):before { content: "Duracion: "; }
+	td:nth-of-type(4):before { content: "Horas Totales: "; }
+    td:nth-of-type(5):before { content: "Opciones: "; }
 }

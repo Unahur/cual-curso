@@ -2,38 +2,50 @@ console.log("funciona")
 window.onload=function(){
 
 var materia = document.getElementById('materia');
-var respuesta = document.getElementById('respuesta')
 
 materia.addEventListener('submit', function(e){
     e.preventDefault();
-    console.log("click")
-    var datos = new FormData(materia);
-    console.log(datos.get('materia'))
-    console.log(datos.get('descripcion'))
-    console.log(datos.get('duracion'))
-    console.log(datos.get('horasT'))
-    console.log(datos.get('horasC'))
+    console.log("click");
+    var formData = readForm();
+    const request = new Request('https://localhost:3001/materia',
+        { method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json'
+            },
+                body: JSON.stringify(formData)
+        });
 
-    fetch('/post.php',{
-        method: 'POST',
-        body: datos
-    })
-        .then( res => res.json())
-        .then( data => {
-            console.log(data)
-            if(data === 'error'){
-                respuesta.innerHTML = `
-                <div class="alert alert-danger" role="alert">
-                    Llena todos los campos
-                </div>
-                `
-            }else{
-                respuesta.innerHTML = `
-                <div class="alert alert-primary" role="alert">
-                    ${data}
-                </div>
-                `
+    fetch(request)
+        .then(response => {
+            if (response.status === 201) {
+               
+               return response.json();
+            } else {
+                throw new Error('Something went wrong on api server!');
             }
         })
-    }
-)}
+        .then(response => {
+            console.debug(response);
+        }).catch(error => {
+            console.error(error);
+        });
+    
+    resetForm();
+})}
+function readForm() {
+    var formData = {};
+
+    formData["nombreMateria"] = document.getElementById('nombreMateria').value;
+    formData["descripcion"] = document.getElementById('descripcion').value;
+    formData["duracion"] = document.getElementById('duracion').value;
+    formData["horasT"] = document.getElementById('horasT').value;
+    return formData;
+}
+
+function resetForm() {
+    document.getElementById('nombreMateria').value = "";
+    document.getElementById('descripcion').value = "";
+    document.getElementById('duracion').value = "";
+    document.getElementById('horasT').value = "";
+}
+

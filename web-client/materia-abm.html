@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="styles/Materia.css">
+        <script src="javascript/materia-abm.js"></script>
+        <title>Materias</title>
+    </head>
+    <body onload="getMethod()">
+        <div class="contenedor2">
+            <div class="row-fluid">
+                <img class="logo-Unahur" type="img" src="images/logo-transparente.png">
+            </div>
+        </div>
+        <div class="contenedor3">
+                <header class="header">
+                        <ul>
+                            <li><a href="materia-create.html">Crear</a></li>
+                            <li><a href="materia-abm.html">Materias</a></li>
+                        </ul>
+                </header>
+        </div>
+        <div class="contenedor4">
+            <div class="titulo">Buscar Materia</div>
+        </div>
+	    <div class="contenedor">
+		    <div class="contenido" id="contenido" >
+                <div id="divMaterias">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" data-th="Nombre">Nombre</th>
+                                <th scope="col" data-th="Descripcion">Descripcion</th>
+                                <th scope="col" data-th="Duracion">Duracion</th>
+                                <th scope="col" data-th="Horas Totales">Horas Totales</th>
+                                <th scope="col" data-th="Opciones">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <aside class="sidebar">
+                    <input class="input" type="search">
+                    <div id="editMateria"></div>
+                </aside>
+		    <footer class="footer">
+                <button class="buttom" onclick="ocultarMaterias()">Ocultar/Mostrar</button>
+		    </footer>
+        </div>
+    </body>
+</html>
