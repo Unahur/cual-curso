@@ -7,7 +7,7 @@ docker-compose up -d db
 echo '-------------------------------------------------------'
 echo 'Esperando a que el servicio de mysql inicie...'
 echo '-------------------------------------------------------'
-sek=20
+sek=120
 while [ $sek -ge 1 ]
 do
    echo -ne "Faltan $sek segundos... \r"
