@@ -1,24 +1,36 @@
 const url = 'http://localhost:3001/aulas';
-const containerList=document.querySelector('#listaO');
+const containerList = document.querySelector('#listaU');
 
-const listarAula = () =>{
-
-   
-
+const listarAula = () => {
     fetch(url, {
-        method: 'GET', // or 'PUT' 
+        method: 'GET',
         headers: {
-              'Content-Type': 'application/json'
+            'Content-Type': 'application/json'
         }
-    }).then(res =>  res.json())
+    })
+    .then(res => res.json())
     .catch(error => console.error('Error:', error))
-    .then(res => res.forEach(e=> {
+    .then(res => res.forEach(e => {
+            containerList.innerHTML += `<li>Edificio: ${e.edificio} N° de aula: ${e.numero_aula+" "}
+            <button onclick="borrarAula(${e.id})">Borrar</button> <a href="#">Modificar</a></li><br>`
 
-     console.log('hola');
- 
-        containerList.innerHTML += `<li>${e}</li>`;
-     
-    }));
+        }));
 
 }
+
+const borrarAula= id =>{
+
+    fetch(url + "/" + id, {
+        method: 'DELETE'
+      }).then(() => {
+         console.log('removed id '+  id)
+         window.location.reload();
+      }).catch(err => {
+        console.error(err)
+      });
+   
+      } ;
+    
+
+
 

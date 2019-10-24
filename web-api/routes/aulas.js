@@ -12,12 +12,14 @@ router.get("/", (req, res) => {
     .catch(() => res.sendStatus(500));
 });
 
+
 router.post("/", (req, res) => {
   models.aula
     .create({ edificio: req.body.edificio, numero_aula: req.body.numero_aula })
     .then(aula => res.status(201).send({ id: aula.id, edificio: aula.edificio, numero_aula: aula.numero_aula }))
     .catch(() => res.sendStatus(500));
 });
+
 
 const findAula= (id, { onSuccess, onNotFound, onError }) => {
   models.aula

@@ -40,12 +40,25 @@ body {
   padding: 0;
   transform: translateX(-50%);
   min-height: 441px;
-  
+  overflow: auto;
+ 
 
 
 
 
+}
 
+ul{
+  list-style-type:none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-left:0;
+
+}
+ul>li{
+  border-bottom: 1px solid black;
+  padding-bottom:10%;
 }
 @media screen and (max-width: 1350px) and (orientation: landscape) {
   
