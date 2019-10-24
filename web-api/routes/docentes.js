@@ -12,9 +12,23 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
+  console.log("--------------nombre", req.body.nombre)
   models.docente
-    .create({ name: req.body.name })
-    .then(docente => res.status(201).send({ id: docente.id }))
+    .create({ 
+      nombre: req.body.nombre,
+      apellido: req.body.apellido,
+      dni: req.body.dni,
+      sexo: req.body.sexo,
+      fechaNacimiento: req.body.fechaNacimiento
+       })
+    .then(docente => res.status(201).send({ 
+      id: docente.id, 
+      nombre: docente.nombre,
+      apellido: docente.apellido, 
+      dni: docente.dni,
+      sexo: docente.sexo,
+      fechaNacimiento: docente.fechaNacimiento
+       }))
     .catch(() => res.sendStatus(500));
 });
 
@@ -39,7 +53,7 @@ router.get("/:id", (req, res) => {
 router.put("/:id", (req, res) => {
   const onSuccess = docente =>
     docente
-      .update({ name: req.body.name }, { fields: ["name"] })
+      .update({ name: req.body.name }, { fields: ["id", "nombre", "apellido", "dni", "sexo", "fechaNacimiento"] })
       .then(() => res.sendStatus(200))
       .catch(() => res.sendStatus(500));
   findDocente(req.params.id, {

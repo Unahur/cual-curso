@@ -20,9 +20,6 @@ module.exports = {
       sexo: {
         type: Sequelize.STRING
       },
-      fechaNacimiento: {
-        type: Sequelize.DATE
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
