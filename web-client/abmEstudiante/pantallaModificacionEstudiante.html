@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="abmEstudiantes.css" type="text/css">
+    <link rel="stylesheet" href="./abmEstudiantes.css" type="text/css">
     <link rel="stylesheet" href="https://servicios.unahur.edu.ar/unahur3w/_comp/unahur/img/logo-transparente.png" type="img/jpg">
     <title>Estudiantes</title>
     <script src="./modificacionEstudiante.js" ></script>
-    <script src="./js/app_estudiante_buscar.js" ></script>
 
+<!--
     <script>
             // Get the modal
             var modal = document.getElementById('id01');
@@ -22,8 +22,7 @@
               }
             }
             </script> 
-
-
+        -->
 </head>
 <body>
     <div>
@@ -39,7 +38,7 @@
             <strong>Podes modificar tus datos o darte de baja del sistema.</strong>
             <br>
     <div>
-            <button onclick="document.getElementById('id01').style.display='block'" id= "buscar" class="boton" >Buscar Estudiante</button>
+            <button onclick="document.getElementById('id01').style.display='block'" id= "buscar" class="botonLargo" >Buscar Estudiante</button>
           
             <!-- The Modal -->
             <div id="id01" class="modal">
@@ -49,15 +48,21 @@
               <!-- Modal Content -->
               <form class="modal-content animate" id="buscarPersona">
                   <div class="container">
-                  <br>
-                  <br>
-                  <label for="uname"><b>Numero de DNI</b></label>
-                  <input type="text" placeholder="DNI" name="dni">
-                  <br>
-                  <br>
-                                  
+                 <!--
+                    <label for="uname"><b>Nombre y Apellido</b></label>
+                  <input type="text" placeholder="Nombre y Apellido" name="nombre_apellido" >
                   <button id= "buscar" class="boton" type="submit">
                         Buscar</button>
+                  
+                  <br>
+                  <br>
+                  
+                  <label for="uname"><b>Numero de DNI</b></label>
+                  <input type="text" placeholder="DNI" name="dni">
+                                  
+                  <button id= "buscarDni" class="boton" type="click">
+                        Buscar</button>
+                  -->
                   </div>
             
             </form>
@@ -67,10 +72,10 @@
             <form id="f_1" action="#" onsubmit="return false;" class="form">
                     <h3 class="toggle">Datos Personales</h3>
                     <label>Nombre y Apellido:   </label>
-                    <label><input type="text" name="nombre_apellido" placeholder="Nombre y Apellido" id="nombreEncontrado"> </label>
+                    <label><input type="text" name="nombre_apellido" placeholder="Nombre y Apellido" id="nombre_apellido" required> </label>
                     <br>
                     <br>
-                    <label>Numero de documento:  <input type="number" name="dni" placeholder="numero DNI" id="dniEncontrado"></label><br>
+                    <label>Numero de documento:  <input type="number" name="dni" placeholder="Numero DNI" id="dni" required></label><br>
                     
                 </form>
                 <br>
@@ -79,12 +84,68 @@
             Modificar</button>
         <button  class="boton" onclick="modificarDatos('f_1',true); ">
             Guardar</button> 
-        <button id= "baja" class="boton" onclick="alerta()">
+        <button id= "baja" class="botonLargo" onclick="alerta()">
             Dar de Baja</button>
 
         
     </div>
+
+    <!-- Prueba  -->
+
+    <div>
+
+        <label for="uname"><b>Numero de DNI</b></label>
+                  <input type="text" placeholder="DNI" name="dni" id="dniIngresado">
+                                  
+                  <button id= "buscarDni" class="boton" type="click">
+                        Buscar</button>
+
+
+
+                        <script>
+                                var url = 'http://localhost:3001/estudiantes';
+                        //var formulario = document.getElementById('buscarPersona');
+                        //var persona = document.getElementsByClassName('modal-content');
+                    
+                        document.getElementById('buscarDni').addEventListener('click', function(){
+                            console.log(" Entro al evento ");
+                       
+                        fetch(url, 
+                            {
+                                method: 'GET' 
+                            }
+                            ).then(res => res.json())
+                           .then(dato => formatearDato(dato)) 
+                           .catch(error => console.error('Error:', error))
+                           .then(response => console.log('Success:', response))
+                           .then(document.getElementById('creacionEstudiante').reset());
+                        });
+                    
+                        function formatearDato(dato) {
+                            var forDni = document.getElementById('dniIngresado').value;
+                            
+                            for(var i =0 ;i<dato.length;i++){ 
+                                if(forDni==dato[i].dni){
+                                    document.getElementById('nombre_apellido').value=dato[i].nombre_apellido;
+                                    document.getElementById('dni').value=dato[i].dni;
+                                }
+                            }
+
+                        }
+                    
+                    
+                        </script>
+
+
+
+
+
+
+    </div>
+
     
+  
+
 
 </body>
 
