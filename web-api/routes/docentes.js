@@ -50,7 +50,12 @@ router.get("/:id", (req, res) => {
 router.put("/:id", (req, res) => {
   const onSuccess = docente =>
     docente
-      .update({ name: req.body.name }, { fields: ["id", "nombre", "apellido", "dni", "sexo", "fechaNacimiento"] })
+      .update({ 
+        nombre: req.body.nombre,
+        apellido: req.body.apellido,
+        dni: req.body.dni,
+        sexo: req.body.sexo
+        }, { fields: ["nombre", "apellido", "dni", "sexo"] })
       .then(() => res.sendStatus(200))
       .catch(() => res.sendStatus(500));
   findDocente(req.params.id, {
