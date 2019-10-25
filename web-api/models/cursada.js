@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     docente: DataTypes.STRING
   }, {});
   cursada.associate = function(models) {
-    // associations can be defined here
+    cursada.belongsTo(models.aula)
   };
   return cursada;
 };

@@ -11,7 +11,7 @@ const listarAula = () => {
     .then(res => res.json())
     .catch(error => console.error('Error:', error))
     .then(res => res.forEach(e => {
-            containerList.innerHTML += `<li>Edificio: ${e.edificio} N° de aula: ${e.numero_aula+" "}
+            containerList.innerHTML += `<li>Edificio: ${e.edificio} N° de aula: ${e.numero_aula+" "}Cursada: ${e.cursada_id} 
             <button onclick="borrarAula(${e.id})">Borrar</button> <a href="#">Modificar</a></li><br>`
 
         }));
@@ -28,8 +28,7 @@ const borrarAula= id =>{
       }).catch(err => {
         console.error(err)
       });
-   
-      } ;
+     } ;
     
 
 

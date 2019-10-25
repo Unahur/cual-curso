@@ -10,7 +10,7 @@
   <title>Crear aula</title>
 </head>
 
-<body>
+<body onLoad="cargarCursadas()">
   <div class="img"><img src="http://unahur.edu.ar/sites/default/files/Hurlingham-logo.png" alt="unahur" height="100px">
   </div>
 
@@ -22,6 +22,11 @@
       <input type="text" class="input" name="edificio" placeholder="Nombre del edificio" required>
     </label>
       <br>
+      <label>Cursadas:
+      <select id="listCursadas"></select>
+      </label>
+      <br>
+      
       <label>Numero de aula:
         <br>
         <input type="number" name="numero_aula" class="input" placeholder="Numero de aula" required>
