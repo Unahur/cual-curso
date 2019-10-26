@@ -8,6 +8,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   docente.associate = function(models) {
     // associations can be defined here
-  };
+    docente.belongsToMany(models.Cursada, {
+      through: 'DocenteCursadas',
+      as: 'Cursada',
+      foreignKey: 'docenteId',
+      otherKey: 'cursadaId'
+    });
   return docente;
-};
+}};

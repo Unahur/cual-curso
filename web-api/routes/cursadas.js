@@ -3,7 +3,7 @@ var router = express.Router();
 var models = require("../models");
 
 router.get("/", (req, res) => {
-  models.cursada
+  models.Cursada
     .findAll({
       attributes: ["id", "nombre"]
     })
@@ -12,38 +12,38 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  models.cursada
+  models.Cursada
     .create({ 
       nombre: req.body.nombre
        })
-    .then(cursada => res.status(201).send({ 
-      id: cursada.id, 
-      nombre: cursada.nombre
+    .then(Cursada => res.status(201).send({ 
+      id: Cursada.id, 
+      nombre: Cursada.nombre
        }))
     .catch(() => res.sendStatus(500));
 });
 
 const findCursada = (id, { onSuccess, onNotFound, onError }) => {
-  models.cursada
+  models.Cursada
     .findOne({
       attributes: ["id", "nombre"],
       where: { id }
     })
-    .then(cursada => (cursada ? onSuccess(cursada) : onNotFound()))
+    .then(Cursada => (Cursada ? onSuccess(Cursada) : onNotFound()))
     .catch(() => onError());
 };
 
 router.get("/:id", (req, res) => {
   findCursada(req.params.id, {
-    onSuccess: cursada => res.send(cursada),
+    onSuccess: Cursada => res.send(Cursada),
     onNotFound: () => res.sendStatus(404),
     onError: () => res.sendStatus(500)
   });
 });
 
 router.put("/:id", (req, res) => {
-  const onSuccess = cursada =>
-    cursada
+  const onSuccess = Cursada =>
+    Cursada
       .update({ 
         nombre: req.body.nombre
         }, { fields: ["nombre"] })
@@ -57,8 +57,8 @@ router.put("/:id", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-  const onSuccess = cursada =>
-    cursada
+  const onSuccess = Cursada =>
+    Cursada
       .destroy()
       .then(() => res.sendStatus(200))
       .catch(() => res.sendStatus(500));
