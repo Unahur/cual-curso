@@ -138,7 +138,6 @@
             console.log(" Entro al evento ");
        
             var data = {
-              //  id: document.getElementById('hiddenId').value,
                 dni: document.getElementById('dni').value,
                 nombre_apellido: document.getElementById('nombre_apellido').value,
             }     
@@ -166,17 +165,18 @@
                     
         document.getElementById('baja').addEventListener('click', function(){
             console.log(" Entro al evento ");
-        
+        /*
             var data = {
                 dni: document.getElementById('dni').value,
                 nombre_apellido: document.getElementById('nombre_apellido').value,
             }     
 
             console.log(data);
+            */
 
             fetch(url + "/" + document.getElementById('hiddenId').value, {
                 method: 'DELETE',
-                body: JSON.stringify(data),
+                body: JSON.stringify(),
                 headers: {
                     'Content-Type': 'application/json'
                 }

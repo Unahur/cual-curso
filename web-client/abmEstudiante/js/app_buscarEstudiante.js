@@ -1,23 +1,22 @@
 var url = 'http://localhost:3001/estudiantes';
-//var formulario = document.getElementById('buscarPersona');
-//var persona = document.getElementsByClassName('modal-content');
                     
 document.getElementById('buscarDni').addEventListener('click', function(){
-   console.log(" Entro al evento ");
+    console.log(" Entro al evento ");
                        
     fetch(url, 
         {
-            method: 'GET' 
+        method: 'GET' 
         }
         ).then(res => res.json())
-         .then(dato => formatearDato(dato)) 
-         .catch(error => console.error('Error:', error))
-         .then(response => console.log('Success:', response));
+            .then(dato => formatearDato(dato)) 
+            .catch(error => console.error('Error:', error))
+            .then(response => console.log('Success:', response));
 });
-                    
+// se encarga de recorrer el json 
 function formatearDato(dato) {
-    var forDni = document.getElementById('dniIngresado').value;
-                            
+    var forDni = document.getElementById('dniIngresado').value; // para guardar el dni que carga el usuario y luego comparar
+    
+    // recorro el json para encontrarlo por dni y poder devolver dichos valores
     for(var i =0 ;i<dato.length;i++){ 
         if(forDni==dato[i].dni){
             document.getElementById('nombre_apellido').value=dato[i].nombre_apellido;
