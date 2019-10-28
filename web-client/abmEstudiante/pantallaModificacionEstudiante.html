@@ -8,23 +8,8 @@
     <link rel="stylesheet" href="./css/abmEstudiante.css" type="text/css">
     <link rel="stylesheet" href="https://servicios.unahur.edu.ar/unahur3w/_comp/unahur/img/logo-transparente.png" type="img/jpg">
     <title>Estudiantes</title>
- <!--   <script src="./js/modificarEstudiante.js" ></script> -->
- <!--   <script src="./js/app_estudianta_buscar.js" ></script> -->
-<!--
-    <script>
-            // Get the modal
-            var modal = document.getElementById('id01');
-            
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function(event) {
-              if (event.target == modal) {
-                modal.style.display = "none";
-              }
-            }
-            </script> 
-
-        -->
 </head>
+
 <body>
     <div>
         <p id="im">
@@ -84,7 +69,7 @@
         <button class="boton" onclick="modificarDatos('f_1',false);" >Modificar</button>
      
         <button  id="guardarModificacion" class="boton" type="click" onclick="modificarDatos('f_1',true); ">Guardar</button> 
-        <button id= "baja" class="boton" type="click" onclick="alerta()">Dar de Baja</button>
+        <button id= "baja" class="boton" type="click" onclick="alerta('f_1',true)">Dar de Baja</button>
     </div>
 
     <!-- Prueba  -->
@@ -95,93 +80,6 @@
         <input type="text" placeholder="DNI" name="dni" id="dniIngresado">
                                   
         <button id= "buscarDni" class="boton" type="click">Buscar</button>
-
-        <!-- Buscar alumnos 
-        
-        <script>
-        var url = 'http://localhost:3001/estudiantes';
-                    
-        document.getElementById('buscarDni').addEventListener('click', function(){
-            console.log(" Entro al evento ");
-                       
-        fetch(url, 
-            {
-             method: 'GET' 
-            }
-            ).then(res => res.json())
-            .then(dato => formatearDato(dato)) 
-            .catch(error => console.error('Error:', error))
-            .then(response => console.log('Success:', response));
-        });
-                    
-        function formatearDato(dato) {
-            var forDni = document.getElementById('dniIngresado').value;
-                            
-            for(var i =0 ;i<dato.length;i++){ 
-                if(forDni==dato[i].dni){
-                    document.getElementById('nombre_apellido').value=dato[i].nombre_apellido;
-                    document.getElementById('dni').value=dato[i].dni;
-                    document.getElementById('hiddenId').value=dato[i].id;
-                }
-            }
-        }         
-                  
-        </script>
-        
-        Modificacion del estudiante por id    
-        
-        <script>
-        var url = 'http://localhost:3001/estudiantes';
-       
-                    
-        document.getElementById('guardarModificacion').addEventListener('click', function(){
-            console.log(" Entro al evento ");
-       
-            var data = {
-                dni: document.getElementById('dni').value,
-                nombre_apellido: document.getElementById('nombre_apellido').value,
-            }     
-
-            console.log(data);
-
-            fetch(url + "/" + document.getElementById('hiddenId').value, {
-                method: 'PUT',
-                body: JSON.stringify(data),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }).then(res => res.json())
-            .catch(error => console.error('Error:', error))
-            .then(response => console.log('Success:', response));
-           
-        });
-        </script>
-
-        Eliminacion de estudiante por ID  
-
-        <script>
-         var url = 'http://localhost:3001/estudiantes';
-       
-                    
-        document.getElementById('baja').addEventListener('click', function(){
-            console.log(" Entro al evento ")
-
-        fetch(url + "/" + document.getElementById('hiddenId').value, {
-            method: 'DELETE',
-            body: JSON.stringify(),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(res => res.json())
-          .catch(error => console.error('Error:', error))
-          .then(response => console.log('Success:', response));
-            
-        });
-        </script>
-
-    -->
-
-
 
     </div>
 

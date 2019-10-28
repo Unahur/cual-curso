@@ -1,6 +1,5 @@
 var url = 'http://localhost:3001/estudiantes';
-       
-                    
+                          
 document.getElementById('botonAgregar').addEventListener('click', function(){
     console.log(" Entro al evento ");
 

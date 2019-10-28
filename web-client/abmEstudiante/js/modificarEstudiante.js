@@ -12,11 +12,11 @@ function modificarDatos(formId, yesNo) {
      {
      var mensaje;
      var opcion = confirm("Deseas dar baja tu usuario? Aceptar o Cancelar");
-     if (opcion == true) {
-         mensaje = "ir a borrado de la api";
-     } else {
-         mensaje = "Dar de Baja";
-     }
+    if (opcion == true) {
+        mensaje = "Dar de Baja";
+    } else {
+        mensaje = "Dar de Baja";
+    } 
      document.getElementById("baja").innerHTML = mensaje;
  };
  
