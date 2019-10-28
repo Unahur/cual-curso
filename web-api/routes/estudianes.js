@@ -42,7 +42,7 @@ router.get("/:id", (req, res) => {
 router.put("/:id", (req, res) => {
   const onSuccess = estudiante =>
     estudiante
-      .update({ id: req.body.id, dni: req.body.dni, nombre_apellido: req.body.nombre_apellido }, { fields: ["id", "dni","nombre_apellido"] })
+      .update({ dni: req.body.dni, nombre_apellido: req.body.nombre_apellido }, { fields: ["dni","nombre_apellido"] })
       .then(() => res.sendStatus(200))
       .catch(() => res.sendStatus(500));
     findEestudiante(req.params.id, {

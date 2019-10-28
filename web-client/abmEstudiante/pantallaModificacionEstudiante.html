@@ -84,7 +84,7 @@
         <button class="boton" onclick="modificarDatos('f_1',false);" >Modificar</button>
      
         <button  id="guardarModificacion" class="boton" type="click" onclick="modificarDatos('f_1',true); ">Guardar</button> 
-        <button id= "baja" class="botonLargo" onclick="alerta()">Dar de Baja</button>
+        <button id= "baja" class="boton" onclick="alerta()">Dar de Baja</button>
     </div>
 
     <!-- Prueba  -->
@@ -96,10 +96,9 @@
                                   
         <button id= "buscarDni" class="boton" type="click">Buscar</button>
 
-
+        <!-- Buscar alumnos -->
         
-        <script> // ------------------------- 1
-        
+        <script>
         var url = 'http://localhost:3001/estudiantes';
                     
         document.getElementById('buscarDni').addEventListener('click', function(){
@@ -129,10 +128,9 @@
                   
         </script>
         
+        <!-- Modificacion del estudiante por id -->    
         
         <script>
-    
-    
         var url = 'http://localhost:3001/estudiantes';
        
                     
@@ -158,13 +156,40 @@
             .then(response => console.log('Success:', response));
            
         });
-    
-       
-        
-        
-        
-        
         </script>
+
+        <!-- Eliminacion de estudiante por ID  -->
+
+        <script>
+         var url = 'http://localhost:3001/estudiantes';
+       
+                    
+        document.getElementById('baja').addEventListener('click', function(){
+            console.log(" Entro al evento ");
+        
+            var data = {
+                dni: document.getElementById('dni').value,
+                nombre_apellido: document.getElementById('nombre_apellido').value,
+            }     
+
+            console.log(data);
+
+            fetch(url + "/" + document.getElementById('hiddenId').value, {
+                method: 'DELETE',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => res.json())
+            .catch(error => console.error('Error:', error))
+            .then(response => console.log('Success:', response));
+            
+        });
+        </script>
+
+
+
+
 
     </div>
 
