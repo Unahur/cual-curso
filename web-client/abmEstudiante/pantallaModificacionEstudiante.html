@@ -84,7 +84,7 @@
         <button class="boton" onclick="modificarDatos('f_1',false);" >Modificar</button>
      
         <button  id="guardarModificacion" class="boton" type="click" onclick="modificarDatos('f_1',true); ">Guardar</button> 
-        <button id= "baja" class="boton" onclick="alerta()">Dar de Baja</button>
+        <button id= "baja" class="boton" type="click" onclick="alerta()">Dar de Baja</button>
     </div>
 
     <!-- Prueba  -->
@@ -96,7 +96,7 @@
                                   
         <button id= "buscarDni" class="boton" type="click">Buscar</button>
 
-        <!-- Buscar alumnos -->
+        <!-- Buscar alumnos 
         
         <script>
         var url = 'http://localhost:3001/estudiantes';
@@ -128,7 +128,7 @@
                   
         </script>
         
-        <!-- Modificacion del estudiante por id -->    
+        Modificacion del estudiante por id    
         
         <script>
         var url = 'http://localhost:3001/estudiantes';
@@ -157,45 +157,39 @@
         });
         </script>
 
-        <!-- Eliminacion de estudiante por ID  -->
+        Eliminacion de estudiante por ID  
 
         <script>
          var url = 'http://localhost:3001/estudiantes';
        
                     
         document.getElementById('baja').addEventListener('click', function(){
-            console.log(" Entro al evento ");
-        /*
-            var data = {
-                dni: document.getElementById('dni').value,
-                nombre_apellido: document.getElementById('nombre_apellido').value,
-            }     
+            console.log(" Entro al evento ")
 
-            console.log(data);
-            */
-
-            fetch(url + "/" + document.getElementById('hiddenId').value, {
-                method: 'DELETE',
-                body: JSON.stringify(),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }).then(res => res.json())
-            .catch(error => console.error('Error:', error))
-            .then(response => console.log('Success:', response));
+        fetch(url + "/" + document.getElementById('hiddenId').value, {
+            method: 'DELETE',
+            body: JSON.stringify(),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json())
+          .catch(error => console.error('Error:', error))
+          .then(response => console.log('Success:', response));
             
         });
         </script>
 
-
+    -->
 
 
 
     </div>
 
 
-  
-<!--    <script src="./js/app_estudianta_buscar.js" ></script> -->
+    <script src="js/modificarEstudiante.js"></script>
+    <script src="./js/app_buscarEstudiante.js" ></script>
+    <script src="./js/app_modificarEstudiante.js"></script>
+    <script src="./js/app_borrarEstudiante.js"></script>
 
 </body>
 

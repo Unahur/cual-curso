@@ -5,15 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/web-client/abmEstudiante/css/abmEstudiante.css" type="text/css">
+    <link rel="stylesheet" href="./css/abmEstudiante.css" type="text/css">
     <link rel="stylesheet" href="https://servicios.unahur.edu.ar/unahur3w/_comp/unahur/img/logo-transparente.png"
         type="img/jpg">
     <title>Estudiantes</title>
-    <script src="./js/app_estudiante.js"></script> 
 
 </head>
 
-<body onload="load()">
+<body>
     <div>
         <p id="im">
             <img src="https://servicios.unahur.edu.ar/unahur3w/_comp/unahur/img/logo-transparente.png">
@@ -31,17 +30,19 @@
         <form id="creacionEstudiante" class="form">
             <h3 class="toggle">Datos Personales</h3>
             <label>Nombre y Apellido:   </label>
-            <input type="text" name="nombre_apellido" placeholder="Nombre y Apellido" required autofocus>
+            <input type="text" id='nombre_apellido' name="nombre_apellido" placeholder="Nombre y Apellido" required autofocus>
             <br>
             <br>
             <label>Numero de documento: </label>
-            <input type="number" name="dni" placeholder="Numero DNI" required><br>
+            <input type="number" id='dni' name="dni" placeholder="Numero DNI" required><br>
             <br>
-            <button id="boton" type="submit" >Crear</button>
+            <button id="botonAgregar" type="click" >Crear</button>
  
         </form>
         </div>
     </div>
+
+    <script src="./js/app_agregarEstudiante.js"></script>
     
 </body>
 
