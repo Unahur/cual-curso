@@ -14,13 +14,10 @@ function modificarDatos(formId, yesNo) {
      var opcion = confirm("Deseas dar baja tu usuario? Aceptar o Cancelar");
     if (opcion == true) {
         mensaje = "Dar de Baja";
+        modificarDatos('f_1', true); // para que quede en negrita luego de eliminar un alumno
     } else {
         mensaje = "Dar de Baja";
     } 
      document.getElementById("baja").innerHTML = mensaje;
  };
  
- function buscar(){
-         
- 
- }

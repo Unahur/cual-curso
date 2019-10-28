@@ -10,5 +10,10 @@ document.getElementById('baja').addEventListener('click', function(){
         }
     }).catch(error => console.error('Error:', error))
     .then(response => console.log('Success:', response));
+
+    // para recargar el formulario
+    const recargarFormulario =  document.getElementById("f_1");
+
+    recargarFormulario.reset();
     
 });

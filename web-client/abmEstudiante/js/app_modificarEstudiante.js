@@ -18,5 +18,10 @@ document.getElementById('guardarModificacion').addEventListener('click', functio
         }
     }).catch(error => console.error('Error:', error))
     .then(response => console.log('Success:', response));
+
+    // para recargar el formulario
+    const recargarFormulario =  document.getElementById("f_1");
+
+    recargarFormulario.reset();
    
 });
