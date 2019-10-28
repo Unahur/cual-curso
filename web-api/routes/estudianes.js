@@ -24,7 +24,7 @@ router.post("/", (req, res) => {
 const findEestudiante = (id, { onSuccess, onNotFound, onError }) => {
   models.estudiante
     .findOne({
-      attributes: ["id","dni","nombre_apellido"], // sacar el id ya que no lo quiero mostrar...!!!!!
+      attributes: ["id","dni","nombre_apellido"], // para poder buscar por id...!!!!!
       where: { id }
     })
     .then(estudiante => (estudiante ? onSuccess(estudiante) : onNotFound()))
@@ -42,7 +42,7 @@ router.get("/:id", (req, res) => {
 router.put("/:id", (req, res) => {
   const onSuccess = estudiante =>
     estudiante
-      .update({ dni: req.body.dni, nombre_apellido: req.body.nombre_apellido }, { fields: ["dni","nombre_apellido"] })
+      .update({ id: req.body.id, dni: req.body.dni, nombre_apellido: req.body.nombre_apellido }, { fields: ["id", "dni","nombre_apellido"] })
       .then(() => res.sendStatus(200))
       .catch(() => res.sendStatus(500));
     findEestudiante(req.params.id, {

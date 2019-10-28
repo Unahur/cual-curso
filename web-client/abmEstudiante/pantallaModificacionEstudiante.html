@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="./css/abmEstudiante.css" type="text/css">
     <link rel="stylesheet" href="https://servicios.unahur.edu.ar/unahur3w/_comp/unahur/img/logo-transparente.png" type="img/jpg">
     <title>Estudiantes</title>
-    <script src="./js/modificarEstudiante.js" ></script>
-    <script src="./js/app_estudianta_buscar.js" ></script>
+ <!--   <script src="./js/modificarEstudiante.js" ></script> -->
+ <!--   <script src="./js/app_estudianta_buscar.js" ></script> -->
 <!--
     <script>
             // Get the modal
@@ -32,23 +32,22 @@
         </p>
     </div>
     <div class="modificarUsuario">
-            <h2>Modificacion y Baja</h2>
+        <h2>Modificacion y Baja</h2>
     </div>
     <div id="mensaje">Modifica tus datos!
-            <br>
-            <strong>Podes modificar tus datos o darte de baja del sistema.</strong>
-            <br>
+        <br>
+        <strong>Podes modificar tus datos o darte de baja del sistema.</strong>
+        <br>
     <div>
             <button onclick="document.getElementById('id01').style.display='block'" id= "buscar" class="botonLargo" >Buscar Estudiante</button>
           
             <!-- The Modal -->
             <div id="id01" class="modal">
-              <span onclick="document.getElementById('id01').style.display='none'"
-            class="close" title="Close Modal">&times;</span>
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
             
               <!-- Modal Content -->
-              <form class="modal-content animate" id="buscarPersona">
-                  <div class="container">
+            <form class="modal-content animate" id="buscarPersona">
+                <div class="container">
                  <!--
                     <label for="uname"><b>Nombre y Apellido</b></label>
                   <input type="text" placeholder="Nombre y Apellido" name="nombre_apellido" >
@@ -64,31 +63,28 @@
                   <button id= "buscarDni" class="boton" type="click">
                         Buscar</button>
                   -->
-                  </div>
+                </div>
             
             </form>
             </div>
     </div>
     <div>
-            <form id="f_1" action="#" onsubmit="return false;" class="form">
-                    <h3 class="toggle">Datos Personales</h3>
-                    <label>Nombre y Apellido:   </label>
-                    <label><input type="text" name="nombre_apellido" placeholder="Nombre y Apellido" id="nombre_apellido" required> </label>
-                    <br>
-                    <br>
-                    <label>Numero de documento:  <input type="number" name="dni" placeholder="Numero DNI" id="dni" required></label><br>
-                    
-                </form>
-                <br>
-    <div class="botones">
-        <button class="boton" onclick="modificarDatos('f_1',false);" >
-            Modificar</button>
-        <button  class="boton" onclick="modificarDatos('f_1',true); ">
-            Guardar</button> 
-        <button id= "baja" class="botonLargo" onclick="alerta()">
-            Dar de Baja</button>
-
-        
+        <form id="f_1" action="#" onsubmit="return false;" class="form">
+            <h3 class="toggle">Datos Personales</h3>
+            <label>Nombre y Apellido:   </label>
+            <label><input type="text" name="nombre_apellido" placeholder="Nombre y Apellido" id="nombre_apellido" required> </label>
+            <br>
+            <br>
+            <label>Numero de documento:  <input type="number" name="dni" placeholder="Numero DNI" id="dni" required></label><br>
+            <input type="hidden" id="hiddenId" name="hiddenId">
+        </form>
+        <br>
+ 
+        <div class="botones">
+        <button class="boton" onclick="modificarDatos('f_1',false);" >Modificar</button>
+     
+        <button  id="guardarModificacion" class="boton" type="click" onclick="modificarDatos('f_1',true); ">Guardar</button> 
+        <button id= "baja" class="botonLargo" onclick="alerta()">Dar de Baja</button>
     </div>
 
     <!-- Prueba  -->
@@ -96,79 +92,85 @@
     <div>
 
         <label for="uname"><b>Numero de DNI</b></label>
-                  <input type="text" placeholder="DNI" name="dni" id="dniIngresado">
+        <input type="text" placeholder="DNI" name="dni" id="dniIngresado">
                                   
-                  <button id= "buscarDni" class="boton" type="click">
-                        Buscar</button>
+        <button id= "buscarDni" class="boton" type="click">Buscar</button>
 
 
-
-                        <script>
-                                var url = 'http://localhost:3001/estudiantes';
-                        //var formulario = document.getElementById('buscarPersona');
-                        //var persona = document.getElementsByClassName('modal-content');
+        
+        <script> // ------------------------- 1
+        
+        var url = 'http://localhost:3001/estudiantes';
                     
-                        document.getElementById('buscarDni').addEventListener('click', function(){
-                            console.log(" Entro al evento ");
+        document.getElementById('buscarDni').addEventListener('click', function(){
+            console.log(" Entro al evento ");
                        
-                        fetch(url, 
-                            {
-                                method: 'GET' 
-                            }
-                            ).then(res => res.json())
-                           .then(dato => formatearDato(dato)) 
-                           .catch(error => console.error('Error:', error))
-                           .then(response => console.log('Success:', response));
-                    //      .then(document.getElementById('creacionEstudiante').reset());
-                        });
+        fetch(url, 
+            {
+             method: 'GET' 
+            }
+            ).then(res => res.json())
+            .then(dato => formatearDato(dato)) 
+            .catch(error => console.error('Error:', error))
+            .then(response => console.log('Success:', response));
+        });
                     
-                        function formatearDato(dato) {
-                            var forDni = document.getElementById('dniIngresado').value;
+        function formatearDato(dato) {
+            var forDni = document.getElementById('dniIngresado').value;
                             
-                            for(var i =0 ;i<dato.length;i++){ 
-                                if(forDni==dato[i].dni){
-                                    document.getElementById('nombre_apellido').value=dato[i].nombre_apellido;
-                                    document.getElementById('dni').value=dato[i].dni;
-                                }
-                            }
-
-
-
-
-                            /// hace un set elemnt
-/*
-
-                            const addNavEstudiante = (estudiantes) => {
-    const aEstudiante = document.createElement('a');
-    aEstudiante.setAttribute('id', estudiantes.id);
-    aEstudiante.setAttribute('dni', estudiantes.dni);
-                            aEstudiante.innerText = estudiantes.nombre_apellido;
-                            const buscar = document.getElementsByClassName('buscar')[0];
-                            buscar.appendChild(aEstudiante);
-                            aEstudiante.addEventListener('submit', getEstudiantesXDni)
-                            }
-
-*/
-
-
-
-
-
-                        }
+            for(var i =0 ;i<dato.length;i++){ 
+                if(forDni==dato[i].dni){
+                    document.getElementById('nombre_apellido').value=dato[i].nombre_apellido;
+                    document.getElementById('dni').value=dato[i].dni;
+                    document.getElementById('hiddenId').value=dato[i].id;
+                }
+            }
+        }         
+                  
+        </script>
+        
+        
+        <script>
+    
+    
+        var url = 'http://localhost:3001/estudiantes';
+       
                     
-                    
-                        </script>
+        document.getElementById('guardarModificacion').addEventListener('click', function(){
+            console.log(" Entro al evento ");
+       
+            var data = {
+              //  id: document.getElementById('hiddenId').value,
+                dni: document.getElementById('dni').value,
+                nombre_apellido: document.getElementById('nombre_apellido').value,
+            }     
 
+            console.log(data);
 
-
-
-
+            fetch(url + "/" + document.getElementById('hiddenId').value, {
+                method: 'PUT',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => res.json())
+            .catch(error => console.error('Error:', error))
+            .then(response => console.log('Success:', response));
+           
+        });
+    
+       
+        
+        
+        
+        
+        </script>
 
     </div>
 
-    
-  
 
+  
+<!--    <script src="./js/app_estudianta_buscar.js" ></script> -->
 
 </body>
 
