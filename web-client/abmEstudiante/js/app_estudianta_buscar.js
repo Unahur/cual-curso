@@ -4,6 +4,7 @@ var url = 'http://localhost:3001/estudiantes';
     document.getElementById('buscarDni').addEventListener('click', function(evt){
                             console.log(" Entro al evento ");
                             evt.preventDefault();
+                           
    
                             fetch(url, 
                                 {
@@ -14,6 +15,7 @@ var url = 'http://localhost:3001/estudiantes';
                                .catch(error => console.error('Error:', error))
                                .then(response => console.log('Success:', response));
                                //.then(document.getElementById('buscarPersona').reset());
+                              
                             });
 
                             function formatearDato(dato) {
@@ -29,4 +31,12 @@ var url = 'http://localhost:3001/estudiantes';
                                 }
                                
                             }
+
+    document.getElementById('id01').addEventListener('click', function(evt){
+            console.log(" cierro modal ");
+            evt.preventDefault();
+            close();
+    });
+                               
+
 

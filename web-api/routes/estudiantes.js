@@ -24,7 +24,7 @@ router.post("/", (req, res) => {
 const findEstudiantes = (id, { onSuccess, onNotFound, onError }) => {
   models.estudiantes
     .findOne({
-      attributes: ["id","dni","nombre_apellido"], // sacar el id ya que no lo quiero mostrar...!!!!!
+      attributes: ["id","dni","nombre_apellido"],  // para poder buscar por id...!!!!!
       where: { id }
     })
     .then(estudiantes => (estudiantes ? onSuccess(estudiantes) : onNotFound()))
