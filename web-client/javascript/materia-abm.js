@@ -6,9 +6,9 @@ $(document).ready(function(){
     _this = this;//en este evento, apenas se escribe una letra, se empiezan a buscar las coincidencias en la tabla.
     $.each($("#tabla tbody tr"), function() {
         if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
-        $(this).hide();//si hay una coincidencia, muestra la materia o las materias.
+        $(this).hide();//en caso de no haber ninguna materia o coincidencia no muestra nada.
         else
-        $(this).show();//en caso de no haber ninguna materia, no muestra ninguna.
+        $(this).show();//si hay una coincidencia, muestra la materia o las materias, con esa coincidencia.
         });
     });
 });
