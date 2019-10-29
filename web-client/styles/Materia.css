@@ -251,7 +251,7 @@ td {
 /*---------------------------------------------------------------------------------------*/
 /*cuando la imagen llega a 768 pixeles de ancho se aplica la interfaz movile*/
 @media screen and (max-width: 768px){
-	.contenedor {
+	.contenedor-grid {
 		grid-template-areas: "sidebar sidebar sidebar sidebar"
                              "contenido contenido contenido contenido"
                              "footer footer footer footer";
