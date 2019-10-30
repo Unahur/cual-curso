@@ -3,53 +3,55 @@ var router = express.Router();
 var models = require("../models");
 
 router.get("/", (req, res) => {
-  models.cursada
+  models.DocenteCursada
     .findAll({
-      attributes: ["id", "nombre"]
+      attributes: ["docenteid", "cursadaid"]
     })
-    .then(cursadas => res.send(cursadas))
+    .then(DocenteCursadas => res.send(DocenteCursadas))
     .catch(() => res.sendStatus(500));
 });
 
 router.post("/", (req, res) => {
-  models.cursada
+  models.DocenteCursada
     .create({ 
       nombre: req.body.nombre
        })
-    .then(cursada => res.status(201).send({ 
-      id: cursada.id, 
-      nombre: cursada.nombre
+    .then(DocenteCursada => res.status(201).send({ 
+      id: DocenteCursada.id, 
+      docenteid: DocenteCursada.docenteid,
+      cursadaid: DocenteCursada.cursadaid
        }))
     .catch(() => res.sendStatus(500));
 });
 
-const findCursada = (id, { onSuccess, onNotFound, onError }) => {
-  models.cursada
+const findDocenteCursada = (id, { onSuccess, onNotFound, onError }) => {
+  models.DocenteCursada
     .findOne({
-      attributes: ["id", "nombre"],
+      attributes: ["docenteid", "cursadaid"],
       where: { id }
     })
-    .then(cursada => (cursada ? onSuccess(cursada) : onNotFound()))
+    .then(DocenteCursada => (DocenteCursada ? onSuccess(DocenteCursada) : onNotFound()))
     .catch(() => onError());
 };
 
 router.get("/:id", (req, res) => {
-  findCursada(req.params.id, {
-    onSuccess: cursada => res.send(cursada),
+  findDocenteCursada(req.params.id, {
+    onSuccess: DocenteCursada => res.send(DocenteCursada),
     onNotFound: () => res.sendStatus(404),
     onError: () => res.sendStatus(500)
   });
 });
 
 router.put("/:id", (req, res) => {
-  const onSuccess = cursada =>
-    cursada
+  const onSuccess = DocenteCursada =>
+    DocenteCursada
       .update({ 
-        nombre: req.body.nombre
-        }, { fields: ["nombre"] })
+        docenteid: req.body.docenteid,
+        cursadaid: req.body.cursadaid
+        }, { fields: ["docenteid", "cursadaid"] })
       .then(() => res.sendStatus(200))
       .catch(() => res.sendStatus(500));
-  findCursada(req.params.id, {
+  findDocenteCursada(req.params.id, {
     onSuccess,
     onNotFound: () => res.sendStatus(404),
     onError: () => res.sendStatus(500)
@@ -57,13 +59,13 @@ router.put("/:id", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-  const onSuccess = cursada =>
-    cursada
+  const onSuccess = DocenteCursada =>
+    DocenteCursada
       .destroy()
       .then(() => res.sendStatus(200))
       .catch(() => res.sendStatus(500));
-  findCursada(req.params.id, {
-    onSuccess,
+  findDocenteCursada(req.params.id, {
+    onSuccess,  
     onNotFound: () => res.sendStatus(404),
     onError: () => res.sendStatus(500)
   });
