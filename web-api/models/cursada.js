@@ -5,11 +5,12 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Cursada.associate = function(models) {
     // associations can be defined here
-    Cursada.belongsToMany(models.docente, {
-      through: 'DocenteCursadas',
-      as: 'docente',
-      foreignKey: 'cursadaId',
-      otherKey: 'docenteId'
-    });
+    Cursada.belongsToMany(models.Docente, {
+  
+      through: "DocenteCursadas",
+      as: "docentes",
+      foreignKey:"CursadaId"
+    })
+  };
   return Cursada;
-}};
+};

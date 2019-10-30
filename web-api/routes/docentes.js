@@ -19,37 +19,37 @@ router.post("/", (req, res) => {
       dni: req.body.dni,
       sexo: req.body.sexo
        })
-    .then(docente => res.status(201).send({ 
-      id: docente.id, 
-      nombre: docente.nombre,
-      apellido: docente.apellido, 
-      dni: docente.dni,
-      sexo: docente.sexo
+    .then(Docente => res.status(201).send({ 
+      id: Docente.id, 
+      nombre: Docente.nombre,
+      apellido: Docente.apellido, 
+      dni: Docente.dni,
+      sexo: Docente.sexo
        }))
     .catch(() => res.sendStatus(500));
 });
 
 const findDocente = (id, { onSuccess, onNotFound, onError }) => {
-  models.docente
+  models.Docente
     .findOne({
       attributes: ["id", "nombre", "apellido", "dni", "sexo"],
       where: { id }
     })
-    .then(docente => (docente ? onSuccess(docente) : onNotFound()))
+    .then(Docente => (Docente ? onSuccess(Docente) : onNotFound()))
     .catch(() => onError());
 };
 
 router.get("/:id", (req, res) => {
   findDocente(req.params.id, {
-    onSuccess: docente => res.send(docente),
+    onSuccess: Docente => res.send(Docente),
     onNotFound: () => res.sendStatus(404),
     onError: () => res.sendStatus(500)
   });
 });
 
 router.put("/:id", (req, res) => {
-  const onSuccess = docente =>
-    docente
+  const onSuccess = Docente =>
+    Docente
       .update({ 
         nombre: req.body.nombre,
         apellido: req.body.apellido,
@@ -66,8 +66,8 @@ router.put("/:id", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-  const onSuccess = docente =>
-    docente
+  const onSuccess = Docente =>
+    Docente
       .destroy()
       .then(() => res.sendStatus(200))
       .catch(() => res.sendStatus(500));

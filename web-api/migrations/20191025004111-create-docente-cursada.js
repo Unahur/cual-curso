@@ -9,10 +9,20 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       docenteId: {
-        type: Sequelize.UUID
+        type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
+        references: {
+          model: "Docentes",
+          key: "id"
+        }
       },
       cursadaId: {
-        type: Sequelize.UUID
+        type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
+        references: {
+          model: "Cursadas",
+          key:"id"
+        }
       },
       createdAt: {
         allowNull: false,
