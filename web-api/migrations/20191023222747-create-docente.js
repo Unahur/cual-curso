@@ -9,23 +9,27 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       nombre: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       apellido: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       dni: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       sexo: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       createdAt: {
-        allowNull: false,
+        //allowNull: false,
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: false,
+        //allowNull: false,
         type: Sequelize.DATE
       }
     });
