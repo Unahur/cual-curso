@@ -64,11 +64,11 @@ function edit(id) {
     var formData = readForm();
     
     const request = new Request(`http://localhost:8084/cursadas/${id}`,
-        { method: 'PUT', 
+        {   method: 'PUT', 
             headers: {
                 'Content-Type': 'application/json'
             },
-                body: JSON.stringify(formData)
+            body: JSON.stringify(formData)
         });
 
     fetch(request)
