@@ -14,7 +14,8 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
   models.DocenteCursada
     .create({ 
-      nombre: req.body.nombre
+      docenteid: req.body.docenteid,
+      cursadaid: req.body.cursadaid
        })
     .then(DocenteCursada => res.status(201).send({ 
       id: DocenteCursada.id, 
