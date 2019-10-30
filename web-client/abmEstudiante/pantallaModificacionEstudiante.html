@@ -23,66 +23,46 @@
         <br>
         <strong>Podes modificar tus datos o darte de baja del sistema.</strong>
         <br>
-    <div>
+        <div>
             <button onclick="document.getElementById('id01').style.display='block'" id= "buscar" class="botonLargo" >Buscar Estudiante</button>
+            <button onclick="location.href='./pantallaEstudiante.html'">Nuevo estudiante</button>
           
             <!-- The Modal -->
             <div id="id01" class="modal">
-            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-            
               <!-- Modal Content -->
-            <form class="modal-content animate" id="buscarPersona">
-                <div class="container">
-                 <!--
-                    <label for="uname"><b>Nombre y Apellido</b></label>
-                  <input type="text" placeholder="Nombre y Apellido" name="nombre_apellido" >
-                  <button id= "buscar" class="boton" type="submit">
-                        Buscar</button>
-                  
-                  <br>
-                  <br>
-                  
-                  <label for="uname"><b>Numero de DNI</b></label>
-                  <input type="text" placeholder="DNI" name="dni">
-                                  
-                  <button id= "buscarDni" class="boton" type="click">
-                        Buscar</button>
-                  -->
-                </div>
-            
-            </form>
+                <form class="modal-content animate" id="buscarPersona">
+                    <br>
+                    <label for="uname"><b>Numero de DNI</b></label>
+                    <input type="text" placeholder="DNI" name="dni" id="dniIngresado">
+                    <br>
+                    <button id= "buscarDni" class="boton" type="click">Buscar</button>
+                    <button id="cerrarModal" class="boton" type="click" onclick="document.getElementById('id01').style.display='none'">Cerrar</button>
+                </form>
+                
             </div>
+        
+        </div>
     </div>
+
     <div>
         <form id="f_1" action="#" onsubmit="return false;" class="form">
             <h3 class="toggle">Datos Personales</h3>
-            <label>Nombre y Apellido:   </label>
+            <label>Nombre y Apellido: </label>
             <label><input type="text" name="nombre_apellido" placeholder="Nombre y Apellido" id="nombre_apellido" required> </label>
             <br>
             <br>
-            <label>Numero de documento:  <input type="number" name="dni" placeholder="Numero DNI" id="dni" required></label><br>
+            <label>Numero de documento: <input type="number" name="dni" placeholder="Numero DNI" id="dni" required></label>
+            <br>
             <input type="hidden" id="hiddenId" name="hiddenId">
         </form>
         <br>
- 
-        <div class="botones">
-        <button class="boton" onclick="modificarDatos('f_1',false);" >Modificar</button>
-     
+    </div>
+    
+    <div class="botones">
+        <button class="boton" onclick="modificarDatos('f_1',false);">Modificar</button>
         <button  id="guardarModificacion" class="boton" type="click" onclick="modificarDatos('f_1',true); ">Guardar</button> 
         <button id= "baja" class="boton" type="click" onclick="alerta('f_1',true)">Dar de Baja</button>
     </div>
-
-    <!-- Prueba  -->
-
-    <div>
-
-        <label for="uname"><b>Numero de DNI</b></label>
-        <input type="text" placeholder="DNI" name="dni" id="dniIngresado">
-                                  
-        <button id= "buscarDni" class="boton" type="click">Buscar</button>
-
-    </div>
-
 
     <script src="js/modificarEstudiante.js"></script>
     <script src="./js/app_buscarEstudiante.js" ></script>
