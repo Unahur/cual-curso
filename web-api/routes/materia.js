@@ -28,7 +28,7 @@ const findMateria = (id,{onSuccess,onNotFound,onError})=>{
     .catch(()=>onError());
 };
 router.get("/:id",(req,res)=>{
-    findCarrera(req.params.id,{
+    findMateria(req.params.id,{
         onSuccess: materia => res.send(materia),
         onNotFound: () => res.sendStatus(404),
         onError: () => res.sendStatus(500) 
