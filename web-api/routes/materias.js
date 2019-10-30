@@ -4,29 +4,29 @@ var models = require("../models");
 
 
 router.get("/", (req, res) => {
-  models.materia
+  models.materias
     .findAll({
       attributes: ["id", "nombre_materia"],
-      include: [{
+    include: [{
         as: 'materias_aprobadas',
         model: models.materia_aprobada
       }]
     })
-    .then(materia => res.send(materia))
+    .then(materias => res.send(materias))
     .catch(() => res.sendStatus(500));
 });
 
 
 router.post("/", (req, res) => {
-  models.materia
+  models.materias
     .create({ nombre_materia: req.body.nombre_materia })
-    .then(materia => res.status(201).send({ nombre_materia: materia.materia_aprobada }))
+    .then(materias => res.status(201).send({ nombre_materia: materias.materia_aprobada }))
     .catch(() => res.sendStatus(500));
 });
 
 
 const findMateria = (id, { onSuccess, onNotFound, onError }) => {
-  models.materia
+  models.materias
     .findOne({
       attributes: ["id","nombre_materia"], // para poder buscar por id...!!!!!
       include: [{
@@ -35,21 +35,21 @@ const findMateria = (id, { onSuccess, onNotFound, onError }) => {
       }],
       where: { id }
     })
-    .then(materia => (materia ? onSuccess(materia) : onNotFound()))
+    .then(materias => (materias ? onSuccess(materias) : onNotFound()))
     .catch(() => onError());
 };
 
 router.get("/:id", (req, res) => {
   findMateria(req.params.id, {
-    onSuccess: materia => res.send(materia),
+    onSuccess: materias => res.send(materias),
     onNotFound: () => res.sendStatus(404),
     onError: () => res.sendStatus(500)
   });
 });
 
 router.put("/:id", (req, res) => {
-  const onSuccess = materia =>
-    materia
+  const onSuccess = materias =>
+    materias
       .update({ nombre_materia: req.body.nombre_materia }, { fields: ["nombre_materia"] })
       .then(() => res.sendStatus(200))
       .catch(() => res.sendStatus(500));
@@ -61,8 +61,8 @@ router.put("/:id", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-  const onSuccess = materia =>
-    materia
+  const onSuccess = materias =>
+    materias
       .destroy()
       .then(() => res.sendStatus(200))
       .catch(() => res.sendStatus(500));
