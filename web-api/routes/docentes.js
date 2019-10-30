@@ -3,7 +3,7 @@ var router = express.Router();
 var models = require("../models");
 
 router.get("/", (req, res) => {
-  models.docente
+  models.Docente
     .findAll({
       attributes: ["id", "nombre", "apellido", "dni", "sexo"]
     })
@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  models.docente
+  models.Docente
     .create({ 
       nombre: req.body.nombre,
       apellido: req.body.apellido,
