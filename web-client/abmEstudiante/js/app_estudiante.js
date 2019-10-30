@@ -14,15 +14,14 @@ formulario.addEventListener('submit', function (evt) {
         nombre_apellido: datos.get('nombre_apellido')
     }
     fetch(url, {
-            method: 'POST', // or 'PUT'
-            body: JSON.stringify(data), // data can be `string` or {object}!
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(res => res.json())
+            method: 'POST', 
+            body: JSON.stringify(data), 
+            headers: { 'Content-Type': 'application/json'  }
+        })
+        .then(res => res.json())
         .catch(error => console.error('Error:', error))
         .then(response => console.log('Success:', response))
         .then(document.getElementById('creacionEstudiante').reset());
 
-});
+ });
 }

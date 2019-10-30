@@ -27,7 +27,8 @@
             <br>
     <div>
             <button onclick="document.getElementById('id01').style.display='block'" id= "buscar" class="botonLargo" >Buscar Estudiante</button>
-          
+            <button onclick="location.href='./pantallaEstudiante.html'">Nuevo estudiante</button>
+
             <!-- The Modal -->
             <div id="id01" class="modal">
               <span onclick="document.getElementById('id01').style.display='none'"
@@ -36,24 +37,14 @@
               <!-- Modal Content -->
               <form class="modal-content animate" id="buscarPersona">
                   <div class="container">
-                 <!--
-                    <label for="uname"><b>Nombre y Apellido</b></label>
-                  <input type="text" placeholder="Nombre y Apellido" name="nombre_apellido" >
-                  <button id= "buscar" class="boton" type="submit">
-                        Buscar</button>
-                  
-                  <br>
-                  <br>
-                  
-                  <label for="uname"><b>Numero de DNI</b></label>
-                  <input type="text" placeholder="DNI" name="dni">
-                                  
-                  <button id= "buscarDni" class="boton" type="click">
-                        Buscar</button>
-                  -->
-                  </div>
-            
-            </form>
+                    <br>
+                    <label for="uname"><b>Numero de DNI</b></label>
+                    <input type="text" placeholder="DNI" name="dni" id="dniIngresado">
+                    <br>
+                    <button id= "buscarDni" class="boton" type="click">Buscar</button>
+                    <button id="cerrarModal" class="boton" type="click" onclick="document.getElementById('id01').style.display='none'">Cerrar</button>
+                 </div>
+             </form>
             </div>
     </div>
     <div>
@@ -65,21 +56,18 @@
                     <br>
                     <label>Numero de documento:  <input type="number" name="dni" placeholder="Numero DNI" id="dni" required></label>
                     <br>
-                    <input type="hidden" id="hiddenId">
+                    <input type="hidden" id="hiddenId" name="hiddenId" >
                 </form>
                 <br>
     <div class="botones">
         <button class="boton" onclick="modificarDatos('f_1',false);" >
             Modificar</button>
-        <button  class="boton" onclick="modificarDatos('f_1',true); ">
-            Guardar</button> 
-        <button id= "baja" class="botonLargo" onclick="alerta()">
-            Dar de Baja</button>
+        <button  id="guardarModificacion" class="boton" type="click" onclick="modificarDatos('f_1',true); ">Guardar</button> 
+        <button id= "baja" class="botonLargo" onclick="alerta()">Dar de Baja</button>
+        
 
         
     </div>
-
-    <!-- Prueba  -->
 
       <div>
           <label for="uname"><b>Numero de DNI</b></label>
@@ -116,6 +104,31 @@
                             }
                            
                         }
+         </script>
+
+         <!-- Eliminacion de estudiante por ID  -->
+ 
+         <script>
+            var url = 'http://localhost:3001/estudiantes';
+        
+            document.getElementById('baja').addEventListener('click', function(){
+             console.log(" Entro al evento ");
+             var data = {
+                 dni: document.getElementById('dni').value,
+                 nombre_apellido: document.getElementById('nombre_apellido').value,
+             }     
+             console.log(data);
+             fetch(url + "/" + document.getElementById('hiddenId').value, {
+                 method: 'DELETE',
+                 body: JSON.stringify(data),
+                 headers: {
+                     'Content-Type': 'application/json'
+                 }
+             }).then(res => res.json())
+             .catch(error => console.error('Error:', error))
+             .then(response => console.log('Success:', response));
+             
+         });
          </script>
 
        </div>

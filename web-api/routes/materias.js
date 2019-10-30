@@ -6,48 +6,44 @@ var models = require("../models");
 router.get("/", (req, res) => {
   models.estudiantes
     .findAll({
-      attributes: ["id", "dni", "nombre_apellido", "carrera"],
-      include:[{
-        as: 'materias_aprobadas',
-        model: models.materia_aprobada
-      }]
+      attributes: ["id", "nombre_materia"]
     })
-    .then(estudiantes => res.send(estudiantes))
+    .then(materias => res.send(materias))
     .catch(() => res.sendStatus(500));
 });
 
 
 router.post("/", (req, res) => {
   models.estudiantes
-    .create({ dni: req.body.dni, nombre_apellido: req.body.nombre_apellido, carrera: req.body.carrera  })
-    .then(estudiantes => res.status(201).send({ dni: estudiantes.dni, nombre_apellido: estudiantes.nombre_apellido, carrera: estudiantes.carrera }))
+    .create({ nombre_materia: req.body.nombre_materia })
+    .then(materias => res.status(201).send({ nombre_materia: materias.nombre_materia }))
     .catch(() => res.sendStatus(500));
 });
 
 
 const findEstudiantes = (id, { onSuccess, onNotFound, onError }) => {
-  models.estudiantes
+  models.materia
     .findOne({
-      attributes: ["id","dni","nombre_apellido", "carrera"], // sacar el id ya que no lo quiero mostrar...!!!!!
+      attributes: ["id","nombre_materia"], // sacar el id ya que no lo quiero mostrar...!!!!!
       where: { id }
     })
-    .then(estudiantes => (estudiantes ? onSuccess(estudiantes) : onNotFound()))
+    .then(materias => (materias? onSuccess(materias) : onNotFound()))
     .catch(() => onError());
 };
 
 router.get("/:id", (req, res) => {
   findEstudiantes(req.params.id, {
-    onSuccess: estudiantes => res.send(estudiantes),
+    onSuccess: materias => res.send(materias),
     onNotFound: () => res.sendStatus(404),
     onError: () => res.sendStatus(500)
   });
 });
 
 router.put("/:id", (req, res) => {
-  const onSuccess = estudiantes =>
-    estudiantes
-      .update({id: req.body.id, dni: req.body.dni, nombre_apellido: req.body.nombre_apellido , carrera: req.body.carrera}, { fields: ["id","dni","nombre_apellido", "carrera"] })
-      .update({ dni: req.body.dni, nombre_apellido: req.body.nombre_apellido, carrera: req.body.carrera }, { fields: ["dni","nombre_apellido", "carrera"] })
+  const onSuccess = materias =>
+    materias
+      .update({id: req.body.id, nombre_materia: req.body.nombre_materia }, { fields: ["id","nombre_materia"] })
+      .update({nombre_materia: req.body.nombre_materia }, { fields: ["nombre_materia"] })
       .then(() => res.sendStatus(200))
       .catch(() => res.sendStatus(500));
     findEestudiantes(req.params.id, {
@@ -58,9 +54,8 @@ router.put("/:id", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-  const onSuccess = estudiantes =>
-    estudiantes
-  
+  const onSuccess = materia=>
+    materia
       .destroy()
       .then(() => res.sendStatus(200))
       .catch(() => res.sendStatus(500));
