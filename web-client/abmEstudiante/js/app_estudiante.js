@@ -1,4 +1,4 @@
-function load() {
+
     var url = 'http://localhost:3001/estudiantes';
     var formulario = document.getElementById('creacionEstudiante');
     
@@ -23,5 +23,4 @@ formulario.addEventListener('submit', function (evt) {
         .then(response => console.log('Success:', response))
         .then(document.getElementById('creacionEstudiante').reset());
 
- });
-}
+});
