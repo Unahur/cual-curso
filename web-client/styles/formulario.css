@@ -53,6 +53,13 @@ body{
     transition: all 0.2s;
 }
 
+.labelSexo{
+    padding-left: 15px;
+    margin-top: -185px;
+    font-size: 130%;
+    color:  rgba(0, 0, 0, 0.5 );
+}
+
 .formularioSubmit{
     background: #0088cc;
     color: #ffffff;
