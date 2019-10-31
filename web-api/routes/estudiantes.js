@@ -50,7 +50,7 @@ router.put("/:id", (req, res) => {
       .update({ dni: req.body.dni, nombre_apellido: req.body.nombre_apellido, carrera: req.body.carrera }, { fields: ["dni","nombre_apellido", "carrera"] })
       .then(() => res.sendStatus(200))
       .catch(() => res.sendStatus(500));
-    findEestudiantes(req.params.id, {
+    findEstudiantes(req.params.id, {
     onSuccess,
     onNotFound: () => res.sendStatus(404),
     onError: () => res.sendStatus(500)
