@@ -5,7 +5,7 @@ var models = require("../models");
 router.get("/", (req, res) => {
   models.DocenteCursada
     .findAll({
-      attributes: ["docenteId", "cursadaId"]
+      attributes: ["id", "docenteId", "cursadaId"]
     })
     .then(DocenteCursadas => res.send(DocenteCursadas))
     .catch(() => res.sendStatus(500));
@@ -28,7 +28,7 @@ router.post("/", (req, res) => {
 const findDocenteCursada = (id, { onSuccess, onNotFound, onError }) => {
   models.DocenteCursada
     .findOne({
-      attributes: ["docenteId", "cursadaId"],
+      attributes: ["id", "docenteId", "cursadaID"],
       where: { id }
     })
     .then(DocenteCursada => (DocenteCursada ? onSuccess(DocenteCursada) : onNotFound()))
