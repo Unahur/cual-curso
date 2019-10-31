@@ -8,7 +8,7 @@ materia.addEventListener('submit', function(e){
     console.log("click");
     var formData = readForm();
     //despues de leer el formulario, se crea el request.
-    const request = new Request('https://localhost:3001/materia',
+    const request = new Request('http://localhost:3001/materia',
         { method: 'POST', 
             headers: {
                 'Content-Type': 'application/json'
@@ -38,10 +38,10 @@ materia.addEventListener('submit', function(e){
 function readForm() {
     var formData = {};
     //aca se toma cada uno de los valores del formulario y se lo convierte en un objeto.
-    formData["nombreMateria"] = document.getElementById('nombreMateria').value;
-    formData["descripcion"] = document.getElementById('descripcion').value;
-    formData["duracion"] = document.getElementById('duracion').value;
-    formData["horasT"] = document.getElementById('horasT').value;
+    formData["name"] = document.getElementById('materia').value;
+    formData["description"] = document.getElementById('description').value;
+    formData["duration"] = document.getElementById('duracion').value;
+    formData["totalHours"] = document.getElementById('horasT').value;
     return formData;
 }
 
