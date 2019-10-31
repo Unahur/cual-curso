@@ -14,7 +14,7 @@ $(document).ready(function(){
 });
 function getMethod(){
     //apenas se carga la pagina HTML, se realiza un get llamando a todas las materias que estan en la base de datos.
-    fetch('https://localhost:3001/materia/', {
+    fetch('http://localhost:3001/materia/', {
         method: 'GET'
     })
         .then(response => response.json())
@@ -78,7 +78,7 @@ function edit(id) {
     }
     var formData = readForm();
     //nota: Se recoge el id de la anterior etapa, para asi editar la materia correcta.
-    const request = new Request(`https://localhost:3001/materia/${id}`,
+    const request = new Request(`http://localhost:3001/materia/${id}`,
         { method: 'PUT', 
             headers: {
                 'Content-Type': 'application/json'
@@ -122,7 +122,7 @@ function onEdit(id) {
     totalHours.setAttribute("id","horasT"); 
     totalHours.setAttribute("class", "input input-edit");    
     var button = `<buttom class="buttom buttom-edit" id="btn-form" onclick="edit(${id})">Editar</buttom>`;
-    fetch(`https://localhost:3001/materia/${id}`, {
+    fetch(`http://localhost:3001/materia/${id}`, {
         method: 'GET'
     })
         .then(response => response.json())
@@ -149,7 +149,7 @@ function onDelete(id) {
     }
     //aca se hace una confirmacion, y una vez confirmado elimina la materia.
     if (confirm('Seguro que quiere eliminar esta Materia? ')) {
-        fetch(`https://localhost:3001/materia/${id}`, {
+        fetch(`http://localhost:3001/materia/${id}`, {
             method: 'DELETE'
         }).then(recargar);
     }
