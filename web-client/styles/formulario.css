@@ -1,0 +1,69 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.formularioRegistro {
+    width: 500px;
+    max-width: 75%;
+    margin: auto;
+    margin-left:auto;
+    margin-right:auto;
+    padding: 10px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 3);
+    border-radius: .5em;
+    box-sizing:border-box;
+}
+
+.formularioTitulo {
+    text-align: center;
+    margin-top: 0;
+    color: #0088cc;
+}
+
+.formularioSubmit, .formularioInput, .formularioLabel {
+    display: block;
+    width: 100%;
+    font-size: 1.3em;
+    border-radius: .5em;
+}
+
+.formularioInput{
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.1 );
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    margin-bottom: 40px;
+    
+}
+
+.formularioInput:focus + .formularioLabel {
+    margin-top: -135px;
+}
+
+.formularioLabel{
+    padding-left: 15px;
+    position: absolute;
+    margin-top: -85px;
+    z-index: -20;
+    color:  rgba(0, 0, 0, 0.5 );
+    transition: all 0.2s;
+}
+
+.formularioSubmit{
+    background: #0088cc;
+    color: #ffffff;
+    padding: 10px 10px;
+    cursor: pointer;
+    border: none;
+
+}
+
+.fijarLabel{
+    margin-top: -135px;
+}
+
+
