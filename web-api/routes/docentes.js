@@ -5,7 +5,7 @@ var models = require("../models");
 router.get("/", (req, res) => {
   models.Docente
     .findAll({
-      attributes: ["id", "nombre", "apellido", "dni", "sexo"]
+      attributes: ["id", "nombre", "apellido", "dni"/* , "sexo" */]
     })
     .then(docentes => res.send(docentes))
     .catch(() => res.sendStatus(500));
@@ -16,15 +16,15 @@ router.post("/", (req, res) => {
     .create({ 
       nombre: req.body.nombre,
       apellido: req.body.apellido,
-      dni: req.body.dni,
-      sexo: req.body.sexo
+      dni: req.body.dni/* ,
+      sexo: req.body.sexo */
        })
     .then(Docente => res.status(201).send({ 
       id: Docente.id, 
       nombre: Docente.nombre,
       apellido: Docente.apellido, 
-      dni: Docente.dni,
-      sexo: Docente.sexo
+      dni: Docente.dni/* ,
+      sexo: Docente.sexo */
        }))
     .catch(() => res.sendStatus(500));
 });
@@ -32,7 +32,7 @@ router.post("/", (req, res) => {
 const findDocente = (id, { onSuccess, onNotFound, onError }) => {
   models.Docente
     .findOne({
-      attributes: ["id", "nombre", "apellido", "dni", "sexo"],
+      attributes: ["id", "nombre", "apellido", "dni"/* , "sexo" */],
       where: { id }
     })
     .then(Docente => (Docente ? onSuccess(Docente) : onNotFound()))
@@ -53,9 +53,9 @@ router.put("/:id", (req, res) => {
       .update({ 
         nombre: req.body.nombre,
         apellido: req.body.apellido,
-        dni: req.body.dni,
-        sexo: req.body.sexo
-        }, { fields: ["nombre", "apellido", "dni", "sexo"] })
+        dni: req.body.dni/* ,
+        sexo: req.body.sexo */
+        }, { fields: ["nombre", "apellido", "dni"/* , "sexo" */] })
       .then(() => res.sendStatus(200))
       .catch(() => res.sendStatus(500));
   findDocente(req.params.id, {
