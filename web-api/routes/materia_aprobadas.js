@@ -50,7 +50,6 @@ router.get("/:id", (req, res) => {
     onError: () => res.sendStatus(500)
   });
 });
-/
 
 router.put("/:id", (req, res) => {
   const onSuccess = materia_aprobada =>
