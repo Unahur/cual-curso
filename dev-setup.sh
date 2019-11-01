@@ -18,7 +18,6 @@ echo
 echo '-------------------------------------------------------'
 echo 'Creando la base de datos...'
 echo '-------------------------------------------------------'
-echo 'Cuando te sea solicitado el password, ingresá: mi-pass'
 docker-compose exec db mysql -p -e "CREATE DATABASE IF NOT EXISTS cual_curso;"
 echo '-------------------------------------------------------'
 echo 'Instalando dependencias de la API...'
