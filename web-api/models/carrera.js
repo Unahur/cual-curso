@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     unique: true
   }, {});
   carrera.associate = function(models) {
-    // associations can be defined here
+    carrera.belongsTo(models.estadio);
   };
   return carrera;
 };

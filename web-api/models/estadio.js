@@ -1,11 +1,10 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const estadio = sequelize.define('estadio', {
-    nombre: DataTypes.STRING,
-    unique: true
+    calle: DataTypes.STRING,
+    tamanio: DataTypes.INTEGER
   }, {});
   estadio.associate = function(models) {
-    estadio.belongsTo(models.carrera)//estadio pertenece a carrera
-  };
+    estadio.hasMany(models.carrera);  };
   return estadio;
 };
