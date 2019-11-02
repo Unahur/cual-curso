@@ -4,7 +4,8 @@ const getDocentes = (req, res) => {
   models.docente
     .findAll({
       attributes: ["id", "nombre", "dni"],
-      //include: [{ as: 'cursadas', model: models.cursada }]
+      include: [{ as: 'cursadas', model: models.cursadadocente,
+        include: [{ as: 'cursada', model: models.cursada }] }]
     })
     .then(docentes => res.send(docentes))
     .catch(() => res.sendStatus(500));
@@ -22,7 +23,9 @@ const postDocente = (req, res) => {
 const findDocente = (id, { onSuccess, onNotFound, onError }) => {
   models.docente
     .findOne({
-      //include: [{ as: 'cursadas', model: models.cursada }],
+      attributes: ["id", "nombre", "dni"],
+      include: [{ as: 'cursadas', model: models.cursadadocente,
+        include: [{ as: 'cursada', model: models.cursada }] }],
       where: { id }
     })
     .then(docente => (docente ? onSuccess(docente) : onNotFound()))

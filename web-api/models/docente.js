@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     docente.hasMany(models.cursadadocente,
       {
-        as: 'cursadadocente',
+        as: 'cursadas',
         foreignKey: 'id_docente'
       }  
     )

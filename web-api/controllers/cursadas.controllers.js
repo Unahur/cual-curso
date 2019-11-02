@@ -3,12 +3,12 @@ var models = require("../models");
 const getCursadas = (req, res) => {
   models.cursada
     .findAll({
-      attributes: ["id_materia", "id_aula"],
+      attributes: ["id", "nombre", "descripcion", "dia_hora", "id_materia", "id_aula"],
       include: [ { as: 'materia', model: models.materia}, 
                  { as: 'aula', model: models.aula},
-                 { as: 'cursadadocente', 
-                   model: models.cursadadocente,
-                   attributes: ["id_cursada", "id_docente"] }
+                 { as: 'docentes', model: models.cursadadocente,
+                    include: [{ as: 'docente', model: models.docente }] 
+                 }
       ]
     })
     .then(cursadas => res.send(cursadas))
@@ -28,7 +28,11 @@ const findCursada = (id, { onSuccess, onNotFound, onError }) => {
   models.cursada
     .findOne({
       include: [ { as: 'materia', model: models.materia}, 
-                 { as: 'aula', model: models.aula} ],
+                 { as: 'aula', model: models.aula},
+                 { as: 'docentes', model: models.cursadadocente,
+                    include: [{ as: 'docente', model: models.docente }] 
+                 }
+      ],
       where: { id }
     })
     .then(cursada => (cursada ? onSuccess(cursada) : onNotFound()))
