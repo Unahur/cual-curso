@@ -5,7 +5,7 @@ var models = require("../models");
 router.get("/",(req,res)=>{
     models.materia
     .findAll({
-        attributes:["id","name"]
+        attributes:["id","name","description","duration", "totalHours"]
     })
     .then(materias=>res.send(materias))
     .catch(()=>res.sendStatus(500));
@@ -48,7 +48,7 @@ router.put("/:id",(req,res) => {
     });
 });
 
-router.delete("/id",(req,res) =>{
+router.delete("/:id",(req,res) =>{
     const onSuccess = materia =>
         materia
         .destroy()

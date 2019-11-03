@@ -38,8 +38,8 @@ materia.addEventListener('submit', function(e){
 function readForm() {
     var formData = {};
     //aca se toma cada uno de los valores del formulario y se lo convierte en un objeto.
-    formData["name"] = document.getElementById('materia').value;
-    formData["description"] = document.getElementById('description').value;
+    formData["name"] = document.getElementById('nombreMateria').value;
+    formData["description"] = document.getElementById('descripcion').value;
     formData["duration"] = document.getElementById('duracion').value;
     formData["totalHours"] = document.getElementById('horasT').value;
     return formData;
