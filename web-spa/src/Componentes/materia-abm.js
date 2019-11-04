@@ -1,22 +1,6 @@
 import React, { Component } from 'react';
 import ListaMaterias from './component-abm';
 class Abm extends Component {
-   /*renderMaterias(){
-        const materiaList =this.materias.map( data => {
-            return(
-                <ul className="col5">
-                    <li>{data.name}</li>
-                    <li>{data.description}</li>
-                    <li>{data.duratio}</li>
-                    <li>{data.totalHours}</li>
-                </ul>
-            )}
-        )
-    }*/
-                    /*<li>
-                        <buttom className="buttom buttom-tabla" onclick="onEdit(materia.id)">Editar</buttom>
-                        <buttom className="buttom buttom-tabla" onclick="onDelete(materia.id)">Eliminar</buttom>
-                    </li>*/
     render(){
         return (
             <div>

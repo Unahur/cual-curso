@@ -35,20 +35,22 @@ class ListaMaterias extends Component {
                 method: 'DELETE'
             });
         }
+        //window.location.reload();
     }
     render(){
         if (this.state.materias.length > 0) {
             return (
                 this.state.materias.map(data =>{
+
                     return(
                         <ul className="col5">
                             <li>{data.name}</li>
                             <li>{data.description}</li>
-                            <li>{data.duratio}</li>
+                            <li>{data.duration}</li>
                             <li>{data.totalHours}</li>
                             <li>
-                                <button className="buttom buttom-tabla" onClick={this.onEdit(data.id)}>editar</button>
-                                <button className="buttom buttom-tabla" onClick={this.onDelete(data.id)}>eliminar</button>
+                                <button className="buttom buttom-tabla" key={data.id} onClick={id => this.onEdit(id)}>editar</button>
+                                <button className="buttom buttom-tabla" key={data.id} onClick={id => this.onDelete(id)}>eliminar</button>
                             </li>
                         </ul>
                     )
