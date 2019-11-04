@@ -7,7 +7,7 @@ body{
     font-family: sans-serif;
 }
 
-.formularioRegistro {
+.registro {
     width: 500px;
     max-width: 75%;
     margin: auto;
@@ -19,58 +19,41 @@ body{
     box-sizing:border-box;
 }
 
-.formularioTitulo {
+.titulo {
     text-align: center;
     margin-top: 0;
+    padding-bottom: 3px;
+}
+
+.titulo span {
     color: #0088cc;
 }
 
-.formularioSubmit, .formularioInput, .formularioLabel {
+.input #btn{
     display: block;
     width: 100%;
-    font-size: 1.3em;
-    border-radius: .5em;
-}
-
-.formularioInput{
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.1 );
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    margin-bottom: 40px;
+    font-size: 1em;
     
 }
 
-.formularioInput:focus + .formularioLabel {
-    margin-top: -135px;
+.input{
+    padding: 20px;
+    background: none;
+    border: none;
+    border-bottom: solid .5px #0088cc;
+    margin-bottom: 40px;   
 }
 
-.formularioLabel{
-    padding-left: 15px;
-    position: absolute;
-    margin-top: -85px;
-    z-index: -20;
-    color:  rgba(0, 0, 0, 0.5 );
-    transition: all 0.2s;
-}
-
-.labelSexo{
-    padding-left: 15px;
-    margin-top: -185px;
-    font-size: 130%;
-    color:  rgba(0, 0, 0, 0.5 );
-}
-
-.formularioSubmit{
+#btn{
     background: #0088cc;
     color: #ffffff;
+    border-radius: .5em;
     padding: 10px 10px;
     cursor: pointer;
     border: none;
-
 }
 
-.fijarLabel{
-    margin-top: -135px;
+#btn:hover{
+    border-radius: .10em; 
 }
-
 

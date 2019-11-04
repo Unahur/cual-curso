@@ -5,57 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registro Docente</title>
     <link rel="shortcut icon" href="images/icono.ico">
-    <link rel="stylesheet" href="styles/formulario.css">
+    <link rel="stylesheet" href="styles/flexboxgrid.min.css">
+    
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/formulario.css">
+    <link rel="stylesheet" href="styles/menu.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
 </head>
-<body>
-    <div id="container">
-       
-        <div id="header">
-            <img src="images/logo_unahur.png">
-        </div>
-        <div id="navWidth">
-            <ul class="menuHorizontal">
-                <li><a href="#">Registrar Docente</a></li>
-                <li><a href="#">Listar Docentes</a></li>
-                <li><a href="#">Modificar Docentes</a></li>
-                <li><a href="#">Eliminar Docentes</a></li>
-            </ul>
-        </div>
-        <div id="main">
-            <div id="aside">
-                <ul class="menuVertical">
-                        <li><a href="#">Aulas</a></li>
-                        <li><a href="#">Carreras</a></li>
-                        <li><a href="#">Cursadas</a></li>
-                        <li><a href="#">Docentes</a></li>
-                        <li><a href="#">Estudiante</a></li>
-                        <li><a href="#">Materias</a></li>
-                </ul>
+    <div class="container-fluid">
+        <header class="row">
+            <div class="col-xs-12">
+                <div class="header">
+                    <a title="Logo Completo Unahur" href="http://www.unahur.edu.ar">
+                        <img src="images/logoUnahur.png" alt="Logo Completo Unahur">
+                    </a>
+                </div>
             </div>
-            <div id="section">
-               <form action class="formularioRegistro">
-                    <h1 class="formularioTitulo">Registro Docente</h1>
-
-                    <input type="text" class="formularioInput">
-                    <label for="" class="formularioLabel">Nombre</label>
-
-                    <input type="text" class="formularioInput">
-                    <label for="" class="formularioLabel">Apellido</label>
-                    
-                    <input type="text" class="formularioInput">
-                    <label for="" class="formularioLabel">DNI</label>   
-
-                    <input type="submit" value="Registrar" class="formularioSubmit">
-                </form>
+        </header>
+        
+        <main class="row principal">
+            <div class="col-xs-12 col-sm-5">
+                <div class="aside">
+                    <div class="menu">
+                        <li><a href="#">Registrar Docente</a></li>
+                        <li><a href="#">Listar Docentes</a></li>
+                        <li><a href="#">Modificar Docentes</a></li>
+                        <li><a href="#">Eliminar Docentes</a></li>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div id="footer">
-            <h3>UNaHur</h3>
-        </div>
 
-    </div>     
-       
+            <div class="col-xs-12 col-sm-6">
+                <div class="section">
+                    <div id="section">
+                        <form id = "formulario">
+                             <h2 class="titulo">Registro <span>Docente</span></h2>
+                             <input type="text" name="nombre" class="input"
+                                required placeholder="Nombre" id="nombre">    
+                             <input type="text" name="apellido"class="input"
+                                required placeholder="Apellido" id="apellido">    
+                             <input type="text" class="input"
+                                required name="dni" placeholder="DNI" id="dni">    
+                             <input type="submit" value="Registrar" id="btn">
+                         </form>
+                     </div>
+                </div>
+        </main>
+
+        <fotter class="row">
+            <div class="col-xs-12">
+                <div class="footer">
+                    <h3>UNaHur</h3>
+                </div>
+            </div>
+        </fotter>     
+    </div>  
+
     <script src="js/formulario.js"></script>
     
 </body>
