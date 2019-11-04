@@ -9,7 +9,11 @@ router.get("/", (req, res) => {
       attributes: ["id", "nombre_materia"],
     include: [{
         as: 'materias_aprobadas',
-        model: models.materia_aprobada
+        model: models.materia_aprobada,
+        include: [{
+          as: 'estudiante',
+          model: models.estudiante
+        }]
       }]
     })
     .then(materias => res.send(materias))
@@ -31,7 +35,11 @@ const findMateria = (id, { onSuccess, onNotFound, onError }) => {
       attributes: ["id","nombre_materia"], // para poder buscar por id...!!!!!
       include: [{
         as: 'materias_aprobadas',
-        model: models.materia_aprobada
+        model: models.materia_aprobada,
+        include: [{
+          as: 'estudiante',
+          model: models.estudiante
+        }]
       }],
       where: { id }
     })

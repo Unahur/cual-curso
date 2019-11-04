@@ -6,269 +6,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/abmEstudiante.css" type="text/css">
-    <link rel="stylesheet" href="https://servicios.unahur.edu.ar/unahur3w/_comp/unahur/img/logo-transparente.png" type="img/jpg">
+    <link rel="stylesheet" href="https://servicios.unahur.edu.ar/unahur3w/_comp/unahur/img/logo-transparente.png"
+        type="img/jpg">
     <title>Estudiantes</title>
 </head>
 
 <body>
-    <div>
-        <p id="im">
+    <div class="modificarUsuario" >
             <img src="https://servicios.unahur.edu.ar/unahur3w/_comp/unahur/img/logo-transparente.png">
-        </p>
+            <h2>Modificacion y Baja de Usuario</h2>
     </div>
-    <div class="modificarUsuario">
-        <h2>Modificacion y Baja</h2>
-    </div>
+
     <div id="mensaje">
         <strong>Podes modificar los datos del estudiante o darle de baja.</strong>
-        
-    <div>
-           
+        <div>
             <label for="uname"><b>Ingresa el DNI</b></label>
             <input type="text" placeholder="DNI" name="dni" id="dniIngresado" onkeypress="pulsar(event)">
-            <button id= "buscarDni" class="boton" type="click">Buscar</button>
-
+            <button id="buscarDni" class="boton" type="click">Buscar</button>
+            <button class="boton" type="click" onclick= "mostrarListado()" > Listado Estudiantes</button>
         </div>
+    
     </div>
 
-    <div id= "form1">
-            <br>
-            <br>
+    <div id="form1">
+        <br> <br>
         <form id="f_1" onsubmit="return false;" class="form">
             <h3 class="toggle">Datos Personales</h3>
-            <label>Nombre y Apellido: </label>
-            <label><input type="text" name="nombre_apellido" id="nombre_apellido" class="bloquear" required> </label>
-            <br>
-            <br>
-            <label>Numero de documento: <input type="number" name="dni" id="dni" class="bloquear"required></label>
+            <label>Nombre y Apellido: <input type="text" name="nombre_apellido" id="nombre_apellido" class="bloquear" required></label>
+            <br> <br>
+            <label>Numero de documento: <input type="number" name="dni" id="dni" class="bloquear" required></label>
             <br>
             <input type="hidden" id="hiddenId" name="hiddenId">
         </form>
         <br>
     </div>
-    
+
     <div class="botones">
         <button class="boton" onclick="modificarDatos('bloquear',false);">Modificar</button>
-        <button class="boton"id="guardarModificacion"  type="click" onclick="modificarDatos('bloquear',true); ">Guardar</button> 
-        <button class="boton" id= "baja" type="click" onclick="alerta('nombre_apellido',true)">Dar de Baja</button>
+        <button class="boton" id="guardarModificacion" type="click"
+            onclick="modificarDatos('bloquear',true); ">Guardar</button>
+        <button class="boton" id="baja" type="click" onclick="alerta('nombre_apellido',true)">Dar de Baja</button>
         <button class="boton" onclick="location.href='./pantallaEstudiante.html'"> Ingresar Nuevo estudiante</button>
     </div>
 
-    <script src="js/modificarEstudiante.js"></script>
-    <script src="./js/app_buscarEstudiante.js" ></script>
-    <script src="./js/app_modificarEstudiante.js"></script>
-    <script src="./js/app_borrarEstudiante.js"></script>
 
-   <!-- Prueba de paginacion y listado -->
+    <!-- Prueba de paginacion y listado -->
 
-        
-<div class="container">
-            
+  
+    <div class="container" id="mostrarListado" style="display:none">
         <div class="row">
-            <div class="page-header">
-                <h1>Pruebas de JSON con paginador</h1>
-            </div>
-            
+
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Nombre</th>
-                        <th>Apellido P</th>
-                        <th>Apellido M</th>
+                        <th>Dni</th>
+                        <th>| Nombre y Apellido</th>
                     </tr>
                 </thead>
                 <tbody id="listado">
                 </tbody>
             </table>
-            <div id="botonesPaginacion" class="btn-group btn-group-xs" 
-                 role="group" arial-label="grupo">
+            <div id="botonesPaginacion" class="btn-group btn-group-xs" role="group" arial-label="grupo">
             </div>
         </div>
-        
+
     </div>
-    
-    
-<script 
-    src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script 
-    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <script>
 
-
-
-
-var url = 'http://localhost:3001/estudiantes';
-
-
-    params = {
-        method: 'GET', 
-        headers: {
-            'Content-Type': 'application/json'
-        } 
-    };     
- 
-var request = new Request( url, params );
-
- 
-fetch( request )
-.then(res => res.json())   
-.then( data => paraProbar( data ) )
-.catch( e => console.error( 'Fallo!!!!' ) );
- 
-        
- function paraProbar(data){
-  //{'nombre':'Carlitos','paterno':'Sánchez','materno':'Polies'},
-
-  /*
-  [{"id":3,"dni":23,"nombre_apellido":"adriana Amarilla","materias_aprobadas":[]},{"id":5,"dni":789,"nombre_apellido":"d","materias_aprobadas":[]},{"id":6,"dni":125,"nombre_apellido":"dante","materias_aprobadas":[]},{"id":7,"dni":852,"nombre_apellido":"mariana","materias_aprobadas":[]},{"id":8,"dni":897,"nombre_apellido":"Yamil","materias_aprobadas":[]},{"id":9,"dni":1,"nombre_apellido":"No se","materias_aprobadas":[]}]
-  */
-
-           
-
-
-
-            var pag = 1;
-            var totales = data.length;
-            var xPag = 4;
-            var nPag = Math.ceil(totales / xPag);
-            var offset = (pag - 1) * xPag;
-            var hasta = pag * xPag;
-
-            console.log('-CONVERTIRRRRRR------'+JSON.stringify(data));
-            
-
-        function mostrarLista(offset,hasta){
-            console.log('-mostrarLista data------'+JSON.stringify(data));
-
-            var lista = '';
-            for(var i = offset; i < hasta; i++){
-                console.log("data[i]", JSON.stringify(data[i]))
-                console.log('---variable offset1 ------'+offset+'i:'+i);  
-                console.log('---que tiene data ------'+data);  
-                var fila = '';
-                if (data[i]) {
-                    fila += "<tr>";
-                        fila += "<td>"+data[i].dni+"</td>";
-                        fila += "<td>"+data[i].nombre_apellido+"</td>";
-                        fila += "</tr>";
-                        lista += fila;
-                        }
-                console.log('---variable offset2 ------'+offset); 
-            }
-            $('#listado').html(lista);
-        }
-        
-        function mostrarBotones(t){
-            var botones = '';
-            for(var i = 0; i < t; i++){
-                var cada = '';
-                cada = "<button type='button' "+
-                    "class='btn btn-info'>"+(i+1)+
-                    "</button>";
-                botones += cada;
-            }
-            
-            $('#botonesPaginacion').append(botones);
-        }
-        
-        function quitarActivo(){
-            var losBotones = document.querySelectorAll('#botonesPaginacion button');
-            for(var i = 0; i < losBotones.length; i++){
-                $(losBotones[i]).removeClass('active');
-            }
-        }
-        
-        mostrarLista(offset,hasta);
-        mostrarBotones(nPag);
-        
-        $( document ).ready(function(){
-            // Activar el primer botón
-            $('#botonesPaginacion button:first-child').addClass('active');
-            
-            // Poner oyentes a cada botón
-            var losBotones = document.querySelectorAll('#botonesPaginacion button');
-            for(var i = 0; i < losBotones.length; i++){
-                losBotones[i].addEventListener('click',function(){
-                    quitarActivo();
-                    var indice = parseInt(this.textContent);
-                    var o = (indice -1) * xPag;
-                    var h = indice * xPag;
-                    console.log('---Veo data en botones ------'+data);  
-                    mostrarLista(o,h);
-                    $(this).addClass('active');
-                });
-            }
-})}; 
-
-
-/*
-        var pag = 1;
-            var totales = json.length;
-            var xPag = 4;
-            var nPag = Math.ceil(totales / xPag);
-            var offset = (pag - 1) * xPag;
-            var hasta = pag * xPag;
-
-            console.log('-------'+totales);
-
-        function mostrarLista(offset,hasta){
-
-            var lista = '';
-            for(var i = offset; i < hasta; i++){
-                console.log('---variable offset1 ------'+offset+'i:'+i);  
-               
-                var fila = '';
-                fila += "<tr>";
-                fila += "<td>"+json[i].nombre+"</td>";
-                fila += "<td>"+json[i].paterno+"</td>";
-                fila += "</tr>";
-                lista += fila;
-                console.log('---variable offset2 ------'+offset); 
-            }
-            $('#listado').html(lista);
-        }
-        
-        function mostrarBotones(t){
-            var botones = '';
-            for(var i = 0; i < t; i++){
-                var cada = '';
-                cada = "<button type='button' "+
-                    "class='btn btn-info'>"+(i+1)+
-                    "</button>";
-                botones += cada;
-            }
-            
-            $('#botonesPaginacion').append(botones);
-        }
-        
-        function quitarActivo(){
-            var losBotones = document.querySelectorAll('#botonesPaginacion button');
-            for(var i = 0; i < losBotones.length; i++){
-                $(losBotones[i]).removeClass('active');
-            }
-        }
-        
-        mostrarLista(offset,hasta);
-        mostrarBotones(nPag);
-        
-        $( document ).ready(function(){
-            // Activar el primer botón
-            $('#botonesPaginacion button:first-child').addClass('active');
-            
-            // Poner oyentes a cada botón
-            var losBotones = document.querySelectorAll('#botonesPaginacion button');
-            for(var i = 0; i < losBotones.length; i++){
-                losBotones[i].addEventListener('click',function(){
-                    quitarActivo();
-                    var indice = parseInt(this.textContent);
-                    var o = (indice -1) * xPag;
-                    var h = indice * xPag;
-                    
-                    mostrarLista(o,h);
-                    $(this).addClass('active');
-                });
-            }
-}); */
-</script>
+    <script src="js/modificarEstudiante.js"></script>
+    <script src="./js/app_buscarEstudiante.js"></script>
+    <script src="./js/app_modificarEstudiante.js"></script>
+    <script src="./js/app_borrarEstudiante.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="js/app_listadoEstudiantes.js"></script>
 </body>
+
 </html>
