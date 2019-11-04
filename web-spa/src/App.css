@@ -52,25 +52,25 @@ body {
     max-height: 100px;
 }/*este contenedor es mas para centrar los botones y que queden a la altura del contenedor-grid*/
 
-.header ul {
+.header-buttom {
     list-style-type: none;
 }/*esto es para que no se muestre como lista*/
 
-.header li {
+.header-center-buttom {
     float: left;
     border-right: 2px solid #bbb;
     padding: 13px;
 }/*con float, el bloque flota a la izquierda del contenedor, se define el margen y el borde,
 para que quede bien parecido a un boton*/
   
-.header li a {
+.header-center-buttom a {
     color: rgb(70, 70, 70);
     text-align: center;
     padding: 13px;
     text-decoration: none;
 }/*aca se le da un color al texto, se le da un margen y se lo alinea al centro*/
 
-.header li a:hover {
+.header-center-buttom a:hover {
     color: rgb(161, 159, 159);
 }/*cuando se posiciona el mouse arriba del elemento el color de la letra cambia*/
 /*---------------------------------------------------------------------------------------*/
@@ -126,16 +126,16 @@ materia-create.html, deje implementada esta clase y la reutilize ahi, ya que el 
 .contenedor-grid .footer{ 
 	background: #fff;
 	padding: 20px;
-	border-radius: 6px;
+	border-radius: 4px;
 }/*aca defino el espacio adentro de los divs de las clases*/
 .contenedor-grid .contenido {
     grid-area: contenido;/*esto es importante, por que le estoy asignando a la clase un area, la cual invoco en el template area del contenedor-grid*/
-    background: #e7e6e6;
+    background: #f5f5f5;
     border: rgb(207, 207, 207) 1px solid;
 }
 
 .contenedor-grid .sidebar {
-    background: #e7e6e6;
+    background: #f5f5f5;
     border: rgb(207, 207, 207) 1px solid;
 	min-height: 100px;
 	grid-area: sidebar;/*le asigno el nombre el area que debe ocupar*/
@@ -208,46 +208,26 @@ ajustar los margenes y el tamaño del boton, para que se vea mas lindo, en pocas
 }
 /*---------------------------------------------------------------------------------------*/
 /*tabla*/
-.table {
-    width:100%;
-    border: rgb(207, 207, 207) 1px solid;
-    font-size: 15px;
-    margin: 3px;
-    border-radius: 6px;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-}
-thead {
-    font-size: 15px;
-    color: #fff;
-    margin: 0px;
-    max-height: 100px;
-    border-radius: 6px;
-    padding: 8px 13px;
-}
-tbody{
-    margin: 0px;
-    border-radius: 6px;
-    max-height: 100px;
-    padding: 8px 13px;
-}
-th{
-    border: rgb(207, 207, 207) 1px solid;
-    background-image: -webkit-linear-gradient(top, #08c, rgb(109, 186, 224));
-    margin: 0px;
-    border-radius: 6px;
-    max-height: 100px;
-    padding: 8px 13px;
+ul.col5{
+    padding-right: 0px;
+    padding-left: 0px;
+    float: left;
+    padding-bottom: 0px;
+    margin: 15px 0px;
+    width: 100%;
+    padding-top: 0px;
+    list-style-type: none;
 }
 
-td { 
-    border: rgb(207, 207, 207) 1px solid;
-    background-image: -webkit-linear-gradient(top, #fff, rgb(218, 219, 221));
-    margin: 0px;
-    text-align: center;
-    border-radius: 6px;
-    max-height: 100px;
-    padding: 8px 13px;
-}/*no hay mucho para comentar acerca de la tabla*/
+ul.col5 li{
+    display: inline-block;   
+    padding-right: 2px;
+    padding-left: 2px;
+    float: left;
+    padding-bottom: 2px;
+    width: 18%;
+    padding-top: 2px
+} 
 /*---------------------------------------------------------------------------------------*/
 /*cuando la imagen llega a 768 pixeles de ancho se aplica la interfaz movile*/
 @media screen and (max-width: 768px){
@@ -258,47 +238,7 @@ td {
     }/*aca se cambia la forma en la que se debe mostrar las clases en la interfaz movile
     (en vez de ir el sidebar al costado, se lo mueve para arriba)*/
     /*---------------------------------------------------------------------------------------*/
-    table {
-        width:100%;
-    }
-    thead {
-        display: none;
-    }/*aca la parte interesante, se deja de mostrar la cabezera de la tabla*/
-    tr:nth-of-type(2n) {
-        background-color: inherit;
-    }
-    tr td:first-child {
-        background-image: -webkit-linear-gradient(top, #fff, rgb(218, 219, 221));
-        border: rgb(207, 207, 207) 1px solid;
-        font-weight:bold;
-        font-size:1.3em;
-    }
-    tbody td {
-        display: block;
-        text-align:center;
-        border: rgb(207, 207, 207) 1px solid;
-        border-radius: 6px;
-    }/*todo esto se utiliza para mostrar la informacion de la tabla en desktop como una lista y darle estilo*/
-    tbody td:before {
-        float: left;
-		text-transform: uppercase;
-        font-size: 15px;
-        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-        border: rgb(26, 99, 99) 2px solid;
-        background-image: -webkit-linear-gradient(top, #08c, rgb(109, 186, 224));
-        border-radius: 3px;
-        color: #ffffff;
-    }/*Como en el paso anterior quitamos el Thead, ya que no se lo puede poner al costado de esta tabla-lista
-    aca se estaria agregando al tbody, mas en especifico al td, que al lado de cada atributo que se muestre,
-    se muestre que atributo es, en el caso de aparecer "matematicas", aparezca al lado izquierdo "Materia: matematicas",
-    y tambien se le da estilo a su vez al contenido*/
-    td:nth-of-type(1):before { content: "Materia: "; }
-	td:nth-of-type(2):before { content: "Descripcion: "; }
-	td:nth-of-type(3):before { content: "Duracion: "; }
-	td:nth-of-type(4):before { content: "Horas Totales: "; }
-    td:nth-of-type(5):before { content: "Opciones: "; }
-    /*en este paso se asigna el contenido que tiene que ir a la izquierda de la nueva tabla-lista,
-    para saber a que atributos nos estamos refiriendo*/
+
     /*---------------------------------------------------------------------------------------*/
 }
 

@@ -55,23 +55,23 @@ class Materia extends Component {
     render() {
         return (
             <div>
-                <div class="contenedor-titulo">
-                    <div class="titulo">Creacion de materia</div>
+                <div className="contenedor-titulo">
+                    <div className="titulo">Creacion de materia</div>
                 </div>
-                <form action="" autoComplete="off" class="contenedor-grid contenedor-grid-abm" onSubmit={(e) => this.handleSubmit(e)}>
-                    <div class="contenido">
-                        <div class="subtitulo">Datos de la materia</div>
-                        <div class="texto">Nombre de materia(*)</div>
-                        <input class="input" type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
-                        <div class="texto">Descripcion de materia(*)</div>
-                        <input class="input" type="text" name="description" value={this.state.description} onChange={this.handleChange}/>
-                        <div class= "texto">Duracion(*)</div>
-                        <input class="input" type="number" name="duration" value={this.state.duration} onChange={this.handleChange}/>
-                        <div class="texto">Horas totales(*)</div>
-                        <input class="input" type="number" name="totalHours" value={this.state.totalHours} onChange={this.handleChange}/>
+                <form action="" autoComplete="off" className="contenedor-grid contenedor-grid-abm" onSubmit={(e) => this.handleSubmit(e)}>
+                    <div className="contenido">
+                        <div className="subtitulo">Datos de la materia</div>
+                        <div className="texto">Nombre de materia(*)</div>
+                        <input className="input" type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
+                        <div className="texto">Descripcion de materia(*)</div>
+                        <input className="input" type="text" name="description" value={this.state.description} onChange={this.handleChange}/>
+                        <div className= "texto">Duracion(*)</div>
+                        <input className="input" type="number" name="duration" value={this.state.duration} onChange={this.handleChange}/>
+                        <div className="texto">Horas totales(*)</div>
+                        <input className="input" type="number" name="totalHours" value={this.state.totalHours} onChange={this.handleChange}/>
                     </div>
-                    <footer class="footer">
-                        <input class="buttom" type="submit" value="Aceptar"></input>
+                    <footer className="footer">
+                        <input className="buttom" type="submit" value="Aceptar"/>
                     </footer>
                 </form>
             </div>
