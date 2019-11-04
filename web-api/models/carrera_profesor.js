@@ -1,3 +1,4 @@
+
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const carrera_profesor = sequelize.define('carrera_profesor', {

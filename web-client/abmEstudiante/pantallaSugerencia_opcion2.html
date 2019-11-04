@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/abmEstudiante.css" type="text/css">
+    <link rel="stylesheet" href="./css/materiasSugeridas.css" type="text/css">
+    <link rel="stylesheet" href="https://servicios.unahur.edu.ar/unahur3w/_comp/unahur/img/logo-transparente.png"
+        type="img/jpg">
+    <title>Sugerencia de Cursada</title>
+</head>
+
+<body>
+<!--Tomo en cuenta que el sistema ya tiene las materias aprobadas de cada usuario, pero las mismas 
+se separan por carrera-->
+
+    <div class="modificarUsuario" >
+            <img src="https://servicios.unahur.edu.ar/unahur3w/_comp/unahur/img/logo-transparente.png">
+            <h2>Busca tu dni y completa el formulario</h2>
+    </div>
+    <div id="mensaje">
+            <label for="uname"><b>Ingresa tu DNI</b></label>
+            <input type="text" placeholder="DNI" name="dni" id="dniIngresado" onkeypress="pulsar(event)">
+            <button id="buscarDni" class="boton" type="click">Buscar</button>
+            
+    </div>
+
+
+           
+      <br>
+      <form id="f_1" onsubmit="return false;" class="form">
+            <h3 class="toggle">Datos Personales</h3>
+            <label>Nombre y Apellido: <input type="text" name="nombre_apellido" id="nombre_apellido" class="bloquear" required></label>
+            <br> <br>
+            <label>Numero de documento: <input type="number" name="dni" id="dni" class="bloquear" required></label>
+            <br>
+            <input type="hidden" id="hiddenId" name="hiddenId">
+ 
+       <br>
+       <label>Tenes familiares a cargo? (Padres, Hermanos, Hijos, Pareja)</label> 
+       <br>
+       <input type="radio" name="sexo" value="Hombre"/>Sí
+       <input type="radio" name="sexo" value="Mujer"/>No
+        
+      
+       <br>
+       <br>
+       <b>Te encontras trabajando mas de 4 horas en el momento de la cursada?</b>
+       <br>
+       <input type="radio" name="siTrabajo" value="si"/>Sí
+       <br>
+       <input type="radio" name="noTrabajo" value="no"/>No
+       <br>
+       <input type="radio" name="aVecesTrabajo" value="aVeces"/>A veces
+       <br>
+       <br>
+      
+        
+      
+       <b>En que cuatrimeste ingresaste a la Universidad?</b>
+      
+       <select name="color">
+         <option>Selecciona</option>
+         <option value="1_2016">Primer cuatrimestre 2016</option>
+         <option value="2_2016">Segundo cuatrimestre 2016</option>
+         <option value="1_2017">Primer cuatrimestre 2017</option>
+         <option value="2_2017">Segundo cuatrimestre 2017</option>
+         <option value="1_2018">Primer cuatrimestre 2018</option>
+         <option value="2_2018">Segundo cuatrimestre 2018</option>
+         <option value="1_2019">Primer cuatrimestre 2019</option>
+         <option value="2_2019">Segundo cuatrimestre 2019</option>
+       </select>
+      
+        
+      
+       <input id="enviarSugeridas"class="boton" type="submit" value="Enviar"/>
+      </p>
+      </form>
+
+
+
+
+
+    <script src="js/pantallaSugerencia.js"></script>
+    <script src="js/modificarEstudiante.js"></script>
+    <script src="./js/app_buscarEstudiante.js"></script>
+    <script src="./js/app_modificarEstudiante.js"></script>
+    <script src="./js/app_borrarEstudiante.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="js/app_listadoEstudiantes.js"></script>
+</body>
+
+</html>

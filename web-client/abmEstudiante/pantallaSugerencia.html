@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/abmEstudiante.css" type="text/css">
+    <link rel="stylesheet" href="./css/materiasSugeridas.css" type="text/css">
+    <link rel="stylesheet" href="https://servicios.unahur.edu.ar/unahur3w/_comp/unahur/img/logo-transparente.png"
+        type="img/jpg">
+    <title>Sugerencia de Cursada</title>
+</head>
+
+<body>
+<!--Tomo en cuenta que el sistema ya tiene las materias aprobadas de cada usuario, pero las mismas 
+se separan por carrera-->
+
+    <div class="modificarUsuario" >
+            <img src="https://servicios.unahur.edu.ar/unahur3w/_comp/unahur/img/logo-transparente.png">
+            <h2>Busca tu dni y tu carrera a consultar</h2>
+    </div>
+
+    <div id="mensaje">
+            <label for="uname"><b>Ingresa tu DNI</b></label>
+            <input type="text" placeholder="DNI" name="dni" id="dniIngresado" onkeypress="pulsar(event)">
+            <button id="buscarDni" class="boton" type="click">Buscar</button>
+            
+    </div>
+<!-- Puedo poner tambien directamente que se elija las materias que se aprobaron-->
+    <ul id="menu">
+        <li><input name="list" id="nivel1-1" type="checkbox"><label for="nivel1-1">Tecnicatura Universitaria en Informatica</label>
+        <ul class="interior">
+              <li><input name="list" id="nivel2-1" type="checkbox"><label for="nivel2-1">1° Año</label>
+                <ul class="interior">
+                  <li><a href="#r">Introduccion a la Programacion</a></li>
+                  <li><a href="#r">Organizacion de las Computadoras</a></li>
+                  <li><a href="#r">Programación de objetos I </a></li>
+                  <li><a href="#r">Bases de datos</a></li>
+                  <li><a href="#r">Estructura de datos</a></li>
+                 </ul>
+              </li>
+              <li><input name="list" id="nivel2-2" type="checkbox"><label for="nivel2-2">2° Año</label>
+                <ul class="interior">
+                  <li><a href="#r">Programación de objetos II </a></li>
+                  <li><a href="#r">Matematica II </a></li>
+
+                 </ul>
+              </li>
+              <li><a href="#r">3° Año</a></li>
+           </ul>
+        </li>
+        <li><input name="list" id="nivel1-2" checked="" type="checkbox"><label for="nivel1-2">Ingenieria Electrica</label>
+           <ul class="interior">
+              <li><a href="#r">Nivel 2</a></li>
+              <li><input name="list" id="nivel2-3" type="checkbox"><label for="nivel2-3">Nivel 2</label>
+                <ul class="interior">
+                  <li><a href="#r">Nivel 3</a></li>
+                  <li><a href="#r">Nivel 3</a></li>
+                 </ul>
+              </li>
+              <li><input name="list" id="nivel2-4" type="checkbox"><label for="nivel2-4">Nivel 2</label>
+              <ul class="interior">
+                  <li><a href="#r">Nivel 3</a></li>
+                  <li><a href="#r">Nivel 3</a></li>
+                  <li><a href="#r">Nivel 3</a></li>
+                 </ul>
+              </li>
+           </ul>
+        </li>
+        <li><a href="#r">Ingenieria Industrial</a></li>
+     </ul>
+     
+
+
+   
+    <script src="js/modificarEstudiante.js"></script>
+    <script src="./js/app_buscarEstudiante.js"></script>
+    <script src="./js/app_modificarEstudiante.js"></script>
+    <script src="./js/app_borrarEstudiante.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="js/app_listadoEstudiantes.js"></script>
+</body>
+
+</html>

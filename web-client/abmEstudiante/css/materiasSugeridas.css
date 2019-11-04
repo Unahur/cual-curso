@@ -1,0 +1,31 @@
+.interior{ display:none; } /* oculta las listas anidadas */
+input:checked ~ ul{display:block;}
+
+#menu * { list-style:none;}
+#menu li{ line-height:180%;}
+#menu li a{color:#222; text-decoration:none;}
+#menu li a:before{ content:"\025b8"; color:#ddd; margin-right:4px;}
+#menu input[name="list"] {
+	position: absolute;
+	left: -1000em;
+	}
+#menu label:before{ content:"\025b8"; margin-right:4px;}
+#menu input:checked ~ label:before{ content:"\025be";}
+#menu .interior{display: none;}
+#menu input:checked ~ ul{display:block;}
+
+#entrada {
+    margin: 0px auto;
+    width: 100x;
+    border: 1px solid #336699;
+    font-size: 12px;
+   }
+#entrada p {
+    margin: 0px;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: #787878;
+   }
+
+ 

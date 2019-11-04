@@ -71,13 +71,8 @@ strong {
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    margin: auto 30%;
+    margin: auto 20%;
 }
-
-.bloquear {
-
-  }
-
 
 button {
 cursor:pointer;
