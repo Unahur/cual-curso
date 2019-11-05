@@ -77,13 +77,20 @@ se separan por carrera-->
        </select>
       
         
-      
-       <input id="enviarSugeridas"class="boton" type="submit" value="Enviar"/>
+      <button class="boton" id="enviarSugeridas" type="click" onclick ="crearSugerencias();">Mostrar Sugerencias</button>
       </p>
       </form>
 
-
-
+      <!--No se pueden cursar mas de 6 materias por cuatrimestre por reglamento academico
+      Si se llega agregar las ponderaciones para eliminar materias-->
+      <label>Materias sugeridad para cursar:</label>
+      <br/>
+      <input type="text" name="sugerida1" id="sugerida1" class="bloquear" placeholder="...">
+      <input type="text" name="sugerida2" id="sugerida2" class="bloquear" placeholder="..." >
+      <input type="text" name="sugerida3" id="sugerida3" class="bloquear" placeholder="...">
+      <input type="text" name="sugerida4" id="sugerida4" class="bloquear" placeholder="...">
+      <input type="text" name="sugerida5" id="sugerida5" class="bloquear" placeholder="...">
+      <input type="text" name="sugerida6" id="sugerida6" class="bloquear" placeholder="...">
 
     <script src="./js/app_sugerencias.js"></script>
     <script src="js/pantallaSugerencia.js"></script>
