@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
+import Abm from './materia-abm';
 class ListaMaterias extends Component {
     constructor(props){
         super(props);
         this.state = {
-            materias: []
+            materias: [],
+            input: ""
         }
+    }
+    onEdit(e){
+        console.log(e)
+        this.props.id(e)
     }
     handleGet(){
         fetch('http://localhost:3001/materia/', {
@@ -19,38 +25,31 @@ class ListaMaterias extends Component {
             })
         })
     }
-    onEdit(id) {
-        fetch(`http://localhost:3001/materia/${id}`, {
-            method: 'GET'
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-            });
-    }
-    
     onDelete(id) {
+        const recargar = () => {
+            window.location.reload();
+        }
         if (window.confirm('Seguro que quiere eliminar esta Materia? ')) {
             fetch(`http://localhost:3001/materia/${id}`, {
                 method: 'DELETE'
-            });
+            })
+            .then(recargar);
         }
-        //window.location.reload();
     }
     render(){
         if (this.state.materias.length > 0) {
             return (
                 this.state.materias.map(data =>{
-
                     return(
-                        <ul className="col5">
-                            <li>{data.name}</li>
-                            <li>{data.description}</li>
-                            <li>{data.duration}</li>
-                            <li>{data.totalHours}</li>
+                        <ul className="col5-data">
+                            <li><div className="texto-responsive">Materia: </div><div className="texto-responsive-ul">{data.name}</div></li>
+                            <li><div className="texto-responsive">Descripcion: </div><div className="texto-responsive-ul">{data.description}</div></li>
+                            <li><div className="texto-responsive">Duracion: </div><div className="texto-responsive-ul">{data.duration}</div></li>
+                            <li><div className="texto-responsive">Horas Totales: </div><div className="texto-responsive-ul">{data.totalHours}</div></li>
                             <li>
-                                <button className="buttom buttom-tabla" key={data.id} onClick={id => this.onEdit(id)}>editar</button>
-                                <button className="buttom buttom-tabla" key={data.id} onClick={id => this.onDelete(id)}>eliminar</button>
+                            <div className="texto-responsive">Opciones: </div>
+                                <button className="buttom buttom-tabla" onClick={() => this.onEdit(data.id)}>editar</button>
+                                <button className="buttom buttom-tabla" onClick={() => this.onDelete(data.id)}>eliminar</button> 
                             </li>
                         </ul>
                     )

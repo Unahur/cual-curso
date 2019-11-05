@@ -255,7 +255,7 @@ td {
 		grid-template-areas: "sidebar sidebar sidebar sidebar"
                              "contenido contenido contenido contenido"
                              "footer footer footer footer";
-    }/*aca se cambia la forma en la que se debe mostrar las clases en la interfaz movile
+    }/*aca se cambia la forma en la que se debe mostrar las clases en la interfaz mobile
     (en vez de ir el sidebar al costado, se lo mueve para arriba)*/
     /*---------------------------------------------------------------------------------------*/
     table {
