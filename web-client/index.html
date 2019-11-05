@@ -1,8 +1,55 @@
-<html>
-  <head>
-    <link rel="stylesheet" href="styles/global.css" />
-  </head>
-  <body>
-    Hello world!
-  </body>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Registro Docente</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">  
+</head>
+
+<body>  
+  <header>
+    <div class="container">
+      <h1>Header</h1>
+    </div>
+  </header> 
+  
+  <div class="container">fetch(url, {
+      method: 'GET',
+      body: JSON.stringify(data), 
+          headers: { 'Content-Type': 'application/json'  }
+  })
+    <section class="row sectio">
+        <div class="box col-md-6" id="clickL">
+            <ul><li><a href="listarDocente.html">Listar</a></li></ul>            
+        </div>
+        <div class="box col-md-6" id="clickR">
+            <ul><li><a href="registrarDocente.html">Registrar</a></li></ul>  
+        </div>
+    </section>
+    <section class="row">
+        <div class="box col-md-6" id="clickM">
+            <ul><li><a href="#">Modificar</a></li></ul>  
+        </div>
+        <div class="box col-md-6" id="clickE">
+            <ul><li><a href="#">Eliminar</a></li></ul>  
+        </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="container">
+      <h3>UNaHur</h3>
+    </div>
+  </footer>
+  
+
+
+  <script src="js/index.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
 </html>

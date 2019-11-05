@@ -3,10 +3,13 @@
 var url = 'http://localhost:3001/docentes';
 var formulario = document.getElementById('formulario');
 
-formulario.addEventListener('submit', function (evt) {
-evt.preventDefault();
+formulario.addEventListener('submit', function (e) {
+e.preventDefault();
+console.log("Me diste click")
 
 var datos = new FormData(formulario);
+console.log(datos);
+
 var data = {
     nombre: datos.get('nombre'),
     apellido: datos.get('apellido'),

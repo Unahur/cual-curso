@@ -1,0 +1,55 @@
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Registrar Docente</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">  
+</head>
+
+<body>  
+  <header>
+    <div class="container">
+      <h1>Header</h1>
+    </div>
+  </header> 
+  
+  <div class="container">
+  <main class="row">
+    
+      <nav class="col-md-3">
+        <ul>
+          <li>Listar</li>
+          <li>Registrar</li>
+          <li>Modificar</li>
+          <li>Eliminar</li>
+        </ul>
+      </nav>   
+
+      <form class="col-md-9" id="formulario">
+        <h2 class="titulo">Registro <span>Docente</span></h2>
+        <input type="text" class="form-control" name="nombre" placeholder="Nombre" requiered>
+        <input type="text" class="form-control" name="apellido" placeholder="Apellido" requiered>
+        <input type="text" class="form-control" name="dni" placeholder="DNI" requiered>
+        <input type="submit" class="btn btn-primary" id="btn" value="Registrar">
+      </form>
+    </div>
+
+    <!--  -->
+  </main> 
+
+  <footer>
+    <div class="container">
+      <h3>UNaHur</h3>
+    </div>
+  </footer>
+  
+
+
+  <script src="js/formulario.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

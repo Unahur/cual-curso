@@ -1,0 +1,39 @@
+header{
+  background:grey;
+  color: white;
+}
+
+aside {
+  background:black;
+  color: white;
+}
+
+main {
+  background: brown ;
+  color: black;
+}
+
+nav {
+  background: yellow ;
+  color: black;
+}
+
+form {
+  background:pink ;
+  color: black;
+}
+
+footer {
+  background:grey;
+  color: white;
+}
+
+.sectio{
+  background: red;
+}
+
+.box {
+    background: rgba(255,255,255,.2);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    color: black;
+}
