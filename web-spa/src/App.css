@@ -18,5 +18,16 @@
 }
 
 .App-link {
-  color: #09d3ac;
+  color: rgb(240, 240, 240);
+}
+
+#containerList{
+  background:rgb(240, 240, 240)
+}
+body{
+  background:rgb(226, 226, 226)
+}
+
+div{
+  border-radius: 10px;
 }
