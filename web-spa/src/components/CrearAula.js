@@ -2,7 +2,8 @@ import React, { Component } from "react";
 class CrearAula extends Component {
   state = {
     edificio: "",
-    numeroAula: null
+    numeroAula: null,
+    dataValue: false
   };
   /* 
   cargarCursadas = () => {
@@ -54,28 +55,36 @@ class CrearAula extends Component {
         })
       );
   }; */
+  verificarNombre = () => {
+    return this.state.edificio.length < 16 && this.state.edificio.length > 4;
+  };
+
   createAula = () => {
-    var data = {
-      edificio: this.state.edificio,
-      numero_aula: this.state.numeroAula
-    };
-    fetch("http://localhost:3001/aulas", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(res => res.json())
-      .catch(error => console.error("Error:", error))
-      .then(response => console.log("Success:", response));
+    if (this.verificarNombre()) {
+      var data = {
+        edificio: this.state.edificio,
+        numero_aula: this.state.numeroAula
+      };
+      fetch("http://localhost:3001/aulas", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+        .then(res => res.json())
+        .catch(error => console.error("Error:", error))
+        .then(response => console.log("Success:", response));
+    } else {
+      alert(
+        "El nombre del edificio tiene que ser mayor a 4 y menor a 16 caracteres"
+      );
+    }
   };
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-
-    console.log(this.state.edificio);
-    console.log(this.state.numeroAula);
   };
+
   render() {
     return (
       <div className="row justify-content-md-center">

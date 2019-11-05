@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
       references: 'cursadas', 
       referencesKey: 'id'
     }
-
-  },{}
+    
+  },{ }
   );
 
   aula.associate = function(models) {

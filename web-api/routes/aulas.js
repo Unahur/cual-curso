@@ -4,14 +4,25 @@ var models = require("../models");
 
 
 router.get("/", (req, res) => {
+  var page=1;
+  var pageSize=4;
   models.aula
     .findAll({
       attributes: ["id", "edificio", "numero_aula", "cursada_id"]
-    })
+    },paginate({ page, pageSize }))
     .then(aulas => res.send(aulas))
     .catch(() => res.sendStatus(500));
 });
 
+const paginate = ({ page, pageSize }) => {
+  const offset = page * pageSize;
+  const limit = offset + pageSize;
+
+  return {
+    offset,
+    limit,
+  };
+};
 
 router.post("/", (req, res) => {
   models.aula

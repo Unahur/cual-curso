@@ -18,6 +18,9 @@ class ModificarAula extends Component {
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+  verificarNombre = () => {
+    return this.state.edificio.length < 16 && this.state.edificio.length > 4;
+  };
   modificarAula = () => {
     const aula = {
       edificio: this.state.edificio,
@@ -27,7 +30,8 @@ class ModificarAula extends Component {
     if (
       window.confirm(
         "Estas seguro que desea modificar el aula n°:" + this.state.numAula
-      )
+      ) &&
+      this.verificarNombre()
     ) {
       console.log(this.state.numAula.toString());
       fetch("http://localhost:3001/aulas/" + this.state.numAula, {
