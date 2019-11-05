@@ -124,10 +124,17 @@ width: 88px;
 	text-align:center;
   }
 
-#dni , #nombre_apellido{
+#dni , #nombre_apellido, {
   text-align:center;
   margin: 0;
   -moz-appearance: textfield;
+}
+
+#cantMaterias{
+  text-align:center;
+  margin: 0;
+  -moz-appearance: textfield;
+  min-inline-size: 0px;
 }
 
 .boton:hover {

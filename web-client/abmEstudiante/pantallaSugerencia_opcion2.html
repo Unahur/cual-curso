@@ -24,6 +24,8 @@ se separan por carrera-->
             <label for="uname"><b>Ingresa tu DNI</b></label>
             <input type="text" placeholder="DNI" name="dni" id="dniIngresado" onkeypress="pulsar(event)">
             <button id="buscarDni" class="boton" type="click">Buscar</button>
+            <label>Cantidad de Materias Aprobadas: <input type="number" name="cantMaterias" id="cantMaterias" class="bloquear" required></label>
+
             
     </div>
 
@@ -31,6 +33,7 @@ se separan por carrera-->
            
       <br>
       <form id="f_1" onsubmit="return false;" class="form">
+            
             <h3 class="toggle">Datos Personales</h3>
             <label>Nombre y Apellido: <input type="text" name="nombre_apellido" id="nombre_apellido" class="bloquear" required></label>
             <br> <br>
@@ -82,7 +85,7 @@ se separan por carrera-->
 
 
 
-
+    <script src="./js/app_sugerencias.js"></script>
     <script src="js/pantallaSugerencia.js"></script>
     <script src="js/modificarEstudiante.js"></script>
     <script src="./js/app_buscarEstudiante.js"></script>

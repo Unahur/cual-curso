@@ -1,4 +1,3 @@
-//window.onload=function(){ocultar()};
 var url = 'http://localhost:3001/estudiantes';
 
     params = {
