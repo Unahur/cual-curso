@@ -23,7 +23,7 @@
             <label for="uname"><b>Ingresa el DNI</b></label>
             <input type="text" placeholder="DNI" name="dni" id="dniIngresado" onkeypress="pulsar(event)">
             <button id="buscarDni" class="boton" type="click">Buscar</button>
-            <button class="boton" type="click" onclick= "mostrarListado()" > Listado Estudiantes</button>
+            <button class="boton" id="btnLargo" type="click" onclick= "mostrarListado()" > Listado Estudiantes</button>
         </div>
     
     </div>
@@ -45,8 +45,8 @@
         <button class="boton" onclick="modificarDatos('bloquear',false);">Modificar</button>
         <button class="boton" id="guardarModificacion" type="click"
             onclick="modificarDatos('bloquear',true); ">Guardar</button>
-        <button class="boton" id="baja" type="click" onclick="alerta('nombre_apellido',true)">Dar de Baja</button>
-        <button class="boton" onclick="location.href='./pantallaEstudiante.html'"> Ingresar Nuevo estudiante</button>
+        <button width ="170px" class="boton" id="btnLargo" type="click" onclick="alerta('nombre_apellido',true)">Dar de Baja</button></th>
+        <button class="boton" id= "btnMasLargo" onclick="location.href='./pantallaEstudiante.html'"> Ingresar Nuevo estudiante</button>
     </div>
 
 

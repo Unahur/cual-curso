@@ -92,7 +92,13 @@ document.getElementById('buscarDni').addEventListener('click', function (evt) {
         if ((matAprobadas.includes(2)) && (matAprobadas.includes(3)) && (!(matAprobadas.includes(12)))) {
             matSugeridas.push(12);
         }
+//if tiene hijos -1 materia(array)
 
+if (document.getElementsByClassName('hijos').value == 'si'){
+    console.log('------antes del delete-------'+matSugeridas.length)
+         delete matSugeridas[length -1];
+         console.log('------despues del delete-------'+matSugeridas.length)
+};
 
     var materia = [];
 
@@ -133,12 +139,28 @@ document.getElementById('buscarDni').addEventListener('click', function (evt) {
             materia.push("Sistemas Operativos");
         }
         
+        
         document.getElementById('sugerida1').value = materia[0];
+        
         document.getElementById('sugerida2').value = materia[1];
+
         document.getElementById('sugerida3').value = materia[2];
+    
         document.getElementById('sugerida4').value = materia[3];
+
         document.getElementById('sugerida5').value = materia[4];
+
         document.getElementById('sugerida6').value = materia[5];
+
+
+        //Si no hay mas materias que no muestre nada en el input
+        for (j=1; j < 7; j++){
+            var concat = "sugerida"+j;
+                if (document.getElementById(concat).value == "undefined") {
+                    document.getElementById(concat).value =" ";
+                }
+        }; 
+
 
 
     } //cierra la funcion verDatos

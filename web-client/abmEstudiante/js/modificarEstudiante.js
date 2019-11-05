@@ -17,7 +17,7 @@ function modificarDatos(formId, yesNo) {
     } else {
         mensaje = "Dar de Baja";
     } 
-     document.getElementById("baja").innerHTML = mensaje;
+     document.getElementById("btnLargo").innerHTML = mensaje;
  };
 
  //Funcion para que busque el dni al hacer enter

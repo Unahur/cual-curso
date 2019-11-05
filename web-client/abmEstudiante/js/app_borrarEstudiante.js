@@ -1,4 +1,4 @@
-document.getElementById('baja').addEventListener('click', function(){
+document.getElementById('btnLargo').addEventListener('click', function(){
     console.log(" Entro al evento ")
 
     // como para borrar solo necesito el id lo tomo del imput hidden!!
