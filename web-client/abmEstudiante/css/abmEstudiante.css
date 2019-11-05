@@ -116,7 +116,12 @@ padding-right: 12px;
 padding-top: 4px;
 width: 88px;
   }
-
+#btnLargo{
+  width: 170px;
+}
+#btnMasLargo{
+  width: 230px;
+}
 
 .botones {
   align-items: center; 
@@ -124,7 +129,7 @@ width: 88px;
 	text-align:center;
   }
 
-#dni , #nombre_apellido, {
+#dni , #nombre_apellido {
   text-align:center;
   margin: 0;
   -moz-appearance: textfield;
