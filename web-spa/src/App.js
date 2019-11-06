@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Estadios from "./components/Estadios"
+import Carreras from "./components/Carreras"
 
 function App() {
   return (
