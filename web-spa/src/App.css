@@ -207,6 +207,12 @@ ajustar los margenes y el tamaño del boton, para que se vea mas lindo, en pocas
     margin: 3px;
     border: rgb(26, 99, 99) 1px solid;
 }
+.texto-responsive{
+    display: none;
+}
+.texto-responsive-ul{
+    margin:5px;
+}
 /*---------------------------------------------------------------------------------------*/
 /*tabla*/
 .table {
@@ -269,12 +275,6 @@ ul.col5-data li{
     font-size: 15px;
     margin: 0px;
 }
-.texto-responsive{
-    display: none;
-}
-.texto-responsive-ul{
-    margin:5px;
-}
 /*---------------------------------------------------------------------------------------*/
 /*cuando la imagen llega a 768 pixeles de ancho se aplica la interfaz mobile*/
 @media screen and (max-width: 768px){
@@ -282,7 +282,7 @@ ul.col5-data li{
 		grid-template-areas: "sidebar sidebar sidebar sidebar"
                              "contenido contenido contenido contenido"
                              "footer footer footer footer";
-    }/*aca se cambia la forma en la que se debe mostrar las clases en la interfaz movile
+    }/*aca se cambia la forma en la que se debe mostrar las clases en la interfaz mobile
     (en vez de ir el sidebar al costado, se lo mueve para arriba)*/
     /*---------------------------------------------------------------------------------------*/
     ul.col5{

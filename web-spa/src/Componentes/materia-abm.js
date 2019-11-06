@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ListaMaterias from './component-abm';
+import Put from './component-put';
 class Abm extends Component {
     constructor(props){
         super(props)
@@ -9,88 +10,31 @@ class Abm extends Component {
             description: "",
             duration: "",
             totalHours: ""
-        }
-        this.handleChange = this.handleChange.bind(this);
-        this.setId = this.setId.bind(this);
+        }//digamos que este es el estado del put, el componente-abm trae los elementos y en el componente-put se cambia y se envia por fetch.
     }
-    onEdit(id) {
-        fetch(`http://localhost:3001/materia/${id}`, {
-            method: 'GET'
+    handleChangeOnEdit (id, name, description, duration, totalHours) {
+        this.setState({
+            id: id,
+            name: name,
+            description: description,
+            duration: duration,
+            totalHours: totalHours
         })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                this.setState({
-                    id: data.id,
-                    name: data.name,
-                    description: data.description,
-                    duration: data.duration,
-                    totalHours: data.totalHours
-                })
-            });
-    }
-    setId(id){
-        this.setState({id})
-        this.onEdit(this.state.id)
-    }
+        console.log(this.state)
+    }//este metodo recibe los parametros cuando se activa el edit, para tenerlos listos para el put.
+    //nota: sin esto, ocurriria un bug que haria que el componente no muestre los datos que uno esta modificando.
     handleChange (e) {
         const name = e.target.name;
         const value = e.target.value;
         this.setState({
           [name]: value
         })
-    }
-    handleSubmit(event){
-        event.preventDefault()
-        this.handleEdit(this.state.id)
-    }
-    handleEdit(id) {
-        const recargar = () => {
-            window.location.reload();
-        }
-        const request = new Request(`http://localhost:3001/materia/${id}`,
-            { method: 'PUT', 
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                    body: JSON.stringify(this.state)
-            });
-    
-        fetch(request)
-            .then(response => {
-                if (response.status === 201) {
-                   return response.json();
-                } else {
-                    throw new Error('Something went wrong on api server!');
-                }
-            })
-            .then(response => {
-                console.debug(response);
-            }).catch(error => {
-                console.error(error);
-            }).then(recargar);
-    }
-    renderearEdit(){
-        if(this.state.id === null){
-            return(
-                <form onSubmit={(e) => this.handleSubmit(e)}>
-                    <br/>
-                        <div className="texto texto-edit">Nombre de materia</div>
-                        <input className="input input-edit" type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
-                        <div className="texto texto-edit">Descripcion de materia</div>
-                        <input className="input input-edit" type="text" name="description" value={this.state.description} onChange={this.handleChange}/>
-                        <div className= "texto texto-edit">Duracion</div>
-                        <input className="input input-edit" type="number" name="duration" value={this.state.duration} onChange={this.handleChange}/>
-                        <div className="texto texto-edit">Horas totales</div>
-                        <input className="input input-edit" type="number" name="totalHours" value={this.state.totalHours} onChange={this.handleChange}/>
-                    <br/>
-                    <br/>
-                    <input className="buttom buttom-edit" type="submit" value="Editar"/>
-                </form>
-            )
-        }
-    }
+    }//este metodo se envia al put para que el usuario pueda modificar los valores del estado, y asi mandarlo por fetch.
     render(){
+        //aca se envia el input y el metodo para activar la edicion y modificar el estado de esta clase.
+        //Nota: eso se hace en ListaMaterias.
+        //Si la ID esta como "", el componente-put se oculta, hasta que la id contenga un numero.
+        //Nota: Al put se le envian los parametros del estado y su respectivo metodo para modificarlo.
         return (
             <div>
                 <div className="contenedor-titulo">
@@ -106,13 +50,23 @@ class Abm extends Component {
                                 <li>Horas Totales</li>
                                 <li>Opciones</li>
                             </ul>
-                            <ListaMaterias/>
+                            <ListaMaterias
+                                handleChange={this.handleChangeOnEdit.bind(this)}
+                                input={this.props.input}
+                            />
                         </div>
                     </div>
                     <aside className="sidebar">
                         <div className="subtitulo-edit">Buscar Materia</div>
-                        <input className="input input-edit" type="text" id="Buscar"/>
-                        {this.renderearEdit}
+                        <input className="input input-edit" type="text" value={this.props.input} onChange={this.props.search}/>
+                        {this.state.id !== "" && <Put
+                            id={this.state.id}
+                            name={this.state.name}
+                            description={this.state.description}
+                            duration={this.state.duration}
+                            totalHours={this.state.totalHours}
+                            handleChange={this.handleChange.bind(this)}
+                        />}
                     </aside>
 		            <footer className="footer">
                     </footer>

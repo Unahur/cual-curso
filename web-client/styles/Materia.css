@@ -249,7 +249,7 @@ td {
     padding: 8px 13px;
 }/*no hay mucho para comentar acerca de la tabla*/
 /*---------------------------------------------------------------------------------------*/
-/*cuando la imagen llega a 768 pixeles de ancho se aplica la interfaz movile*/
+/*cuando la imagen llega a 768 pixeles de ancho se aplica la interfaz mobile*/
 @media screen and (max-width: 768px){
 	.contenedor-grid {
 		grid-template-areas: "sidebar sidebar sidebar sidebar"

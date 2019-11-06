@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
-import Abm from './materia-abm';
+import Lista from "./ListaMaterias.js"
+import ListaFiltrada from "./ListaFiltrada"
 class ListaMaterias extends Component {
     constructor(props){
         super(props);
         this.state = {
-            materias: [],
-            input: ""
+            materias: []
         }
     }
     onEdit(e){
         console.log(e)
-        this.props.id(e)
-    }
+        fetch(`http://localhost:3001/materia/${e}`, {
+            method: 'GET'
+        })
+            .then(response => response.json())
+            .then(data => {
+                this.props.handleChange(data.id, data.name, data.description, data.duration, data.totalHours)
+            });
+    }//activa la edicion y le manda los datos a materia-abm para que luego componente-put los edite.
     handleGet(){
         fetch('http://localhost:3001/materia/', {
             method: 'GET'
@@ -21,10 +27,10 @@ class ListaMaterias extends Component {
             console.log(data);
             console.log("----------------");
             this.setState({
-                materias: data
+                materias: data//se setea el array de datos en materias, para que luego las clases de Listas puedan renderearlo.
             })
         })
-    }
+    }//con este metodo se traen los datos
     onDelete(id) {
         const recargar = () => {
             window.location.reload();
@@ -35,29 +41,25 @@ class ListaMaterias extends Component {
             })
             .then(recargar);
         }
-    }
+    }//tanto en las 2 clases de lista, se trae la id, se borra el objeto y se recarga la pagina.
     render(){
-        if (this.state.materias.length > 0) {
-            return (
-                this.state.materias.map(data =>{
-                    return(
-                        <ul className="col5-data">
-                            <li><div className="texto-responsive">Materia: </div><div className="texto-responsive-ul">{data.name}</div></li>
-                            <li><div className="texto-responsive">Descripcion: </div><div className="texto-responsive-ul">{data.description}</div></li>
-                            <li><div className="texto-responsive">Duracion: </div><div className="texto-responsive-ul">{data.duration}</div></li>
-                            <li><div className="texto-responsive">Horas Totales: </div><div className="texto-responsive-ul">{data.totalHours}</div></li>
-                            <li>
-                            <div className="texto-responsive">Opciones: </div>
-                                <button className="buttom buttom-tabla" onClick={() => this.onEdit(data.id)}>editar</button>
-                                <button className="buttom buttom-tabla" onClick={() => this.onDelete(data.id)}>eliminar</button> 
-                            </li>
-                        </ul>
-                    )
-                })
-            )
-        } else {
-            return <p onLoad={this.handleGet()}>Cargando Materia...</p>
-        }
+        return(
+            <div>
+                {this.props.input === "" && <Lista
+                    materias={this.state.materias}
+                    onDelete={this.onDelete.bind(this)}
+                    onEdit={this.onEdit.bind(this)}
+                    handleGet={this.handleGet.bind(this)}
+                />}
+                {this.props.input !== "" && <ListaFiltrada
+                    input={this.props.input}
+                    materias={this.state.materias}
+                    onDelete={this.onDelete.bind(this)}
+                    onEdit={this.onEdit.bind(this)}
+                    handleGet={this.handleGet.bind(this)}               
+                />}
+            </div>
+        )
     }
 }
 

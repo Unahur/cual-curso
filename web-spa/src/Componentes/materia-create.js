@@ -7,8 +7,8 @@ class Materia extends Component {
             description: "",
             duration: "",
             totalHours: ""
-        }
-        this.handleChange = this.handleChange.bind(this);
+        }//aca se especifican los parametros del objetos que van a ser enviados al post
+        this.handleChange = this.handleChange.bind(this);//con esto se permite modificar los valores(ya que sin esto no se podria escribir en los inputs)
     }
     vaciarFormulario(){
         this.setState({
@@ -16,7 +16,7 @@ class Materia extends Component {
             description: "",
             duration: "",
             totalHours: ""
-        })
+        })//este metodo vacia el formulario para hacer el siguiente post
     }
     handleChange (e) {
         const name = e.target.name;
@@ -24,18 +24,18 @@ class Materia extends Component {
         this.setState({
           [name]: value
         })
-    }
+    }//en este metodo se cambian los valores y se asigna el campo y el valor, para no tener que hacer un metodo para cada input.
     handleSubmit(event){
         event.preventDefault()
         this.handlePost()
-    }
+    }//este evento se encarga de hacer el post
     handlePost(){
         const request = new Request('http://localhost:3001/materia',
             { method: 'POST', 
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(this.state)
+                body: JSON.stringify(this.state)//aca se envia el estado en forma de json
             });
         fetch(request)
             .then(response => {

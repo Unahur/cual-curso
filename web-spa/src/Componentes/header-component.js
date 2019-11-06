@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Logo from './images/logo-transparente.png';
 class Header extends Component {
     render() {
+        //esta clase recibe el metodo cambio de render, el cual modifica el estado de la clase app, haciendo que se cambie lo que se esta renderizando.
         return (
             <div>
                 <div className="contenedor-logo">
@@ -12,8 +13,8 @@ class Header extends Component {
                 <div className="contenedor-header">
                     <header className="header">
                         <ul className="contenedor-header-buttoms header-buttom">
-                            <li className="header-center-buttom"><a>Crear</a></li>
-                            <li className="header-center-buttom"><a>Materias</a></li>
+                            <li className="header-center-buttom"><a onClick={() => this.props.cambioRender("crear")}>Crear</a></li>
+                            <li className="header-center-buttom"><a onClick={() => this.props.cambioRender("materias")}>Materias</a></li>
                         </ul>
                     </header>
                 </div>
