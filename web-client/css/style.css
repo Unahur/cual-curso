@@ -5,7 +5,6 @@ body {
 }
 
 header {
-  /* background: #333; */
   margin: 0;
   padding: 0;
 }
@@ -34,11 +33,13 @@ footer h3 {
   margin: 0;
   padding: 0;
   list-style: none;
-} */
+}
 
-/* nav ul li {
+nav ul li {
   display: inline-block;
-} */
+}
+*/
+
 
 nav ul li a {
   color: #333;
@@ -72,5 +73,3 @@ span {
 #containerForm {
   display: none;
 }
-
-
