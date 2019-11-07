@@ -27,4 +27,3 @@ fetch(url, {
     .then(document.getElementById('formulario').reset());
 });
 
-

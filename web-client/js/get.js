@@ -1,3 +1,4 @@
+ 
 'use strict'
 
 const url = 'http://localhost:3001/docentes';
@@ -21,7 +22,8 @@ const listarDocentes = () => {
                 <th>${e.dni}</th>
                 <th>
                     <button class="btn btn-primary" 
-                    onclick="modificarDocente(${e.id},'${e.nombre}','${e.apellido}','${e.dni}')">
+                    onclick="modificarDocente(
+                        ${e.id},'${e.nombre}','${e.apellido}','${e.dni}')">
                 </th> 
                 <th>
                     <button class="btn btn-primary" 

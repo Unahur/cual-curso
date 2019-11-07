@@ -20,7 +20,6 @@ const ocultarModificacion = () => {
 };
 
 function modificar(){
-    debugger
     var data = {
         nombre: document.getElementById('nombreM').value,
         apellido: document.getElementById('apellidoM').value,
@@ -47,30 +46,11 @@ function readForm() {
     formData["apellido"] = document.getElementById('apellidoM').value;
     formData["dni"] = document.getElementById('dniM').value;
     return formData;
-}
-
-
-   
+}  
 
 
 
 function modificarDocente(id, nombre, apellido, dni) {
-
     ocultarLista();
     mostrarModificacion(id, nombre, apellido, dni);
-
-
-         
-    /* if (confirm("Desea modificar al docente?")) {
-        fetch(url+"/"+id, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(() => {
-            location.reload();
-        })
-        .catch(error => console.error('Error:', error));    
-    }     */
 }

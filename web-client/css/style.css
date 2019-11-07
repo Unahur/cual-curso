@@ -22,7 +22,7 @@ header nav{
 }
 
 header .row {
-  padding;: 5%;
+  padding: 1%;
 }
 
 main .row{
@@ -76,7 +76,7 @@ h3:hover {
   margin-bottom: 0.2%;
 }
 
-#titulo {
+#editForm {
   display: none;
 }
 
