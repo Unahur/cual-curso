@@ -62,12 +62,22 @@ nav ul li a:hover {
   text-decoration: none;
 }
 
+h3:hover {
+  background: #4a4a4a;
+  color: #00a0d0;
+  text-decoration: none;
+}
+
 .container{
   padding: 0;
 }
 
 .logo {
   margin-bottom: 0.2%;
+}
+
+#titulo {
+  display: none;
 }
 
 
