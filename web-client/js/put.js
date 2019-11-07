@@ -1,24 +1,5 @@
 'use strict'
 
-const mostrarLista = () => {
-    document.getElementById("listadoDocente").style.display = "block"; 
-};
-
-const ocultarLista = () => {
-    document.getElementById("listadoDocente").style.display = "none";    
-};    
-
-function mostrarModificacion (id,nombre,apellido,dni){
-    document.getElementById('nombreM').value=nombre
-    document.getElementById('apellidoM').value=apellido
-    document.getElementById('dniM').value=dni
-    document.getElementById('idM').value=id
-};
-
-const ocultarModificacion = () => {
-    document.getElementById("modificacion").style.display = "none";  
-};
-
 function modificar(){
     var data = {
         nombre: document.getElementById('nombreM').value,
@@ -39,18 +20,15 @@ function modificar(){
     })); 
 }
 
-function readForm() {
-    var formData = {};
+function loadForm (id,nombre,apellido,dni){
+    document.getElementById('nombreM').value=nombre
+    document.getElementById('apellidoM').value=apellido
+    document.getElementById('dniM').value=dni
+    document.getElementById('idM').value=id
+};
 
-    formData["nombre"] = document.getElementById('nombreM').value;
-    formData["apellido"] = document.getElementById('apellidoM').value;
-    formData["dni"] = document.getElementById('dniM').value;
-    return formData;
-}  
-
-
-
-function modificarDocente(id, nombre, apellido, dni) {
-    ocultarLista();
-    mostrarModificacion(id, nombre, apellido, dni);
+function modifyDocente(id, nombre, apellido, dni) {
+    hideList();
+    loadForm(id, nombre, apellido, dni);
+    showForm();
 }

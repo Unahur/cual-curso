@@ -21,12 +21,12 @@ const listarDocentes = () => {
                 <th>${e.apellido}</th> 
                 <th>${e.dni}</th>
                 <th>
-                    <button class="btn btn-primary" 
-                    onclick="modificarDocente(
+                    <button class="btn btn-warning btn-lg" 
+                    onclick="modifyDocente(
                         ${e.id},'${e.nombre}','${e.apellido}','${e.dni}')">
                 </th> 
                 <th>
-                    <button class="btn btn-primary" 
+                    <button class="btn btn-danger btn-lg" 
                     onclick="deleteDocente(${e.id})">
                 </th>
             </tr>`
