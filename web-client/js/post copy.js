@@ -25,4 +25,4 @@ fetch(url, {
     .catch(error => console.error('Error:', error))
     .then(response => console.log('Success:', response))
     .then(document.getElementById('formulario').reset());
-}); 
+});

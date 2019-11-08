@@ -1,0 +1,103 @@
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>ABM Docente</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">  
+</head>
+
+<body onload="listarDocentes()">
+  
+
+  <div class="container">
+    <header class="container">
+        <nav class="navbar bg-light justify-content-between navbar-expand-md">
+            <a class="navbar-brand" href="#">
+                <img src="images/logoSolo.png" width="30" height="30" alt="Logo Unahur">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" 
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+                    aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="listarDocente.html">Listar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="registrarDocente.html">Registrar</a>
+                </li>
+            </div>
+          </nav>
+    </header>
+  
+    <main class="container">
+      <div id="listadoDocente">
+          <div class="row" >
+              <div class="col text-center">
+                <h2 class="titulo" id="titulo" >Listado <span>Docentes</span></h2>
+              </div>
+          </div>
+        <div class="row">
+            <div class="table-responsive">            
+                <table class="table table-striped" id="table">
+                  <thead class="thead-dark"> 
+                      <tr>
+                          <th><p clas="text-center">#ID</p></th>
+                          <th><p clas="text-center">Nombre</p></th>
+                          <th><p clas="text-center">Apellido</p></th>
+                          <th><p clas="text-center">DNI</p></th>
+                          <th><p clas="text-center">Modificar</p></th>
+                          <th><p clas="text-center">Eliminar</p></th>                  
+                      </tr>
+                  </thead>   
+              </table>
+            </div>
+        </div>
+      </div>
+
+        <div class="row" >
+          <div class="col align-self-center text-center">
+            <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4 offset-md-4" id="containerForm">
+              <form id="formulario" id="editDorm">
+                <h2 class="titulo">Modificar <span>Docente</span></h2>
+                <input type="text" class="form-control" name="nombre" placeholder="Nombre" requiered id="nombreM">
+                <input type="text" class="form-control" name="apellido" placeholder="Apellido" requiered id="apellidoM">
+                <input type="text" class="form-control" name="dni" placeholder="DNI" requiered id="dniM">
+                <input type="text" class="form-control" name="id" hidden  id="idM">
+                <input type="submit" class="btn btn-primary" id="btn-Modificar" value="Modificar" onclick='modificar()'>
+              </form>
+            </div>
+          </div> 
+        </div>       
+
+    </main>
+
+    <Footer class="container">
+        <div class="row">
+          <div class="col text-center">
+            <a href="http://www.unahur.edu.ar/"><h3 id="unahur">UNaHur</h3></a>
+          </div>
+        </div>
+    </Footer>
+  </div>
+  
+  
+
+
+  <script src="js/get.js"></script>
+  <script src="js/delete.js"></script>
+  <script src="js/put.js"></script>
+  <script src="js/showAndHide.js"></script>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+ </body>
+</html>

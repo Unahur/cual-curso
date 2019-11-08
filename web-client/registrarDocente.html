@@ -4,67 +4,74 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>ABM Docente</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css">  
+  <title>ABM Docentes</title>
+  <link rel="icon" type="image/png" href="images/logoSolo.ico" />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  
 </head>
 
-<body>  
-  <div class="container">
-    <nav class="navbar bg-light junavbarstify-content-between navbar-expand-md">
-            <a class="navbar-brand" href="#">
-                <img src="images/logoSolo.png" width="30" height="30" alt="Logo Unahur">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" 
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
-                    aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
+
+
+<body> 
+  <div class="container-fluid">
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/logoSolo.png" width="30" height="30" alt="Logounahur">
+          </a>          
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
                   <a class="nav-link" href="listarDocente.html">Listar</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="registrarDocente.html">Registrar</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
+              </li>
+              <li class="nav-item active">
+                  <a class="nav-link" href="#">Registrar<span class="sr-only">(current)</span></a>
+              </li>
+          </div>
+        </nav>
     </header>
-  
-  <main class="container">
-    <div class="row">
-      <div class="col align-self-center text-center">
-        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4 offset-md-4">
-          <form id="formulario">
-            <h2 class="titulo">Registro <span>Docente</span></h2>
-            <input type="text" class="form-control" name="nombre" placeholder="Nombre" requiered>
-            <input type="text" class="form-control" name="apellido" placeholder="Apellido" requiered>
-            <input type="text" class="form-control" name="dni" placeholder="DNI" requiered>
-            <input type="submit" class="btn btn-primary" id="btn" value="Registrar">
-          </form>        
+
+    <main>
+      <div class="container">
+        <form id="formulario">
+          <h3 class="titulo">Registrar <span>Docente</span></h3>
+          <div class="form-group">
+            <label for="">Nombre</label>
+            <input type="text" class="form-control" name="nombre" placeholder="Nombre" required>
+          </div>
+          <div class="form-group">
+            <label for="">Apellido</label>
+            <input type="text" class="form-control" name="apellido" placeholder="Apellido" required>
+          </div>
+          <div class="form-group">
+            <label for="">DNI</label>
+            <input type="text" class="form-control" name="dni" placeholder="DNI" required>
+          </div>
+          <button type="text" class="btn btn-primary">Registrar</button>
+        </form>
+      </div>            
+  </main>
+
+    <footer>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col text-center"> <a href="http://www.unahur.edu.ar/">UNaHur</a></div>
         </div>
       </div>
-    </div>
-    
-    
+    </footer>
 
-   </main> 
 
-    <Footer class="container">
-        <div class="row">
-          <div class="col text-center">
-            <a href="http://www.unahur.edu.ar/"><h3 id="unahur">UNaHur</h3></a>
-          </div>
-        </div>
-    </Footer>
+
   </div>
   
-  
-
 
   <script src="js/post.js"></script>
-  </body>
+
+  <script src="https://code.jquery.com/jquery-latest.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
 </html>
