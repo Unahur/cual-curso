@@ -58,9 +58,9 @@
       </div>
 
       <div class="row" >
-        <div class="col align-self-center text-center">
+        <div class="col align-self-center">
           <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4 offset-md-4" id="containerForm">
-            <form id="formulario" id="editDorm">
+            <form id="formulario editDorm">
               <h3 class="titulo">Modificar <span>Docente</span></h3>
               <form id="formulario">
                   <input type="text" class="form-control" name="id" hidden  id="idM">
@@ -76,14 +76,14 @@
                   <label for="">DNI</label>
                   <input type="text" class="form-control" name="dni" placeholder="DNI" required id="dniM">
                 </div>
-                <button type="text" class="btn btn-primary">Registrar</button>
+                <input type="submit" class="btn btn-primary" id="btn-Modificar" value="Modificar" onclick='modificar()'>
               </form>
           </div>
         </div> 
       </div>  
     </main>
 
-  <footer>
+    <footer>
       <div class="container-fluid">
         <div class="row">
           <div class="col text-center"> <a href="http://www.unahur.edu.ar/">UNaHur</a></div>
@@ -95,8 +95,9 @@
 
 
   <script src="js/get.js"></script>
-  <script src="js/delete.js"></script>
+  <script src="js/post.js"></script>
   <script src="js/put.js"></script>
+  <script src="js/delete.js"></script>
   <script src="js/showAndHide.js"></script>
 
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>

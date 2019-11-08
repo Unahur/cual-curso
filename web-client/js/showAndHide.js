@@ -1,8 +1,8 @@
 'use strict'
 
-const mostrarLista = () => {
+/* const mostrarLista = () => {
     document.getElementById("listadoDocente").style.display = "block"; 
-};
+}; */
 
 const hideList = () => {
     document.getElementById("listadoDocente").style.display = "none";    
