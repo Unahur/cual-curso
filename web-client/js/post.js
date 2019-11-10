@@ -1,16 +1,15 @@
 'use strict'
 
+/* url solo se carga en este archivo y se va a utilizar en todos los archivos con cada metodo
+PUT, DELETE, GET */
 var url = 'http://localhost:3001/docentes';
 var formulario = document.getElementById('formulario');
 
-
+/* Registramos un docente a partir del POST pasandole los datos desde data(nombre, apellido, dni) */
 formulario.addEventListener('submit', function (e) {
 e.preventDefault();
-console.log("Me diste click")
 
 var datos = new FormData(formulario);
-console.log(datos);
-
 var data = {
     nombre: datos.get('nombre'),
     apellido: datos.get('apellido'),

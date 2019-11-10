@@ -1,5 +1,9 @@
 'use strict'
 
+/* Usamos el metodo PUT con una funcion modificar en donde dependiendo de los valores ingresados 
+genera el PUT para realizar dicha modificacion.
+La url utilizada solo se carga en el archivo post.js para no generar conflictos */
+
 function modificar(){
     var data = {
         nombre: document.getElementById('nombreM').value,

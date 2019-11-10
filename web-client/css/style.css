@@ -1,3 +1,5 @@
+/* Archivo CSS de estilos para todos los html y tambien se usa la hoja de estilos de BootStrap*/
+
 footer {
   background: #525864;
 }
@@ -31,11 +33,6 @@ footer a {
 #divFotoPrincipal {
   padding-right: 0;
 }
-
-/* #divFotoTecno{
-  margin-top: 50%;
-} */
-
 
 #containerForm {
   display: none;

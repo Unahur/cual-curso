@@ -1,8 +1,6 @@
 'use strict'
 
-/* const mostrarLista = () => {
-    document.getElementById("listadoDocente").style.display = "block"; 
-}; */
+/* Usamos Hide y Show para poder ir mostrando o no dependiendo de la opcion deseada*/
 
 const hideList = () => {
     document.getElementById("listadoDocente").style.display = "none";    

@@ -1,5 +1,9 @@
-const url = 'http://localhost:3001/docentes';
 const containerList = document.querySelector('#table');
+
+/* Con listarDocentes listamos mediante el metodo GET todos los docentes ingresados en la 
+Base de Datos Docentes.
+Se crearon dos botones (Modificar y Borrar) para activar dichas acciones con las funciones 
+modifyDocente (en put.js) y deleteDocente (en delete.js)*/
 
 const listarDocentes = () => {
     fetch(url, {
