@@ -3,46 +3,24 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.addColumn(
-      'correlativa', 
-      'id_materia',  
-      {
-        type: Sequelize.UUID,
-        references: {
-          model: 'materia',
-          key: 'id', 
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL',
-      }
-    )
-      .then(() => {
-        return queryInterface.addColumn(
-          'correlativa', 
-          'id_materia_correlativa', 
-          {
-            type: Sequelize.UUID,
-            references: {
-              model: 'materia', 
-              key: 'id',
-            },
-            onUpdate: 'CASCADE',
-            onDelete: 'SET NULL',
-          }
-        );
-      });
+      'materia',
+      'correlativa_id',
+    {
+      type: Sequelize.INTEGER,
+      references: {
+        model: 'correlativa',
+        key: 'id',
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'SET NULL',
+    }
+    );
   },
 
   down: (queryInterface, Sequelize) => {
     return queryInterface.removeColumn(
-      'correlativa',
-      'id_materia' 
-      )
-      .then(() => {
-        return queryInterface.removeColumn(
-          'correlativa', 
-          'id_materia_correlativa' 
-        );
-      })
-      
+      'materia',
+      'correlativa_id'
+      ) 
   }
 };
