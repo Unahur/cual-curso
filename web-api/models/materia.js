@@ -4,11 +4,15 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     description: DataTypes.STRING,
     duration: DataTypes.INTEGER,
-    totalHours: DataTypes.INTEGER
+    totalHours: DataTypes.INTEGER,
+    correlativa_id: {
+      type: DataTypes.INTEGER,
+      references: 'correlativa', 
+      referencesKey: 'id'
+    }
   }, {});
   materia.associate = function(models) {
- /*    materia.belongTo(models.correlativa)
-    // associations can be defined here */
+    materia.hasMany(models.correlativa)
   };
   return materia;
 };
