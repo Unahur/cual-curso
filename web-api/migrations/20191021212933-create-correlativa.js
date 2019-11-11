@@ -8,8 +8,8 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id_materias_correlativa: {
-        type: Sequelize.INTEGER
+      name:{
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -22,8 +22,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.removeColumn(
-      'id_materias_correlativa'
-    );
+    return queryInterface.dropTable('correlativa');
   }
 };
