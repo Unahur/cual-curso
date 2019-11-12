@@ -4,7 +4,7 @@ import CrearAula from "./components/CrearAula";
 import ModificarAula from "./components/ModificarAula";
 import ListaAulas from "./components/ListaAulas";
 import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
-
+import Sugerencias from "./components/Sugerencias";
 class App extends React.Component {
   render() {
     return (
@@ -37,6 +37,7 @@ class App extends React.Component {
                 Modificar Aula
               </Link>
             </li>
+           
           </ul>
 
           <br />
@@ -45,6 +46,7 @@ class App extends React.Component {
             <Route exact path="/" component={ListaAulas} />
             <Route exact path="/ListaAulas" component={ListaAulas} />
             <Route exact path="/ModificarAula" component={ModificarAula} />
+            <Route exact path="/sugerencias" component={Sugerencias} />
           </Switch>
         </div>
       </BrowserRouter>

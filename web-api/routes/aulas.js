@@ -2,45 +2,97 @@ var express = require("express");
 var router = express.Router();
 var models = require("../models");
 
+router.get("/:pagina", (req, res) => {
+  const pagina = req.params.pagina || 0;
+  const limite = 5;
+  let totalRegistros = 0;
+  const pasarPagina = pagina * limite;
 
-router.get("/", (req, res) => {
-  var page=1;
-  var pageSize=4;
   models.aula
-    .findAll({
-      attributes: ["id", "edificio", "numero_aula", "cursada_id"]
-    },paginate({ page, pageSize }))
-    .then(aulas => res.send(aulas))
-    .catch(() => res.sendStatus(500));
+    .count()
+    .then(aula => {
+      return aula;
+    })
+    .then(function (val) {
+      totalRegistros = val;
+    });
+    
+      totalRegistros=totalRegistros/limite;
+  setTimeout(() => {
+    models.aula
+      .findAll({
+        attributes: ["id", "edificio", "numero_aula", "cursada_id"],
+        offset: pasarPagina,
+        limit: limite
+      })
+      .then(aulas => res.send([aulas,{ paginas:totalRegistros/limite}
+      ]))
+      .catch(() => res.sendStatus(500));
+  }, 100);
 });
 
-const paginate = ({ page, pageSize }) => {
-  const offset = page * pageSize;
-  const limit = offset + pageSize;
+router.get("/", (req, res) => {
+  const pagina = req.params.pagina || 0;
+  const limite = 5;
+  let totalRegistros = 0;
+  const pasarPagina = pagina * limite;
 
-  return {
-    offset,
-    limit,
-  };
-};
+  models.aula
+    .count()
+    .then(aula => {
+      return aula;
+    })
+    .then(function (val) {
+      totalRegistros = val;
+    });
+    
+  setTimeout(() => {
+    models.aula
+      .findAll({
+        attributes: ["id", "edificio", "numero_aula", "cursada_id"],
+        offset: pasarPagina,
+        limit: limite
+      })
+      .then(aulas => res.send([aulas, {
+        paginas: totalRegistros/limite
+      }]))
+      .catch(() => res.sendStatus(500));
+  }, 100);
+});
 
 router.post("/", (req, res) => {
   models.aula
     // .create({ edificio: req.body.edificio, numero_aula: req.body.numero_aula })
     .findOrCreate({
-      where: { edificio: req.body.edificio, numero_aula: req.body.numero_aula },
-      defaults: { cursada_id: req.body.cursada_id }
+      where: {
+        edificio: req.body.edificio,
+        numero_aula: req.body.numero_aula
+      },
+      defaults: {
+        cursada_id: req.body.cursada_id
+      }
     })
-    .then(aula => res.status(201).send({ id: aula.id, edificio: aula.edificio, numero_aula: aula.numero_aula }))
+    .then(aula =>
+      res.status(201).send({
+        id: aula.id,
+        edificio: aula.edificio,
+        numero_aula: aula.numero_aula
+      })
+    )
     .catch(() => res.sendStatus(500));
 });
 
-
-const findAula = (id, { onSuccess, onNotFound, onError }) => {
+const findAula = (id, {
+  onSuccess,
+  onNotFound,
+  onError
+}) => {
   models.aula
     .findOne({
       attributes: ["id", "edificio", "cursada_id"],
-      where: { id }
+      where: {
+        id
+      }
     })
     .then(aula => (aula ? onSuccess(aula) : onNotFound()))
     .catch(() => onError());
@@ -57,9 +109,9 @@ router.get("/:id", (req, res) => {
 router.delete("/:id", (req, res) => {
   const onSuccess = aula =>
     aula
-      .destroy()
-      .then(() => res.sendStatus(200))
-      .catch(() => res.sendStatus(500));
+    .destroy()
+    .then(() => res.sendStatus(200))
+    .catch(() => res.sendStatus(500));
   findAula(req.params.id, {
     onSuccess,
     onNotFound: () => res.sendStatus(404),
@@ -70,9 +122,15 @@ router.delete("/:id", (req, res) => {
 router.put("/:id", (req, res) => {
   const onSuccess = aula =>
     aula
-      .update({ edificio: req.body.edificio, numero_aula: req.body.numero_aula, cursada_id: req.body.cursada_id }, { fields: ["edificio", "numero_aula", "cursada_id"] })
-      .then(() => res.sendStatus(200))
-      .catch(() => res.sendStatus(500));
+    .update({
+      edificio: req.body.edificio,
+      numero_aula: req.body.numero_aula,
+      cursada_id: req.body.cursada_id
+    }, {
+      fields: ["edificio", "numero_aula", "cursada_id"]
+    })
+    .then(() => res.sendStatus(200))
+    .catch(() => res.sendStatus(500));
   findAula(req.params.id, {
     onSuccess,
     onNotFound: () => res.sendStatus(404),

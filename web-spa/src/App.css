@@ -31,3 +31,18 @@ body{
 div{
   border-radius: 10px;
 }
+ .ilListaMaterias{
+  background: rgb(226, 226, 226);
+}
+.container{
+
+
+  margin-top:0px;
+}
+.matAprobadas{
+  
+  background: rgb(224, 223, 223);
+}
+.aja{
+  background:green;
+}
