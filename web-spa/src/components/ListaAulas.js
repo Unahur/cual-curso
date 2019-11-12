@@ -10,7 +10,10 @@ class ListaAulas extends Component {
     fetch(" http://localhost:3001/aulas/")
       .then(res => res.json())
       .then(data => {
-        this.setState({ aulas: data[0], paginasEnTotal: Math.ceil(data[1].paginas) });
+        this.setState({
+          aulas: data[0],
+          paginasEnTotal: Math.ceil(data[1].paginas)
+        });
       })
       .catch(console.log);
   };
@@ -40,7 +43,10 @@ class ListaAulas extends Component {
       fetch(" http://localhost:3001/aulas/" + index)
         .then(res => res.json())
         .then(data => {
-          this.setState({ aulas: data[0], paginasEnTotal: Math.ceil(data[1].paginas) });
+          this.setState({
+            aulas: data[0],
+            paginasEnTotal: Math.ceil(data[1].paginas)
+          });
         })
         .catch(console.log);
     }
@@ -67,7 +73,7 @@ class ListaAulas extends Component {
               <th scope="col">ID</th>
               <th scope="col">Nombre del edificio</th>
               <th scope="col">Numero de aula</th>
-              <th scope="col">Cursada</th>
+
               <th scope="col">Borrar</th>
             </tr>
           </thead>
@@ -78,7 +84,7 @@ class ListaAulas extends Component {
                 <th scope="row">{aula.id}</th>
                 <td>{aula.edificio}</td>
                 <td>{aula.numero_aula}</td>
-                <td>{aula.cursada_id}</td>
+
                 <td>
                   <button
                     className="btn btn-danger btn-sm"

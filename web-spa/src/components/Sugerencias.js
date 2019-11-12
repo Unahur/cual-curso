@@ -6,41 +6,41 @@ export default class Sugerencias extends Component {
       {
         materia: "Matematicas 1",
         profesor: "Silvia Panizzi",
-        promedio:8
+        promedio: 8
       },
       {
         materia: "Programacion con objetos 1",
         profesor: "Silvia Panizzi",
-        promedio:8
+        promedio: 8
       },
       {
         materia: "Programacion funcional",
         profesor: "Silvia Panizzi",
-        promedio:8
+        promedio: 8
       },
 
       {
         materia: " Programacion concurrente",
         profesor: "Silvia Panizzi",
-        promedio:8
+        promedio: 8
       },
 
       {
         materia: "Base de datos",
         profesor: "Silvia Panizzi",
-        promedio:8
+        promedio: 8
       },
 
       {
         materia: "Introduccion a la programacion",
         profesor: "Silvia Panizzi",
-        promedio:8
+        promedio: 8
       },
 
       {
         materia: "Redes de computadoras",
         profesor: "Silvia Panizzi",
-       promedio:8
+        promedio: 8
       }
     ];
 
@@ -85,16 +85,16 @@ export default class Sugerencias extends Component {
             </a>
           </nav>
         </div>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-                <div className="container">
+        <br />
+        <br />
+        <br />
+        <br />
+        <div className="container">
           <div className="row">
             <div className="col">
               <h2>Inscripcion de materias</h2>
-              <br/>
-              <br/>
+              <br />
+              <br />
               <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <br />
                 <label class="btn btn-info active">
@@ -117,9 +117,9 @@ export default class Sugerencias extends Component {
                   Ver todas
                 </label>
               </div>
-              <br/>
-              <br/>
-              <br/>
+              <br />
+              <br />
+              <br />
               <ul class="list-group list-group-flush" id="ulListaMaterias">
                 <li class="list-group-item ilListaMaterias">
                   <a href="#">Matematicas 2</a>
@@ -138,28 +138,22 @@ export default class Sugerencias extends Component {
                 </li>
               </ul>
             </div>
-           
-            
+
             <div className="col-12 col-md-9 ">
-            <h2>Materias aprobadas</h2>
-                    {materias.map(e=>
-                        
-                        <div className="card matAprobadas" >
-                        <div className="card-body">
-                            <h5 className="card-title">{"Materia: "+e.materia}</h5>
-                             <h6 className="card-subtitle mb-2 text-muted">{"Profesor: "+e.profesor}</h6>
-                                <p className="card-text">{"Promedio: "+e.promedio}</p>
-                              
-                          
-                         </div>
-                         </div>
-                        
-                        
-                        
-                        )}
-            
+              <h2>Historia academica</h2>
+              <br />
+              {materias.map(e => (
+                <div className="card matAprobadas">
+                  <div className="card-body">
+                    <h5 className="card-title">{"Materia: " + e.materia}</h5>
+                    <h6 className="card-subtitle mb-2 text-muted">
+                      {"Profesor: " + e.profesor}
+                    </h6>
+                    <p className="card-text">{"Promedio: " + e.promedio}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-          
           </div>
         </div>
       </div>

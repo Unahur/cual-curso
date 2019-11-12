@@ -1,4 +1,4 @@
-const url = 'http://localhost:3001/aulas';
+const url = 'http://localhost:3001/aulas/';
 const containerList = document.querySelector('#listaU');
 
 const listarAula = () => {
@@ -7,14 +7,27 @@ const listarAula = () => {
         headers: {
             'Content-Type': 'application/json'
         }
-    })
-    .then(res => res.json())
+    }).then(res => res.json())
     .catch(error => console.error('Error:', error))
-    .then(res => res.forEach(e => {
-            containerList.innerHTML += `<li>Edificio: ${e.edificio} N° de aula: ${e.numero_aula+" "}Cursada: ${e.cursada_id} 
-            <button onclick="borrarAula(${e.id})">Borrar</button> <a href="#">Modificar</a></li><br>`
+    .then(res => res[0].forEach((aula)=>{
+      containerList.innerHTML += `
+           
+             <tr>
+              <th scope="row">${aula.id}</th>
+              <td>${aula.edificio}</td>
+              <td>${aula.numero_aula}</td>
 
-        }));
+              <td>
+                <button
+                  class="btn btn-danger btn-sm"
+                  onclick="borrarAula(${aula.id})"
+                >
+                  Borrar
+                </button>
+              </td>
+            </tr>
+         
+          `}));
 
 }
 

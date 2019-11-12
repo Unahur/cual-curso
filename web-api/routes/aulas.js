@@ -13,11 +13,11 @@ router.get("/:pagina", (req, res) => {
     .then(aula => {
       return aula;
     })
-    .then(function (val) {
+    .then(function(val) {
       totalRegistros = val;
     });
-    
-      totalRegistros=totalRegistros/limite;
+
+ 
   setTimeout(() => {
     models.aula
       .findAll({
@@ -25,14 +25,13 @@ router.get("/:pagina", (req, res) => {
         offset: pasarPagina,
         limit: limite
       })
-      .then(aulas => res.send([aulas,{ paginas:totalRegistros/limite}
-      ]))
+      .then(aulas => res.send([aulas, { paginas: totalRegistros / limite }]))
       .catch(() => res.sendStatus(500));
   }, 100);
 });
 
 router.get("/", (req, res) => {
-  const pagina = req.params.pagina || 0;
+  const pagina = 0;
   const limite = 5;
   let totalRegistros = 0;
   const pasarPagina = pagina * limite;
@@ -42,10 +41,10 @@ router.get("/", (req, res) => {
     .then(aula => {
       return aula;
     })
-    .then(function (val) {
+    .then(function(val) {
       totalRegistros = val;
     });
-    
+
   setTimeout(() => {
     models.aula
       .findAll({
@@ -53,9 +52,14 @@ router.get("/", (req, res) => {
         offset: pasarPagina,
         limit: limite
       })
-      .then(aulas => res.send([aulas, {
-        paginas: totalRegistros/limite
-      }]))
+      .then(aulas =>
+        res.send([
+          aulas,
+          {
+            paginas: totalRegistros / limite
+          }
+        ])
+      )
       .catch(() => res.sendStatus(500));
   }, 100);
 });
@@ -82,11 +86,7 @@ router.post("/", (req, res) => {
     .catch(() => res.sendStatus(500));
 });
 
-const findAula = (id, {
-  onSuccess,
-  onNotFound,
-  onError
-}) => {
+const findAula = (id, { onSuccess, onNotFound, onError }) => {
   models.aula
     .findOne({
       attributes: ["id", "edificio", "cursada_id"],
@@ -109,9 +109,9 @@ router.get("/:id", (req, res) => {
 router.delete("/:id", (req, res) => {
   const onSuccess = aula =>
     aula
-    .destroy()
-    .then(() => res.sendStatus(200))
-    .catch(() => res.sendStatus(500));
+      .destroy()
+      .then(() => res.sendStatus(200))
+      .catch(() => res.sendStatus(500));
   findAula(req.params.id, {
     onSuccess,
     onNotFound: () => res.sendStatus(404),
@@ -122,15 +122,18 @@ router.delete("/:id", (req, res) => {
 router.put("/:id", (req, res) => {
   const onSuccess = aula =>
     aula
-    .update({
-      edificio: req.body.edificio,
-      numero_aula: req.body.numero_aula,
-      cursada_id: req.body.cursada_id
-    }, {
-      fields: ["edificio", "numero_aula", "cursada_id"]
-    })
-    .then(() => res.sendStatus(200))
-    .catch(() => res.sendStatus(500));
+      .update(
+        {
+          edificio: req.body.edificio,
+          numero_aula: req.body.numero_aula,
+          cursada_id: req.body.cursada_id
+        },
+        {
+          fields: ["edificio", "numero_aula", "cursada_id"]
+        }
+      )
+      .then(() => res.sendStatus(200))
+      .catch(() => res.sendStatus(500));
   findAula(req.params.id, {
     onSuccess,
     onNotFound: () => res.sendStatus(404),
