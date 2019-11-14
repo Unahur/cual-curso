@@ -3,9 +3,8 @@ var router = express.Router();
 var models = require("../models");
 
 router.get("/:pagina", (req, res) => {
-  const pagina = req.params.pagina || 0;
+  const pagina = req.params.pagina;
   const limite = 5;
-  let totalRegistros = 0;
   const pasarPagina = pagina * limite;
 
   models.aula
@@ -13,13 +12,8 @@ router.get("/:pagina", (req, res) => {
     .then(aula => {
       return aula;
     })
-    .then(function(val) {
-      totalRegistros = val;
-    });
-
- 
-  setTimeout(() => {
-    models.aula
+    .then(function(totalRegistros) {
+      models.aula
       .findAll({
         attributes: ["id", "edificio", "numero_aula", "cursada_id"],
         offset: pasarPagina,
@@ -27,7 +21,7 @@ router.get("/:pagina", (req, res) => {
       })
       .then(aulas => res.send([aulas, { paginas: totalRegistros / limite }]))
       .catch(() => res.sendStatus(500));
-  }, 100);
+    });
 });
 
 router.get("/", (req, res) => {
