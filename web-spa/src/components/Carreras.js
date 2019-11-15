@@ -2,17 +2,17 @@ import React,{Components} from "react";
 
 
 class Carreras extends Components {
-    state={
-        nombre=""
-    };
+    // state={
+    //     nombre=""
+    // };
     
-    render(){
-    return (
-        <div></div>
-        <br/>
-        <div></div>
+    // render(){
+    // return (
+    //     <div></div>
+    //     <br/>
+    //     <div></div>
     
-    );//  )???
+    // );//  )???
         
-    };
+    // };
 };
