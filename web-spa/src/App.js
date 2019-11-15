@@ -8,7 +8,9 @@ class App extends Component{
     super(props)
     this.state = {
       cambioRender: "crear",
-      input: ""
+      input: "",
+      index: 0,
+      mostrarCorrelativa: false
     }//este estado define que se va a renderizar, por defecto se asigno crear
   }
   cambioRender(render){
@@ -18,6 +20,18 @@ class App extends Component{
   }//este metodo reemplaza el render.
   search(input){
     this.setState({input: input.target.value.substr(0,20)})
+  }
+  mostrarCorrelativa(){
+    if(this.state.mostrarCorrelativa===false){
+      this.setState({
+        mostrarCorrelativa:true
+      })
+    }else{
+      this.setState({
+        mostrarCorrelativa:false
+      })
+    }
+    console.log(this.mostrarCorrelativa)
   }
   render(){
     //basicamente en esos "if" de abajo se selecciona que se va a renderizar y se le manda un parametro
@@ -31,6 +45,9 @@ class App extends Component{
         {this.state.cambioRender === "materias" && <Abm 
           input={this.state.input}
           search={this.search.bind(this)}
+          index={this.state.index}
+          mostrarCorrelativa={this.mostrarCorrelativa.bind(this)}
+          correlativas={this.state.mostrarCorrelativa}
         />}
       </div>
       )

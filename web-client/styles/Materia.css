@@ -1,12 +1,12 @@
 * {
 	margin: 0;
-	padding: 0;
+    padding: 0;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 body {
 	background: #fff;
 	color: #000;
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }/*se asigna el color de la pagina y el de las letras, asi como su fuente*/
 /*---------------------------------------------------------------------------------------*/
 .contenedor-logo {
@@ -97,8 +97,7 @@ para que quede bien parecido a un boton*/
 }/*asigna el color de fondo*/
 .contenedor-titulo .titulo {
 	color: #08c;
-    grid-area: titulo;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;/*se le asigna color, area y tipo de letra con la que debe mostrarse*/
+    grid-area: titulo;/*se le asigna color, area y tipo de letra con la que debe mostrarse*/
 }/*estas clases se crearon para ajustar el titulo encima del contenedor-grid, es pura estetica.*/
 /*---------------------------------------------------------------------------------------*/
 /*Cuerpo del html*/
@@ -151,7 +150,6 @@ materia-create.html, deje implementada esta clase y la reutilize ahi, ya que el 
 /*Estilos*/
 .subtitulo{
     color: rgb(167, 166, 166);
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 24px;
     font-weight: bold;
     border-bottom: rgb(167, 166, 166) 1px solid; 
@@ -165,7 +163,6 @@ materia-create.html, deje implementada esta clase y la reutilize ahi, ya que el 
     margin: 4px;
     font-size: 15px;
     font-weight: bold;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 .texto-edit{
     margin: 0px;
@@ -184,13 +181,11 @@ materia-create.html, deje implementada esta clase y la reutilize ahi, ya que el 
     padding: 8px 13px;
     border: rgb(26, 99, 99) 1px solid;
     font-size: 15px;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #fff;
 }
 .buttom-edit{
     padding: 1px 1px;
     margin: 0px;
-    border: rgb(26, 99, 99) 1px solid;
 }
 /*aca no hay mucho que explicar, salvo el webkit que utilizo para darle degradado al boton y
 el hover, para cuando le ponen el mouse encima invierta los colores del degrado*/
@@ -204,7 +199,6 @@ ajustar los margenes y el tamaño del boton, para que se vea mas lindo, en pocas
 .buttom-tabla{
     padding: 1px 1px;
     margin: 5px;
-    border: rgb(26, 99, 99) 1px solid;
 }
 /*---------------------------------------------------------------------------------------*/
 /*tabla*/

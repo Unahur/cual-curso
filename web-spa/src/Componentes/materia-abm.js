@@ -53,6 +53,8 @@ class Abm extends Component {
                             <ListaMaterias
                                 handleChange={this.handleChangeOnEdit.bind(this)}
                                 input={this.props.input}
+                                index={this.props.index}
+                                correlativas={this.props.correlativas}
                             />
                         </div>
                     </div>
@@ -69,6 +71,7 @@ class Abm extends Component {
                         />}
                     </aside>
 		            <footer className="footer">
+                        <button className="buttom" onClick={()=>{this.props.mostrarCorrelativa()}}>Mostrar/Correlativa</button>
                     </footer>
                 </div>
             </div>
