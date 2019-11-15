@@ -8,6 +8,7 @@ import Registro from './components/main/Registro';
 import Modificacion from './components/main/Modificacion';
 import Footer from './components/footer/Footer';
 import { BrowserRouter, Route, Link } from "react-router-dom";
+
 function App() {
   return (
     <BrowserRouter>

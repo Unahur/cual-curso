@@ -2,20 +2,6 @@ import React, { Component } from 'react';
 
 class Modificacion extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      
-    };
-  }
-
-  componentDidMount() {
-    
-  }
-
-
-
-  
 
   render() {
     return (
@@ -39,6 +25,7 @@ class Modificacion extends Component {
           </div>
           <input type="submit" class="btn btn-primary" id="btn-Modificar"
                   value="Modificar" onclick='modificar()'/>
+                  
         </form>
       </main>
     )

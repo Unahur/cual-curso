@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
 class Lista extends Component {
 
@@ -26,6 +27,14 @@ class Lista extends Component {
     .catch(error => console.error('Error:', error))
     }
 
+    /* modifyDocente(id, nombre, apellido, dni) {
+      loadForm(id, nombre, apellido, dni);
+    }
+  
+    loadForm (id,nombre,apellido,dni) {
+      return this.state.docentes.filter(id)
+    } */
+
     filasDocentes() {
       return this.state.docentes.map(e => (
         <tr>   
@@ -34,9 +43,11 @@ class Lista extends Component {
           <th>{e.apellido}</th> 
           <th>{e.dni}</th>
           <th>
-            <button class="btn btn-warning btn-lg" 
-                    onclick="modifyDocente(
-                    ${e.id},'${e.nombre}','${e.apellido}','${e.dni}')"/>
+            <Link to={`/modificar/${e.id}`}>
+              <button class="btn btn-warning btn-lg" renderAs="button">                      
+              </button>
+
+            </Link>
           </th> 
           <th>
             <button class="btn btn-danger btn-lg" 
@@ -44,7 +55,7 @@ class Lista extends Component {
           </th>
       </tr>
       ))
-                  }
+    }
 
     render() {
         return (
@@ -76,6 +87,8 @@ class Lista extends Component {
           </main>
         )
     }
-}
 
+  
+
+}
 export default Lista;
