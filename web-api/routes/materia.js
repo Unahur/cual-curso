@@ -1,14 +1,82 @@
 var express = require("express");
 var router = express.Router();
 var models = require("../models");
+const Sequelize = require("sequelize");
 
-router.get("/",(req,res)=>{
+router.get("/pagina/:index/:input", (req, res) => {
+    const pagina = req.params.index;
+    const input = req.params.input;
+    const limite = 10;
+    const pasarPagina = pagina * limite;
+    const Op = Sequelize.Op;
     models.materia
-    .findAll({
-        attributes:["id","name","description","duration", "totalHours"]
-    })
-    .then(materias=>res.send(materias))
-    .catch(()=>res.sendStatus(500));
+        .count()
+        .then(materia => {
+            return materia;
+        })
+        .then(registrosTotales => {
+            models.materia
+                .findAll({
+                    attributes: ["id", "name", "description", "duration", "totalHours", "correlativa_id"],
+                    where: {name: {[Op.like]: `%${input}%`}},
+                    offset: pasarPagina,
+                    limit: limite
+        })
+        .then(materia => res.send([materia, { paginas: registrosTotales / limite }]))
+        .catch(() => res.sendStatus(500));
+      });
+  });
+router.get("/pagina/:index", (req, res) => {
+    const pagina = req.params.index;
+    const input = req.params.input;
+    const limite = 10;
+    const pasarPagina = pagina * limite;
+    models.materia
+        .count()
+        .then(materia => {
+            return materia;
+        })
+        .then(registrosTotales => {
+            models.materia
+                .findAll({
+                    attributes: ["id", "name", "description", "duration", "totalHours", "correlativa_id"],
+                    offset: pasarPagina,
+                    limit: limite
+        })
+        .then(materia => res.send([materia, { paginas: registrosTotales / limite }]))
+        .catch(() => res.sendStatus(500));
+      });
+  });
+router.get("/", (req, res) => {
+    const pagina = 0;
+    const limite = 10;
+    let registrosTotales = 0;
+    const pasarPagina = pagina * limite;
+  
+    models.materia
+        .count()
+        .then(materia => {
+            return materia;
+        })
+        .then(val => {
+            totalRegistros = val;
+        });
+  
+    setTimeout(() => {
+      models.materia
+        .findAll({
+            attributes: ["id", "name", "description", "duration", "totalHours", "correlativa_id"],
+            offset: pasarPagina,
+            limit: limite
+        })
+        .then(materia =>
+            res.send([
+                materia,
+                {paginas: registrosTotales / limite}
+            ])
+        )
+        .catch(() => res.sendStatus(500));
+    }, 100);
 });
 
 router.post("/",(req,res)=>{
@@ -21,8 +89,8 @@ router.post("/",(req,res)=>{
 const findMateria = (id,{onSuccess,onNotFound,onError})=>{
     models.materia
     .findOne({
-    attributes:["id","name","description","duration","totalHours"],
-    where:{ id }
+        attributes:["id","name","description","duration","totalHours", "correlativa_id"],
+        where:{ id }
     })
     .then(materia => (materia ? onSuccess(materia):onNotFound()))
     .catch(()=>onError());
