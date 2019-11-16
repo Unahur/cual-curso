@@ -6,10 +6,10 @@ var models = require("../models");
 router.get("/", (req, res) => {
   models.estudiante
     .findAll({
-      attributes: ["id", "dni", "nombre_apellido"],
+      attributes: ["id", "dni", "nombre_apellido", "carreraId"],
       include: [{
-        as: 'materias_aprobadas',
-        model: models.materia_aprobada
+        as: 'carreras',
+        model: models.carrera
       }]
     })
     .then(estudiante => res.send(estudiante))
@@ -19,8 +19,8 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res) => {
   models.estudiante
-    .create({ dni: req.body.dni, nombre_apellido: req.body.nombre_apellido })
-    .then(estudiante => res.status(201).send({ dni: estudiante.dni, nombre_apellido: estudiante.nombre_apellido }))
+    .create({ dni: req.body.dni, nombre_apellido: req.body.nombre_apellido, carreraId: req.body.carreraId })
+    .then(estudiante => res.status(201).send({ dni: estudiante.dni, nombre_apellido: estudiante.nombre_apellido, carreraId: estudiante.carreraId }))
     .catch(() => res.sendStatus(500));
 });
 
@@ -28,10 +28,10 @@ router.post("/", (req, res) => {
 const findEestudiante = (id, { onSuccess, onNotFound, onError }) => {
   models.estudiante
     .findOne({
-      attributes: ["id","dni","nombre_apellido"], // para poder buscar por id...!!!!!
+      attributes: ["id","dni","nombre_apellido", "carreraId"], // para poder buscar por id...!!!!!
       include: [{
-        as: 'materias_aprobadas',
-        model: models.materia_aprobada
+        as: 'carreras',
+        model: models.carrera
       }],
       where: { id }
     })
