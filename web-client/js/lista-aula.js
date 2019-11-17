@@ -16,6 +16,7 @@ const listarAula = () => {
               <th scope="row">${aula.id}</th>
               <td>${aula.edificio}</td>
               <td>${aula.numero_aula}</td>
+              <td>${aula.cursada_id}</td>
 
               <td>
                 <button
@@ -24,12 +25,32 @@ const listarAula = () => {
                 >
                   Borrar
                 </button>
+
+                 
               </td>
+
+              <td>
+
+              <button type="button" 
+              onclick ="location.href='http://localhost:81/modificarAula.html?idAula=${aula.id}'"
+              class="btn btn-warning btn-sm"
+              >
+              Modificar
+              </button>
+
+               </td>
+
             </tr>
          
           `}));
 
 }
+
+ 
+
+
+
+
 
 const borrarAula= id =>{
 
