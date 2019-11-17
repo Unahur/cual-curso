@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 var models = require("../models");
 
-router.get("/:pagina", (req, res) => {
+router.get("/pagina/:pagina", (req, res) => {
   const pagina = req.params.pagina;
   const limite = 5;
   const pasarPagina = pagina * limite;

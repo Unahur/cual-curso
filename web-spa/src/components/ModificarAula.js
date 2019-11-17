@@ -8,7 +8,7 @@ class ModificarAula extends Component {
   };
 
   componentDidMount = () => {
-    fetch(" http://localhost:3001/aulas")
+    fetch(" http://localhost:3001/aulas/")
       .then(res => res.json())
       .then(data => {
         this.setState({ aulas: data, numAula: data[0].id });

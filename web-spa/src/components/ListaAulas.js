@@ -40,7 +40,7 @@ class ListaAulas extends Component {
     if (index != this.state.paginasEnTotal && index >= 0) {
       this.setState({ paginaActiva: index });
       console.log(index);
-      fetch(" http://localhost:3001/aulas/" + index)
+      fetch(" http://localhost:3001/aulas/pagina/" + index)
         .then(res => res.json())
         .then(data => {
           this.setState({
