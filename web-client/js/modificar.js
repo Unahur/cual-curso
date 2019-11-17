@@ -11,7 +11,7 @@ console.log(idAula)
 
 const confirmar = ()=>{
     alert("Se moodifico el registro")
-      document.forms[0].reset()
+    setTimeout('document.forms[0].reset()',1000)
 }
 
 const listarCursadas = () => {
