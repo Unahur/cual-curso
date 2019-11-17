@@ -9,6 +9,11 @@ var idAula =  urlO.searchParams.get("idAula")
 console.log(idAula)
 
 
+const confirmar = ()=>{
+    alert("Se moodifico el registro")
+      document.forms[0].reset()
+}
+
 const listarCursadas = () => {
     fetch('http://localhost:3001/cursadas', {
         method: 'GET',
