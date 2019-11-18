@@ -8,10 +8,10 @@ class ModificarAula extends Component {
   };
 
   componentDidMount = () => {
-    fetch(" http://localhost:3001/aulas/")
+    fetch(" http://localhost:3001/aulas/todasLasAulas/")
       .then(res => res.json())
       .then(data => {
-        this.setState({ aulas: data, numAula: data[0].id });
+        this.setState({ aulas: data, numAula: data.id });
       })
       .catch(console.log);
   };

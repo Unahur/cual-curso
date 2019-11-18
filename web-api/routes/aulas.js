@@ -14,20 +14,19 @@ router.get("/pagina/:pagina", (req, res) => {
     })
     .then(function(totalRegistros) {
       models.aula
-      .findAll({
-        attributes: ["id", "edificio", "numero_aula", "cursada_id"],
-        offset: pasarPagina,
-        limit: limite
-      })
-      .then(aulas => res.send([aulas, { paginas: totalRegistros / limite }]))
-      .catch(() => res.sendStatus(500));
+        .findAll({
+          attributes: ["id", "edificio", "numero_aula", "cursada_id"],
+          offset: pasarPagina,
+          limit: limite
+        })
+        .then(aulas => res.send([aulas, { paginas: totalRegistros / limite }]))
+        .catch(() => res.sendStatus(500));
     });
 });
 
 router.get("/", (req, res) => {
   const pagina = 0;
   const limite = 5;
-  let totalRegistros = 0;
   const pasarPagina = pagina * limite;
 
   models.aula
@@ -35,27 +34,25 @@ router.get("/", (req, res) => {
     .then(aula => {
       return aula;
     })
-    .then(function(val) {
-      totalRegistros = val;
+    .then(function(totalRegistros) {
+      models.aula
+        .findAll({
+          attributes: ["id", "edificio", "numero_aula", "cursada_id"],
+          offset: pasarPagina,
+          limit: limite
+        })
+        .then(aulas => res.send([aulas, { paginas: totalRegistros / limite }]))
+        .catch(() => res.sendStatus(500));
     });
+});
 
-  setTimeout(() => {
-    models.aula
-      .findAll({
-        attributes: ["id", "edificio", "numero_aula", "cursada_id"],
-        offset: pasarPagina,
-        limit: limite
-      })
-      .then(aulas =>
-        res.send([
-          aulas,
-          {
-            paginas: totalRegistros / limite
-          }
-        ])
-      )
-      .catch(() => res.sendStatus(500));
-  }, 100);
+router.get("/todasLasAulas/", (req, res) => {
+  models.aula
+    .findAll({
+      attributes: ["id", "edificio", "numero_aula", "cursada_id"]
+    })
+    .then(aulas => res.send(aulas))
+    .catch(() => res.sendStatus(500));
 });
 
 router.post("/", (req, res) => {
@@ -83,7 +80,7 @@ router.post("/", (req, res) => {
 const findAula = (id, { onSuccess, onNotFound, onError }) => {
   models.aula
     .findOne({
-      attributes: ["id", "edificio", "cursada_id"],
+      attributes: ["id", "edificio", "numero_aula"],
       where: {
         id
       }
@@ -93,6 +90,7 @@ const findAula = (id, { onSuccess, onNotFound, onError }) => {
 };
 
 router.get("/:id", (req, res) => {
+  console.log(req.params.id)
   findAula(req.params.id, {
     onSuccess: aula => res.send(aula),
     onNotFound: () => res.sendStatus(404),

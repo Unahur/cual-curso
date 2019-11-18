@@ -1,6 +1,40 @@
 import React, { Component } from "react";
 
 export default class Sugerencias extends Component {
+  state = {
+    verTodas: false,
+    verMaterias: false,
+    myStyle: "",
+    materias: [],
+    listaMaterias: []
+  };
+
+  componentDidMount = () => {
+    
+    fetch(" http://localhost:3001/materias/")
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ materias: data });
+      })
+      .catch(console.log);
+    
+    };
+
+  mostrarTodas = () => {
+    this.setState({ verTodas: true });
+  };
+  mostrarSugerencias = () => {
+    console.log(this.state.materias[1])
+    this.setState({ verTodas: false });
+  };
+
+  mostrarMateria = index => {
+   const listaDeMaterias = this.state.listaMaterias;
+    if(this.state.listaMaterias.every(mat=>this.state.materias[index.index].nombre!==mat.nombre))
+    listaDeMaterias.push(this.state.materias[index.index]);
+    this.setState({ listaMaterias: listaDeMaterias });
+    this.setState({ myStyle: "col-6", verMaterias: true });
+  };
   render() {
     const materias = [
       {
@@ -104,6 +138,7 @@ export default class Sugerencias extends Component {
                     id="option1"
                     autocomplete="off"
                     checked
+                    onClick={() => this.mostrarSugerencias()}
                   />{" "}
                   Sugerencias
                 </label>
@@ -113,6 +148,7 @@ export default class Sugerencias extends Component {
                     name="options"
                     id="option2"
                     autocomplete="off"
+                    onClick={() => this.mostrarTodas()}
                   />{" "}
                   Ver todas
                 </label>
@@ -120,26 +156,72 @@ export default class Sugerencias extends Component {
               <br />
               <br />
               <br />
-              <ul class="list-group list-group-flush" id="ulListaMaterias">
-                <li class="list-group-item ilListaMaterias">
-                  <a href="#">Matematicas 2</a>
-                </li>
-                <li class="list-group-item ilListaMaterias">
-                  <a href="#">Estructura de datos</a>
-                </li>
-                <li class="list-group-item ilListaMaterias">
-                  <a href="#">Interfaz de usuario</a>
-                </li>
-                <li class="list-group-item ilListaMaterias">
-                  <a href="#">Estrategia de persistencia</a>
-                </li>
-                <li class="list-group-item ilListaMaterias">
-                  <a href="#">Concurrencia</a>
-                </li>
-              </ul>
-            </div>
 
-            <div className="col-12 col-md-9 ">
+              {this.state.verTodas ? (
+                <ul class="list-group list-group-flush" id="ulListaMaterias">
+                  {this.state.materias.map((materia, index) => (
+                    <li class="list-group-item ilListaMaterias">
+                      <a
+                        onClick={() => this.mostrarMateria({ index })}
+                        href="#"
+                      >
+                        {materia.nombre}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <ul class="list-group list-group-flush" id="ulListaMaterias">
+                  {this.state.materias
+                    .filter(materia => materia.correlativa)
+                    .map((materia, index) => (
+                      <li class="list-group-item ilListaMaterias">
+                        <a
+                          onClick={() => this.mostrarMateria({ index })}
+                          href="#"
+                        >
+                          {materia.nombre}
+                        </a>
+                      </li>
+                    ))}
+                </ul>
+              )}
+            </div>
+            <div className={this.state.myStyle} style={{backgroundColor:"rgb(218, 218, 218)"}}>
+              {this.state.verMaterias ? (
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">Materia</th>
+                      <th scope="col">Profesor</th>
+                      <th scope="col">Dias</th>
+                      <th scope="col">Horario</th>
+                      <th scope="col">Inscribirse</th>
+                    </tr>
+                  </thead>
+
+                  {this.state.listaMaterias.map(materia => 
+                    <tbody>
+                      <tr>
+                        <td>{materia.nombre}</td>
+                        <td>{materia.profesor}</td>
+                        <td>{materia.dia}</td>
+                        <td>{materia.horario}</td>
+
+                        <td>
+                          <button className="btn btn-primary btn-sm">
+                            Inscribirse
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  )}
+                </table>
+              ) : (
+                ""
+              )}
+            </div>
+            <div className="col">
               <h2>Historia academica</h2>
               <br />
               {materias.map(e => (

@@ -63,7 +63,7 @@ formulario.addEventListener('submit', function (evt) {
     var data = {
         edificio: datos.get('edificio'),
         numero_aula: datos.get('numero_aula'),
-        cursada_id: cursadasSel.value
+        
     }
     fetch(url, {
         method: 'POST',
@@ -74,6 +74,6 @@ formulario.addEventListener('submit', function (evt) {
     }).then(res => res.json())
         .catch(error => console.error('Error:', error))
         .then(response => console.log('Success:', response));
-
+window.location.reload()
 });
 

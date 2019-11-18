@@ -9,27 +9,32 @@
   <title>Crear aula</title>
 </head>
 
-<body onLoad="listarCursadas()">
+<body onLoad="mostrarDatos()">
   <div class="img"><img src="http://unahur.edu.ar/sites/default/files/Hurlingham-logo.png" alt="unahur" height="100px">
   </div>
+  <a href="aula.html" class="btn btn-info btn-sm">Regresar</a>
 
   <div class="container">
 
 
     <form id="formCreate" class="form" onsubmit="confirmar()">
+
       <h2 class="h2">Modificar</h2>
-      <label>Edificio:
-      <br>
-      <input type="text" class="input" name="edificio" placeholder="Nombre del edificio" required>
-    </label>
-      <br>
-      <label>Cursadas:
-      <select id="listCursadas"></select>
+      <label>Aulas:
+        <select id="listaDeAulas"></select>
       </label>
+      <br>
+      <br>
+      <label>Edificio:
+        <br>
+        <input id="nEdificio" type="text" class="input" name="edificio" placeholder="Nombre del edificio" required>
+      </label>
+      <br>
+
       <br>
       <label>Numero de aula:
         <br>
-        <input type="number" name="numero_aula" class="input" placeholder="Numero de aula" required>
+        <input id="nAula" type="number" name="numero_aula" class="input" placeholder="Numero de aula" required>
       </label>
       <br>
       <button class="btn" type="submit">Modificar</button>
@@ -39,7 +44,7 @@
   </div>
 
   <script src="js/modificar.js"></script>
-  
+
 </body>
 
 </html>

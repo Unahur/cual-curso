@@ -5,17 +5,21 @@ var cursadasSel=document.getElementById('listCursadas');
 
 var url_string = window.location.href
 var urlO = new URL(url_string);
-var idAula =  urlO.searchParams.get("idAula")
+var idAula =  urlO.searchParams.get("idAula");
+var edificio=document.getElementById('nEdificio');
+var aula=document.getElementById('nAula')
+var sAula=document.getElementById('listaDeAulas')
 console.log(idAula)
 
-
+console.log(edificio.value)
 const confirmar = ()=>{
     alert("Se moodifico el registro")
     setTimeout('document.forms[0].reset()',1000)
 }
 
-const listarCursadas = () => {
-    fetch('http://localhost:3001/cursadas', {
+ const mostrarDatos = () => {
+  
+     fetch('http://localhost:3001/aulas/'+ idAula, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -23,14 +27,35 @@ const listarCursadas = () => {
     })
     .then(res => res.json())
     .catch(error => console.error('Error:', error))
-    .then(res => res.forEach(e => {
-            cursadasSel.innerHTML += `<option value=${e.id}>${e.id}</option><br>`
-          
-        }));
-         
+    .then(function(res){
+        console.log(res)
+        edificio.value=res.edificio;
+        aula.value=(res.numero_aula);
+    }
+        );
+
+        cargarSelect();
+   
+      
+}
+cargarSelect=()=>{
+    fetch('http://localhost:3001/aulas/todasLasAulas/', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(res => res.json())
+    .catch(error => console.error('Error:', error))
+    .then(res=>res.forEach(res => {
+        
+    
+       sAula.innerHTML+= `<option value=${res.id}>${res.id}</option>`
+    }))
+    sAula.innerHTML+= `<option value=${idAula} selected>${idAula}</option>`
 }
 
-listarCursadas();
+mostrarDatos();
 
 formulario.addEventListener('submit', function (evt) {
     evt.preventDefault();
@@ -40,9 +65,11 @@ formulario.addEventListener('submit', function (evt) {
     var data = {
         edificio: datos.get('edificio'),
         numero_aula: datos.get('numero_aula'),
-        cursada_id: cursadasSel.value
+
+       
+    
     }
-    fetch(url+"/"+ idAula, {
+    fetch(url+"/"+ sAula.value, {
         method: 'PUT',
         body: JSON.stringify(data),
         headers: {
@@ -52,6 +79,7 @@ formulario.addEventListener('submit', function (evt) {
 
         .then(res => console.log('Success:', res))
         .catch(err => console.error('Error:', err));
+        
 
 });
 

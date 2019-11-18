@@ -16,7 +16,7 @@ const listarAula = () => {
               <th scope="row">${aula.id}</th>
               <td>${aula.edificio}</td>
               <td>${aula.numero_aula}</td>
-              <td>${aula.cursada_id}</td>
+         
 
               <td>
                 <button
