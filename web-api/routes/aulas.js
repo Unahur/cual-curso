@@ -6,11 +6,12 @@ var models = require("../models");
 router.get("/", (req, res) => {
   models.aula
     .findAll({
-      attributes: ["id", "nombre_aula", "edificio"]/*,
+      attributes: ["id", "nombre_aula", "edificio"],/*,
       include: [{
         as: 'carreras',
         model: models.carrera
       }]*/
+      where: { id }
     })
     .then(aula => res.send(aula))
     .catch(() => res.sendStatus(500));

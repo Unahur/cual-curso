@@ -10,7 +10,8 @@ router.get("/", (req, res) => {
       include: [{
         as: 'carreras',
         model: models.carrera
-      }]
+      }],
+      where: { id }
     })
     .then(estudiante => res.send(estudiante))
     .catch(() => res.sendStatus(500));
@@ -50,7 +51,7 @@ router.get("/:id", (req, res) => {
 router.put("/:id", (req, res) => {
   const onSuccess = estudiante =>
     estudiante
-      .update({ dni: req.body.dni, nombre_apellido: req.body.nombre_apellido }, { fields: ["dni","nombre_apellido"] })
+      .update({ dni: req.body.dni, nombre_apellido: req.body.nombre_apellido, carreraId: req.body.carreraId }, { fields: ["dni","nombre_apellido","carreraId"] })
       .then(() => res.sendStatus(200))
       .catch(() => res.sendStatus(500));
     findEestudiante(req.params.id, {
