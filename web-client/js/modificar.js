@@ -49,7 +49,7 @@ cargarSelect=()=>{
     .catch(error => console.error('Error:', error))
     .then(res=>res.forEach(res => {
         
-    
+    if(res.id!==idAula)
        sAula.innerHTML+= `<option value=${res.id}>${res.id}</option>`
     }))
     sAula.innerHTML+= `<option value=${idAula} selected>${idAula}</option>`
@@ -57,6 +57,27 @@ cargarSelect=()=>{
 
 mostrarDatos();
 
+onChange=()=>
+{
+
+
+    fetch('http://localhost:3001/aulas/'+ sAula.value, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(res => res.json())
+    .catch(error => console.error('Error:', error))
+    .then(function(res){
+        console.log(res)
+        edificio.value=res.edificio;
+        aula.value=(res.numero_aula);
+    }
+        );
+
+    
+}
 formulario.addEventListener('submit', function (evt) {
     evt.preventDefault();
 
