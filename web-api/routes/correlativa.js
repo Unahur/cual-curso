@@ -3,45 +3,45 @@ var router = express.Router();
 var models = require("../models");
 
 router.get("/",(req,res)=>{
-    models.correlativa
+    models.correlativas
     .findAll({
-        attributes:["id","name"]
-    })
-    .then(correlativas=>res.send(correlativas))
+        attributes:["id","id_materia","id_materia_correlativa"]
+    })//aca se hace un get de todas las correlativas
+    .then(correlativa=>res.send(correlativa))
     .catch(()=>res.sendStatus(500));
 });
 
 router.post("/",(req,res)=>{
-    models.correlativa
+    models.correlativas
     .create(req.body)
-    .then(correlativa => res.status(201).send({id: correlativa.id}))
+    .then(correlativas => res.status(201).send({id: correlativas.id}))
     .catch(()=>res.sendStatus(500));
 });
 
-const findCorrelativa = (id,{onSuccess,onNotFound,onError})=>{
-    models.correlativa
+const findcorrelativas = (id,{onSuccess,onNotFound,onError})=>{
+    models.correlativas
     .findOne({
-    attributes:["id","name"],
-    where:{ id }
-    })
-    .then(correlativa => (correlativa ? onSuccess(correlativa):onNotFound()))
+        attributes:["id","id_materia","id_materia_correlativa"],
+        where:{ id }
+    })//aca se busca la materia por id
+    .then(correlativas => (correlativas ? onSuccess(correlativas):onNotFound()))
     .catch(()=>onError());
 };
 router.get("/:id",(req,res)=>{
-    findCorrelativa(req.params.id,{
-        onSuccess: correlativa => res.send(correlativa),
+    findcorrelativas(req.params.id,{
+        onSuccess: correlativas => res.send(correlativas),
         onNotFound: () => res.sendStatus(404),
         onError: () => res.sendStatus(500) 
     });
 });
 
 router.put("/:id",(req,res) => {
-    const onSuccess = correlativa => 
-    correlativa
+    const onSuccess = correlativas => 
+    correlativas
         .update(req.body)
         .then(()=>res.sendStatus(200))
         .catch(()=>res.sendStatus(500));
-    findCorrelativa(req.params.id,{
+    findcorrelativas(req.params.id,{
         onSuccess,
         onNotFound: () => res.sendStatus(404),
         onError: () => res.sendStatus(500)
@@ -49,12 +49,12 @@ router.put("/:id",(req,res) => {
 });
 
 router.delete("/id",(req,res) =>{
-    const onSuccess = correlativa =>
-    correlativa
+    const onSuccess = correlativas =>
+    correlativas
         .destroy()
         .then(()=> res.sendStatus(200))
         .catch(()=> res.sendStatus(500));
-    findCorrelativa(req.params.id,{
+    findcorrelativas(req.params.id,{
         onSuccess,
         onNotFound: () => res.sendStatus(404),
         onError: () => res.sendStatus(500)

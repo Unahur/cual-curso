@@ -1,15 +1,23 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('correlativa', {
+    return queryInterface.createTable('correlativas', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name:{
-        type: Sequelize.STRING
+      id_materia_correlativa:{
+        type: Sequelize.INTEGER
+      },
+      id_materia: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        reference: {
+          model: 'materia',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,
@@ -22,6 +30,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('correlativa');
+    return queryInterface.dropTable('correlativas');
   }
 };

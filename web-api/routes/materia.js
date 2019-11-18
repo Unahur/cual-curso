@@ -1,34 +1,36 @@
 var express = require("express");
 var router = express.Router();
 var models = require("../models");
-const Sequelize = require("sequelize");
-
+const Sequelize = require("sequelize");//aca se importa sequelize, para usar los operadores.
+//la razon para darle una ruta mas "/pagina"
+//fue para que no se superponga con :id
+//y en vez de buscar el objeto, busque la pagina.
 router.get("/pagina/:index/:input", (req, res) => {
-    const pagina = req.params.index;
-    const input = req.params.input;
-    const limite = 10;
-    const pasarPagina = pagina * limite;
-    const Op = Sequelize.Op;
+    const pagina = req.params.index;//aca se ingresa la pagina donde se desea estar
+    const input = req.params.input;//aca se ingresa el input de lo que se quiere filtrar
+    const limite = 10;//aca se asigna el limite de items por pagina.
+    const pasarPagina = pagina * limite;//aca bueno como su nombre lo dice se pasa de pagina.
+    const Op = Sequelize.Op;//aca se asigna el operador para usarlo mas tarde
     models.materia
-        .count()
+        .count()//aca se cuenta todo lo que esta en la base de datos.
         .then(materia => {
             return materia;
-        })
+        })//en esta promesa se retorna el numero de materia y se lo manda a registros totales.
         .then(registrosTotales => {
             models.materia
                 .findAll({
-                    attributes: ["id", "name", "description", "duration", "totalHours", "correlativa_id"],
-                    where: {name: {[Op.like]: `%${input}%`}},
+                    attributes: ["id", "name", "description", "duration", "totalHours"],
+                    include: [{ as: 'correlativas', model: models.correlativas, attributes: ["id_materia_correlativa"] }],
+                    where: {[Op.or]: [{name: {[Op.like]: `%${input}%`}}, {description: {[Op.like]: `%${input}%`}}, {duration: {[Op.like]: `%${input}%`}}, {totalHours: {[Op.like]: `%${input}%`}}]},
                     offset: pasarPagina,
                     limit: limite
-        })
-        .then(materia => res.send([materia, { paginas: registrosTotales / limite }]))
+                })//aca se traen los atributos, y la asociacion donde, haya coincidencia en uno de los atributos, se pasa de pagina y se asigna el limite.
+        .then(materia => res.send([materia, { paginas: registrosTotales / limite }]))//aca se envian las materias, y las paginas.
         .catch(() => res.sendStatus(500));
-      });
-  });
+    });
+});
 router.get("/pagina/:index", (req, res) => {
     const pagina = req.params.index;
-    const input = req.params.input;
     const limite = 10;
     const pasarPagina = pagina * limite;
     models.materia
@@ -39,14 +41,15 @@ router.get("/pagina/:index", (req, res) => {
         .then(registrosTotales => {
             models.materia
                 .findAll({
-                    attributes: ["id", "name", "description", "duration", "totalHours", "correlativa_id"],
+                    attributes: ["id", "name", "description", "duration", "totalHours"],
+                    include: [{ as: 'correlativas', model: models.correlativas, attributes: ["id_materia_correlativa"] }],
                     offset: pasarPagina,
                     limit: limite
         })
         .then(materia => res.send([materia, { paginas: registrosTotales / limite }]))
         .catch(() => res.sendStatus(500));
-      });
-  });
+    });
+});
 router.get("/", (req, res) => {
     const pagina = 0;
     const limite = 10;
@@ -65,7 +68,8 @@ router.get("/", (req, res) => {
     setTimeout(() => {
       models.materia
         .findAll({
-            attributes: ["id", "name", "description", "duration", "totalHours", "correlativa_id"],
+            attributes: ["id", "name", "description", "duration", "totalHours"],
+            include: [{ as: 'correlativas', model: models.correlativas, attributes: ["id_materia_correlativa"] }],
             offset: pasarPagina,
             limit: limite
         })
@@ -84,14 +88,15 @@ router.post("/",(req,res)=>{
     .create(req.body)
     .then(materia => res.status(201).send({id: materia.id}))
     .catch(()=>res.sendStatus(500));
-});
+});//aca se mandan los atributos de la materia y se los inserta en la base de datos.
 
 const findMateria = (id,{onSuccess,onNotFound,onError})=>{
     models.materia
     .findOne({
-        attributes:["id","name","description","duration","totalHours", "correlativa_id"],
+        attributes:["id","name","description","duration","totalHours"],
+        include:[{ as: 'correlativas', model: models.correlativas, attributes: ["id_materia_correlativa"] }],
         where:{ id }
-    })
+    })//aca se busca la materia con la id, y trae la materia, con su correlativa.
     .then(materia => (materia ? onSuccess(materia):onNotFound()))
     .catch(()=>onError());
 };
