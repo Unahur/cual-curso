@@ -1,6 +1,22 @@
 import React, { Component } from 'react';
 
 class Modificacion extends Component {
+  
+  state = {
+    data:[]
+  }
+
+  async componentDidMount() {
+    await this.fetchModificacion()
+  }
+
+  fetchModificacion = async () => {
+    let res = await fetch("http://localhost:3001/docentes")
+    let data = await res.json();
+    this.setState({data});
+    console.log(data);
+  }
+
 
 
   render() {

@@ -10,8 +10,7 @@ class Lista extends Component {
     };
   }
 
-  componentDidMount() {
-    
+  componentDidMount() {    
     this.getDocentes()
       .then(docentes => this.setState({ docentes }));
   }
@@ -26,14 +25,6 @@ class Lista extends Component {
     .then(res => res.json())
     .catch(error => console.error('Error:', error))
     }
-
-    /* modifyDocente(id, nombre, apellido, dni) {
-      loadForm(id, nombre, apellido, dni);
-    }
-  
-    loadForm (id,nombre,apellido,dni) {
-      return this.state.docentes.filter(id)
-    } */
 
     filasDocentes() {
       return this.state.docentes.map(e => (

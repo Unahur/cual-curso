@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+const titulo = <h3>ABM</h3>;
+
 class Home extends Component {
     render() {
         return (
