@@ -44,15 +44,30 @@ class Lista extends Component {
           </th> 
           <th>
             <button className="btn btn-danger btn-lg" 
-                    onclick="deleteDocente(${e.id})"/>
+                    onClick={() => this.deleteDocente(e.id)}/>
           </th>
       </tr>
       ))
     }
 
-    deleteDocente = () => {
-      console.log('Eliminado...');
-    }
+    deleteDocente = (id) => {
+      var newList = [];
+      if (
+        window.confirm("Esta seguro que quiere borrar el docente")
+      ) {
+        fetch("http://localhost:3001/docentes/" + id, {
+          method: "DELETE"
+        })
+          .then(() => {
+            console.log("removed id " + id);
+          })
+          .catch(err => {
+            console.error(err);
+          });
+        newList = this.state.docentes.filter(docente => docente.id !== id);
+        this.setState({ docentes: newList });
+      }
+    };
 
     render() {
         return (
