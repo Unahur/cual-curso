@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Link } from "react-router-dom";
 
+
 class Lista extends Component {
+
 
   constructor(props) {
     super(props);
@@ -26,6 +28,7 @@ class Lista extends Component {
     .catch(error => console.error('Error:', error))
     }
 
+   
     filasDocentes() {
       return this.state.docentes.map(e => (
         <tr>   
@@ -35,39 +38,42 @@ class Lista extends Component {
           <th>{e.dni}</th>
           <th>
             <Link to={`/modificar/${e.id}`}>
-              <button class="btn btn-warning btn-lg" renderAs="button">                      
-              </button>
-
+              <button className="btn btn-warning btn-lg"
+                      renderAs="button"/>
             </Link>
           </th> 
           <th>
-            <button class="btn btn-danger btn-lg" 
+            <button className="btn btn-danger btn-lg" 
                     onclick="deleteDocente(${e.id})"/>
           </th>
       </tr>
       ))
     }
 
+    deleteDocente = () => {
+      console.log('Eliminado...');
+    }
+
     render() {
         return (
-          <main class="container">
+          <main className="container">
             <div id="listadoDocente">
-              <div class="row" >
-                <div class="col text-center">
-                  <h3 class="titulo" id="titulo" >Listado <span>Docentes</span></h3>
+              <div className="row" >
+                <div className="col text-center">
+                  <h3 classNAme="titulo" id="titulo" >Listado <span>Docentes</span></h3>
                 </div>
               </div>
-              <div class="row">
-                <div class="table-responsive">            
-                  <table class="table table-striped" id="table">
-                    <thead class="thead-dark"> 
+              <div className="row">
+                <div className="table-responsive">            
+                  <table className="table table-striped" id="table">
+                    <thead className="thead-dark"> 
                       <tr>
-                        <th><p clas="text-center">#ID</p></th>
-                        <th><p clas="text-center">Nombre</p></th>
-                        <th><p clas="text-center">Apellido</p></th>
-                        <th><p clas="text-center">DNI</p></th>
-                        <th><p clas="text-center">Modificar</p></th>
-                        <th><p clas="text-center">Eliminar</p></th>                  
+                        <th><p className="text-center">#ID</p></th>
+                        <th><p className="text-center">Nombre</p></th>
+                        <th><p className="text-center">Apellido</p></th>
+                        <th><p className="text-center">DNI</p></th>
+                        <th><p className="text-center">Modificar</p></th>
+                        <th><p className="text-center">Eliminar</p></th>                  
                       </tr>
                     </thead>
                     {this.filasDocentes()}
@@ -77,9 +83,7 @@ class Lista extends Component {
             </div>
           </main>
         )
-    }
-
-  
+    }  
 
 }
 export default Lista;

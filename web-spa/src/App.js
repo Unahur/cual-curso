@@ -7,30 +7,35 @@ import Lista from './components/main/Lista';
 import Registro from './components/main/Registro';
 import Modificacion from './components/main/Modificacion';
 import Footer from './components/footer/Footer';
-import { BrowserRouter, Route, Link } from "react-router-dom";
+
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+
 
 function App() {
   return (
-    <BrowserRouter>
-        <Nav/>
-        <Route
-            component={Home}
-            path="/"
-        />
-        <Route
-            component={Lista}
-            path="/listar"
-        />
-        <Route
-            component={Registro}
-            path="/registrar"
-        />
-        <Route
-            component={Modificacion}
-            path="/modificar"
-        />
-        <Footer/>
-    </BrowserRouter>
+
+    <Router>        
+        
+        <div className="container-fluid">
+            <Nav />
+        </div>
+
+        <div className="container">
+            <Switch>
+                <Route exact path="/home" component = {Home} />
+                <Route exact path="/listar" component = {Lista} />
+                <Route exact path="/registrar" component = {Registro} />
+                <Route exact path="/modificar/${e.id}" component = {Modificacion} />
+            </Switch>
+        </div>
+        
+        <div className="container-fluid">
+            <Footer />
+        </div>
+
+    </Router>
+
   );
 }
 

@@ -5,7 +5,7 @@ class Nav extends Component {
     render() {
         return (
             <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-                <a className="navbar-brand" href="index.html">
+                <a className="navbar-brand" href="/home">
                     <img src="images/logoSolo.png" width="30" height="30" alt="Logounahur"/>
                 </a>         
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

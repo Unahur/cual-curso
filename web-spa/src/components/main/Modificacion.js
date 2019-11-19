@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class Modificacion extends Component {
-  
+
   state = {
     data:[]
   }
@@ -17,12 +17,17 @@ class Modificacion extends Component {
     console.log(data);
   }
 
+  obtenerDatos = (e) => {
+    e.preventDefault();
+    this.log(this.busquedaRef.current.value);
+  }
+
 
 
   render() {
     return (
       <main class="container">          
-        <form id="formulario editForm">
+        <form id="formulario editForm" onSubmit={this.obtenerDatos}>
           <h3 class="titulo">Modificar <span>Docente</span></h3>
           <div class="form-group">
           <label for="">Nombre</label>
