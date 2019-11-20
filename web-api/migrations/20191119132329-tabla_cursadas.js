@@ -10,38 +10,42 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       dia_hora: {
+        allowNull: false,
         type: Sequelize.STRING
       },
-      aulaId: {
+      materiaId: {
         allowNull: false,
         type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
         reference: {
-          model: 'aula',
-          key: 'id',
+          model: 'materia',
+          key: 'id'
         }
       },
       docenteId: {
         allowNull: false,
         type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
         reference: {
           model: 'docente',
-          key: 'id',
+          key: 'id'
         }
       },
-      materiaId: {
+      aulaId: {
         allowNull: false,
         type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
         reference: {
-          model: 'materia',
-          key: 'id',
+          model: 'aula',
+          key: 'id'
         }
       },
       createdAt: {
-        allowNull: false,
+        //allowNull: false,
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: false,
+        //allowNull: false,
         type: Sequelize.DATE
       }
     });

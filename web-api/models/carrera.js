@@ -4,13 +4,13 @@ module.exports = (sequelize, DataTypes) => {
     nombre_carrera: DataTypes.STRING
   }, {});
   carrera.associate = function(models) {
-    // associations can be defined here
-    carrera.hasMany(models.estudiante, 
+    // una carrera muchos estudiante
+    carrera.hasMany(models.estudiante,
       {
-          as: 'estudiantes',
-          foreignKey: 'carreraId' 
+        as: 'estudiantes',
+        foreignkey: 'carreraId'
       }
-  )
+    )
   };
   return carrera;
 };

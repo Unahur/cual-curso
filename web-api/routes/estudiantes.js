@@ -8,15 +8,33 @@ router.get("/", (req, res) => {
     .findAll({
       attributes: ["id", "dni", "nombre_apellido", "carreraId"],
       include: [{
-        as: 'carreras',
-        model: models.carrera
+        as: 'carrera',
+        model: models.carrera},
+        {
+          // comparo la tabla intermedia con la tabla que necesito de materiaAprobadas
+        as: 'estudiante_cursadas',
+        model: models.estudiante_cursada,
+        include: [{
+          as: 'cursada',
+          model: models.cursada,
+          include: [{
+            as: 'aulas',
+            model: models.aula},
+          {
+            as: 'docentes',
+            model: models.docente},
+          {
+            as: 'materias',
+            model: models.materia
+          }]
+        }]
       }]
     })
     .then(estudiante => res.send(estudiante))
     .catch(() => res.sendStatus(500));
 });
 
-
+/*
 router.post("/", (req, res) => {
   models.estudiante
     .create({ dni: req.body.dni, nombre_apellido: req.body.nombre_apellido, carreraId: req.body.carreraId })
@@ -30,8 +48,16 @@ const findEestudiante = (id, { onSuccess, onNotFound, onError }) => {
     .findOne({
       attributes: ["id","dni","nombre_apellido", "carreraId"], // para poder buscar por id...!!!!!
       include: [{
-        as: 'carreras',
-        model: models.carrera
+        as: 'carrera',
+        model: models.carrera},
+        {
+          // comparo la tabla intermedia con la tabla que necesito de materiaAprobadas
+        as: 'estudiante_materiaAprobadas',
+        model: models.estudiante_materiaAprobada,
+        include: [{
+          as: 'materiaAprobada',
+          model: models.materiaAprobada 
+        }]
       }],
       where: { id }
     })
@@ -50,7 +76,7 @@ router.get("/:id", (req, res) => {
 router.put("/:id", (req, res) => {
   const onSuccess = estudiante =>
     estudiante
-      .update({ dni: req.body.dni, nombre_apellido: req.body.nombre_apellido }, { fields: ["dni","nombre_apellido"] })
+      .update({ dni: req.body.dni, nombre_apellido: req.body.nombre_apellido, carreraId: req.body.carreraId }, { fields: ["dni","nombre_apellido", "carreraId"] })
       .then(() => res.sendStatus(200))
       .catch(() => res.sendStatus(500));
     findEestudiante(req.params.id, {
@@ -72,5 +98,5 @@ router.delete("/:id", (req, res) => {
     onError: () => res.sendStatus(500)
   });
 });
-
+*/
 module.exports = router;

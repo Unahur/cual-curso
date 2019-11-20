@@ -10,17 +10,19 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       nombre_aula: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       edificio: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       createdAt: {
-        allowNull: false,
+        //allowNull: false,
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: false,
+        //allowNull: false,
         type: Sequelize.DATE
       }
     });

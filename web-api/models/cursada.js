@@ -2,37 +2,37 @@
 module.exports = (sequelize, DataTypes) => {
   const cursada = sequelize.define('cursada', {
     dia_hora: DataTypes.STRING,
-    aulaId: DataTypes.INTEGER,
+    materiaId: DataTypes.INTEGER,
     docenteId: DataTypes.INTEGER,
-    materiaId: DataTypes.INTEGER
+    aulaId: DataTypes.INTEGER
   }, {});
   cursada.associate = function(models) {
-    // una cursada muchas materias
-    cursada.hasMany(models.materia, 
-      {
-        as: 'materias',
-        foreignKey: 'id' 
-      }
-    ),
-    // una cursada muchos docentes
-    cursada.hasMany(models.docente, 
-      {
-        as: 'docentes',
-        foreignKey: 'id' 
-      }
-    ),
-    // una cursada muchas aulas
-    cursada.hasMany(models.aula, 
+    // un cursada muchas aulas
+    cursada.hasMany(models.aula,
       {
         as: 'aulas',
-        foreignKey: 'id' 
+        foreignkey: 'id'
       }
-    ),
-    // una cursada muchos estudantes x cursada
-    cursada.belongsTo(models.estudiante_cursada, 
+    )
+    // un cursada muchos docentes
+    cursada.hasMany(models.docente,
       {
-        as: 'estudiantes_cursadas',
-        foreignKey: 'cursadaId' 
+        as: 'docentes',
+        foreignkey: 'id'
+      }
+    )
+    // un cursada muchas materias
+    cursada.hasMany(models.materia,
+      {
+        as: 'materias',
+        foreignkey: 'id'
+      }
+    )
+    // un cursada muchos extudiantes_cursadas
+    cursada.hasMany(models.estudiante_cursada,
+      {
+        as: 'estudiante_cursadas',
+        foreignkey: 'cursadaId'
       }
     )
   };

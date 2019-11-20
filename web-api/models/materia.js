@@ -4,11 +4,11 @@ module.exports = (sequelize, DataTypes) => {
     nombre_materia: DataTypes.STRING
   }, {});
   materia.associate = function(models) {
-    // una materia muchas cursadas
-    materia.belongsTo(models.cursada, 
+    // un materia una cursada
+    materia.belongsTo(models.cursada,
       {
-        as: 'cursadas',
-        foreignKey: 'materiaId' 
+        as: 'cursada',
+        foreignkey: 'materiaId'
       }
     )
   };

@@ -6,13 +6,20 @@ module.exports = (sequelize, DataTypes) => {
     carreraId: DataTypes.INTEGER
   }, {});
   estudiante.associate = function(models) {
-    // associations can be defined here
-    estudiante.belongsTo(models.carrera, 
+    // un estudiate una carrera
+    estudiante.belongsTo(models.carrera,
       {
-          as: 'carreras',
-          foreignKey: 'id' 
+        as: 'carrera',
+        foreignkey: 'id'
       }
-  )
+    )
+    // un estudiante muchas cursadas
+    estudiante.hasMany(models.estudiante_cursada,
+      {
+        as: 'estudiante_cursadas',
+        foreignkey: 'estudianteId'
+      }
+    )
   };
   return estudiante;
 };

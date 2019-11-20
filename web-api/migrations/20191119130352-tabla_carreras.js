@@ -10,14 +10,15 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       nombre_carrera: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       createdAt: {
-        allowNull: false,
+        //allowNull: false,
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: false,
+        //allowNull: false,
         type: Sequelize.DATE
       }
     });

@@ -1,14 +1,15 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const aula = sequelize.define('aula', {
-    nombre_aula: DataTypes.STRING
+    nombre_aula: DataTypes.STRING,
+    edificio: DataTypes.STRING
   }, {});
   aula.associate = function(models) {
-    // associations can be defined here
-    aula.belongsTo(models.cursada, 
+    // un aula una cursada
+    aula.belongsTo(models.cursada,
       {
-        as: 'cursadas',
-        foreignKey: 'aulaId' 
+        as: 'cursada',
+        foreignkey: 'cursadaId'
       }
     )
   };

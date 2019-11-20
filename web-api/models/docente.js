@@ -1,14 +1,14 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const docente = sequelize.define('docente', {
-    nombre_apellido_docente: DataTypes.STRING
+    nombre_docente: DataTypes.STRING
   }, {});
   docente.associate = function(models) {
-    // una materia muchas cursadas
-    docente.belongsTo(models.cursada, 
+    // un docente una cursada
+    docente.belongsTo(models.cursada,
       {
-        as: 'cursadas',
-        foreignKey: 'docenteId' 
+        as: 'cursada',
+        foreignkey: 'docenteId'
       }
     )
   };
