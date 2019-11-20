@@ -2,26 +2,20 @@ import React, { Component } from 'react';
 
 class Modificacion extends Component {
 
-  state = {
-    data:[]
-  }
+  /* modificarDocente = (id) => {
+    var newList = [];
+    fetch("http://localhost:3001/docentes/" + id, {
+        method: "PUT"
+      })
+        /* .then(() => {
+          console.log("modificar " + id);
+        })
+        .catch(err => {
+          console.error(err);
+        });
+  } */
 
-  async componentDidMount() {
-    await this.fetchModificacion()
-  }
-
-  fetchModificacion = async () => {
-    let res = await fetch("http://localhost:3001/docentes")
-    let data = await res.json();
-    this.setState({data});
-    console.log(data);
-  }
-
-  obtenerDatos = (e) => {
-    e.preventDefault();
-    this.log(this.busquedaRef.current.value);
-  }
-
+  
 
 
   render() {
@@ -45,7 +39,7 @@ class Modificacion extends Component {
                     placeholder="DNI" required id="dniM"/>
           </div>
           <input type="submit" class="btn btn-primary" id="btn-Modificar"
-                  value="Modificar" onclick='modificar()'/>
+                  value="Modificar" />
                   
         </form>
       </main>
