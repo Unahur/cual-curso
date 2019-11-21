@@ -2,27 +2,25 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('materia_aprobada', {
+    return queryInterface.createTable('estudiantes', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id_materia: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        reference: {
-          model: 'materia',
-          key: 'id',
-        }       
+      dni: {
+        type: Sequelize.INTEGER
       },
-      id_estudiante: {
-        allowNull: false,
+      nombre_apellido: {
+        type: Sequelize.STRING
+      },
+      carreraId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         reference: {
-          model: 'estudiante',
-          key: 'id',
+          model: 'carrera',
+          key: 'id'
         }
       },
       createdAt: {
@@ -35,14 +33,7 @@ module.exports = {
       }
     });
   },
-
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.dropTable('users');
-    */
+    return queryInterface.dropTable('estudiantes');
   }
 };

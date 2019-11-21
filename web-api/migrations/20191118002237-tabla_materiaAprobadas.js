@@ -1,14 +1,18 @@
 'use strict';
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('examples', {
+    return queryInterface.createTable('materiaAprobadas', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      nombre_materia: {
+        type: Sequelize.STRING
+      },
+      nota_materia: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -22,6 +26,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('examples');
+    return queryInterface.dropTable('materiaAprobadas');
   }
 };
