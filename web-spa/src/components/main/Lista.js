@@ -75,7 +75,7 @@ class Lista extends Component {
             <div id="listadoDocente">
               <div className="row" >
                 <div className="col text-center">
-                  <h3 classNAme="titulo" id="titulo" >Listado <span>Docentes</span></h3>
+                  <h3 className="titulo" id="titulo" >Listado <span>Docentes</span></h3>
                 </div>
               </div>
               <div className="row">

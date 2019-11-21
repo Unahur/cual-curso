@@ -35,22 +35,22 @@ class Registro extends Component {
 
     render() {
         return (
-          <main class="container">          
+          <main className="container">          
             <form id="formulario">
-              <h3 class="titulo">Registrar <span>Docente</span></h3>
-              <div class="form-group">
+              <h3 className="titulo">Registrar <span>Docente</span></h3>
+              <div className="form-group">
                 <label for="">Nombre</label>
                 <input type="text" class="form-control"
                         name="nombre" placeholder="Nombre" required
                         value={this.state.nombre} onChange={this.onChange}/>
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <label for="">Apellido</label>
                 <input type="text" class="form-control"
                         name="apellido" placeholder="Apellido" required
                         value={this.state.apellido} onChange={this.onChange}/>
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <label for="">DNI</label>
                 <input type="text" class="form-control"
                         name="dni" placeholder="DNI" required
