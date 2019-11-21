@@ -19,6 +19,13 @@ class Modificacion extends Component {
 
 
   render() {
+
+    var a = this.props.location.search;
+
+    var id=a.split("=");
+    alert(id[1]);
+
+
     return (
       <main class="container">          
         <form id="formulario editForm" onSubmit={this.obtenerDatos}>

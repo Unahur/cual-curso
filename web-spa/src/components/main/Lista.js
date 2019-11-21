@@ -37,7 +37,7 @@ class Lista extends Component {
           <th>{e.apellido}</th> 
           <th>{e.dni}</th>
           <th>
-            <Link to={`/modificar/${e.id}`}>
+            <Link to={`/modificar/?idDocente=${e.id}`}>
               <button className="btn btn-warning btn-lg"
                       renderAs="button"/>
             </Link>
