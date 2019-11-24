@@ -3,9 +3,6 @@ import './App.css';
 import CrearEstudiantes from "./components/CrearEstudiantes";
 import BorrarEstudiante from "./components/BorrarEstudiante";
 import ModificarEstudiantes from "./components/ModificarEstudiantes";
-import CrearAula from "./components/CrearAula";
-import CrearCarrera from "./components/CrearCarrera";
-import CrearDocente from "./components/CrearDocente";
 import CrearMateria from "./components/CrearMateria";
 import Sugerencias from "./components/Sugerencias";
 class App extends React.Component {
@@ -33,14 +30,6 @@ class App extends React.Component {
              <ModificarEstudiantes/>
              <br/>
              <BorrarEstudiante/>
-             <br/>
-             <CrearAula/>
-             <br/>
-             <CrearCarrera/>
-             <br/>
-             <CrearDocente/>
-             <br/>
-             <CrearAula/>
              <br/>
              <CrearMateria/>
              <br/>

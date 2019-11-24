@@ -30,9 +30,4 @@ function formatearDato(dato) {
     }
 }
 
-document.getElementById('id01').addEventListener('click', function(evt){
-    console.log(" cierro modal ");
-    evt.preventDefault();
-    close();
-});
 

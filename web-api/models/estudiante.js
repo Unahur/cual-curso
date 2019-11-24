@@ -1,23 +1,22 @@
+
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const estudiante = sequelize.define('estudiante', {
     dni: DataTypes.INTEGER,
-    nombre_apellido: DataTypes.STRING,
-    carreraId: DataTypes.INTEGER
+    nombre_apellido: DataTypes.STRING
   }, {});
   estudiante.associate = function(models) {
-    // un estudiate una carrera
-    estudiante.belongsTo(models.carrera,
+    // associations can be defined here
+    estudiante.hasMany( models.materia_aprobada, 
+      {
+        as: 'materias_aprobadas', // voy a mostrar un array de todos los registos, hay que respetar en los controladores el alias (as)
+        foreignKey: 'id_estudiante'
+      }
+    ),
+    estudiante.belongsTo( models.carrera,
       {
         as: 'carrera',
-        foreignkey: 'id'
-      }
-    )
-    // un estudiante muchas materias aprobadas
-    estudiante.hasMany(models.estudiante_materiaAprobada,
-      {
-        as: 'estudiante_materiaAprobadas',
-        foreignkey: 'materiaAprobadaId'
+        foreignKey: 'id'
       }
     )
   };

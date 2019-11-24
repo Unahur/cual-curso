@@ -4,64 +4,64 @@ var models = require("../models");
 
 
 router.get("/", (req, res) => {
-  models.estudiante
+  models.materias
     .findAll({
-      attributes: ["id", "dni", "nombre_apellido"],
-      include: [{
+      attributes: ["id", "nombre_materia"],
+    include: [{
         as: 'materias_aprobadas',
         model: models.materia_aprobada,
         include: [{
-          as: 'materia',
-          model: models.materias
+          as: 'estudiante',
+          model: models.estudiante
         }]
       }]
     })
-    .then(estudiante => res.send(estudiante))
+    .then(materias => res.send(materias))
     .catch(() => res.sendStatus(500));
 });
 
 
 router.post("/", (req, res) => {
-  models.estudiante
-    .create({ dni: req.body.dni, nombre_apellido: req.body.nombre_apellido })
-    .then(estudiante => res.status(201).send({ dni: estudiante.dni, nombre_apellido: estudiante.nombre_apellido }))
+  models.materias
+    .create({ nombre_materia: req.body.nombre_materia })
+    .then(materias => res.status(201).send({ nombre_materia: materias.materia_aprobada }))
     .catch(() => res.sendStatus(500));
 });
 
 
-const findEestudiante = (id, { onSuccess, onNotFound, onError }) => {
-  models.estudiante
+const findMateria = (id, { onSuccess, onNotFound, onError }) => {
+  models.materias
     .findOne({
-      attributes: ["id","dni","nombre_apellido"], // para poder buscar por id...!!!!!
+      attributes: ["id","nombre_materia"], // para poder buscar por id...!!!!!
       include: [{
         as: 'materias_aprobadas',
         model: models.materia_aprobada,
         include: [{
-          as: 'materia',
-          model: models.materias
+          as: 'estudiante',
+          model: models.estudiante
         }]
       }],
       where: { id }
     })
-    .then(estudiante => (estudiante ? onSuccess(estudiante) : onNotFound()))
+    .then(materias => (materias ? onSuccess(materias) : onNotFound()))
     .catch(() => onError());
 };
 
 router.get("/:id", (req, res) => {
-  findEestudiante(req.params.id, {
-    onSuccess: estudiante => res.send(estudiante),
+  findMateria(req.params.id, {
+    onSuccess: materias => res.send(materias),
     onNotFound: () => res.sendStatus(404),
     onError: () => res.sendStatus(500)
   });
 });
 
 router.put("/:id", (req, res) => {
-  const onSuccess = estudiante =>
-    estudiante
-      .update({ dni: req.body.dni, nombre_apellido: req.body.nombre_apellido }, { fields: ["dni","nombre_apellido"] })
+  const onSuccess = materias =>
+    materias
+      .update({ nombre_materia: req.body.nombre_materia }, { fields: ["nombre_materia"] })
       .then(() => res.sendStatus(200))
       .catch(() => res.sendStatus(500));
-    findEestudiante(req.params.id, {
+    findMateria(req.params.id, {
     onSuccess,
     onNotFound: () => res.sendStatus(404),
     onError: () => res.sendStatus(500)
@@ -69,12 +69,12 @@ router.put("/:id", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-  const onSuccess = estudiante =>
-    estudiante
+  const onSuccess = materias =>
+    materias
       .destroy()
       .then(() => res.sendStatus(200))
       .catch(() => res.sendStatus(500));
-    findEestudiante(req.params.id, {
+    findMateria(req.params.id, {
     onSuccess,
     onNotFound: () => res.sendStatus(404),
     onError: () => res.sendStatus(500)

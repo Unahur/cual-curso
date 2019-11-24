@@ -6,9 +6,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 // var examplesRouter = require('./routes/examples');
 var estudiantesRouter = require('./routes/estudiantes');
-var carrerasRouter = require('./routes/carreras');
-var materiaAprobadasRouter = require('./routes/materiaAprobadas');
-var estudiante_materiaAprobadasRouter = require('./routes/estudiante_materiaAprobadas');
+var materiasRouter = require('./routes/materias');
+var materia_aprobadasRouter = require('./routes/materia_aprobadas');
 var cors = require('cors')
 
 var app = express();
@@ -32,9 +31,8 @@ app.use(cors());
 app.use('/', indexRouter);
 // app.use('/examples', examplesRouter);
 app.use('/estudiantes',estudiantesRouter);
-app.use('/carreras', carrerasRouter);
-app.use('/materiaAprobadas', materiaAprobadasRouter);
-app.use('/estudiante_materiaAprobadas', estudiante_materiaAprobadasRouter);
+app.use('/materias', materiasRouter);
+app.use('/materia_aprobadas', materia_aprobadasRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
