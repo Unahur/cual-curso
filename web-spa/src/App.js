@@ -3,7 +3,6 @@ import './App.css';
 import CrearEstudiantes from "./components/CrearEstudiantes";
 import BorrarEstudiante from "./components/BorrarEstudiante";
 import ModificarEstudiantes from "./components/ModificarEstudiantes";
-import CrearMateria from "./components/CrearMateria";
 import Sugerencias from "./components/Sugerencias";
 class App extends React.Component {
   render() {
@@ -31,8 +30,6 @@ class App extends React.Component {
              <br/>
              <BorrarEstudiante/>
              <br/>
-             <CrearMateria/>
-             <br/>
              <Sugerencias/>
           </ul>
 
@@ -40,7 +37,9 @@ class App extends React.Component {
         
         </div>
       </div>
+      
     );
+    
   }
 }
 export default App;

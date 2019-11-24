@@ -68,7 +68,7 @@ router.put("/:id", (req, res) => {
   });
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", (req, res) => { 
   const onSuccess = estudiante =>
     estudiante
       .destroy()

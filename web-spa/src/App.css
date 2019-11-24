@@ -4,28 +4,11 @@
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-body {
-  background: #fff;
-  color: #000;
-}/*se asigna el color de la pagina y el de las letras, asi como su fuente*/
-/*---------------------------------------------------------------------------------------*/
-.contenedor-logo {
+center {
     background-image: -webkit-linear-gradient(top, #fff, rgb(218, 219, 221));
     margin: 0px;
 }/*se muestra sin margenes y con un degradado, su funcion principal es contener el logo*/
-.row-fluid{
-    width: 90%;
-    margin: 0px auto;
-  max-width: 1150px;
-}/*la funcion principal de esta clase es hacer que el logo que de centrado con respecto al contenedor-grid*/
-.logo-Unahur{
-    margin: 15px auto;
-    height: 53.1;
-    max-width: 90%;
-    vertical-align: middle;
-    border: 0;
-}/*la funcion principal de esta clase, es alinear, ajustar el tamaño y darle un margen a la imagen*/
-/*---------------------------------------------------------------------------------------*/
+
 .contenedor-header {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

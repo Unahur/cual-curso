@@ -7,7 +7,7 @@ class ModificarEstudiantes extends Component {
       };
     
       componentDidMount = () => {
-        fetch(" http://localhost:3001/estudiantes/todosLosEstudiantes")
+        fetch(" http://localhost:3001/estudiantes/")
           .then(res => res.json())
           .then(data => {
             this.setState({ estudiantes: data, dni: data.id });
@@ -22,7 +22,7 @@ class ModificarEstudiantes extends Component {
         const estudiantes = {
           nombre_apellido: this.state.nombre_apellido,
           dni: this.state.dni,
-          carreraId: this.state.carreraId,
+          id: this.state.id,
         };
     
         if (
@@ -31,7 +31,7 @@ class ModificarEstudiantes extends Component {
           ) 
         ) {
           console.log(this.state.dni.toString());
-          fetch("http://localhost:3001/estudiantes/" + this.state.dni, {
+          fetch("http://localhost:3001/estudiantes/" + this.state.id, {
             method: "PUT",
             body: JSON.stringify(estudiantes),
             headers: {
@@ -77,6 +77,20 @@ class ModificarEstudiantes extends Component {
                       placeholder="Ingrese el numero de dni"
                       onChange={this.onChange}
                       value={this.state.dni}
+                      required
+                    />
+                  </div>
+
+                  <div className="form-group">
+                  <div className="texto">ID (*)</div>
+                    <input
+                      type="number"
+                      className="form-control"
+                      name="id"
+                      id="ids"
+                      placeholder="Ingrese el numero de id"
+                      onChange={this.onChange}
+                      value={this.state.id}
                       required
                     />
                   </div>

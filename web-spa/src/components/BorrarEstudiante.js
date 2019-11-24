@@ -5,7 +5,7 @@ class BorrarEstudiante extends Component {
   state = {
     nombre_apellido:"",
     dni: "",
-    carreraId: ""
+    id: "",
   };
  
   
@@ -14,9 +14,10 @@ class BorrarEstudiante extends Component {
       var data = {
          nombre_apellido: this.state.nombre_apellido,
          dni: this.state.dni,
-         carreraId: this.state.carreraId,
+         id: this.state.id,
       };
-      fetch("http://localhost:3001/estudiantes", {
+
+      fetch("http://localhost:3001/estudiantes/"+data.id, {
         method: "DELETE",
         body: JSON.stringify(data),
         headers: {
@@ -70,19 +71,21 @@ class BorrarEstudiante extends Component {
                 required
               />
             </div> 
-            <div className="form-group">carreraId(*)</div>
+
+            <div className="form-group">
+            <div className="texto">ID(*)</div>
               <input
-                type="number"
+                type="text"
                 className="form-control"
-                name="carreraId"
-                id="carreraIds"
-                placeholder="Ingrese el id_carrera"
+                name="id"
+                id="ids"
+                placeholder="Ingrese el ID"
                 onChange={this.onChange}
-                value={this.state.carreraId}
+                value={this.state.ID}
                 required
               />
-            <br/>
-            <div>
+            </div> 
+             <div>
               <button  type="submit" className="btn btn-success" onClick={() => this.deleteEstudiante()}>
                         Borrar
               </button>
