@@ -20,7 +20,7 @@ router.get("/pagina/:index/:input", (req, res) => {
             models.materia
                 .findAll({
                     attributes: ["id", "name", "description", "duration", "totalHours"],
-                    include: [{ as: 'correlativas', model: models.correlativas, attributes: ["id_materia_correlativa"] }],
+                    include: [{ as: 'correlativas', model: models.correlativas, attributes: ["id","id_materia_correlativa"] }],
                     where: {[Op.or]: [{name: {[Op.like]: `%${input}%`}}, {description: {[Op.like]: `%${input}%`}}, {duration: {[Op.like]: `%${input}%`}}, {totalHours: {[Op.like]: `%${input}%`}}]},
                     offset: pasarPagina,
                     limit: limite
@@ -42,7 +42,7 @@ router.get("/pagina/:index", (req, res) => {
             models.materia
                 .findAll({
                     attributes: ["id", "name", "description", "duration", "totalHours"],
-                    include: [{ as: 'correlativas', model: models.correlativas, attributes: ["id_materia_correlativa"] }],
+                    include: [{ as: 'correlativas', model: models.correlativas, attributes: ["id","id_materia_correlativa"] }],
                     offset: pasarPagina,
                     limit: limite
         })
@@ -69,7 +69,7 @@ router.get("/", (req, res) => {
       models.materia
         .findAll({
             attributes: ["id", "name", "description", "duration", "totalHours"],
-            include: [{ as: 'correlativas', model: models.correlativas, attributes: ["id_materia_correlativa"] }],
+            include: [{ as: 'correlativas', model: models.correlativas, attributes: ["id","id_materia_correlativa"] }],
             offset: pasarPagina,
             limit: limite
         })

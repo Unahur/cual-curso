@@ -224,7 +224,6 @@ ul.col5{
     width: 100%;
     padding-top: 0px;
     list-style-type: none;
-    
 }
 
 ul.col5 li{
@@ -253,7 +252,6 @@ ul.col5-data{
     width: 100%;
     padding-top: 0px;
     list-style-type: none;
-    
 }
 ul.col5-data li{
     display: inline-flex;   
@@ -271,6 +269,45 @@ ul.col5-data li{
     margin: 0px;
 }
 /*---------------------------------------------------------------------------------------*/
+/*nav-bar*/
+ul.nav-bar{
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    padding-top: 15px;
+}
+
+ul.nav-bar li{
+    display: inline;
+}
+
+ul.nav-bar li a{
+    color: #fff;
+    background-image: -webkit-linear-gradient(top, #08c, rgb(109, 186, 224));
+    border-radius: 4px;
+    padding: 3px 7px;
+    border: rgb(26, 99, 99) 1px solid;
+    margin: 0px;    
+    font-size: 15px;
+    float: left;
+    text-decoration: none;
+    transition: background-color .3s;
+}
+
+ul.nav-bar li a:hover:not(.active) {background-image: -webkit-linear-gradient(top, rgb(109, 186, 224), #08c);}
+
+div.center {
+    text-align: center;
+}
+/*---------------------------------------------------------------------------------------*/
+@media screen and (max-width: 1230px){
+    ul.col5 li{
+        width: 15%;
+    }
+    ul.col5-data li{
+        width: 15%;
+    }
+}
 /*cuando la imagen llega a 768 pixeles de ancho se aplica la interfaz mobile*/
 @media screen and (max-width: 768px){
 	.contenedor-grid {

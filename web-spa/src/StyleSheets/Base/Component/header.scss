@@ -1,0 +1,46 @@
+.contenedor-header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: rgba(219, 219, 219, 0.795);
+    margin: 0px;
+    max-height: 100px;
+    border: rgb(189, 189, 189) 1px ridge;
+    grid-template-areas: "header header header"
+}
+
+.contenedor-header > div,
+.contenedor-header .header{
+    background-image: -webkit-linear-gradient(top, #fff, rgb(218, 219, 221));    
+}
+
+.contenedor-header .header {
+    grid-area: header;
+}
+
+.contenedor-header-buttoms{
+    width: 90%;
+	max-width: 1150px;
+    margin: 0px auto;
+    max-height: 100px;
+}
+
+.header-buttom {
+    list-style-type: none;
+}
+
+.header-center-buttom {
+    float: left;
+    border-right: 2px solid #bbb;
+    padding: 13px;
+}
+  
+.header-center-buttom a {
+    color: rgb(70, 70, 70);
+    text-align: center;
+    padding: 13px;
+    text-decoration: none;
+}
+
+.header-center-buttom a:hover {
+    color: rgb(161, 159, 159);
+}

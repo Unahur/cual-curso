@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ListaMaterias from './component-abm';
-import Put from './component-put';
+import ListaMaterias from './Component-abm/component-abm';
+import Put from './Component-abm/component-put';
 class Abm extends Component {
     constructor(props){
         super(props)
