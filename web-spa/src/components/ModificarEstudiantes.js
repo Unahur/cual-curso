@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 class ModificarEstudiantes extends Component {
      state = {
-        id: "",
         nombre_apellido: "",
         dni: 0,
         carreraId: 0,
@@ -46,7 +45,7 @@ class ModificarEstudiantes extends Component {
             "Estas seguro que desea modificar el estudiante :" + this.state.dni
           ) 
         ) {
-          console.log(this.state.id.toString());
+          console.log(this.state.dni.toString());
           fetch("http://localhost:3001/estudiantes/" + this.state.id, {
             method: "PUT",
             body: JSON.stringify(estudiantes),
