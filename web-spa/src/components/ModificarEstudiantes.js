@@ -1,19 +1,33 @@
 import React, { Component } from "react";
+
 class ModificarEstudiantes extends Component {
      state = {
         nombre_apellido: "",
-        dni: "",
-        estudiantes: [],
+        dni: 0,
+        carreraId: 0,
       };
     
       componentDidMount = () => {
-        fetch(" http://localhost:3001/estudiantes/todosLosEstudiantes")
+        const id = this.sacarId();
+        fetch(" http://localhost:3001/estudiantes/" + id)
           .then(res => res.json())
           .then(data => {
-            this.setState({ estudiantes: data, dni: data.id });
+            this.setState({ 
+              id: data.id,
+              nombre_apellido: data.nombre_apellido,
+              dni: data.dni,
+              carreraId: data.carreraId 
+            });
           })
           .catch(console.log);
       };
+
+      sacarId() {
+        var a = this.props.location.search;
+          var id = a.split("=");
+          return(id[1]);
+      }
+
       onChange = e => {
         this.setState({ [e.target.name]: e.target.value });
       };
@@ -79,6 +93,14 @@ class ModificarEstudiantes extends Component {
                       value={this.state.dni}
                       required
                     />
+                    <div className= "texto">CarreraId(*)</div>
+                      <input 
+                        className="input" 
+                        type="number" 
+                        name="carreraId" 
+                        onChange={this.onChange}
+                        value={this.state.carreraId} 
+                      />
                   </div>
     
                   <button

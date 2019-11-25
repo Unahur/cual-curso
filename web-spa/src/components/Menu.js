@@ -18,6 +18,9 @@ class Menu extends Component {
                         <li className="nav-item">
                             <Link className="nav-link" to="/ModificarEstudiantes">ModificarEstudiantes</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/ListarEstudiantes">ListarEstudiantes</Link>
+                        </li>
                     </ul>
                 </div>
             </nav>

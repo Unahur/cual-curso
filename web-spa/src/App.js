@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import CrearEstudiantes from "./components/CrearEstudiantes";
 import ModificarEstudiantes from "./components/ModificarEstudiantes";
 import Menu from "./components/Menu";
+import ListarEstudiantes from "./components/ListarEstudiantes";
 //import BorrarEstudiante from "./components/BorrarEstudiante";
 //import ModificarEstudiantes from "./components/ModificarEstudiantes";
 //import CrearAula from "./components/CrearAula";
@@ -40,6 +41,7 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/CrearEstudiantes" component = {CrearEstudiantes} />
               <Route exact path="/ModificarEstudiantes" component = {ModificarEstudiantes} />
+              <Route exact path="/ListarEstudiantes" component = {ListarEstudiantes} />
             </Switch>
             </div>
           </ul>

@@ -3,8 +3,8 @@ import React, { Component } from "react";
 class CrearEstudiantes extends Component {
   state = {
     nombre_apellido: "",
-    dni: 'undefine',
-    carreraId:'undefine',
+    dni: 0,
+    carreraId:0,
     dataValue: false
   }
  
@@ -39,7 +39,12 @@ class CrearEstudiantes extends Component {
           <div className="titulo">CREAR NUEVO ESTUDIANTE</div>
         </div>
         <div  className="col-md-4" style={{ backgroundColor: "rgb(240, 240, 240)" }}>
-          <form>
+          <form 
+            action="" 
+            autoComplete="off" 
+            className="contenedor-grid contenedor-grid-abm" 
+           // onSubmit={(e) => this.handleSubmit(e)}
+          >
             <div className="contenido">
               <div className="texto">Nombre y apellido (*)</div>
                 <input 
