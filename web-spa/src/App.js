@@ -1,21 +1,28 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+//--- COMPONENTES
 import CrearEstudiantes from "./components/CrearEstudiantes";
-import BorrarEstudiante from "./components/BorrarEstudiante";
 import ModificarEstudiantes from "./components/ModificarEstudiantes";
-import CrearAula from "./components/CrearAula";
-import CrearCarrera from "./components/CrearCarrera";
-import CrearDocente from "./components/CrearDocente";
-import CrearMateria from "./components/CrearMateria";
-import Sugerencias from "./components/Sugerencias";
+import Menu from "./components/Menu";
+//import BorrarEstudiante from "./components/BorrarEstudiante";
+//import ModificarEstudiantes from "./components/ModificarEstudiantes";
+//import CrearAula from "./components/CrearAula";
+//import CrearCarrera from "./components/CrearCarrera";
+//import CrearDocente from "./components/CrearDocente";
+//import CrearMateria from "./components/CrearMateria";
+//import Sugerencias from "./components/Sugerencias";
 class App extends React.Component {
   render() {
   
     return (
+      <BrowserRouter>
       <div>
         <div className="App">
           <br/>
           <div className="container-fluid">
+          <Menu/>
             <center>
               <img
                 className="img-fluid"
@@ -28,29 +35,20 @@ class App extends React.Component {
           <br/>
 
           <ul className="nav justify-content-center">
-             <CrearEstudiantes/>
-             <br/>
-             <ModificarEstudiantes/>
-             <br/>
-             <BorrarEstudiante/>
-             <br/>
-             <CrearAula/>
-             <br/>
-             <CrearCarrera/>
-             <br/>
-             <CrearDocente/>
-             <br/>
-             <CrearAula/>
-             <br/>
-             <CrearMateria/>
-             <br/>
-             <Sugerencias/>
+           
+            <div className="container">
+            <Switch>
+              <Route exact path="/CrearEstudiantes" component = {CrearEstudiantes} />
+              <Route exact path="/ModificarEstudiantes" component = {ModificarEstudiantes} />
+            </Switch>
+            </div>
           </ul>
 
           <br/>
         
         </div>
       </div>
+      </BrowserRouter>
     );
   }
 }
