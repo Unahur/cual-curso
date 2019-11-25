@@ -8,6 +8,12 @@ body {
   background: #fff;
   color: #000;
 }/*se asigna el color de la pagina y el de las letras, asi como su fuente*/
+
+/*Agregado Adriana*/
+strong {
+    color: #333;
+    font-size: 20px;
+  }
 /*---------------------------------------------------------------------------------------*/
 .contenedor-logo {
     background-image: -webkit-linear-gradient(top, #fff, rgb(218, 219, 221));

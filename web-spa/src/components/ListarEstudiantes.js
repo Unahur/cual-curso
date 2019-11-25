@@ -37,7 +37,7 @@ class ListarEstudiantes extends Component {
           <th>{e.dni}</th> 
           <th>{e.carreraId}</th>
           <th>
-            <Link to={`/modificar/?id=${e.id}`}>
+            <Link to={`/ModificarEstudiantes/?id=${e.id}`}>
               <button className="btn btn-warning btn-lg"
                       renderAs="button"/>
             </Link>
