@@ -80,6 +80,7 @@ class ListarEstudiantes extends Component {
                 <div className="col text-center">
                   <h3 className="titulo" id="titulo" >Listado <span>Estudiantes</span></h3>
                 </div>
+              
               </div>
               <div className="row">
                 <div className="table-responsive">            

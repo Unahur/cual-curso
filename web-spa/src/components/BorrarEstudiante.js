@@ -1,5 +1,7 @@
  
 import React, { Component } from "react";
+
+
 class BorrarEstudiante extends Component {
        state = {
          id:0,
@@ -56,8 +58,9 @@ class BorrarEstudiante extends Component {
             })
               .then(response => response.json, console.log("funca"))
               .catch(error => console.error("Error:", error))
-              .then(response => console.log("Success:", response));
-          }
+              .then(response => console.log("Success:", response))
+              .then (() => window.location.href = `/ListarEstudiantes`);
+           }
         };
         render() {
           console.log(this.state.dni);
@@ -125,4 +128,3 @@ class BorrarEstudiante extends Component {
   
 
 export default BorrarEstudiante;
-

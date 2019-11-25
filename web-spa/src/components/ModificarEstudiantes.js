@@ -56,7 +56,8 @@ class ModificarEstudiantes extends Component {
           })
             .then(response => response.json, console.log("funca"))
             .catch(error => console.error("Error:", error))
-            .then(response => console.log("Success:", response));
+            .then(response => console.log("Success:", response))
+            .then (() => window.location.href = `/ListarEstudiantes`);
         }
       };
       render() {
