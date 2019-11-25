@@ -68,8 +68,8 @@ class ModificarEstudiantes extends Component {
               style={{ backgroundColor: "rgb(240, 240, 240)" }}
             >
               <div className="col text-center">
-                  <h3 className="titulo" id="titulo" >Modificar <span>Estudiantes</span></h3>
-                </div>
+                <h3 className="titulo" id="titulo" >Modificar <span>Estudiantes</span></h3>
+              </div>
               <br />
               <form>
                   <div className="form-group">
