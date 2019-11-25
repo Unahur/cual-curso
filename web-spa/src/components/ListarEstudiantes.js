@@ -37,14 +37,17 @@ class ListarEstudiantes extends Component {
           <th>{e.dni}</th> 
           <th>{e.carreraId}</th>
           <th>
-            <Link to={`/modificar/?id=${e.id}`}>
+            <Link to={`/ModificarEstudiantes/?id=${e.id}`}>
               <button className="btn btn-warning btn-lg"
                       renderAs="button"/>
             </Link>
           </th> 
           <th>
+            <Link to={`/BorrarEstudiante/?id=${e.id}`}>
             <button className="btn btn-danger btn-lg" 
-                    onClick={() => this.deleteEstudiante(e.id)}/>
+                    //onClick={() => this.deleteEstudiante(e.id)}/>
+                    renderAs="button"/>
+            </Link>
           </th>
       </tr>
       ))

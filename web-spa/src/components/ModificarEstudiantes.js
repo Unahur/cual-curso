@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 class ModificarEstudiantes extends Component {
      state = {
+       id:0,
         nombre_apellido: "",
         dni: 0,
         carreraId: 0,
@@ -34,6 +35,7 @@ class ModificarEstudiantes extends Component {
     
       ModificacionEstudiante = () => {
         const estudiantes = {
+          id: this.state.id,
           nombre_apellido: this.state.nombre_apellido,
           dni: this.state.dni,
           carreraId: this.state.carreraId,
@@ -45,14 +47,14 @@ class ModificarEstudiantes extends Component {
           ) 
         ) {
           console.log(this.state.dni.toString());
-          fetch("http://localhost:3001/estudiantes/" + this.state.dni, {
+          fetch("http://localhost:3001/estudiantes/" + this.state.id, {
             method: "PUT",
             body: JSON.stringify(estudiantes),
             headers: {
               "Content-Type": "application/json"
             }
           })
-            .then(response => response.json(), console.log("CAMBIADO"))
+            .then(response => response.json, console.log("funca"))
             .catch(error => console.error("Error:", error))
             .then(response => console.log("Success:", response));
         }
@@ -65,9 +67,11 @@ class ModificarEstudiantes extends Component {
               className="col-md-4"
               style={{ backgroundColor: "rgb(240, 240, 240)" }}
             >
+              <div className="col text-center">
+                  <h3 className="titulo" id="titulo" >Modificar <span>Estudiantes</span></h3>
+                </div>
               <br />
               <form>
-
                   <div className="form-group">
                   <div className="texto">Nombre y apellido (*)</div>
                     <input

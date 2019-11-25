@@ -82,6 +82,7 @@ class CrearEstudiantes extends Component {
             </footer>
           </form>
         </div>
+    
       </div>
     )
   }
