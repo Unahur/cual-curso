@@ -29,7 +29,6 @@ class Modificacion extends Component {
     return(id[1]);
   }
 
-
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   }; 
@@ -55,41 +54,42 @@ modificarDocente = () => {
     .then(response => console.log("Success:", response));
 
 }
-
-  
+ 
 
 
   render() {
     if (!this.state.id) {
-      return "No existe"
+      return "El docente no existe"
     }  
     return (
       <main className="container">          
-        <div id="formulario">
-          <h3 className="titulo">Modificar <span>Docente</span></h3>
-          <div className="form-group">
-          <label for="">Nombre</label>
-            <input type="text" class="form-control" name="nombre"
-                    value={this.state.nombre}
-                    onChange={this.onChange}/>
+        <div className="row justify-content-center">
+          <div className="col-md-4">
+            <h3 className="titulo">Modificar <span>Docente</span></h3>
+            <div className="form-group">
+            <label for="">Nombre</label>
+              <input type="text" class="form-control" name="nombre"
+                      value={this.state.nombre}
+                      onChange={this.onChange}/>
+            </div>
+            <div className="form-group">
+              <label for="">Apellido</label>
+              <input type="text" class="form-control" name="apellido"
+                      value={this.state.apellido}
+                      onChange={this.onChange}/>
+            </div>
+            <div className="form-group">
+              <label for="">DNI</label>
+              <input type="text" class="form-control" name="dni"
+                      value={this.state.dni}
+                      onChange={this.onChange}/>
+            </div>            
+            <div>
+              <button className="btn btn-primary" id="btn-Modificar"                  
+                        onClick={() => this.modificarDocente()}>Modificar
+              </button>
+            </div>               
           </div>
-          <div className="form-group">
-            <label for="">Apellido</label>
-            <input type="text" class="form-control" name="apellido"
-                    value={this.state.apellido}
-                    onChange={this.onChange}/>
-          </div>
-          <div className="form-group">
-            <label for="">DNI</label>
-            <input type="text" class="form-control" name="dni"
-                    value={this.state.dni}
-                    onChange={this.onChange}/>
-          </div>
-          
-          <button className="btn btn-primary" id="btn-Modificar"
-                  
-                  onClick={() => this.modificarDocente()} >Modificar</button>
-                 
         </div>
       </main>
     )

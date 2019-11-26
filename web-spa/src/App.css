@@ -38,3 +38,7 @@ form {
   width: 300px;
   margin: auto;
 }
+
+.center-block{
+  float: none;
+}

@@ -36,29 +36,35 @@ class Registro extends Component {
     render() {
         return (
           <main className="container">          
-            <form id="formulario">
-              <h3 className="titulo">Registrar <span>Docente</span></h3>
-              <div className="form-group">
-                <label for="">Nombre</label>
-                <input type="text" class="form-control"
-                        name="nombre" placeholder="Nombre" required
-                        value={this.state.nombre} onChange={this.onChange}/>
-              </div>
-              <div className="form-group">
-                <label for="">Apellido</label>
-                <input type="text" class="form-control"
-                        name="apellido" placeholder="Apellido" required
-                        value={this.state.apellido} onChange={this.onChange}/>
-              </div>
-              <div className="form-group">
-                <label for="">DNI</label>
-                <input type="text" class="form-control"
-                        name="dni" placeholder="DNI" required
-                        value={this.state.dni} onChange={this.onChange}/>
-              </div>
-              <button type="text" class="btn btn-primary"
-                      onClick={() => this.createDocente()}>Registrar</button>
-            </form>                     
+            <div className="row justify-content-center">
+              <div className="col-md-4">
+                <form className="formulario">
+                  <h3 className="titulo">Registrar <span>Docente</span></h3>
+                  <div className="form-group">
+                    <label for="">Nombre</label>
+                    <input type="text" class="form-control"
+                            name="nombre" placeholder="Nombre" required
+                            value={this.state.nombre} onChange={this.onChange}/>
+                  </div>
+                  <div className="form-group">
+                    <label for="">Apellido</label>
+                    <input type="text" class="form-control"
+                            name="apellido" placeholder="Apellido" required
+                            value={this.state.apellido} onChange={this.onChange}/>
+                  </div>
+                  <div className="form-group">
+                    <label for="">DNI</label>
+                    <input type="text" class="form-control"
+                            name="dni" placeholder="DNI" required
+                            value={this.state.dni} onChange={this.onChange}/>
+                  </div>
+                  <div>
+                    <button type="text" class="btn btn-primary"
+                            onClick={() => this.createDocente()}>Registrar</button>
+                  </div>
+              </form>
+              </div>        
+            </div>                     
           </main>
         )
     }
