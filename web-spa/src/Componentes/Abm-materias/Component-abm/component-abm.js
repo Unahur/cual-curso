@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Lista from "./ListaMaterias.js";
+import ListaFiltrada from "./ListaFiltrada.js"
 import Nav from "./componente-nav.js";
 class ComponentAbm extends Component {
     constructor(props){
@@ -75,11 +76,17 @@ class ComponentAbm extends Component {
     render(){
         return(
             <div>
-                {(this.props.correlativas === false) && <Lista
+                {this.props.input === "" && <Lista
                     materias={this.state.materias}
                     onDelete={this.onDelete.bind(this)}
                     onEdit={this.onEdit.bind(this)}
                     componentDidMount={this.componentDidMount.bind(this)}
+                    index={this.props.index}
+                />}
+                {this.props.input !== "" && <ListaFiltrada
+                    materias={this.state.materias}
+                    onDelete={this.onDelete.bind(this)}
+                    onEdit={this.onEdit.bind(this)}
                     input={this.props.input}
                     index={this.props.index}
                 />}
