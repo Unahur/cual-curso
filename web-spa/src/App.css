@@ -1,22 +1,44 @@
-.App {
-  text-align: center;
+footer {
+  background: #525864;
 }
 
-.App-logo {
-  height: 40vmin;
+h3 span {
+  color: #00a0d0;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-style: oblique;
+}footer a:hover {
+  text-decoration: none;
+  color: #00a0d0;  
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+footer a {
+  text-decoration: none;
   color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+.row {
+  margin: 2%;
+}
+
+#containerPrincipal{
+  background: linear-gradient(90deg, white 15%, rgb(206, 201, 201) 85%);
+  margin-left: 0.5%;
+}
+
+#divFotoPrincipal {
+  padding-right: 0;
+}
+
+#containerForm {
+  display: none;
+}
+
+form {
+  width: 300px;
+  margin: auto;
+}
+
+.center-block{
+  float: none;
 }

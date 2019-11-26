@@ -4,7 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var indexRouter = require('./routes/index');
-var carrerasRouter = require('./routes/carreras');
+var docentesRouter = require('./routes/docentes');
+var cursadasRouter = require('./routes/cursadas');
+var docenteCursadasRouter = require('./routes/docenteCursadas');
 var cors = require('cors')
 
 var app = express();
@@ -26,7 +28,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 app.use('/', indexRouter);
-app.use('/carreras', carrerasRouter);
+app.use('/docentes', docentesRouter);
+app.use('/cursadas', cursadasRouter);
+app.use('/docenteCursadas', docenteCursadasRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

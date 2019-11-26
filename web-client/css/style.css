@@ -1,0 +1,44 @@
+/* Archivo CSS de estilos para todos los html y tambien se usa la hoja de estilos de BootStrap*/
+
+footer {
+  background: #525864;
+}
+
+h3 span {
+  color: #00a0d0;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-style: oblique;
+}
+
+footer a:hover {
+  text-decoration: none;
+  color: #00a0d0;  
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
+}
+
+.row {
+  margin: 2%;
+}
+
+#containerPrincipal{
+  background: linear-gradient(90deg, white 15%, rgb(206, 201, 201) 85%);
+  margin-left: 0.5%;
+}
+
+#divFotoPrincipal {
+  padding-right: 0;
+}
+
+#containerForm {
+  display: none;
+}
+
+form {
+  width: 300px;
+  margin: auto;
+}
