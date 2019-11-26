@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "../App.css";
 export default class Sugerencias extends Component {
   state = {
     verTodas: false,
@@ -79,7 +79,7 @@ export default class Sugerencias extends Component {
     ];
 
     return (
-      <div>
+      <div id="colF">
         <div className="row justify-content-md-center">
           <nav class="nav">
             <a class="nav-link active" href="#">
@@ -158,9 +158,9 @@ export default class Sugerencias extends Component {
               <br />
 
               {this.state.verTodas ? (
-                <ul class="list-group list-group-flush" id="ulListaMaterias">
+                <ul className="list-group list-group-flush ulListaMaterias" >
                   {this.state.materias.map((materia, index) => (
-                    <li class="list-group-item ilListaMaterias">
+                    <li class="list-group-item ilListaMaterias ">
                       <a
                         onClick={() => this.mostrarMateria({ index })}
                         href="#"
@@ -171,7 +171,7 @@ export default class Sugerencias extends Component {
                   ))}
                 </ul>
               ) : (
-                <ul class="list-group list-group-flush" id="ulListaMaterias">
+                <ul className="list-group list-group-flush ulListaMaterias">
                   {this.state.materias
                     .filter(materia => materia.correlativa)
                     .map((materia, index) => (
@@ -187,7 +187,7 @@ export default class Sugerencias extends Component {
                 </ul>
               )}
             </div>
-            <div className={this.state.myStyle} style={{backgroundColor:"rgb(218, 218, 218)"}}>
+            <div id="ilListaMaterias" className={this.state.myStyle} style={{backgroundColor:"rgb(218, 218, 218)"}}>
               {this.state.verMaterias ? (
                 <table class="table table-hover">
                   <thead>

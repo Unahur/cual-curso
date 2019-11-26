@@ -31,7 +31,7 @@ body{
 div{
   border-radius: 10px;
 }
- .ilListaMaterias{
+ #ilListaMaterias{
   background: rgb(226, 226, 226);
 }
 .container{
@@ -43,6 +43,59 @@ div{
   
   background: rgb(224, 223, 223);
 }
-.aja{
-  background:green;
+ul>.ilListaMaterias {
+  background:rgba(224, 223, 223, 0.432);
+  width: 80%;
+  left:50%;
+  transform: translateX(-50%);
+
+}
+
+
+@media(max-width:1199px){
+
+ table{
+   font-size: 14px;
+ }
+}
+ @media(max-width:991px){
+
+ .col-6{
+   max-width:69%;
+ }
+ ul>.ilListaMaterias{
+   width:100%;
+ }
+ 
+  
+  }
+  @media(max-width:767px){
+
+    .col-6{
+      margin-top:40px;
+      margin-bottom:40px;
+      max-width:94%;
+      left:50%;
+      transform: translateX(-50%);
+    }
+     
+     }
+@media(max-width:450px){
+
+#colF{
+  width: 300px;
+}
+.col-6{
+  width:100px;
+  overflow-x: scroll;
+  padding: 0 100px 0 100px;
+
+}
+#colF{
+  margin:65px;
+}
+img{
+  max-width: 100%;
+}
+
 }
