@@ -8,14 +8,19 @@ class CrearEstudiantes extends Component {
     dataValue: false
   }
  
- 
+  verificar = () => {
+    return this.state.nombre_apellido.length > 1 && this.state.dni.length > 6;
+  };
+
+
  crearAlumno = () => {
+  if (this.verificar()) {
    var data = {
      nombre_apellido: this.state.nombre_apellido,
      dni: this.state.dni,
      carreraId: this.state.carreraId
    }
-
+   window.alert("Se Agrego el Estudiante "+ this.state.nombre_apellido + " exitosamente!!")
     fetch("http://localhost:3001/estudiantes", {
       method: 'POST',
       body: JSON.stringify(data),
@@ -25,6 +30,11 @@ class CrearEstudiantes extends Component {
   }).then(res => res.json())
   .catch(error => console.error('Error:', error))
   .then(response => console.log('Success:', response));
+  }else{
+    alert(
+      "El nombre del alumno o el DNI son invalidos (nombre mayor a un caracter y dni mayor a 6 cifras)"
+    );
+  }
   }
 
   onChange = e => {
@@ -89,6 +99,4 @@ class CrearEstudiantes extends Component {
 }
 
 export default CrearEstudiantes;
- 
-
  

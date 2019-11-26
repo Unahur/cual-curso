@@ -43,7 +43,7 @@ class BorrarEstudiante extends Component {
       
           if (
             window.confirm(
-              "Estas seguro que desea modificar el estudiante :" + this.state.dni
+              "Estas seguro que desea eliminar el estudiante " + this.state.nombre_apellido +" con DNI " + this.state.dni
             ) 
           ) {
             console.log(this.state.dni.toString());
@@ -56,8 +56,10 @@ class BorrarEstudiante extends Component {
             })
               .then(response => response.json, console.log("funca"))
               .catch(error => console.error("Error:", error))
-              .then(response => console.log("Success:", response));
+              .then(response => console.log("Success:", response))
+              .then(() => window.location.href = '/Modificar_BorrarEstudiante');
           }
+
         };
 
         handleSubmit(e) {
@@ -109,7 +111,7 @@ class BorrarEstudiante extends Component {
                           className="input" 
                           type="number" 
                           name="carreraId"
-                          hidden='true' 
+                          hidden={true}
                           onChange={this.onChange}
                           value={this.state.carreraId} 
                         />

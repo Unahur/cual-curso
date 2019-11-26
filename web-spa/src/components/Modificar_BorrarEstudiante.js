@@ -37,22 +37,23 @@ class Modificar_BorrarEstudiante extends Component {
    
     filasEstudiantes() {
       return this.state.estudiantes.map(e => (
-        <thead>
+        <thead  key={e.id}>
           <tr>   
             <th><p className="text-center">{e.id}</p></th>
             <th><p className="text-justify">{e.nombre_apellido}</p></th> 
             <th><p className="text-center">{e.dni}</p></th> 
             <th><p className="text-center">
               <Link to={`/ModificarEstudiantes/?id=${e.id}`}>
-                <button className="btn btn-warning btn-lg"
-                        renderAs="button"/>
+                <button 
+                  className="btn btn-warning btn-lg"
+                        />
               </Link>
               </p>
             </th> 
             <th><p className="text-center">
               <Link to={`/BorrarEstudiante/?id=${e.id}`}>
               <button className="btn btn-danger btn-lg" 
-                      renderAs="button"/>
+                      />
               </Link>
               </p>
             </th>
@@ -124,3 +125,7 @@ class Modificar_BorrarEstudiante extends Component {
 
 }
 export default Modificar_BorrarEstudiante;
+
+
+
+

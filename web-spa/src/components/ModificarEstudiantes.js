@@ -33,6 +33,10 @@ class ModificarEstudiantes extends Component {
       onChange = e => {
         this.setState({ [e.target.name]: e.target.value });
       };
+
+      verificar = () => {
+        return this.state.nombre_apellido.length > 1 && this.state.dni.length > 6;
+      };
     
       ModificacionEstudiante = () => {
         const estudiantes = {
@@ -41,10 +45,10 @@ class ModificarEstudiantes extends Component {
           dni: this.state.dni,
           carreraId: this.state.carreraId,
         };
-    
+        if (this.verificar()) {
         if (
           window.confirm(
-            "Estas seguro que desea modificar el estudiante :" + this.state.dni
+            "Estas seguro que desea modificar el estudiante " + this.state.nombre_apellido + " con DNI " + this.state.dni
           ) 
         ) {
           console.log(this.state.dni.toString());
@@ -57,9 +61,15 @@ class ModificarEstudiantes extends Component {
           })
             .then(response => response.json, console.log("funca"))
             .catch(error => console.error("Error:", error))
-            .then(response => console.log("Success:", response));
+            .then(response => console.log("Success:", response))
+            .then(() => window.location.href = '/Modificar_BorrarEstudiante');
         }
-        
+        }else{
+          alert(
+            "El nombre del alumno o el DNI son invalidos (nombre mayor a 1 CARACTER y dni mayor a 6 CIFRAS!!)"
+          );
+          window.location.href = '/Modificar_BorrarEstudiante'
+        }
       };
 
       handleSubmit(e) {
@@ -109,7 +119,7 @@ class ModificarEstudiantes extends Component {
                         className="input" 
                         type="number" 
                         name="carreraId" 
-                        hidden='true'
+                        hidden={true}
                         onChange={this.onChange}
                         value={this.state.carreraId} 
                       />

@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
 
 
 class ListarEstudiantes extends Component {
 
-
+/*
   constructor(props) {
-    super(props);
-    this.state = {
+    super(props);*/
+    state = {
       estudiantes: [],
+      dataValue: false
     };
-  }
+  
 
   componentDidMount() {    
     this.getEstudiantes()
@@ -31,8 +31,8 @@ class ListarEstudiantes extends Component {
    
     filasEstudiantes() {
       return this.state.estudiantes.map(e => (
-        <thead>
-          <tr>   
+        <thead key={e.id}>
+          <tr>    
             <th><p className="text-center">{e.id}</p></th>
             <th><p className="text-justify">{e.nombre_apellido}</p></th> 
             <th><p className="text-center">{e.dni}</p></th> 
