@@ -1,0 +1,64 @@
+.contenedor-grid-sugerencias {
+	width: 90%;
+	max-width: 1150px;
+    margin: 20px auto;
+    display: grid;
+    grid-gap: 10px;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(5, auto);
+	grid-template-areas: "sidebar sidebar sidebar sidebar sidebar"
+                         "sidebarSugerencia contenido contenido contenido cuatrimestre"
+                         "sidebarSugerencia contenido contenido contenido cuatrimestre"
+                         "sidebarSugerencia contenido contenido contenido cuatrimestre"
+                         "footer footer footer footer footer";
+}
+
+.contenedor-grid-sugerencias > div,
+.contenedor-grid-sugerencias .contenido,
+.contenedor-grid-sugerencias .sidebar,
+.contenedor-grid-sugerencias .sidebarSugerencia,
+.contenedor-grid-sugerencias .cuatrimestre,
+.contenedor-grid-sugerencias .footer{ 
+	background: #fff;
+	padding: 20px;
+	border-radius: 4px;
+}
+.contenedor-grid-sugerencias .contenido {
+    grid-area: contenido;
+    background: #f5f5f5;
+    border: rgb(207, 207, 207) 1px solid;
+}
+
+.contenedor-grid-sugerencias .sidebar {
+    background: #f5f5f5;
+    border: rgb(207, 207, 207) 1px solid;
+	max-height: 50px;
+	grid-area: sidebar;
+}
+.contenedor-grid-sugerencias .sidebarSugerencia {
+    background: #f5f5f5;
+    border: rgb(207, 207, 207) 1px solid;
+	min-height: 100px;
+	grid-area: sidebarSugerencia;
+}
+.contenedor-grid-sugerencias .cuatrimestre {
+    background: #f5f5f5;
+    border: rgb(207, 207, 207) 1px solid;
+	min-height: 100px;
+	grid-area: cuatrimestre;
+}
+.contenedor-grid-sugerencias .footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    grid-area: footer;
+    border-bottom: rgb(167, 166, 166) 1px solid;
+}
+@media screen and (max-width: 768px){
+	.contenedor-grid-sugerencias {
+        grid-template-areas: "sidebar sidebar sidebar sidebar sidebar"
+                             "sidebarSugerencia sidebarSugerencia sidebarSugerencia sidebarSugerencia sidebarSugerencia"
+                             "contenido contenido contenido contenido contenido"
+                             "footer footer footer footer footer";
+    }
+}

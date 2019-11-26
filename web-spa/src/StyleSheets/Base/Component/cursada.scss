@@ -1,0 +1,37 @@
+.cursada {
+    width:100%;
+    border: rgb(207, 207, 207) 1px solid;
+    margin: 3px;
+    border-radius: 2px;
+}
+thead {
+    color: #fff;
+    margin: 0px;
+    max-height: 100px;
+    padding: 1px 2px;
+}
+tbody{
+    margin: 0px;
+    max-height: 100px;
+    padding: 1px 2px;
+}
+th{
+    font-size: 10px;
+    border: rgb(207, 207, 207) 1px solid;
+    background-image: -webkit-linear-gradient(top, #08c, rgb(109, 186, 224));
+    margin: 0px;
+    border-radius: 2px;
+    max-height: 100px;
+    padding: 1px 2px;
+}
+
+td { 
+    font-size: 10px;
+    border: rgb(207, 207, 207) 1px solid;
+    background-image: -webkit-linear-gradient(top, #fff, rgb(218, 219, 221));
+    margin: 0px;
+    text-align: center;
+    max-height: 100px;
+    padding: 1px 2px;
+    border-radius: 2px;
+}

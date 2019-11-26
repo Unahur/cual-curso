@@ -32,6 +32,7 @@
     border: rgb(26, 99, 99) 1px solid;
     font-size: 15px;
     color: #fff;
+    cursor: pointer;
 }
 .buttom-edit{
     padding: 1px 1px;
@@ -46,6 +47,12 @@
 }
 
 .buttom-tabla{
+    font-size: 15px;
+    padding: 1px 2px;
+    margin: 3px;
+}
+.buttom-target{
+    float:right;
     font-size: 15px;
     padding: 1px 2px;
     margin: 3px;

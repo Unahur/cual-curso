@@ -41,7 +41,7 @@ class Abm extends Component {
                     <div className="titulo">Materias</div>
                 </div>
                 <div className="contenedor-grid">
-		            <div className="contenido" id="contenido" >
+		            <div className="contenido">
                         <div>
                             <ul className="col5">
                                 <li>Materia</li>

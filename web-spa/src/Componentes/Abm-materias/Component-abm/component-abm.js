@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Lista from "./ListaMaterias.js";
 import Nav from "./componente-nav.js";
-class ListaMaterias extends Component {
+class ComponentAbm extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -93,4 +93,4 @@ class ListaMaterias extends Component {
     }
 }
 
-export default ListaMaterias;
+export default ComponentAbm;

@@ -1,0 +1,33 @@
+.custom-select {
+    border: 2px solid #08c;
+    border-radius: 6px;
+    height:30px;
+    overflow: hidden;
+    width: 230px;
+    position:relative;
+}
+select {
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    height: 30px;
+    padding: 5px;
+    width: 250px;
+    cursor: pointer;
+}
+select:focus{ outline: none;}
+
+
+.custom-select::after{
+    content:"\025be";
+    display:table-cell;
+    padding-top:7px;
+    text-align:center;
+    width:30px;
+    height:30px;
+    background-color:#08c;
+    position:absolute;
+    top:0;
+    right:0px;	
+    pointer-events: none;
+}
