@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 class ListarEstudiantes extends Component {
@@ -31,46 +31,16 @@ class ListarEstudiantes extends Component {
    
     filasEstudiantes() {
       return this.state.estudiantes.map(e => (
-        <tr>   
-          <th>{e.id}</th>
-          <th>{e.nombre_apellido}</th> 
-          <th>{e.dni}</th> 
-          <th>{e.carreraId}</th>
-          <th>
-            <Link to={`/ModificarEstudiantes/?id=${e.id}`}>
-              <button className="btn btn-warning btn-lg"
-                      renderAs="button"/>
-            </Link>
-          </th> 
-          <th>
-            <Link to={`/BorrarEstudiante/?id=${e.id}`}>
-            <button className="btn btn-danger btn-lg" 
-                    //onClick={() => this.deleteEstudiante(e.id)}/>
-                    renderAs="button"/>
-            </Link>
-          </th>
-      </tr>
+        <thead>
+          <tr>   
+            <th>{e.id}</th>
+            <th>{e.nombre_apellido}</th> 
+            <th>{e.dni}</th> 
+            <th>{e.carreraId}</th>
+          </tr>
+        </thead>
       ))
     }
-
-    deleteEstudiante = (id) => {
-      var newList = [];
-      if (
-        window.confirm("Esta seguro que quiere borrar el estudiante")
-      ) {
-        fetch("http://localhost:3001/estudiantes/" + id, {
-          method: "DELETE"
-        })
-          .then(() => {
-            console.log("removed id " + id);
-          })
-          .catch(err => {
-            console.error(err);
-          });
-        newList = this.state.estudiantes.filter(estudiante => estudiante.id !== id);
-        this.setState({ estudiantes: newList });
-      }
-    };
 
     render() {
         return (
@@ -81,17 +51,17 @@ class ListarEstudiantes extends Component {
                   <h3 className="titulo" id="titulo" >Listado <span>Estudiantes</span></h3>
                 </div>
               </div>
+ 
               <div className="row">
                 <div className="table-responsive">            
                   <table className="table table-striped" id="table">
                     <thead className="thead-dark"> 
                       <tr>
                         <th><p className="text-center">#ID</p></th>
-                        <th><p className="text-center">Nombre_Apellido</p></th>
+                        <th><p className="text-center">Nombre y Apellido</p></th>
                         <th><p className="text-center">DNI</p></th>
                         <th><p className="text-center">CARRERAID</p></th>
-                        <th><p className="text-center">Modificar</p></th>
-                        <th><p className="text-center">Eliminar</p></th>                  
+              
                       </tr>
                     </thead>
                     {this.filasEstudiantes()}
@@ -105,3 +75,50 @@ class ListarEstudiantes extends Component {
 
 }
 export default ListarEstudiantes;
+
+
+
+/*
+<script type="text/javascript" src="html-table-search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('table.search-table').tableSearch({
+      searchText:'Buscar: ',
+      searchPlaceHolder:'Escriba aquí...'
+    });
+  });
+</script>
+
+echo "<table class=\"table search-table table-sm table-bordered table-hover table-active table-list-search table-responsive glyphicon-hover\" width=\"100%\" align=\"center\">\n";
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="html-table-search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('table.search-table').tableSearch({
+      searchText:'Buscar: ',
+      searchPlaceHolder:'Escriba aquí...'
+    });
+  });
+</script>
+
+
+********************************************************************************
+
+             <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+              <script type="text/javascript" src="html-table-search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('table.search-table').tableSearch({
+      searchText:'Buscar: ',
+      searchPlaceHolder:'Escriba aquí...'
+    })
+  });
+</script>
+
+
+
+
+
+*/

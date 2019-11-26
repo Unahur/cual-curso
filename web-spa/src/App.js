@@ -8,14 +8,14 @@ import ModificarEstudiantes from "./components/ModificarEstudiantes";
 import Menu from "./components/Menu";
 import ListarEstudiantes from "./components/ListarEstudiantes";
 import BorrarEstudiante from "./components/BorrarEstudiante";
+import Modificar_BorrarEstudiante from "./components/Modificar_BorrarEstudiante";
 
-//import BorrarEstudiante from "./components/BorrarEstudiante";
-//import ModificarEstudiantes from "./components/ModificarEstudiantes";
 //import CrearAula from "./components/CrearAula";
 //import CrearCarrera from "./components/CrearCarrera";
 //import CrearDocente from "./components/CrearDocente";
 //import CrearMateria from "./components/CrearMateria";
 //import Sugerencias from "./components/Sugerencias";
+
 class App extends React.Component {
   render() {
   
@@ -45,6 +45,7 @@ class App extends React.Component {
               <Route exact path="/ModificarEstudiantes" component = {ModificarEstudiantes} />
               <Route exact path="/ListarEstudiantes" component = {ListarEstudiantes} />
               <Route exact path="/BorrarEstudiante" component = {BorrarEstudiante} />
+              <Route exact path="/Modificar_BorrarEstudiante" component = {Modificar_BorrarEstudiante} />
             </Switch>
             </div>
           </ul>

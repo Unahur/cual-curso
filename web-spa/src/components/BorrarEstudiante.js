@@ -59,6 +59,14 @@ class BorrarEstudiante extends Component {
               .then(response => console.log("Success:", response));
           }
         };
+
+        handleSubmit(e) {
+          e.preventDefault();
+          window.location.href = '/Modificar_BorrarEstudiante';
+        }
+
+
+
         render() {
           console.log(this.state.dni);
           return (
@@ -71,7 +79,7 @@ class BorrarEstudiante extends Component {
                   <h3 className="titulo" id="titulo" >Eliminar <span>Estudiantes</span></h3>
                 </div>
                 <br />
-                <form>
+                <form onSubmit={(e) => this.handleSubmit(e)}>
                     <div className="form-group">
                     <div className="texto">Nombre y apellido (*)</div>
                       <input
@@ -97,11 +105,12 @@ class BorrarEstudiante extends Component {
                         value={this.state.dni}
                         required
                       />
-                      <div className= "texto">CarreraId(*)</div>
+                      <div className= "texto"></div>
                         <input 
                           className="input" 
                           type="number" 
-                          name="carreraId" 
+                          name="carreraId"
+                          hidden='true' 
                           onChange={this.onChange}
                           value={this.state.carreraId} 
                         />

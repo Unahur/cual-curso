@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Menu extends Component {
     render() {
@@ -18,7 +18,10 @@ class Menu extends Component {
                        
                         <li className="nav-item">
                             <Link className="nav-link" to="/ListarEstudiantes">ListarEstudiantes</Link>
-                        </li>                    
+                        </li>    
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/Modificar_BorrarEstudiante">Modificar/Borrar</Link>
+                        </li>                 
                     </ul>
                 </div>
             </nav>
