@@ -3,14 +3,15 @@ import { Link } from "react-router-dom";
 
 
 class Modificar_BorrarEstudiante extends Component {
-
+/*
   constructor(props) {
-    super(props);
-    this.state = {
+    super(props);*/
+    state = {
       estudiantes: [],
       dni: 0,
+      dataValue: false
     };
-  }
+ // }
 
   componentDidMount() {    
     this.getEstudiantes()
@@ -38,20 +39,22 @@ class Modificar_BorrarEstudiante extends Component {
       return this.state.estudiantes.map(e => (
         <thead>
           <tr>   
-            <th>{e.id}</th>
-            <th>{e.nombre_apellido}</th> 
-            <th>{e.dni}</th> 
-            <th>
+            <th><p className="text-center">{e.id}</p></th>
+            <th><p className="text-justify">{e.nombre_apellido}</p></th> 
+            <th><p className="text-center">{e.dni}</p></th> 
+            <th><p className="text-center">
               <Link to={`/ModificarEstudiantes/?id=${e.id}`}>
                 <button className="btn btn-warning btn-lg"
                         renderAs="button"/>
               </Link>
+              </p>
             </th> 
-            <th>
+            <th><p className="text-center">
               <Link to={`/BorrarEstudiante/?id=${e.id}`}>
               <button className="btn btn-danger btn-lg" 
                       renderAs="button"/>
               </Link>
+              </p>
             </th>
           </tr>
         </thead>
@@ -68,8 +71,7 @@ class Modificar_BorrarEstudiante extends Component {
             <div id="listadoEstudiante">
               <div className="row" >
                 <div className="col text-center">
-                  <h3 className="titulo" id="titulo" >Listado <span>Estudiantes</span></h3>
-                  <br/>
+                  <h3 className="titulo" id="titulo" >Modificar / <span>Eliminar</span></h3>
                   <br/>
                   <div className= "texto">Buscar por DNI</div>
                     <input 

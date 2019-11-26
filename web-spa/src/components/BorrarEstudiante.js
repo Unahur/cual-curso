@@ -72,16 +72,15 @@ class BorrarEstudiante extends Component {
           return (
             <div className="row justify-content-md-center">
               <div
-                className="col-md-4"
+                className="col-md-5"
                 style={{ backgroundColor: "rgb(240, 240, 240)" }}
               >
                 <div className="col text-center">
                   <h3 className="titulo" id="titulo" >Eliminar <span>Estudiantes</span></h3>
-                </div>
-                <br />
+                <br/>
                 <form onSubmit={(e) => this.handleSubmit(e)}>
                     <div className="form-group">
-                    <div className="texto">Nombre y apellido (*)</div>
+                    <div className="texto">Nombre y apellido</div>
                       <input
                         type="text"
                         className="form-control"
@@ -90,11 +89,11 @@ class BorrarEstudiante extends Component {
                         placeholder="Ingrese el nombre y apellido"
                         onChange={this.onChange}
                         value={this.state.nombre_apellido}
-                        required
+                        disabled
                       />
                     </div>
                     <div className="form-group">
-                    <div className="texto">Dni (*)</div>
+                    <div className="texto">Dni</div>
                       <input
                         type="number"
                         className="form-control"
@@ -103,7 +102,7 @@ class BorrarEstudiante extends Component {
                         placeholder="Ingrese el numero de dni"
                         onChange={this.onChange}
                         value={this.state.dni}
-                        required
+                        disabled
                       />
                       <div className= "texto"></div>
                         <input 
@@ -115,16 +114,15 @@ class BorrarEstudiante extends Component {
                           value={this.state.carreraId} 
                         />
                     </div>
-      
-                    <button
+                </form>
+                </div>
+                <button
                       type="submit"
                       className="btn btn-success"
                       onClick={() => this.EliminarEstudiante()}
                     >
                       Eliminar estudiante
                     </button>
-                  
-                </form>
               </div>
             </div>
           );

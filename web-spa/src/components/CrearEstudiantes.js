@@ -35,16 +35,15 @@ class CrearEstudiantes extends Component {
   render() {
     return (
       <div>
-        <div className="contenedor-titulo">
-          <div className="titulo">CREAR NUEVO ESTUDIANTE</div>
-        </div>
+          <div className="col text-center">
+            <h3 className="titulo" id="titulo" >Alta <span>Estudiantes</span></h3>
+          </div>
+          <div className="row justify-content-md-center">
         <div  className="col-md-4" style={{ backgroundColor: "rgb(240, 240, 240)" }}>
           <form 
             action="" 
-            
             autoComplete="off" 
             className="contenedor-grid contenedor-grid-abm" 
-           // onSubmit={(e) => this.handleSubmit(e)}
           >
             <div className="contenido">
               <div className="texto">Nombre y apellido (*)</div>
@@ -83,7 +82,7 @@ class CrearEstudiantes extends Component {
             </footer>
           </form>
         </div>
-    
+        </div>
       </div>
     )
   }

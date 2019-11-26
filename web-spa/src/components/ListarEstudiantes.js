@@ -33,10 +33,10 @@ class ListarEstudiantes extends Component {
       return this.state.estudiantes.map(e => (
         <thead>
           <tr>   
-            <th>{e.id}</th>
-            <th>{e.nombre_apellido}</th> 
-            <th>{e.dni}</th> 
-            <th>{e.carreraId}</th>
+            <th><p className="text-center">{e.id}</p></th>
+            <th><p className="text-justify">{e.nombre_apellido}</p></th> 
+            <th><p className="text-center">{e.dni}</p></th> 
+
           </tr>
         </thead>
       ))
@@ -60,7 +60,7 @@ class ListarEstudiantes extends Component {
                         <th><p className="text-center">#ID</p></th>
                         <th><p className="text-center">Nombre y Apellido</p></th>
                         <th><p className="text-center">DNI</p></th>
-                        <th><p className="text-center">CARRERAID</p></th>
+
               
                       </tr>
                     </thead>

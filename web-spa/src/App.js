@@ -9,6 +9,7 @@ import Menu from "./components/Menu";
 import ListarEstudiantes from "./components/ListarEstudiantes";
 import BorrarEstudiante from "./components/BorrarEstudiante";
 import Modificar_BorrarEstudiante from "./components/Modificar_BorrarEstudiante";
+import Home from "./components/Home";
 
 //import CrearAula from "./components/CrearAula";
 //import CrearCarrera from "./components/CrearCarrera";
@@ -26,6 +27,7 @@ class App extends React.Component {
           <br/>
           <div className="container-fluid">
           <Menu/>
+          <br/>
             <center>
               <img
                 className="img-fluid"
@@ -41,6 +43,7 @@ class App extends React.Component {
            
             <div className="container">
             <Switch>
+              <Route exact path="/" component = {Home} />
               <Route exact path="/CrearEstudiantes" component = {CrearEstudiantes} />
               <Route exact path="/ModificarEstudiantes" component = {ModificarEstudiantes} />
               <Route exact path="/ListarEstudiantes" component = {ListarEstudiantes} />
