@@ -57,6 +57,7 @@
 @media screen and (max-width: 768px){
 	.contenedor-grid-sugerencias {
         grid-template-areas: "sidebar sidebar sidebar sidebar sidebar"
+                             "cuatrimestre cuatrimestre cuatrimestre cuatrimestre cuatrimestre"
                              "sidebarSugerencia sidebarSugerencia sidebarSugerencia sidebarSugerencia sidebarSugerencia"
                              "contenido contenido contenido contenido contenido"
                              "footer footer footer footer footer";

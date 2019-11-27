@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import ListaMaterias from './Lista-Materias.js';
-import Sugerencia from './Sugerencia-materia.js';
-import TargetaMaterias from './Targeta-materias.js';
-import MateriasInscriptas from './Materias-inscriptas.js';
-import DiasCursada from './DiasCursada.js';
+import ListaMaterias from './component-contenido-sugerencias/Lista-Materias.js';
+import Sugerencia from './component-contenido-sugerencias/Sugerencia-materia.js';
+import TargetaMaterias from './component-contenido-sugerencias/Targeta-materias.js';
+import MateriasInscriptas from './component-contenido-sugerencias/Materias-inscriptas.js';
+import DiasCursada from './component-contenido-sugerencias/DiasCursada.js';
 
 class Contenido extends Component {
     constructor(props){
@@ -30,15 +30,20 @@ class Contenido extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
     inscribirMateria(materia){
+        if(this.validacion(materia)){
+            materia.inscripta=true
+            this.setState({materia:""})
+        }
+    }
+    validacion(materia){
         if(this.state.materias.find(m=>{return m.inscripta && m.nombre === materia.nombre})){
             alert("Materia ya inscripta")
+            return false
+        }else if(this.state.materias.find(m=>{return m.inscripta && m.Dia === materia.Dia && m.Horario === materia.Horario})){
+            alert("Superposicion de dias")
+            return false
         }else{
-            if(this.state.materias.find(m=>{return m.inscripta && m.Dia === materia.Dia && m.Horario === materia.Horario})){
-                alert("Superposicion de dias")
-            }else{
-                materia.inscripta=true
-                this.setState({materia:""})
-            }
+            return true
         }
     }
     darDeBaja(materia){
@@ -50,10 +55,8 @@ class Contenido extends Component {
         this.setState({materia})
     }
     handleChange(e){
-        const name = e.target.name;
-        const value = e.target.value;
         this.setState({
-          [name]: value
+          materia: e.target.value
         })
     }
     render() {
@@ -92,7 +95,7 @@ class Contenido extends Component {
                     <aside className="sidebar">
                         <label className="subtitulo-edit">Materias Sugeridas</label>
                         <div className="custom-select">
-                            <select name="materia" value={this.state.materia} onChange={this.handleChange}>
+                            <select value={this.state.materia} onChange={this.handleChange}>
                                 <Sugerencia/>
                             </select>
                         </div>
