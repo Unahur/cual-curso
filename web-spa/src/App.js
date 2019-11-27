@@ -9,8 +9,10 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
+      
         <div className="App">
           <br />
+
           <div className="container-fluid">
             <center>
               <img
@@ -21,6 +23,7 @@ class App extends React.Component {
             </center>
           </div>
           <br />
+
           <ul className="nav justify-content-center">
             <li className="nav-item">
               <Link className="nav-link" to="/ListaAulas">
@@ -37,9 +40,13 @@ class App extends React.Component {
                 Modificar Aula
               </Link>
             </li>
-           
+            <li className="nav-item">
+              <Link className="nav-link" to="/Sugerencias">
+                Sugerir Aula
+              </Link> 
+            </li>
           </ul>
-
+          
           <br />
           <Switch>
             <Route exact path="/CrearAula" component={CrearAula} />
@@ -48,7 +55,9 @@ class App extends React.Component {
             <Route exact path="/ModificarAula" component={ModificarAula} />
             <Route exact path="/sugerencias" component={Sugerencias} />
           </Switch>
+
         </div>
+
       </BrowserRouter>
     );
   }

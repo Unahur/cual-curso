@@ -21,11 +21,19 @@ export default class Sugerencias extends Component {
     };
 
   mostrarTodas = () => {
+    //this.state.listaMaterias=materias
+
     this.setState({ verTodas: true });
+    
   };
-  mostrarSugerencias = () => {
+  mostrarSugerencias = (listadoM) => {
+    //this.state.listaMaterias=ListadoM.filter(e=>e.correlativa.array.anyAll(maeria=>materia.aprobada);
+    //suponiendo que materia tenga  la variable aprobadas y una lista de sus correlativas, que por ahora no lo tiene
     console.log(this.state.materias[1])
     this.setState({ verTodas: false });
+    
+      
+    
   };
 
   mostrarMateria = index => {
@@ -131,6 +139,7 @@ export default class Sugerencias extends Component {
               <br />
               <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <br />
+
                 <label class="btn btn-info active">
                   <input
                     type="radio"
@@ -142,6 +151,7 @@ export default class Sugerencias extends Component {
                   />{" "}
                   Sugerencias
                 </label>
+
                 <label class="btn btn-info">
                   <input
                     type="radio"

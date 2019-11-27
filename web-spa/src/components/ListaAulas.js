@@ -20,19 +20,20 @@ class ListaAulas extends Component {
   deleteAula = (id, numAula) => {
     var newList = [];
     if (
-      window.confirm("Esta seguro que quiere borrar el aula n°" + { numAula })
+      window.confirm("Esta seguro que quiere borrar el aula n°" + numAula )
     ) {
       fetch("http://localhost:3001/aulas/" + id, {
         method: "DELETE"
       })
         .then(() => {
-          console.log("removed id " + id);
+          newList = this.state.aulas.filter(aula => aula.id !== id);
+         this.setState({ aulas: newList });
+          window.alert("removed id "+id);
         })
         .catch(err => {
-          console.error(err);
+          window.alert(err)
         });
-      newList = this.state.aulas.filter(aula => aula.id !== id);
-      this.setState({ aulas: newList });
+      
     }
   };
 
@@ -73,8 +74,7 @@ class ListaAulas extends Component {
               <th scope="col">ID</th>
               <th scope="col">Nombre del edificio</th>
               <th scope="col">Numero de aula</th>
-
-              <th scope="col">Borrar</th>
+              <th scope="col">Borrar</th>   
             </tr>
           </thead>
 

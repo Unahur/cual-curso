@@ -5,6 +5,7 @@ class CrearAula extends Component {
     numeroAula: null,
     dataValue: false
   };
+  
   /* 
   cargarCursadas = () => {
     const cursadas = [
@@ -55,12 +56,24 @@ class CrearAula extends Component {
         })
       );
   }; */
+  alertarProblemas = () =>{
+    var alerta="";
+      if( !this.verificarValor() )
+        alerta+="no puede ingresar un numero negativo"
+      if( !this.verificarNombre() )
+        alerta+="\nEl nombre del edificio tiene que ser mayor a 4 y menor a 16 caracteres"
+      
+      alert(
+        alerta );
+  };
   verificarNombre = () => {
     return this.state.edificio.length < 16 && this.state.edificio.length > 4;
   };
-
+  verificarValor = () => {
+    return this.state.numeroAula >=1 && this.state.numeroAula%1; //.any(e=>e.numeroAula==this.state.numeroAula) ;
+  };
   createAula = () => {
-    if (this.verificarNombre()) {
+    if (this.verificarNombre() && this.verificarValor()) {
       var data = {
         edificio: this.state.edificio,
         numero_aula: this.state.numeroAula
@@ -76,9 +89,7 @@ class CrearAula extends Component {
         .catch(error => console.error("Error:", error))
         .then(response => console.log("Success:", response));
     } else {
-      alert(
-        "El nombre del edificio tiene que ser mayor a 4 y menor a 16 caracteres"
-      );
+      this.alertarProblemas();
     }
   };
   onChange = e => {
