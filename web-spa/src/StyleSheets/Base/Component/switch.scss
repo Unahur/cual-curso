@@ -1,0 +1,22 @@
+.Switch {
+    border: var(--border-target);
+    float:right;
+    border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
+    box-sizing: border-box;
+    background: none;
+    padding: 0; 
+    .icon {
+        font-size: 43px;
+        display: flex;
+        justify-items: center;
+    }
+    button {
+        outline: none;
+        cursor: pointer;
+    }
+    .active {
+        color: var(--border-target);
+    }
+}

@@ -7,14 +7,14 @@ ul.lista-materia{
         justify-content: left;
         justify-items: left;
         width: 93%;
-        color: #58b1d1;
+        color: var(--materia-color);
         &:hover{
             display: inline-flex; 
             justify-content: left;
             justify-items: left;
             width: 93%;
-            color: #FFF;
-            background: #08c;
+            color: var(--background-text-color);
+            background: var(--color-text-hover-component);
         }
     }
 }

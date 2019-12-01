@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Switch from '../../Switch-Theme';
 class Header extends Component {
     render() {
         //esta clase recibe el metodo cambio de render, el cual modifica el estado de la clase app, haciendo que se cambie lo que se esta renderizando.
@@ -17,6 +18,7 @@ class Header extends Component {
                             <li className="header-center-buttom"><a>Reportes</a></li>
                             <li className="header-center-buttom"><a>Tramites</a></li>
                             <li className="header-center-buttom"><a>Cursos</a></li>
+                            <Switch/>
                         </ul>
                     </header>
                 </div>

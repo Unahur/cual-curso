@@ -7,16 +7,16 @@
     max-height: 100px;
     grid-template-areas: "titulo titulo titulo";
     .titulo {
-        color: #08c;
+        color: var(--color-text-hover-component);
         grid-area: titulo;
         font-size: 24px;
         font-family: inherit;
         font-weight: bold;
-        border-bottom: #eee 1px solid;
+        border-bottom: var(--border-title);
     }
 }
 
 .contenedor-titulo > div,
 .contenedor-titulo .titulo{
-    background: #fff;
+    background: var(--background-text-color);
 }

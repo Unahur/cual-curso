@@ -6,21 +6,19 @@ ul.nav-bar{
     li{
     display: inline;
         a{
-            color: #fff;
-            background-image: -webkit-linear-gradient(top, #08c, rgb(109, 186, 224));
+            cursor: pointer;
+            color: var(--background-text-color);
+            background-image: var(--background-gradient-component);
             border-radius: 4px;
             padding: 3px 7px;
-            border: rgb(26, 99, 99) 1px solid;
+            border: var(--border-navbar);
             margin: 0px;    
             font-size: 15px;
             float: left;
             text-decoration: none;
             transition: background-color .3s;
             &:hover:not(.active){
-                background-image: -webkit-linear-gradient(top, rgb(109, 186, 224), #08c);
-            }
-            &:active{
-                background-image: -webkit-linear-gradient(top, rgb(109, 186, 224), rgb(53, 8, 216));
+                background-image: var(--hover-buttom);
             }
         }
     }

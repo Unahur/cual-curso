@@ -1,5 +1,5 @@
 
-@import "./Themes/themes.scss";
+@import "./StyleSheets/Base/variables";
 
 @import "./StyleSheets/Base/base.scss";
 @import "./StyleSheets/Base/Component/logo.scss";
@@ -14,4 +14,5 @@
 @import "./StyleSheets/Base/Component/Lista-materias.scss";
 @import "./StyleSheets/Base/Component/Targeta-materia.scss";
 @import "./StyleSheets/Base/Component/cursada.scss";
+@import "./StyleSheets/Base/Component/switch.scss";
 

@@ -1,6 +1,6 @@
 .cursada {
     thead {
-        color: #fff;
+        color: var(--background-text-color);
         margin: 0px;
         max-height: 100px;
         padding: 1px 2px;
@@ -12,8 +12,8 @@
     }
     th{
         font-size: 10px;
-        border: rgb(207, 207, 207) 1px solid;
-        background-image: -webkit-linear-gradient(top, #08c, rgb(109, 186, 224));
+        border: var(--border-contenedor-grid);
+        background-image: var(--background-gradient-component);
         margin: 0px;
         border-radius: 2px;
         max-height: 100px;
@@ -22,8 +22,8 @@
     
     td { 
         font-size: 10px;
-        border: rgb(207, 207, 207) 1px solid;
-        background-image: -webkit-linear-gradient(top, #fff, rgb(218, 219, 221));
+        border: var(--border-contenedor-grid);
+        background-image: var(--background-tbody);
         margin: 0px;
         text-align: center;
         max-height: 100px;

@@ -14,27 +14,27 @@
 
     .contenido {
         grid-area: contenido;
-        background: #f5f5f5;
-        border: rgb(207, 207, 207) 1px solid;
+        background: var(--background-contenedor-grid);
+        border: var(--border-contenedor-grid);
     }
 
     .sidebar {
-        background: #f5f5f5;
-        border: rgb(207, 207, 207) 1px solid;
+        background: var(--background-contenedor-grid);
+        border: var(--border-contenedor-grid);
         max-height: 50px;
         grid-area: sidebar;
     }
 
     .sidebarSugerencia {
-        background: #f5f5f5;
-        border: rgb(207, 207, 207) 1px solid;
+        background: var(--background-contenedor-grid);
+        border: var(--border-contenedor-grid);
         min-height: 100px;
         grid-area: sidebarSugerencia;
     }
 
     .cuatrimestre {
-        background: #f5f5f5;
-        border: rgb(207, 207, 207) 1px solid;
+        background: var(--background-contenedor-grid);
+        border: var(--border-contenedor-grid);
         min-height: 100px;
         grid-area: cuatrimestre;
     }
@@ -44,7 +44,7 @@
         align-items: flex-end;
         justify-content: flex-end;
         grid-area: footer;
-        border-bottom: rgb(167, 166, 166) 1px solid;
+        border-bottom: var(--border-buttom-footer);
     }
 }
 
@@ -54,7 +54,7 @@
 .contenedor-grid-sugerencias .sidebarSugerencia,
 .contenedor-grid-sugerencias .cuatrimestre,
 .contenedor-grid-sugerencias .footer{ 
-	background: #fff;
+	background: var(--background-text-color);
 	padding: 20px;
 	border-radius: 4px;
 }

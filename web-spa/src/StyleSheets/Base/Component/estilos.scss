@@ -1,11 +1,11 @@
 .subtitulo{
-    color: rgb(167, 166, 166);
+    color: var(--subtitle-color);
     font-size: 24px;
     font-weight: bold;
-    border-bottom: rgb(167, 166, 166) 1px solid; 
+    border-bottom: var(--subtitle-border); 
 }
 .subtitulo-edit{
-    color: #08c;
+    color: var(--color-text-hover-component);
     font-size: 21px;
     font-weight: bold;
 }
@@ -19,22 +19,22 @@
     font-size: 16px;
 }
 .input{
-    border: rgb(207, 207, 207) 1px solid;
+    border: var(--border-contenedor-grid);
     font-size: 18px;
     margin: 3px;
     border-radius: 6px;
     font-family: inherit;
 }
 .buttom {
-    background-image: -webkit-linear-gradient(top, #08c, rgb(109, 186, 224));
+    background-image: var(--background-gradient-component);
     border-radius: 6px;
     padding: 8px 13px;
-    border: rgb(26, 99, 99) 1px solid;
+    border: var(--border-buttom);
     font-size: 15px;
-    color: #fff;
+    color: var(--background-text-color);
     cursor: pointer;
     &:hover{
-        background-image: -webkit-linear-gradient(top, rgb(109, 186, 224), #08c);
+        background-image: var(--background-hover-text-component);
     }
 }
 .buttom-edit{
@@ -74,11 +74,11 @@
         justify-items: left;
         float: left;
 		text-transform: uppercase;
-        border: rgb(26, 99, 99) 2px solid;
-        background-image: -webkit-linear-gradient(top, #08c, rgb(109, 186, 224));
+        border: var(--border-text-responsive);
+        background-image: var(--background-gradient-component);
         border-radius: 3px;
         font-size: 14px;
-        color: #fff;
+        color: var(--background-text-color);
         margin: 5px;
         font-weight: bold;
     }
