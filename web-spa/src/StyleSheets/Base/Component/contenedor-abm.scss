@@ -9,6 +9,26 @@
 	grid-template-areas: "sidebar contenido contenido contenido"
                          "sidebar contenido contenido contenido"
                          "footer footer footer footer";
+    
+    .contenido {
+        grid-area: contenido;
+        background: #f5f5f5;
+        border: rgb(207, 207, 207) 1px solid;
+    }
+
+    .sidebar {
+        background: #f5f5f5;
+        border: rgb(207, 207, 207) 1px solid;
+        min-height: 100px;
+        grid-area: sidebar;
+    }
+    .footer {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        grid-area: footer;
+        border-bottom: rgb(167, 166, 166) 1px solid;
+    }
 }
 .contenedor-grid-abm {
     grid-template-areas: "contenido contenido contenido contenido"
@@ -19,29 +39,10 @@
 .contenedor-grid .contenido,
 .contenedor-grid .sidebar,
 .contenedor-grid .footer{ 
-	background: #fff;
 	padding: 20px;
 	border-radius: 4px;
 }
-.contenedor-grid .contenido {
-    grid-area: contenido;
-    background: #f5f5f5;
-    border: rgb(207, 207, 207) 1px solid;
-}
 
-.contenedor-grid .sidebar {
-    background: #f5f5f5;
-    border: rgb(207, 207, 207) 1px solid;
-	min-height: 100px;
-	grid-area: sidebar;
-}
-.contenedor-grid .footer {
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    grid-area: footer;
-    border-bottom: rgb(167, 166, 166) 1px solid;
-}
 @media screen and (max-width: 768px){
 	.contenedor-grid {
 		grid-template-areas: "sidebar sidebar sidebar sidebar"

@@ -5,20 +5,18 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     max-height: 100px;
-    grid-template-areas: "titulo titulo titulo"
+    grid-template-areas: "titulo titulo titulo";
+    .titulo {
+        color: #08c;
+        grid-area: titulo;
+        font-size: 24px;
+        font-family: inherit;
+        font-weight: bold;
+        border-bottom: #eee 1px solid;
+    }
 }
-.titulo {
-    color: #08c;
-    font-size: 24px;
-    font-family: inherit;
-    font-weight: bold;
-    border-bottom: #eee 1px solid;
-}
+
 .contenedor-titulo > div,
 .contenedor-titulo .titulo{
     background: #fff;
-}
-.contenedor-titulo .titulo {
-	color: #08c;
-    grid-area: titulo;
 }

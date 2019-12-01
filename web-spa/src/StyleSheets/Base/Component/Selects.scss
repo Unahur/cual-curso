@@ -5,6 +5,19 @@
     overflow: hidden;
     width: 230px;
     position:relative;
+    &::after{
+        content:"\025be";
+        display:table-cell;
+        padding-top:7px;
+        text-align:center;
+        width:30px;
+        height:30px;
+        background-color:#08c;
+        position:absolute;
+        top:0;
+        right:0px;	
+        pointer-events: none;
+    }
 }
 select {
     background: transparent;
@@ -14,20 +27,5 @@ select {
     padding: 5px;
     width: 250px;
     cursor: pointer;
-}
-select:focus{ outline: none;}
-
-
-.custom-select::after{
-    content:"\025be";
-    display:table-cell;
-    padding-top:7px;
-    text-align:center;
-    width:30px;
-    height:30px;
-    background-color:#08c;
-    position:absolute;
-    top:0;
-    right:0px;	
-    pointer-events: none;
+    &:focus{outline: none;}
 }

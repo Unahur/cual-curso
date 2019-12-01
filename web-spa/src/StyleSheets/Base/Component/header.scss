@@ -13,7 +13,7 @@
     background-image: -webkit-linear-gradient(top, #fff, rgb(218, 219, 221));    
 }
 
-.contenedor-header .header {
+.header {
     grid-area: header;
 }
 
@@ -32,17 +32,15 @@
     float: left;
     border-right: 2px solid #bbb;
     padding: 13px;
-}
-  
-.header-center-buttom a {
-    color: rgb(70, 70, 70);
-    text-align: center;
-    padding: 13px;
-    text-decoration: none;
-    font-size: 13px;
-    cursor: pointer;
-}
-
-.header-center-buttom a:hover {
-    color: rgb(161, 159, 159);
+    a{
+        color: rgb(70, 70, 70);
+        text-align: center;
+        padding: 13px;
+        text-decoration: none;
+        font-size: 13px;
+        cursor: pointer;
+        &:hover{
+            color: rgb(161, 159, 159);
+        }
+    }
 }

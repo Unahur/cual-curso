@@ -33,15 +33,15 @@
     font-size: 15px;
     color: #fff;
     cursor: pointer;
+    &:hover{
+        background-image: -webkit-linear-gradient(top, rgb(109, 186, 224), #08c);
+    }
 }
 .buttom-edit{
     padding: 1px 1px;
     margin: 0px;
 }
 
-.buttom:hover{
-    background-image: -webkit-linear-gradient(top, rgb(109, 186, 224), #08c);
-}
 .input-edit{
     margin: 0px;
 }

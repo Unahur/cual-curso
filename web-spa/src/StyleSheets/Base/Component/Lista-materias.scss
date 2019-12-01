@@ -1,21 +1,20 @@
 ul.lista-materia{
     margin: 5px;
-}
-ul.lista-materia li{
-    cursor: pointer;
-    margin: 1px;
-    display: inline-flex; 
-    justify-content: left;
-    justify-items: left;
-    width: 93%;
-    color: #58b1d1;
-}
-
-ul.lista-materia li:hover{
-    display: inline-flex; 
-    justify-content: left;
-    justify-items: left;
-    width: 93%;
-    color: #FFF;
-    background: #08c;
+    li{
+        cursor: pointer;
+        margin: 1px;
+        display: inline-flex; 
+        justify-content: left;
+        justify-items: left;
+        width: 93%;
+        color: #58b1d1;
+        &:hover{
+            display: inline-flex; 
+            justify-content: left;
+            justify-items: left;
+            width: 93%;
+            color: #FFF;
+            background: #08c;
+        }
+    }
 }

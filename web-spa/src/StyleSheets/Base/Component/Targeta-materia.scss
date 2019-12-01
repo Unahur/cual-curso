@@ -4,7 +4,7 @@
     max-width: 1150px;
     border-radius: 6px;
     border: #58b1d1 1px solid;
-}
-.target > div{
-    margin: 20px;
+    & > div{
+        margin: 20px;
+    }
 }

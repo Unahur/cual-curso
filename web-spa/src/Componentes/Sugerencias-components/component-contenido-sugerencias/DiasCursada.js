@@ -4,7 +4,7 @@ class DiasCursada extends Component{
     render(){
         return (
             <div>
-                <table>
+                <table className="cursada">
                     <thead>
                         <tr>
                             <th></th>
