@@ -1,6 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component} from 'react';
 import Switch from '../../Switch-Theme';
+import { TiThMenuOutline as Menu} from 'react-icons/ti';
 class Header extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            display: "initial"
+        }
+        this.setDisplay = this.setDisplay.bind(this)
+    }
+    setDisplay(){
+        if(this.state.display === "initial"){
+            this.setState({display:"none"})
+        }else{
+            this.setState({display:"initial"})
+        }
+    }
     render() {
         //esta clase recibe el metodo cambio de render, el cual modifica el estado de la clase app, haciendo que se cambie lo que se esta renderizando.
         return (
@@ -13,12 +28,13 @@ class Header extends Component {
                 <div className="contenedor-header">
                     <header className="header">
                         <ul className="contenedor-header-buttoms header-buttom">
-                            <li className="header-center-buttom"><a>Inscripcion a Materias</a></li>
-                            <li className="header-center-buttom"><a>Inscripcion a Examenes</a></li>
-                            <li className="header-center-buttom"><a>Reportes</a></li>
-                            <li className="header-center-buttom"><a>Tramites</a></li>
-                            <li className="header-center-buttom"><a>Cursos</a></li>
+                            <button className="buttom-menu" onClick={()=>{this.setDisplay()}}><Menu/></button>
                             <Switch/>
+                            <li className="header-center-buttom" style={{display:this.state.display}}><a>Inscripcion a Materias</a></li>
+                            <li className="header-center-buttom" style={{display:this.state.display}}><a>Inscripcion a Examenes</a></li>
+                            <li className="header-center-buttom" style={{display:this.state.display}}><a>Reportes</a></li>
+                            <li className="header-center-buttom" style={{display:this.state.display}}><a>Tramites</a></li>
+                            <li className="header-center-buttom" style={{display:this.state.display}}><a>Cursos</a></li>
                         </ul>
                     </header>
                 </div>

@@ -57,7 +57,7 @@ ul.col5-data{
     }
 }
 
-@media screen and (max-width: 1230px){
+@media (max-width: map-get($map: $break-points, $key: 'large')){
     ul.col5{
         li{
             width: 15%;
@@ -70,7 +70,7 @@ ul.col5-data{
     }
 }
 
-@media screen and (max-width: 768px){
+@media (max-width: map-get($map: $break-points, $key: 'medium')){
     ul.col5{
         display: none;
     }
@@ -83,5 +83,19 @@ ul.col5-data{
             width: 93%;
         }
     }
-    
+}
+
+@media (max-width: map-get($map: $break-points, $key: 'small')){
+    ul.col5{
+        display: none;
+    }
+    ul.col5-data{
+        padding: 0px 0px 0px 0px;
+        li{
+            display: inline-flex; 
+            justify-content: left;
+            justify-items: left;
+            width: 93%;
+        }
+    }
 }

@@ -37,6 +37,22 @@
         background-image: var(--background-hover-text-component);
     }
 }
+.buttom-menu{
+    display: none;
+    @include max-width(small){
+        cursor: pointer;
+        background: var(--background-text-color);
+        color: var(--text-color);
+        display: initial;
+        border-radius: 6px;
+        border: var(--border-target);
+        margin-left: 5px;
+        padding: 5px 5px 0px 5px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-size: 20px;
+    }
+}
 .buttom-edit{
     padding: 1px 1px;
     margin: 0px;
@@ -59,16 +75,7 @@
 }
 .texto-responsive{
     display: none;
-}
-.texto-responsive-ul{
-    margin:5px;
-}
-@media screen and (max-width: 768px){
-    .texto-responsive-ul{
-        font-weight: bold;
-        padding-right: 5px;
-    }
-    .texto-responsive{
+    @include max-width('small'){
         display: inline-flex;   
         justify-content: left;
         justify-items: left;
@@ -81,5 +88,30 @@
         color: var(--background-text-color);
         margin: 5px;
         font-weight: bold;
+    }
+    @include max-width('medium'){
+        display: inline-flex;   
+        justify-content: left;
+        justify-items: left;
+        float: left;
+		text-transform: uppercase;
+        border: var(--border-text-responsive);
+        background-image: var(--background-gradient-component);
+        border-radius: 3px;
+        font-size: 14px;
+        color: var(--background-text-color);
+        margin: 5px;
+        font-weight: bold;
+    }
+}
+.texto-responsive-ul{
+    margin:5px;
+    @include max-width('small'){
+        font-weight: bold;
+        padding-right: 5px;
+    }
+    @include max-width('medium'){
+        font-weight: bold;
+        padding-right: 5px;
     }
 }

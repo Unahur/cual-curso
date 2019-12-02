@@ -46,6 +46,13 @@
         grid-area: footer;
         border-bottom: var(--border-buttom-footer);
     }
+    @include max-width('small'){
+        grid-template-areas: "sidebar sidebar sidebar sidebar sidebar"
+                             "cuatrimestre cuatrimestre cuatrimestre cuatrimestre cuatrimestre"
+                             "sidebarSugerencia sidebarSugerencia sidebarSugerencia sidebarSugerencia sidebarSugerencia"
+                             "contenido contenido contenido contenido contenido"
+                             "footer footer footer footer footer";       
+    }
 }
 
 .contenedor-grid-sugerencias > div,
@@ -57,14 +64,4 @@
 	background: var(--background-text-color);
 	padding: 20px;
 	border-radius: 4px;
-}
-
-@media screen and (max-width: 768px){
-	.contenedor-grid-sugerencias {
-        grid-template-areas: "sidebar sidebar sidebar sidebar sidebar"
-                             "cuatrimestre cuatrimestre cuatrimestre cuatrimestre cuatrimestre"
-                             "sidebarSugerencia sidebarSugerencia sidebarSugerencia sidebarSugerencia sidebarSugerencia"
-                             "contenido contenido contenido contenido contenido"
-                             "footer footer footer footer footer";
-    }
 }

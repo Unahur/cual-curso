@@ -28,7 +28,7 @@ export function ThemeProvider (props) {
 
   const toggle = () => {
     const body = document.getElementsByTagName('body')[0];
-    body.style.cssText = 'transition: background .5s ease';
+    body.style.cssText = 'transition: background .1s ease';
 
     setDark(!dark);
     window.localStorage.setItem('darkTheme', !dark);
