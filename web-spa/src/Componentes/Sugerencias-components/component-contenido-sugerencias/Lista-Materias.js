@@ -4,7 +4,7 @@ class ListaMaterias extends Component{
         super(props)
         this.state = {
             materias: [
-                "matematica 2",
+                "Matematica 2",
                 "Programacion de objetos",
                 "Bases de Datos",
                 "Ingles 2",

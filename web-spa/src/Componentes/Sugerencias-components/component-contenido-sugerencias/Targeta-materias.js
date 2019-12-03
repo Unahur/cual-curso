@@ -11,7 +11,7 @@ class TargetaMaterias extends Component{
                 <div className="target">
                     <div className="subtitulo-edit">{materia.nombre}</div>
                         <div>Docente: {materia.docente}</div>
-                        <div>Aula: {materia.aula}</div>
+                        <div>Aula: {materia.Aula}</div>
                         <div>Dia: {materia.Dia}</div>
                         <div>Horario: {materia.Horario}</div>
                     <div>Horas {materia.HorasTotales} 
