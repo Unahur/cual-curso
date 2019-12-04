@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var carrerasRouter = require('./routes/carreras');
+var materiaRouter = require('./routes/materia')// creado
+var correlativaRouter = require('./routes/correlativa')// creado
 var cors = require('cors')
 
 var app = express();
@@ -27,6 +29,8 @@ app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/carreras', carrerasRouter);
+app.use('/materia', materiaRouter);// creado
+app.use('/correlativa', correlativaRouter); // creado
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
