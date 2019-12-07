@@ -95,6 +95,11 @@ class Materia extends Component {
             count: this.state.count+1
         })
     }
+    handleDecrement(){
+        this.setState({
+            count: this.state.count-1
+        })
+    }
     render() {
         return (
             <div>
@@ -117,6 +122,7 @@ class Materia extends Component {
                             idCorrelativas={this.state.idMaterias}
                             count={this.state.count}
                             handleIncrement={this.handleIncrement.bind(this)}
+                            handleDecrement={this.handleDecrement.bind(this)}
                         />
                     </div>
                     <footer className="footer">

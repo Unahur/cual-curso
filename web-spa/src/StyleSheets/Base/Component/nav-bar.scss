@@ -20,6 +20,10 @@ ul.nav-bar{
             &:hover:not(.active){
                 background-image: var(--hover-buttom);
             }
+            &.active{
+                color: var(--text-color);
+                background: var(--hover-buttom);
+            }
         }
     }
 }

@@ -27,11 +27,9 @@ class ComponentAbm extends Component {
         })
           .then(response => response.json())
           .then(data => {
-            console.log(data);
-            console.log("----------------");
             this.setState({
                 materias: data[0],//se setea el array de datos en materias, para que luego las clases de Listas puedan renderearlo.
-                paginasEnTotal: Math.ceil(data[1].paginas)
+                paginasEnTotal: data[1].paginas
             })
         })
     }//con este metodo se traen los datos
@@ -52,10 +50,9 @@ class ComponentAbm extends Component {
             .then(data => {
                 this.setState({
                     materias: data[0],
-                    paginasEnTotal: Math.ceil(data[1].paginas)
+                    paginasEnTotal: data[1].paginas
                 });
             })
-            .catch(console.log);
         }
     };
     filtrarPorPagina(index, input){
@@ -67,10 +64,9 @@ class ComponentAbm extends Component {
                 .then(data => {
                 this.setState({
                     materias: data[0],
-                    paginasEnTotal: Math.ceil(data[1].paginas)
+                    paginasEnTotal: data[1].paginas
                 });
             })
-                .catch(console.log);
         }
     }
     render(){
@@ -94,6 +90,7 @@ class ComponentAbm extends Component {
                     paginaActiva={this.state.paginaActiva}
                     paginasEnTotal={this.state.paginasEnTotal}
                     cambiarPagina={this.cambiarPagina.bind(this)}
+                    index={this.props.index}
                 />
             </div>
         )

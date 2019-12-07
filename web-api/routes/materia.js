@@ -25,7 +25,7 @@ router.get("/pagina/:index/:input", (req, res) => {
                     offset: pasarPagina,
                     limit: limite
                 })//aca se traen los atributos, y la asociacion donde, haya coincidencia en uno de los atributos, se pasa de pagina y se asigna el limite.
-        .then(materia => res.send([materia, { paginas: registrosTotales/limite }]))//aca se envian las materias, y las paginas.
+        .then(materia => res.send([materia, { paginas: Math.ceil(registrosTotales / limite) }]))//aca se envian las materias, y las paginas.
         .catch(() => res.sendStatus(500));
     });
 });
@@ -46,7 +46,7 @@ router.get("/pagina/:index", (req, res) => {
                     offset: pasarPagina,
                     limit: limite
         })
-        .then(materia => res.send([materia, { paginas: registrosTotales/limite }]))
+        .then(materia => res.send([materia, { paginas: Math.ceil(registrosTotales / limite) }]))
         .catch(() => res.sendStatus(500));
     });
 });
@@ -62,7 +62,7 @@ router.get("/", (req, res) => {
             return materia;
         })
         .then(val => {
-            totalRegistros = val;
+            registrosTotales = val;
         });
   
     setTimeout(() => {
@@ -76,7 +76,7 @@ router.get("/", (req, res) => {
         .then(materia =>
             res.send([
                 materia,
-                {paginas: registrosTotales / limite}
+                {paginas: Math.ceil(registrosTotales / limite)}
             ])
         )
         .catch(() => res.sendStatus(500));

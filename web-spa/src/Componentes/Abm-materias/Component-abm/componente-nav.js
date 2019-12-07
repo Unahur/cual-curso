@@ -5,7 +5,7 @@ class Nav extends Component {
     
         return paginas.map((e, i) => (
             <li key={i}>
-                <a onClick={() => this.props.cambiarPagina(i)}>
+                <a onClick={() => this.props.cambiarPagina(i)} className={i===this.props.paginaActiva ? 'active' : ''}>
                     {i+1}
                 </a>
             </li>

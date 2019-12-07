@@ -21,6 +21,11 @@ class Correlativa extends Component {
             })
         })
     }
+    handleQuitarInput(){
+        if(this.props.count>=1){
+            this.props.handleDecrement()
+        }
+    }
     handleAgregarInput(){
         if(this.props.count<7){
             this.props.handleIncrement();
@@ -41,6 +46,7 @@ class Correlativa extends Component {
                     }
                 </div>
                 <input className="buttom buttom-correlativa" type="button" value="+" onClick={()=>{this.handleAgregarInput()}}/>
+                <input className="buttom buttom-correlativa" type="button" value="-" onClick={()=>{this.handleQuitarInput()}}/>
             </div>
         )
     }
