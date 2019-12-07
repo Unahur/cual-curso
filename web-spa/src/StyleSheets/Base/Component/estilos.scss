@@ -22,9 +22,12 @@
     border: var(--border-contenedor-grid);
     font-size: 18px;
     margin: 3px;
+    width: 200px;
+    height: 23px;
     border-radius: 6px;
     font-family: inherit;
 }
+
 .buttom {
     background-image: var(--background-gradient-component);
     border-radius: 6px;
@@ -36,6 +39,11 @@
     &:hover{
         background-image: var(--background-hover-text-component);
     }
+}
+.buttom-correlativa{
+    margin: 4px;
+    padding: 0px 8px;
+    font-size: 23px;
 }
 .buttom-menu{
     display: none;

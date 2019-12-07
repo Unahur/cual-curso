@@ -49,7 +49,7 @@ class Abm extends Component{
           correlativas={this.state.mostrarCorrelativa}
         />}
       </div>
-      )
+    )
   }
 }
 

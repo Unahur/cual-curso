@@ -47,13 +47,13 @@ class ComponentAbm extends Component {
         if (index != this.state.paginasEnTotal && index >= 0) {
           this.setState({ paginaActiva: index });
           console.log(index);
-          fetch(`http://localhost:3001/materia/pagina/${index}`)
+        fetch(`http://localhost:3001/materia/pagina/${index}`)
             .then(res => res.json())
             .then(data => {
-              this.setState({
-                materias: data[0],
-                paginasEnTotal: Math.ceil(data[1].paginas)
-              });
+                this.setState({
+                    materias: data[0],
+                    paginasEnTotal: Math.ceil(data[1].paginas)
+                });
             })
             .catch(console.log);
         }
@@ -63,15 +63,15 @@ class ComponentAbm extends Component {
             this.setState({ paginaActiva: index });
             console.log(index);
             fetch(`http://localhost:3001/materia/pagina/${index}/${input}`)
-              .then(res => res.json())
-              .then(data => {
+                .then(res => res.json())
+                .then(data => {
                 this.setState({
-                  materias: data[0],
-                  paginasEnTotal: Math.ceil(data[1].paginas)
+                    materias: data[0],
+                    paginasEnTotal: Math.ceil(data[1].paginas)
                 });
-              })
-              .catch(console.log);
-          }
+            })
+                .catch(console.log);
+        }
     }
     render(){
         return(

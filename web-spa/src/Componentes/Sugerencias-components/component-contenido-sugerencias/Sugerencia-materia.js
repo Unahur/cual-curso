@@ -12,15 +12,15 @@ class SugerenciaMaterias extends Component{
             ]
         }
     }
-  render(){
-    return (
-        this.state.sugeridas.map(materia => {
-            return(
-                <option value={materia}>{materia}</option>
-            )
-        })
-    )
-  }
+    render(){
+        return (
+            this.state.sugeridas.map(materia => {
+                return(
+                    <option value={materia}>{materia}</option>
+                )
+            })
+        )
+    }
 }
 
 export default SugerenciaMaterias;

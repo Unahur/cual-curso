@@ -19,6 +19,10 @@
         pointer-events: none;
     }
 }
+.custom-select-margin{
+    border: var(--border-contenedor-grid);
+    margin: 4px;
+}
 select {
     background: transparent;
     color: var(--text-color);
