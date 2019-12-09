@@ -23,7 +23,7 @@ class Lista extends Component {
                 })
             )
         } else {
-            return <p onLoad={() => this.props.componentDidMount()}>Cargando Materia...</p>
+            return <p>Cargando Materia...</p>
         }
     }
 }

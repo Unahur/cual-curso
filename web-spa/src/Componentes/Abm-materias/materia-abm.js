@@ -9,20 +9,44 @@ class Abm extends Component {
             name: "",
             description: "",
             duration: "",
-            totalHours: ""
+            totalHours: "",
+            materias: [],
+            paginasEnTotal: 0,
+            paginaActiva: 0
         }//digamos que este es el estado del put, el componente-abm trae los elementos y en el componente-put se cambia y se envia por fetch.
     }
-    handleChangeOnEdit (id, name, description, duration, totalHours) {
+
+    handleChangeOnEdit (json) {
         this.setState({
-            id: id,
-            name: name,
-            description: description,
-            duration: duration,
-            totalHours: totalHours
+            id: json.id,
+            name: json.name,
+            description: json.description,
+            duration: json.duration,
+            totalHours: json.totalHours
         })
         console.log(this.state)
     }//este metodo recibe los parametros cuando se activa el edit, para tenerlos listos para el put.
     //nota: sin esto, ocurriria un bug que haria que el componente no muestre los datos que uno esta modificando.
+    handleGet(json){
+        this.setState({
+            materias: json[0],
+            paginasEnTotal: json[1].paginas
+        })
+    }
+    paginaActiva(index){
+        this.setState({
+            paginaActiva: index
+        })
+    }
+    vaciarFormulario(){
+        this.setState({
+            id: "",
+            name: "",
+            description: "",
+            duration: "",
+            totalHours: ""
+        })
+    }
     handleChange (e) {
         const name = e.target.name;
         const value = e.target.value;
@@ -52,9 +76,13 @@ class Abm extends Component {
                             </ul>
                             <ListaMaterias
                                 handleChange={this.handleChangeOnEdit.bind(this)}
+                                materias={this.state.materias}
+                                paginasEnTotal={this.state.paginasEnTotal}
                                 input={this.props.input}
-                                index={this.props.index}
+                                handleGet={this.handleGet.bind(this)}
                                 correlativas={this.props.correlativas}
+                                changePaginaActiva={this.paginaActiva.bind(this)}
+                                paginaActiva={this.state.paginaActiva}
                             />
                         </div>
                     </div>
@@ -68,6 +96,9 @@ class Abm extends Component {
                             duration={this.state.duration}
                             totalHours={this.state.totalHours}
                             handleChange={this.handleChange.bind(this)}
+                            handleGet={this.handleGet.bind(this)}
+                            changePaginaActiva={this.paginaActiva.bind(this)}
+                            vaciarFormulario={this.vaciarFormulario.bind(this)}
                         />}
                     </aside>
 		            <footer className="footer">

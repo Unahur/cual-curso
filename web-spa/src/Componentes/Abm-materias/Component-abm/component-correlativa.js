@@ -17,7 +17,7 @@ class Correlativa extends Component {
           .then(data => {
             this.setState({
                 correlativa: data[0],
-                paginasEnTotal: Math.ceil(data[1].paginas)
+                paginasEnTotal: data[1].paginas
             })
         })
     }
@@ -34,7 +34,7 @@ class Correlativa extends Component {
     render(){
         var selects = Array(this.props.count).fill(null); 
         return(
-            <div onLoad={()=>{this.componentDidMount()}}>
+            <div>
                 <div>
                     {selects.map(() => {
                         return(

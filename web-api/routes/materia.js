@@ -111,7 +111,7 @@ router.get("/:id",(req,res)=>{
 router.put("/:id",(req,res) => {
     const onSuccess = materia => 
     materia
-        .update(req.body)
+        .update({ name: req.body.name, description: req.body.description, duration: req.body.duration, totalHours: req.body.totalHours }, { fields: ["name", "description", "duration", "totalHours"] })
         .then(()=>res.sendStatus(200))
         .catch(()=>res.sendStatus(500));
     findMateria(req.params.id,{
