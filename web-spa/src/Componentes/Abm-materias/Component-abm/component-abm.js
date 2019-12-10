@@ -61,7 +61,7 @@ class ComponentAbm extends Component {
                     onDelete={this.onDelete.bind(this)}
                     onEdit={this.onEdit.bind(this)}
                 />}
-                {this.props.input !== "" && <ListaFiltrada
+                {this.props.input && <ListaFiltrada
                     materias={this.props.materias}
                     onDelete={this.onDelete.bind(this)}
                     onEdit={this.onEdit.bind(this)}

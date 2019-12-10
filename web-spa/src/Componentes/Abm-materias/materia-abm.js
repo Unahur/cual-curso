@@ -89,7 +89,7 @@ class Abm extends Component {
                     <aside className="sidebar">
                         <div className="subtitulo-edit">Buscar Materia</div>
                         <input className="input input-edit" type="text" value={this.props.input} onChange={this.props.search}/>
-                        {this.state.id !== "" && <Put
+                        {this.state.id && <Put
                             id={this.state.id}
                             name={this.state.name}
                             description={this.state.description}

@@ -67,7 +67,7 @@ class Contenido extends Component {
                 </div>
                 <div className="contenedor-grid-sugerencias">
 		            <div className="contenido">
-                        {this.state.materia!== "" && <TargetaMaterias
+                        {this.state.materia && <TargetaMaterias
                             materia={this.state.materia}
                             materias={this.state.materias}
                             inscribirMateria={this.inscribirMateria.bind(this)}

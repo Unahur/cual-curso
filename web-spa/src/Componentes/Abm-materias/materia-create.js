@@ -59,7 +59,7 @@ class Materia extends Component {
     }
     handlePostCorrelativas(res){
         console.log(res)
-        if(this.state.idMaterias!==""){
+        if(this.state.idMaterias){
             this.state.idMaterias.map(id =>{
                 const json = {
                     id_materia: res,
