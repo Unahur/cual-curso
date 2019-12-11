@@ -21,17 +21,18 @@ function getMethod(){
         .then(data => {
             console.log(data);
             console.log("----------------");
-            var salida = {};
-
-            for (var i = 0; i < data.length; i++) {
-                salida["id"] = data[i].id;//aca se captura el id, para mas adelante usarlo en las opciones.
-                salida["name"] = data[i].name;
-                salida["description"] = data[i].description;
-                salida["duration"] = data[i].duration;
-                salida["totalHours"] = data[i].totalHours;
+            var salida = data[0];
+            var pagina = data[1].paginas;
+            console.log(pagina)
+            salida.map(materia => {
+                salida["id"] = materia.id;//aca se captura el id, para mas adelante usarlo en las opciones.
+                salida["name"] = materia.name;
+                salida["description"] = materia.description;
+                salida["duration"] = materia.duration;
+                salida["totalHours"] = materia.totalHours;
                 
                 insertNewData(salida);//En esta funcion se crean lo que posteriormente van a ser las tablas que vamos a estar viendo en pantalla con toda la informacion.
-            }
+            })
         });
 }
 
@@ -104,23 +105,7 @@ function edit(id) {
 function onEdit(id) {
     //en esta funcion se activa la edicion y se crean los inputs que van a traer los atributos modificados.
     //nota: cuando se activa esta funcion, se recoge la ID del objeto que queremos editar.
-    MostrarEdit()
-    const name = document.createElement('input');
-    name.setAttribute("type","text");
-    name.setAttribute("id","materia");
-    name.setAttribute("class", "input input-edit");
-    const description = document.createElement('input');
-    description.setAttribute("type","text");
-    description.setAttribute("id","description");
-    description.setAttribute("class", "input input-edit");
-    const duration = document.createElement('input');
-    duration.setAttribute("type","number");
-    duration.setAttribute("id","duracion");
-    duration.setAttribute("class", "input input-edit");
-    const totalHours = document.createElement('input');
-    totalHours.setAttribute("type","number");
-    totalHours.setAttribute("id","horasT"); 
-    totalHours.setAttribute("class", "input input-edit");    
+    MostrarEdit()  
     var button = `<buttom class="buttom buttom-edit" id="btn-form" onclick="edit(${id})">Editar</buttom>`;
     fetch(`http://localhost:3001/materia/${id}`, {
         method: 'GET'
@@ -129,15 +114,11 @@ function onEdit(id) {
         .then(data => {
             //aca se traen los valores que van a ser modificados.
             //se crean los inputs y el boton de confirmacion de los cambios que van a ser realizados.
-            name.value = data.name;
-            description.value = data.description;
-            duration.value = data.duration;
-            totalHours.value = data.totalHours;
             document.getElementById('boton').innerHTML = button;
-            document.getElementById('nombre').appendChild(name);
-            document.getElementById('descripcion').appendChild(description);
-            document.getElementById('duracion').appendChild(duration);
-            document.getElementById('horasTotales').appendChild(totalHours);
+            document.getElementById('nombre').value = data.name;
+            document.getElementById('descripcion').value = data.description;
+            document.getElementById('duracion').value = data.duration;
+            document.getElementById('horasTotales').value = data.totalHours;
         });
 }
 
