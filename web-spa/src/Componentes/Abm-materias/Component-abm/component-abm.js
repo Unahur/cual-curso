@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Lista from "./ListaMaterias.js";
 import ListaFiltrada from "./ListaFiltrada.js"
 import Nav from "./componente-nav.js";
+import CorrelativaABM from './correlativa-abm.js';
 class ComponentAbm extends Component {
 
     onEdit(id){
@@ -56,7 +57,7 @@ class ComponentAbm extends Component {
     render(){
         return(
             <div>
-                {this.props.input === "" && <Lista
+                {!this.props.input && <Lista
                     materias={this.props.materias}
                     onDelete={this.onDelete.bind(this)}
                     onEdit={this.onEdit.bind(this)}

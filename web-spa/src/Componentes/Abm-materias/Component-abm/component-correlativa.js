@@ -39,14 +39,15 @@ class Correlativa extends Component {
                     {selects.map(() => {
                         return(
                             <CorrelativaOptions
+                                put={this.props.put}
                                 idCorrelativas={this.props.idCorrelativas}
                                 correlativa={this.state.correlativa}
                             />
                         )})
                     }
                 </div>
-                <input className="buttom buttom-correlativa" type="button" value="+" onClick={()=>{this.handleAgregarInput()}}/>
-                <input className="buttom buttom-correlativa" type="button" value="-" onClick={()=>{this.handleQuitarInput()}}/>
+                <input className={`buttom ${this.props.put ? 'buttom-edit': 'buttom-correlativa'}`} type="button" value="+" onClick={()=>{this.handleAgregarInput()}}/>
+                <input className={`buttom ${this.props.put ? 'buttom-edit': 'buttom-correlativa'}`} type="button" value="-" onClick={()=>{this.handleQuitarInput()}}/>
             </div>
         )
     }

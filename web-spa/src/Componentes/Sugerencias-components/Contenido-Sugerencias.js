@@ -36,14 +36,16 @@ class Contenido extends Component {
         }
     }
     validacion(materia){
-        if(this.state.materias.find(m=>{return m.inscripta && m.nombre === materia.nombre})){
+        if(!this.state.materias.find(m=>{return m.inscripta && m.nombre === materia.nombre})){
+            if(!this.state.materias.find(m=>{return m.inscripta && m.Dia === materia.Dia && m.Horario === materia.Horario})){
+                return true
+            }else{
+                alert("Superposicion de dias")
+                return false
+            }
+        }else{
             alert("Materia ya inscripta")
             return false
-        }else if(this.state.materias.find(m=>{return m.inscripta && m.Dia === materia.Dia && m.Horario === materia.Horario})){
-            alert("Superposicion de dias")
-            return false
-        }else{
-            return true
         }
     }
     darDeBaja(materia){
@@ -73,7 +75,7 @@ class Contenido extends Component {
                             inscribirMateria={this.inscribirMateria.bind(this)}
                             darDeBaja={this.darDeBaja.bind(this)}
                         />}
-                        {this.state.materia=== "" && <MateriasInscriptas
+                        {!this.state.materia && <MateriasInscriptas
                             materias={this.state.materias}
                             inscribirMateria={this.inscribirMateria.bind(this)}
                             darDeBaja={this.darDeBaja.bind(this)}

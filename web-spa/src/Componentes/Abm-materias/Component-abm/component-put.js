@@ -35,7 +35,8 @@ class Put extends Component {
             })
             .then(response => {
                 if (response.status === 200) {
-                   return response;
+                    this.handlePostCorrelativas(this.props.id)
+                    return response;
                 } else {
                     throw new Error('Something went wrong on api server!');
                 }
@@ -45,6 +46,39 @@ class Put extends Component {
             }).catch(error => {
                 console.error(error);
             }).then(()=> {this.handleRefresh()})
+    }
+    handlePostCorrelativas(res){
+        console.log(res)
+        if(this.state.idMaterias){
+            this.state.idMaterias.map(id =>{
+                const json = {
+                    id_materia: res,
+                    id_materia_correlativa: parseInt(id)
+                }
+                fetch('http://localhost:3001/correlativa', {
+                    method: 'POST',
+                    headers:{
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(json)
+                })
+                    .then(response => {
+                        if (response.status === 201) {
+                            return response.json();
+                        } else {
+                            throw new Error('Something went wrong on api server!');
+                        }
+                    })
+                    .then(response => {
+                        console.debug(response);
+                    }).catch(error => {
+                        console.error(error);
+                    });
+            })
+        }
+        this.setState({
+            idMaterias: []
+        })
     }
     handleIncrement(){
         this.setState({
@@ -73,11 +107,13 @@ class Put extends Component {
                 <br/>
                 <br/>
                 <Correlativa
+                    put={"put"}
                     idCorrelativas={this.state.idMaterias}
                     count={this.state.count}
                     handleIncrement={this.handleIncrement.bind(this)}
                     handleDecrement={this.handleDecrement.bind(this)}
                 />
+                <br/>
                 <input className="buttom buttom-edit" type="submit" value="Editar"/>
             </form>
         )

@@ -21,16 +21,8 @@ class Abm extends Component{
     this.setState({input: input.target.value.substr(0,20)})
   }
   mostrarCorrelativa(){
-    if(this.state.mostrarCorrelativa===false){
-      this.setState({
-        mostrarCorrelativa:true
-      })
-    }else{
-      this.setState({
-        mostrarCorrelativa:false
-      })
-    }
-    console.log(this.mostrarCorrelativa)
+    !this.state.mostrarCorrelativa ? this.setState({mostrarCorrelativa: true}) : this.setState({mostrarCorrelativa: false})
+    console.log(this.state.mostrarCorrelativa)
   }
   render(){
     //basicamente en esos "if" de abajo se selecciona que se va a renderizar y se le manda un parametro

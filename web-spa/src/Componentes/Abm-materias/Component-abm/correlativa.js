@@ -25,7 +25,7 @@ class CorrelativaOptions extends Component {
     }
     render(){
         return (
-            <div className="custom-select custom-select-margin">
+            <div className={`custom-select ${this.props.put ? 'custom-select-margin-cero': 'custom-select-margin'}`}>
                 <select value={this.state.idMateria} onChange={this.handleChange}>
                     <option></option>
                     {this.props.correlativa.map(materia => {

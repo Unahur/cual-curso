@@ -48,7 +48,7 @@ router.put("/:id",(req,res) => {
     });
 });
 
-router.delete("/id",(req,res) =>{
+router.delete("/:id",(req,res) =>{
     const onSuccess = correlativas =>
     correlativas
         .destroy()

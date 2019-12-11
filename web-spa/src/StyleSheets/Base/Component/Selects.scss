@@ -3,7 +3,7 @@
     border-radius: 6px;
     height:30px;
     overflow: hidden;
-    width: 230px;
+    width: 200px;
     position:relative;
     &::after{
         content:"\025be";
@@ -22,6 +22,10 @@
 .custom-select-margin{
     border: var(--border-contenedor-grid);
     margin: 4px;
+}
+.custom-select-margin-cero{
+    border: var(--border-contenedor-grid);
+    margin: 0px;
 }
 select {
     background: transparent;

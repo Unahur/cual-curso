@@ -15,7 +15,7 @@ class TargetaMaterias extends Component{
                         <div>Dia: {materia.Dia}</div>
                         <div>Horario: {materia.Horario}</div>
                     <div>Horas {materia.HorasTotales} 
-                        {materia.inscripta!==true && <input className="buttom buttom-target" type="submit" value="Inscribirse" onClick={()=>{this.props.inscribirMateria(materia)}}/>} 
+                        {!materia.inscripta && <input className="buttom buttom-target" type="submit" value="Inscribirse" onClick={()=>{this.props.inscribirMateria(materia)}}/>} 
                         {materia.inscripta && <input className="buttom buttom-target" type="submit" value="Dar de baja" onClick={() => {this.props.darDeBaja(materia)}}/>}
                     </div>
                 </div>

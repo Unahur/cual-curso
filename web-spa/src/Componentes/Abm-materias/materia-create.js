@@ -117,7 +117,7 @@ class Materia extends Component {
                         <input className="input" type="number" name="duration" value={this.state.duration} onChange={this.handleChange} required/>
                         <div className="texto">Horas totales(*)</div>
                         <input className="input" type="number" name="totalHours" value={this.state.totalHours} onChange={this.handleChange} required/>
-                        <div className="texto">Correlativas(*)</div>
+                        <div className="texto">Correlativas</div>
                         <Correlativa
                             idCorrelativas={this.state.idMaterias}
                             count={this.state.count}

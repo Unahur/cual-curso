@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ListaMaterias from './Component-abm/component-abm';
 import Put from './Component-abm/component-put';
+import CorrelativaABM from './Component-abm/correlativa-abm';
 class Abm extends Component {
     constructor(props){
         super(props)
@@ -66,25 +67,32 @@ class Abm extends Component {
                 </div>
                 <div className="contenedor-grid">
 		            <div className="contenido">
-                        <div>
-                            <ul className="col5">
-                                <li>Materia</li>
-                                <li>Descripcion</li>
-                                <li>Duracion</li>
-                                <li>Horas Totales</li>
-                                <li>Opciones</li>
-                            </ul>
-                            <ListaMaterias
-                                handleChange={this.handleChangeOnEdit.bind(this)}
-                                materias={this.state.materias}
-                                paginasEnTotal={this.state.paginasEnTotal}
-                                input={this.props.input}
-                                handleGet={this.handleGet.bind(this)}
-                                correlativas={this.props.correlativas}
-                                changePaginaActiva={this.paginaActiva.bind(this)}
-                                paginaActiva={this.state.paginaActiva}
-                            />
-                        </div>
+                        {!this.props.correlativas &&
+                            <div>
+                                <ul className="col5">
+                                    <li>Materia</li>
+                                    <li>Descripcion</li>
+                                    <li>Duracion</li>
+                                    <li>Horas Totales</li>
+                                    <li>Opciones</li>
+                                </ul>
+                                <ListaMaterias
+                                    handleChange={this.handleChangeOnEdit.bind(this)}
+                                    materias={this.state.materias}
+                                    paginasEnTotal={this.state.paginasEnTotal}
+                                    input={this.props.input}
+                                    handleGet={this.handleGet.bind(this)}
+                                    correlativas={this.props.correlativas}
+                                    changePaginaActiva={this.paginaActiva.bind(this)}
+                                    paginaActiva={this.state.paginaActiva}
+                                />
+                            </div>
+                        }
+                        {this.props.correlativas && <CorrelativaABM
+                            handleGet={this.handleGet.bind(this)}
+                            materias={this.state.materias}
+                            changePaginaActiva={this.paginaActiva.bind(this)}
+                        />}
                     </div>
                     <aside className="sidebar">
                         <div className="subtitulo-edit">Buscar Materia</div>
