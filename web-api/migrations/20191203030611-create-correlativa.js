@@ -16,11 +16,7 @@ module.exports = {
         }
       },
       id_materia_correlativa: {
-        type: Sequelize.INTEGER,
-        reference:{
-          model: 'materia',
-          key: 'id_materia_correlativa'
-        }
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

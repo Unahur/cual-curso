@@ -10,10 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       as : 'materia',
       foreignKey: 'id_materia'
     }
-    correlativa.belongsTo(models.materia),{
-      as : 'materia',
-      foreignKey: 'id_materia_correlativa'
-    }
+    
   };
   return correlativa;
 };

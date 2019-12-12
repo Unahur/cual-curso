@@ -13,11 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       as: 'correlativas',
       foreignKey: 'id_materia'
     })
-    /*materia.hasMany(models.correlativa,
-      {
-        as: 'correlativas',
-        foreignKey: 'id_materia_correlativa'
-      })*/
+   
   };
   return materia;
 };

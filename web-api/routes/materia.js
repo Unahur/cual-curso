@@ -53,36 +53,11 @@ router.delete("/:id", (req,res) =>{
     materia
       .destroy()
       .then(() => res.send(200))
-      .catch(() => res.sendStatus(500))
+      .catch(() => res.sendStatus(500));
     findMateria(req.params.id,{
         onSuccess,
         onNotFound: () => res.sendStatus(404),
         onError: () => res.sendStatus(500)
     });
 });
-
-/*router.post("/",(req,res)=>{
-    const ids_correlativas = req.body.correlativas;
-
-    models.materia
-    .create(req.body)
-    .then(materia => res.status(201).send({id: materia.id}))
-    .catch(()=>res.sendStatus(500));
-});
-console.log(req.body);
-    promises = ids_correlativas.map(id_correlativa =>
-        models.correlativas.create({
-            id_materia: materia.id,
-            id_materia_correlativa: id_correlativa
-        }));
-    Promise.all(promises)
-        .then(correlativas => {
-            ids_correlativas = correlativas.map(correlativa => correlativa.id_materia_correlativa)
-            res.status(201).send({id: materia.id, correlativas: ids_correlativas}
-                )})
-     
-        .catch(()=>res.sendStatus(500))
-        console.log(error);*/
-
-
 module.exports = router;
