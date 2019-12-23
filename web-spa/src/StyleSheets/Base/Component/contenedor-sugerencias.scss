@@ -1,0 +1,67 @@
+.contenedor-grid-sugerencias {
+	width: 90%;
+	max-width: 1150px;
+    margin: 20px auto;
+    display: grid;
+    grid-gap: 10px;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(5, auto);
+	grid-template-areas: "sidebar sidebar sidebar sidebar sidebar"
+                         "sidebarSugerencia contenido contenido contenido cuatrimestre"
+                         "sidebarSugerencia contenido contenido contenido cuatrimestre"
+                         "sidebarSugerencia contenido contenido contenido cuatrimestre"
+                         "footer footer footer footer footer";
+
+    .contenido {
+        grid-area: contenido;
+        background: var(--background-contenedor-grid);
+        border: var(--border-contenedor-grid);
+    }
+
+    .sidebar {
+        background: var(--background-contenedor-grid);
+        border: var(--border-contenedor-grid);
+        max-height: 50px;
+        grid-area: sidebar;
+    }
+
+    .sidebarSugerencia {
+        background: var(--background-contenedor-grid);
+        border: var(--border-contenedor-grid);
+        min-height: 100px;
+        grid-area: sidebarSugerencia;
+    }
+
+    .cuatrimestre {
+        background: var(--background-contenedor-grid);
+        border: var(--border-contenedor-grid);
+        min-height: 100px;
+        grid-area: cuatrimestre;
+    }
+
+    .footer {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        grid-area: footer;
+        border-bottom: var(--border-buttom-footer);
+    }
+    @include max-width('small'){
+        grid-template-areas: "sidebar sidebar sidebar sidebar sidebar"
+                             "cuatrimestre cuatrimestre cuatrimestre cuatrimestre cuatrimestre"
+                             "sidebarSugerencia sidebarSugerencia sidebarSugerencia sidebarSugerencia sidebarSugerencia"
+                             "contenido contenido contenido contenido contenido"
+                             "footer footer footer footer footer";       
+    }
+}
+
+.contenedor-grid-sugerencias > div,
+.contenedor-grid-sugerencias .contenido,
+.contenedor-grid-sugerencias .sidebar,
+.contenedor-grid-sugerencias .sidebarSugerencia,
+.contenedor-grid-sugerencias .cuatrimestre,
+.contenedor-grid-sugerencias .footer{ 
+	background: var(--background-text-color);
+	padding: 20px;
+	border-radius: 4px;
+}

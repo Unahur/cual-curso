@@ -1,0 +1,20 @@
+ul.lista-materia{
+    margin: 5px;
+    li{
+        cursor: pointer;
+        margin: 1px;
+        display: inline-flex; 
+        justify-content: left;
+        justify-items: left;
+        width: 93%;
+        color: var(--materia-color);
+        &:hover{
+            display: inline-flex; 
+            justify-content: left;
+            justify-items: left;
+            width: 93%;
+            color: var(--background-text-color);
+            background: var(--color-text-hover-component);
+        }
+    }
+}

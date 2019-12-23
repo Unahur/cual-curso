@@ -1,0 +1,40 @@
+.custom-select {
+    border: var(--border-select);
+    border-radius: 6px;
+    height:30px;
+    overflow: hidden;
+    width: 200px;
+    position:relative;
+    &::after{
+        content:"\025be";
+        display:table-cell;
+        padding-top:7px;
+        text-align:center;
+        width:30px;
+        height:30px;
+        background-color:var(--color-text-hover-component);
+        position:absolute;
+        top:0;
+        right:0px;	
+        pointer-events: none;
+    }
+}
+.custom-select-margin{
+    border: var(--border-contenedor-grid);
+    margin: 4px;
+}
+.custom-select-margin-cero{
+    border: var(--border-contenedor-grid);
+    margin: 0px;
+}
+select {
+    background: transparent;
+    color: var(--text-color);
+    border: none;
+    font-size: 14px;
+    height: 30px;
+    padding: 5px;
+    width: 250px;
+    cursor: pointer;
+    &:focus{outline: none;}
+}

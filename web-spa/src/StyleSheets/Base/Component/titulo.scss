@@ -1,0 +1,22 @@
+.contenedor-titulo {
+    width: 90%;
+	max-width: 1150px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-height: 100px;
+    grid-template-areas: "titulo titulo titulo";
+    .titulo {
+        color: var(--color-text-hover-component);
+        grid-area: titulo;
+        font-size: 24px;
+        font-family: inherit;
+        font-weight: bold;
+        border-bottom: var(--border-title);
+    }
+}
+
+.contenedor-titulo > div,
+.contenedor-titulo .titulo{
+    background: var(--background-text-color);
+}

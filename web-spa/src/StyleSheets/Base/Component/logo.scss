@@ -1,0 +1,19 @@
+.contenedor-logo {
+    background-image: var(--background-logo-div-color);
+    margin: 0px;
+    @include max-width('small'){
+        display: none;
+    }
+    .row-fluid{
+        width: 90%;
+        margin: 0px auto;
+        max-width: 1150px;
+        .logo-Unahur{
+            margin: 15px auto;
+            height: 53.1px;
+            max-width: 90%;
+            vertical-align: middle;
+            border: 0;
+        }
+    }
+}

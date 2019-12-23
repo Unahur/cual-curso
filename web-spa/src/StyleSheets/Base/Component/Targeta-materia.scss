@@ -1,0 +1,10 @@
+.target{
+    width: 100%;
+    margin: 5px auto;
+    max-width: 1150px;
+    border-radius: 6px;
+    border: var(--border-target);
+    & > div{
+        margin: 20px;
+    }
+}

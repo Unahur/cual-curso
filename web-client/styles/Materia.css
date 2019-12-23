@@ -1,0 +1,297 @@
+* {
+	margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+body {
+	background: #fff;
+	color: #000;
+}/*se asigna el color de la pagina y el de las letras, asi como su fuente*/
+/*---------------------------------------------------------------------------------------*/
+.contenedor-logo {
+    background-image: -webkit-linear-gradient(top, #fff, rgb(218, 219, 221));
+    margin: 0px;
+}/*se muestra sin margenes y con un degradado, su funcion principal es contener el logo*/
+.row-fluid{
+    width: 90%;
+    margin: 0px auto;
+	max-width: 1150px;
+}/*la funcion principal de esta clase es hacer que el logo que de centrado con respecto al contenedor-grid*/
+.logo-Unahur{
+    margin: 15px auto;
+    height: 53.1;
+    max-width: 90%;
+    vertical-align: middle;
+    border: 0;
+}/*la funcion principal de esta clase, es alinear, ajustar el tamaño y darle un margen a la imagen*/
+/*---------------------------------------------------------------------------------------*/
+.contenedor-header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: rgba(219, 219, 219, 0.795);
+    margin: 0px;
+    max-height: 100px;
+    border: rgb(189, 189, 189) 1px ridge;
+    grid-template-areas: "header header header"
+}/*se asigna el color de fondo, el borde, el tamaño maximo, el margen y un template de las areas que debe ocupar la clase header*/
+
+.contenedor-header > div,
+.contenedor-header .header{
+    background-image: -webkit-linear-gradient(top, #fff, rgb(218, 219, 221));    
+}/*aca se asigna el color de fondo del header*/
+
+.contenedor-header .header {
+    grid-area: header;
+}/*se le asigna el nombre del area que debe ocupar*/
+
+.contenedor-header-buttoms{
+    width: 90%;
+	max-width: 1150px;
+    margin: 0px auto;
+    max-height: 100px;
+}/*este contenedor es mas para centrar los botones y que queden a la altura del contenedor-grid*/
+
+.header ul {
+    list-style-type: none;
+}/*esto es para que no se muestre como lista*/
+
+.header li {
+    float: left;
+    border-right: 2px solid #bbb;
+    padding: 13px;
+}/*con float, el bloque flota a la izquierda del contenedor, se define el margen y el borde,
+para que quede bien parecido a un boton*/
+  
+.header li a {
+    color: rgb(70, 70, 70);
+    text-align: center;
+    padding: 13px;
+    text-decoration: none;
+}/*aca se le da un color al texto, se le da un margen y se lo alinea al centro*/
+
+.header li a:hover {
+    color: rgb(161, 159, 159);
+}/*cuando se posiciona el mouse arriba del elemento el color de la letra cambia*/
+/*---------------------------------------------------------------------------------------*/
+/*Titulo*/
+.contenedor-titulo {
+    width: 90%;
+	max-width: 1150px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-height: 100px;
+    grid-template-areas: "titulo titulo titulo"
+}/*se le da el tamaño maximo parra coincidir con el contenedor-grid y se le asigna el area.*/
+.titulo {
+    color: #08c;
+    font-size: 24px;
+    font-family: inherit;
+    font-weight: bold;
+    border-bottom: #eee 1px solid;
+}/*se asigna tamaño, bordes, color y subrayado*/
+.contenedor-titulo > div,
+.contenedor-titulo .titulo{
+    background: #fff;
+}/*asigna el color de fondo*/
+.contenedor-titulo .titulo {
+	color: #08c;
+    grid-area: titulo;/*se le asigna color, area y tipo de letra con la que debe mostrarse*/
+}/*estas clases se crearon para ajustar el titulo encima del contenedor-grid, es pura estetica.*/
+/*---------------------------------------------------------------------------------------*/
+/*Cuerpo del html*/
+.contenedor-grid {
+	width: 90%;
+	max-width: 1150px;/*le asigno el tamaño maximo*/
+    margin: 20px auto;
+	display: grid;
+	grid-gap: 35px;/*aca defino los espacios entre las areas de las clases*/
+	grid-template-columns: repeat(4, 1fr);/*le asigno el numero de columnas y le pido que ocupen toda la pantalla*/
+	grid-template-rows: repeat(4, auto);/*le asigno el numero de filas y le digo que sea automatico, osea que se ajuste al contenido.*/
+	grid-template-areas: "sidebar contenido contenido contenido"
+                         "sidebar contenido contenido contenido"
+                         "footer footer footer footer";/*aca hago un template, y defino las columnas y filas que deben ocupar las clases*/
+}
+.contenedor-grid-abm {
+    grid-template-areas: "contenido contenido contenido contenido"
+                         "contenido contenido contenido contenido"
+                         "footer footer footer footer";
+}/*Nota: esto originalmente lo iba a usar en materia-abm.html, pero determine que el sidebar servia y lo deje, como lo quite en
+materia-create.html, deje implementada esta clase y la reutilize ahi, ya que el sidebar no cumplia ninguna funcion ahi. */
+.contenedor-grid > div,
+.contenedor-grid .contenido,
+.contenedor-grid .sidebar,
+.contenedor-grid .footer{ 
+	background: #fff;
+	padding: 20px;
+	border-radius: 4px;
+}/*aca defino el espacio adentro de los divs de las clases*/
+.contenedor-grid .contenido {
+    grid-area: contenido;/*esto es importante, por que le estoy asignando a la clase un area, la cual invoco en el template area del contenedor-grid*/
+    background: #f5f5f5;
+    border: rgb(207, 207, 207) 1px solid;
+}
+
+.contenedor-grid .sidebar {
+    background: #f5f5f5;
+    border: rgb(207, 207, 207) 1px solid;
+	min-height: 100px;
+	grid-area: sidebar;/*le asigno el nombre el area que debe ocupar*/
+}
+.contenedor-grid .footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;/*con esas 2 lineas de flex, le estoy pidiendo al contenedor, que ponga los items al final*/
+    grid-area: footer;/*le asigno el nombre el area que debe ocupar*/
+    border-bottom: rgb(167, 166, 166) 1px solid;
+}
+/*---------------------------------------------------------------------------------------*/
+/*Estilos*/
+.subtitulo{
+    color: rgb(167, 166, 166);
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: rgb(167, 166, 166) 1px solid; 
+}
+.subtitulo-edit{
+    color: #08c;
+    font-size: 21px;
+    font-weight: bold;
+}
+.texto{
+    margin: 4px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.texto-edit{
+    margin: 0px;
+    font-size: 16px;
+}
+.input{
+    border: rgb(207, 207, 207) 1px solid;
+    font-size: 18px;
+    margin: 3px;
+    border-radius: 6px;
+    font-family: inherit;
+}
+.buttom {
+    background-image: -webkit-linear-gradient(top, #08c, rgb(109, 186, 224));
+    border-radius: 6px;
+    padding: 8px 13px;
+    border: rgb(26, 99, 99) 1px solid;
+    font-size: 15px;
+    color: #fff;
+}
+.buttom-edit{
+    padding: 1px 1px;
+    margin: 0px;
+}
+/*aca no hay mucho que explicar, salvo el webkit que utilizo para darle degradado al boton y
+el hover, para cuando le ponen el mouse encima invierta los colores del degrado*/
+.buttom:hover{
+    background-image: -webkit-linear-gradient(top, rgb(109, 186, 224), #08c);
+}
+.input-edit{
+    margin: 0px;
+}/*estas 2 clases las hice para materia-abm.html, estas 2 lo que hacen es
+ajustar los margenes y el tamaño del boton, para que se vea mas lindo, en pocas palabras pura estetica */
+.buttom-tabla{
+    padding: 1px 1px;
+    margin: 5px;
+}
+/*---------------------------------------------------------------------------------------*/
+/*tabla*/
+.table {
+    width:100%;
+    border: rgb(207, 207, 207) 1px solid;
+    font-size: 15px;
+    margin: 3px;
+    border-radius: 6px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+thead {
+    font-size: 15px;
+    color: #fff;
+    margin: 0px;
+    max-height: 100px;
+    border-radius: 6px;
+    padding: 8px 13px;
+}
+tbody{
+    margin: 0px;
+    border-radius: 6px;
+    max-height: 100px;
+    padding: 8px 13px;
+}
+th{
+    border: rgb(207, 207, 207) 1px solid;
+    background-image: -webkit-linear-gradient(top, #08c, rgb(109, 186, 224));
+    margin: 0px;
+    border-radius: 6px;
+    max-height: 100px;
+    padding: 8px 13px;
+}
+
+td { 
+    border: rgb(207, 207, 207) 1px solid;
+    background-image: -webkit-linear-gradient(top, #fff, rgb(218, 219, 221));
+    margin: 0px;
+    text-align: center;
+    border-radius: 6px;
+    max-height: 100px;
+    padding: 8px 13px;
+}/*no hay mucho para comentar acerca de la tabla*/
+/*---------------------------------------------------------------------------------------*/
+/*cuando la imagen llega a 768 pixeles de ancho se aplica la interfaz mobile*/
+@media screen and (max-width: 768px){
+	.contenedor-grid {
+		grid-template-areas: "sidebar sidebar sidebar sidebar"
+                             "contenido contenido contenido contenido"
+                             "footer footer footer footer";
+    }/*aca se cambia la forma en la que se debe mostrar las clases en la interfaz mobile
+    (en vez de ir el sidebar al costado, se lo mueve para arriba)*/
+    /*---------------------------------------------------------------------------------------*/
+    table {
+        width:100%;
+    }
+    thead {
+        display: none;
+    }/*aca la parte interesante, se deja de mostrar la cabezera de la tabla*/
+    tr:nth-of-type(2n) {
+        background-color: inherit;
+    }
+    tr td:first-child {
+        background-image: -webkit-linear-gradient(top, #fff, rgb(218, 219, 221));
+        border: rgb(207, 207, 207) 1px solid;
+        font-weight:bold;
+        font-size:1.3em;
+    }
+    tbody td {
+        display: block;
+        text-align:center;
+        border: rgb(207, 207, 207) 1px solid;
+        border-radius: 6px;
+    }/*todo esto se utiliza para mostrar la informacion de la tabla en desktop como una lista y darle estilo*/
+    tbody td:before {
+        float: left;
+		text-transform: uppercase;
+        font-size: 15px;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        border: rgb(26, 99, 99) 2px solid;
+        background-image: -webkit-linear-gradient(top, #08c, rgb(109, 186, 224));
+        border-radius: 3px;
+        color: #ffffff;
+    }/*Como en el paso anterior quitamos el Thead, ya que no se lo puede poner al costado de esta tabla-lista
+    aca se estaria agregando al tbody, mas en especifico al td, que al lado de cada atributo que se muestre,
+    se muestre que atributo es, en el caso de aparecer "matematicas", aparezca al lado izquierdo "Materia: matematicas",
+    y tambien se le da estilo a su vez al contenido*/
+    td:nth-of-type(1):before { content: "Materia: "; }
+	td:nth-of-type(2):before { content: "Descripcion: "; }
+	td:nth-of-type(3):before { content: "Duracion: "; }
+	td:nth-of-type(4):before { content: "Horas Totales: "; }
+    td:nth-of-type(5):before { content: "Opciones: "; }
+    /*en este paso se asigna el contenido que tiene que ir a la izquierda de la nueva tabla-lista,
+    para saber a que atributos nos estamos refiriendo*/
+    /*---------------------------------------------------------------------------------------*/
+}

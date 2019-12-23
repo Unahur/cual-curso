@@ -1,0 +1,101 @@
+.table {
+    border: var(--border-contenedor-grid);
+    margin: 5px;
+    border-radius: 7px;
+}
+ul.col5{
+    padding-right: 0px;
+    padding-left: 0px;
+    float: left;
+    padding-bottom: 0px;
+    margin: 1px 1px;
+    width: 100%;
+    padding-top: 0px;
+    list-style-type: none;
+    li{
+        display: inline-flex;   
+        justify-content: center;
+        justify-items: center; 
+        padding-right: 5px;
+        padding-left: 8px;
+        padding-bottom: 5px;
+        width: 18%;
+        padding-top: 7px;
+        border: var(--border-contenedor-grid);
+        background-image: var(--background-gradient-component);
+        border-radius: 6px;
+        font-size: 15px;
+        color: var(--background-text-color);
+        margin: 0px;
+        font-weight: bold;
+    }
+}
+
+ul.col5-data{
+    padding-right: 0px;
+    padding-left: 0px;
+    float: left;
+    padding-bottom: 0px;
+    margin: 1px 1px;
+    width: 100%;
+    padding-top: 0px;
+    list-style-type: none;
+    li{
+        display: inline-flex;   
+        justify-content: center;
+        justify-items: center;
+        padding-right: 5px;
+        padding-left: 8px;
+        padding-bottom: 5px;
+        width: 18%;
+        padding-top: 7px;
+        border: var(--border-contenedor-grid);
+        background-image: var(--background-tbody);
+        border-radius: 6px;
+        font-size: 15px;
+        margin: 0px;
+    }
+}
+
+@media (max-width: map-get($map: $break-points, $key: 'large')){
+    ul.col5{
+        li{
+            width: 15%;
+        }
+    }
+    ul.col5-data {
+        li{
+            width: 15%;
+        }
+    }
+}
+
+@media (max-width: map-get($map: $break-points, $key: 'medium')){
+    ul.col5{
+        display: none;
+    }
+    ul.col5-data{
+        padding: 0px 0px 0px 0px;
+        li{
+            display: inline-flex; 
+            justify-content: left;
+            justify-items: left;
+            width: 93%;
+        }
+    }
+}
+
+@media (max-width: map-get($map: $break-points, $key: 'small')){
+    ul.col5{
+        display: none;
+    }
+    ul.col5-data{
+        padding: 0px 0px 0px 0px;
+        li{
+            display: inline-flex; 
+            justify-content: left;
+            justify-items: left;
+            width: 93%;
+        }
+    }
+}

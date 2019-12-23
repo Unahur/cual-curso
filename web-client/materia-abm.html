@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/Materia.css">
+    <title>Materias</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="javascript/materia-abm.js"></script>
+</head>
+<body>
+    <div class="contenedor-logo">
+        <div class="row-fluid">
+            <img class="logo-Unahur" type="img" src="images/logo-transparente.png">
+        </div>
+    </div>
+    <div class="contenedor-header">
+        <header class="header">
+            <ul class="contenedor-header-buttoms">
+                <li><a href="materia-create.html">Crear</a></li>
+                <li><a href="materia-abm.html">Materias</a></li>
+            </ul>
+        </header>
+    </div>
+    <div class="contenedor-titulo">
+        <div class="titulo">Materia</div>
+    </div>
+	<div class="contenedor-grid">
+		<div class="contenido" id="contenido" >
+            <div>
+		<!-- grilla de materias -->
+                <table id= "tabla" class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" data-th="Nombre">Nombre</th>
+                            <th scope="col" data-th="Descripcion">Descripcion</th>
+                            <th scope="col" data-th="Duracion">Duracion</th>
+                            <th scope="col" data-th="Horas Totales">Horas Totales</th>
+                            <th scope="col" data-th="Opciones">Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <aside class="sidebar">
+            <div class="subtitulo-edit">Buscar Materia</div>
+            <input class="input input-edit" type="text" id="Buscar">
+		<!-- grilla de edicion de materia -->
+            <div id="editMateria">
+                <br>
+                <div class="texto texto-edit">Materia</div>
+                <input class="input input-edit" id="nombre" type="text">
+                <div class="texto texto-edit">Descripcion</div>
+                <input class="input input-edit" id="descripcion" type="text">
+                <div class="texto texto-edit">Duracion</div>
+                <input class="input input-edit" id="duracion" type="text">
+                <div class="texto texto-edit">Horas Totales</div>
+                <input class="input input-edit" id="horasTotales" type="text">
+                <br>
+                <div id="boton"></div>
+            </div>
+        </aside>
+		<footer class="footer">
+        </footer>
+    </div>
+</body>
+</html>

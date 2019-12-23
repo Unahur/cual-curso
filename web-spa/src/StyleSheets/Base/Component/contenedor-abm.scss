@@ -1,0 +1,55 @@
+.contenedor-grid {
+	width: 90%;
+	max-width: 1150px;
+    margin: 20px auto;
+	display: grid;
+	grid-gap: 35px;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(4, auto);
+	grid-template-areas: "sidebar contenido contenido contenido"
+                         "sidebar contenido contenido contenido"
+                         "footer footer footer footer";
+    
+    .contenido {
+        grid-area: contenido;
+        background: var(--background-contenedor-grid);
+        border: var(--border-contenedor-grid);
+    }
+
+    .sidebar {
+        background: var(--background-contenedor-grid);
+        border: var(--border-contenedor-grid);
+        min-height: 100px;
+        grid-area: sidebar;
+    }
+    .footer {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        grid-area: footer;
+        border-bottom: var(--border-buttom-footer);
+    }
+    @include max-width('small'){
+        grid-template-areas: "sidebar sidebar sidebar sidebar"
+                             "contenido contenido contenido contenido"
+                             "footer footer footer footer";
+    }
+}
+.contenedor-grid-abm {
+    grid-template-areas: "contenido contenido contenido contenido"
+                         "contenido contenido contenido contenido"
+                         "footer footer footer footer";
+    @include max-width('small'){
+        grid-template-areas: "contenido contenido contenido contenido"
+                             "contenido contenido contenido contenido"
+                             "footer footer footer footer";
+    }
+}
+.contenedor-grid > div,
+.contenedor-grid .contenido,
+.contenedor-grid .sidebar,
+.contenedor-grid .footer{ 
+	padding: 20px;
+	border-radius: 4px;
+}
+
